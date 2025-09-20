@@ -1,0 +1,92 @@
+# Quarto Brand Configuration
+# 챗GPT AI 프로젝트 브랜드 설정
+
+color:
+  # 색상 팔레트 정의
+  palette:
+    # 메인 브랜드 색상
+    blue: "#2780e3"
+    darkblue: "#1a5490"
+    lightblue: "#5fa3f0"
+    
+    # 회색 계열
+    gray-100: "#f8f9fa"
+    gray-200: "#e9ecef"
+    gray-300: "#dee2e6"
+    gray-400: "#ced4da"
+    gray-500: "#adb5bd"
+    gray-600: "#6c757d"
+    gray-700: "#495057"
+    gray-800: "#343a40"
+    gray-900: "#212529"
+    
+    # 상태 색상
+    green: "#28a745"
+    cyan: "#17a2b8"
+    yellow: "#ffc107"
+    red: "#dc3545"
+    
+    # 기본 색상
+    white: "#ffffff"
+    black: "#000000"
+  
+  # 의미론적 색상 매핑
+  foreground: gray-900
+  background: white
+  primary: blue
+  secondary: gray-600
+  tertiary: gray-400
+  success: green
+  info: cyan
+  warning: yellow
+  danger: red
+  light: gray-100
+  dark: gray-800
+
+# 타이포그래피 설정
+typography:
+  # 구글 폰트 설정
+  fonts:
+    - family: "Noto Sans KR"
+      source: google
+      weight: [300, 400, 500, 700]
+      style: normal
+      display: swap
+      
+    - family: "Noto Serif KR" 
+      source: google
+      weight: [400, 700]
+      style: normal
+      display: swap
+  
+  # 기본 폰트 설정
+  base:
+    family: "'Noto Serif KR', serif"
+    size: 1rem
+    line-height: 1.6
+    weight: normal
+  
+  # 헤딩 폰트 설정
+  headings:
+    family: "'Noto Sans KR', sans-serif"
+    weight: 500
+    line-height: 1.2
+    style: normal
+  
+  # 코드 폰트 설정
+  monospace:
+    family: "'Courier New', monospace"
+    size: 0.875rem
+    weight: normal
+  
+  # 링크 스타일
+  link:
+    color: primary
+    decoration: none
+    weight: normal
+
+# 로고 설정
+logo:
+  small: assets/favicon-32x32.png
+  medium: assets/android-chrome-192x192.png  
+  large: assets/android-chrome-512x512.png

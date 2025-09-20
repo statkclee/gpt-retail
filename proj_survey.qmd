@@ -1,0 +1,265 @@
+# 선거 여론조사 {#sec-survey}
+
+여론조사\index{여론조사} 프로젝트는 Claude Code의 `/init` 명령어로 시작된 체계적인 데이터 과학 프로젝트로, 2025년 5월 27일 실시된 가상의 한국 선거 여론조사 데이터(N=1,012)를 종합적으로 분석한 사례입니다. 프로젝트의 시작부터 완성된 대시보드 배포까지의 전체 과정을 통해 현대적인 데이터 과학 워크플로우의 모범 사례를 보여줍니다.
+
+```{mermaid}
+%%| label: fig-survey-workflow
+%%| fig-cap: "여론조사 프로젝트 개발 워크플로우"
+%%| fig-width: 4
+flowchart TD
+    subgraph A["🚀 프로젝트 초기화"]
+        direction LR
+        A1[Claude /init 명령어]
+        A2[프로젝트 구조 생성]
+        A1 --> A2
+    end
+    
+    subgraph B["📊 데이터 분석"]
+        direction LR
+        B1[데이터 로딩 및 전처리]
+        B2[기초 통계 분석]
+        B3[정당 지지도 분석]
+        B4[인구통계 교차분석]
+        B1 --> B2 --> B3 --> B4
+    end
+    
+    subgraph C["📈 시각화 및 보고서"]
+        direction LR
+        C1[시각화 생성]
+        C2[종합 보고서 작성]
+        C1 --> C2
+    end
+    
+    subgraph D["🌐 웹 배포"]
+        direction TB
+        D1[Quarto 대시보드]
+        D2[PDF 보고서]
+        D3[Shiny 앱]
+        D4[GitHub Pages]
+        D1 --> D4
+        D2 --> D4
+        D3 --> D4
+    end
+    
+    A --> B
+    B --> C
+    C --> D
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+```
+
+## 프로젝트 개요 {#sec-survey-overview}
+
+여론조사 데이터 분석 프로젝트는 한국의 정치적 여론 동향을 파악하고 유권자들의 정당 지지도와 투표 의향을 심층적으로 분석하는 것을 목적으로 한다. 이 프로젝트는 단순한 데이터 분석을 넘어서 정책적 시사점을 도출하고 선거 예측 모델을 구축하는 종합적인 데이터 과학 프로젝트다.
+
+프로젝트의 핵심 목표는 정당 지지도\index{정당 지지도} 순위 및 경합 구도를 분석하고, 인구통계학적 분석\index{인구통계학적 분석} 특성별로 정치 성향을 파악하는 것이다. 또한 투표 의향\index{투표 의향} 및 참여율을 전망하고, 부동층 분석을 통한 선거 예측을 수행한다. 마지막으로 데이터 시각화 및 인터랙티브 Quarto Dashboard\index{Quarto Dashboard}를 구현하여 분석 결과를 효과적으로 전달한다.
+
+::: callout-note
+### 프로젝트와 데이터셋
+
+- Github 저장소: <https://github.com/statkclee/korea-survey-analysis>
+- 선거 여론조사 데이터셋
+  - 데이터 사전: <https://github.com/statkclee/korea-survey-analysis/blob/main/data/data_dictionary.csv>
+  - 여론조사 결과: <https://github.com/statkclee/korea-survey-analysis/blob/main/data/survey_data.csv>
+
+:::
+
+## 기술 스택 및 도구 {#sec-survey-tech}
+
+프로젝트의 기술적 기반은 현대적인 데이터 과학 생태계를 기반으로 구축되었다. 주 분석 언어로는 R 4.5+를 선택했으며, 이는 통계 분석과 시각화에 최적화된 언어이기 때문이다. 문서화 및 웹사이트 구축을 위해서는 Quarto 1.4+를 활용했고, 이를 통해 코드와 분석을 하나의 문서로 통합할 수 있었다.
+
+데이터 조작 및 분석에는 tidyverse 패키지 생태계를 활용했다. tidyverse는 데이터 과학 워크플로우에 최적화된 패키지들의 집합으로, 직관적이고 일관된 문법을 제공한다. 인터랙티브 웹 애플리케이션 개발을 위해서는 Shiny 프레임워크를 사용했으며, 이를 통해 사용자가 직접 데이터를 탐색할 수 있는 도구를 제공했다.
+
+시각화 측면에서는 정적 차트 생성을 위해 ggplot2를 사용했고, 인터랙티브 차트 구현을 위해서는 plotly를 활용했다. 전문적인 테이블 스타일링에는 gt 패키지를 사용했으며, 한글 폰트 지원을 위해 showtext 패키지를 도입했다. 최종적으로 GitHub Pages\index{GitHub Pages}를 통한 웹사이트 호스팅과 Quarto Publish를 통한 자동 배포 파이프라인을 구축했다.
+
+## 프로젝트 구조 {#sec-survey-structure}
+
+프로젝트의 디렉토리 구조는 데이터 과학 프로젝트의 모범 사례를 따라 설계되었다. 각 구성요소는 명확한 역할과 책임을 가지며, 재현 가능한 연구를 위한 체계적인 구조를 제공한다.
+
+```bash
+survey/
+├── 📄 _quarto.yml                    # Quarto 프로젝트 설정
+├── 📊 dashboard_v2.qmd               # 메인 인터랙티브 대시보드
+├── 📄 survey_analysis_report.qmd     # 종합 분석 보고서 (PDF)
+├── 🔧 app.R                          # Shiny 웹 애플리케이션
+├── 🎨 styles.css                     # 커스텀 CSS 스타일
+├── 📂 data/                          # 데이터 디렉토리
+│   ├── survey_data.csv               # 원본 설문 데이터 (N=1,012)
+│   ├── data_dictionary.csv           # 데이터 사전
+│   ├── party_rankings.csv            # 정당별 지지율 순위
+│   ├── demographic_distribution.csv  # 인구통계 분포
+│   └── charts/                       # 생성된 시각화 파일
+├── 📂 scripts/                       # R 분석 스크립트
+│   ├── 01_data_loading.R             # 데이터 로딩 및 전처리
+│   ├── 02_basic_statistics.R         # 기초 통계 분석
+│   ├── 03_party_support_analysis.R   # 정당 지지도 분석
+│   ├── 04_demographic_cross_analysis.R # 인구통계 교차분석
+│   ├── 05_voting_intention_analysis.R # 투표 의향 분석
+│   ├── 06_visualization.R            # 시각화 생성
+│   └── 07_comprehensive_report.R     # 종합 보고서
+└── 📂 docs/                          # 출력 결과물 (웹사이트)
+```
+
+이러한 구조는 프로젝트의 각 단계를 명확히 분리하고, 협업과 유지보수를 용이하게 한다. scripts 디렉토리의 번호 체계는 분석의 순서를 명확히 하며, data 디렉토리는 원본 데이터와 처리된 데이터를 체계적으로 관리한다.
+
+## 프롬프트 엔지니어링 과정 {#sec-survey-prompts}
+
+### 초기 프로젝트 설정 {#sec-survey-prompts-init}
+
+프로젝트의 시작은 Claude Code의 `/init` 명령어를 통해 이루어졌다. 이 과정에서 사용된 주요 프롬프트들을 살펴보면 다음과 같다:
+
+> 한국 여론조사 데이터를 분석하는 프로젝트를 시작하고 싶습니다. 정당 지지도, 투표 의향, 인구통계학적 분석을 포함한 종합적인 분석 프로젝트를 구성해주세요.
+
+이 초기 프롬프트에 대해 Claude는 체계적인 프로젝트 구조를 제안했고, survey 디렉토리를 생성하여 데이터 과학 프로젝트의 표준 구조를 구축했다.
+
+### 데이터 분석 프롬프트 {#sec-survey-prompts-analysis}
+
+분석 과정에서 사용된 핵심 프롬프트들은 다음과 같다:
+
+> 01_data_loading.R 스크립트를 작성해주세요. tidyverse를 사용하여 survey_data.csv와 data_dictionary.csv를 로드하고, 데이터 사전을 활용해 값 매핑을 자동화하는 함수를 만들어주세요.
+
+> 정당별 지지율을 가중치\index{가중치}(WT_RIM)를 적용하여 계산하고, 순위별로 정렬한 테이블을 생성하는 스크립트를 작성해주세요.
+
+> 연령대별, 성별, 지역별 정당 지지도를 교차분석\index{교차분석}하여 히트맵으로 시각화하는 코드를 작성해주세요.
+
+### 시각화 및 대시보드 {#sec-survey-prompts-viz}
+
+시각화와 대시보드 개발 과정에서는 더욱 구체적인 프롬프트가 사용되었다:
+
+> Quarto Dashboard 형식으로 인터랙티브 대시보드를 만들어주세요. Value Box, plotly 차트, gt 테이블을 포함한 4개 섹션으로 구성해주세요.
+
+> PDF 보고서용 survey_analysis_report.qmd를 작성해주세요. XeLaTeX 엔진을 사용하여 한글을 지원하고, 37페이지 분량의 전문적인 분석 보고서를 생성해주세요.
+
+## 핵심 분석 결과 {#sec-survey-results}
+
+### 정당 지지도 현황 {#sec-survey-results-party}
+
+분석 결과 정당별 지지도는 다음과 같은 패턴을 보였다. 더불어민주당이 45.2%로 1위를 차지했으며, 국민의힘이 35.4%로 2위를 기록했다. 개혁신당은 7.4%로 3위, 조국혁신당이 3.3%로 4위를 차지했다.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-survey-party-support
+#| tbl-cap: "여론조사 정당별 지지율 요약"
+library(gt)
+library(dplyr)
+
+party_support <- data.frame(
+  순위 = c("1위", "2위", "3위", "4위"),
+  정당 = c("더불어민주당", "국민의힘", "개혁신당", "조국혁신당"),
+  지지율 = c("45.2%", "35.4%", "7.4%", "3.3%"),
+  응답자수 = c("463명", "358명", "69명", "36명")
+)
+
+party_support %>%
+  gt() %>%
+  tab_header(title = "정당별 지지율 현황") %>%
+  cols_width(
+    순위 ~ pct(15),
+    정당 ~ pct(35),
+    지지율 ~ pct(25),
+    응답자수 ~ pct(25)
+  ) %>%
+  tab_options(
+    table.width = pct(70),
+    table.font.size = px(9)
+  ) |> 
+  cols_align(align = "center")
+```
+
+![정당별 지지율 차트](images/01_party_support.png){#fig-survey-party width="300"}
+
+이러한 결과는 한국 정치의 양당 구도가 여전히 견고함을 보여준다. 더불어민주당과 국민의힘이 전체 지지율의 80.6%를 차지하고 있어, 제3정당의 성장 여지가 제한적임을 시사한다. 특히 더불어민주당이 국민의힘을 9.8%p 앞서고 있어 상당한 우위를 보이고 있다.
+
+### 주요 발견사항 {#sec-survey-results-findings}
+
+분석을 통해 도출된 주요 발견사항들은 한국 정치의 현주소를 명확히 보여준다. 투표 참여 의향이 96.6%로 매우 높은 수준을 보이고 있어, 민주주의에 대한 국민들의 관심이 높음을 확인할 수 있었다. 
+
+부동층의 비율은 8.9%로, 이들의 최종 선택이 선거 결과에 결정적인 영향을 미칠 수 있는 규모다. 특히 세대별로 뚜렷한 정당 선호 패턴이 확인되어, 연령대별 정치 성향의 차이가 분명함을 알 수 있었다.
+
+## 분석 방법론 {#sec-survey-methodology}
+
+### 데이터 전처리 과정 {#sec-survey-methodology-preprocessing}
+
+데이터 전처리는 분석의 품질을 결정하는 핵심 단계다. 이 프로젝트에서는 다음과 같은 프롬프트를 통해 체계적인 전처리 과정을 구현했다:
+
+> tidyverse를 활용하여 데이터 사전의 값 매핑을 자동화하는 함수를 만들어주세요. 각 변수의 숫자 코드를 한글 레이블로 변환하는 과정을 포함해주세요.
+
+가중치 적용 분석은 여론조사 데이터의 정확성을 보장하는 중요한 과정이다:
+
+```r
+# 가중치 적용 분석
+df_processed %>%
+  group_by(q1) %>%
+  summarise(weight_sum = sum(WT_RIM, na.rm = TRUE)) %>%
+  mutate(support_pct = weight_sum / sum(weight_sum) * 100)
+```
+
+<!-- ![성별 정당별 지지율](images/03_gender_comparison.png){#fig-survey-gender width="300"} -->
+
+### 교차분석 및 통계 검증 {#sec-survey-methodology-crosstab}
+
+인구통계학적 특성별 정치 성향 분석을 위해 다음과 같은 프롬프트를 사용했다:
+
+> 연령×정당, 성별×정당, 지역×정당 교차분석을 수행하고, 카이제곱 검정을 통한 통계적 유의성을 검증해주세요. 결과를 히트맵으로 시각화해주세요.
+
+교차분석\index{교차분석}을 통해 연령대별, 성별, 지역별 정당 지지도의 차이를 정량적으로 파악할 수 있었다. 카이제곱 검정\index{카이제곱 검정}을 통한 통계적 유의성 검증으로 분석 결과의 신뢰성을 확보했으며, 히트맵 시각화를 통해 패턴을 직관적으로 파악할 수 있었다.
+
+![성별 정당별 교차분석 히트맵](images/02_age_party_heatmap.png){#fig-survey-crosstab width="300"}
+
+### 시각화 전략 {#sec-survey-methodology-viz}
+
+시각화는 데이터 스토리텔링의 핵심 도구다. 이 프로젝트에서는 다층적 시각화 전략을 채택했다.
+
+> ggplot2를 사용하여 정적 차트를 생성하고, plotly로 인터랙티브 기능을 추가해주세요. 색상 팔레트는 정당별 브랜드 컬러를 반영하고, 한글 폰트를 적용해주세요.
+
+정적 차트는 ggplot2로 깔끔하고 출판 수준의 분석 차트를 생성했으며, plotly를 통해 탐색적 시각화 기능을 구현했다. gt 패키지를 활용하여 전문적인 테이블을 생성하고, 출판 수준의 결과물을 제작했다.
+
+![투표의향 인터랙티브 원그래프](images/04_voting_intention_pie.png){#fig-survey-pie width="300"}
+
+## 결과물 및 활용 {#sec-survey-deliverables}
+
+### 대시보드 {#sec-survey-deliverables-dashboard}
+
+대시보드 개발 과정에서 사용된 핵심 프롬프트는 다음과 같다:
+
+> Quarto Dashboard를 사용하여 4개 섹션으로 구성된 종합 대시보드를 만들어주세요. Value Box로 핵심 지표를 표시하고, plotly를 활용한 인터랙티브 차트와 gt 테이블을 포함해주세요.
+
+인터랙티브 대시보드는 데이터 탐색의 새로운 차원을 제공한다. Value Box를 통해 핵심 지표를 한눈에 파악할 수 있으며, Interactive Charts를 통해 사용자가 직접 데이터를 탐색할 수 있는 도구를 제공한다. Professional Tables로 상세 데이터를 제공하고, 반응형 디자인으로 모바일 환경에서도 최적화된 경험을 제공한다.
+
+![인터랙티브 대시보드 스크린샷](images/05_regional_support.png){#fig-survey-dashboard width="300"}
+
+### 종합 분석 보고서 {#sec-survey-deliverables-report}
+
+PDF 보고서 생성을 위한 프롬프트는 다음과 같다:
+
+> XeLaTeX 엔진을 사용하여 한글을 지원하는 37페이지 분량의 전문적인 PDF 분석 보고서를 작성해주세요. 6개 시각화 차트와 통계 테이블을 포함하고, 정책적 시사점과 선거 전망을 제시해주세요.
+
+PDF 형태의 전문적인 분석 리포트는 학술적 수준의 방법론 설명과 함께 정책적 시사점 및 선거 전망을 제시한다. 6개의 시각화 차트를 포함하여 분석 결과를 종합적으로 정리했다.
+
+![PDF 보고서](images/survey_pdf.png){#fig-survey-pdf width="300"}
+
+### 웹 애플리케이션 {#sec-survey-deliverables-shiny}
+
+Shiny 앱 개발을 위한 프롬프트:
+
+> shinydashboard를 사용하여 6개 메뉴 탭으로 구성된 웹 애플리케이션을 만들어주세요. 실시간 필터링 기능과 데이터 다운로드 기능을 포함해주세요.
+
+Dashboard 스타일 인터페이스를 통해 직관적인 사용자 경험을 제공하며, 6개 메뉴 탭으로 구성하여 체계적인 정보 탐색이 가능하다. 실시간 필터링 및 데이터 다운로드 기능으로 사용자의 다양한 요구를 충족한다.
+
+![Shiny 앱 인터페이스](images/survey_shiny.png){#fig-survey-shiny width="300"}
+
+### 웹사이트 배포 {#sec-survey-deliverables-website}
+
+웹사이트 배포를 위한 프롬프트:
+
+> GitHub Pages를 통해 모든 분석 결과물을 통합 제공하는 웹사이트를 구축해주세요. 검색 최적화와 접근성을 고려해주세요.
+
+GitHub Pages 호스팅을 통해 모든 분석 결과물을 통합 제공하며, 검색 최적화 및 접근성을 고려한 설계로 광범위한 사용자에게 접근 가능한 플랫폼을 구축했다.
+
+![Github 저장소](images/survey-github.png){#fig-survey-github width="300"}
+
+여론조사 프로젝트를 통해 확인할 수 있는 것은 AI 도구와 인간의 협업이 만들어내는 시너지 효과다. Claude Code의 체계적인 접근법과 사용자의 도메인 지식이 결합되어, 기존보다 훨씬 효율적이고 완성도 높은 분석 결과를 도출할 수 있었다. 이는 미래의 데이터 과학 연구와 실무에서 AI 도구의 역할이 어떻게 진화할 것인지를 보여주는 중요한 사례다.

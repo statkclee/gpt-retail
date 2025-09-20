@@ -1,0 +1,606 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# 데이터 과학 편집기
+
+데이터 과학 제품과 서비스 개발을 위해서 IDE(통합개발환경)을 두고
+RStudio와 Jupyter 두 진영으로 나눠 치열한 경쟁을 펼쳤다. 각자 장점을
+두고 범위를 확대하면서 진정한 데이터 과학 패자가 되고자 한 편의 드라마를
+펼쳤다. 그 중심에는 RStudio와 아나콘다가 있으며 마치 현대차와 기아차처럼
+동일한 자동차인데 세부 구성과 디자인에 차이만 있을 뿐 어느 것이 더
+우월하고 좋다는 마케팅을 펼쳤다.
+
+데이터 과학 편집기에 [Visual Studio
+Code](https://code.visualstudio.com/)가 등장하면서 큰 변화가 일어나고
+있다. 특히 인공지능 기능을 탑재한 Extension이 VS Code에 추가되면서 기존
+RStudio와 주피터 IDE가 하던 기능을 넘어 새로운 지평을 열어가고 있다. 그
+중심에는 GitHub을 마이크로소프트가 인수하면서 새로 출시한
+부조종사(Copilot)가 있고 기존 RStudio와 Jupyter에 오픈소스 CodeGPT도
+도입되면서 지금까지 경험하지 못한 새로운 데이터 과학 환경이 펼쳐지고
+있다.
+
+![데이터 사이언스 IDE 전쟁](images/ide_war.jpg){#fig-ide-war
+fig-align="center" width="569"}
+
+RStudio에서 사명을 변경한 포짓(Posit)이 차세대 데이터 과학
+통합개발환경(IDE)인
+[포지트론(Positron)](https://github.com/posit-dev/positron)을 공개했다.
+이는 마이크로소프트의 오픈소스 프로젝트인 [Code
+OSS](https://github.com/microsoft/vscode)(VS Code의 기반)을 토대로
+개발되었으며, 기존 RStudio IDE의 핵심 기능들을 통합했다. 포지트론은 그간
+축적된 경험을 바탕으로, 다양한 프로그래밍 언어를 지원하는(Polyglot)
+데이터 과학 작업에 최적화된 환경을 제공한다.
+
+## 인텔리센스
+
+지능형 코딩 지원 기능인 인텔리센스(IntelliSense)는 VS Code 기능을
+기반으로 데이터 과학 작업에 특화된 코드 작성을 돕는 기능이 포함되어
+있으며 포지트론에서 지원되는 중요한 기능은 다음과 같다.
+
+1.  코드 자동 완성
+    -   변수, 함수, 클래스 이름 등을 입력하기 시작하면 관련 제안을
+        표시한다.
+    -   라이브러리나 패키지의 함수들도 자동으로 제안한다.
+2.  문법 강조
+    -   코드의 구문에 따라 다양한 색상으로 강조 표시하여 가독성을
+        높인다.
+3.  실시간 오류 검출
+    -   코드를 입력하는 동안 문법 오류나 잠재적인 문제를 실시간으로
+        표시한다.
+4.  함수 시그니처 도움말
+    -   함수를 입력할 때 해당 함수의 매개변수 정보를 보여준다.
+5.  정의로 이동
+    -   변수나 함수의 정의된 위치로 쉽게 이동할 수 있다.
+6.  리팩토링 도구
+    -   변수 이름 변경, 코드 구조 개선 등의 리팩토링 작업을 지원한다.
+7.  다양한 언어 지원
+    -   R, 파이썬, SQL 등 다양한 언어에 대해 인텔리센스 기능을 제공한다.
+
+![포지트론
+인텔리센스](images/positron_intellisense.gif){#fig-intellisense
+fig-align="center" width="548"}
+
+## 단축키
+
+R 코드 개발을 진행할 때 <kbd> %\>% </kbd>, <kbd> ← </kbd> 두가지 기능이
+가장 많이 사용되는 단축키로 RStudio에서는 기본으로 지원되었다.
+포지트론에서 자주 사용되는 단축키를 <kbd> CTRL </kbd> + <kbd> Shift
+</kbd> + <kbd> m </kbd>, <kbd> Alt </kbd> + <kbd> - </kbd> 를 적용시키는
+방법을 살펴보자.
+
+`Positron`의 키보드 단축키는 몇 가지 예외를 제외하고
+`Visual Studio Code`에서 사용되는 키보드 단축키를 그대로 사용할 수 있다.
+다음 표는 `Positron`에 특별히 추가된 단축키를 번역했고 `Positron` 위키
+[Keyboard
+Shortcuts](https://github.com/posit-dev/positron/wiki/Keyboard-Shortcuts)에서
+원문을 확인할 수 있다.
+
+### 전역 단축키
+
+| 단축키 | 설명 |
+|-------------------------------|-----------------------------------------|
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Enter</kbd> | 편집기에서 선택한 코드를 실행한다. 선택된 코드가 없으면 현재 문장을 실행한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>0</kbd> | 콘솔에서 현재 열려있는 인터프리터를 재시작한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | 편집기에서 열린 파일을 실행한다(예: `source()` 또는 `%run` 사용). |
+| <kbd>F1</kbd> | 커서 아래의 주제에 대한 상황별 도움말을 표시한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>Cmd/Ctrl</kbd>+<kbd>R</kbd> | 커서 아래의 주제에 대한 상황별 도움말을 표시한다(대체 바인딩). |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>F</kbd> | 콘솔에 초점을 맞춘다. |
+| <kbd>Ctrl</kbd>+<kbd>L</kbd> | 콘솔을 지운다. |
+
+### R 단축키
+
+| 단축키 | 설명 |
+|-------------------------------|-----------------------------------------|
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | 파이프 연산자(<code>\|\></code> 또는 `%>%`)를 삽입한다. |
+| <kbd>Alt</kbd>+<kbd>-</kbd> | 할당 연산자(`<-`)를 삽입한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> | 현재 R 패키지가 있다면 로드한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | 현재 R 패키지가 있다면 빌드하고 설치한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | 현재 R 패키지가 있다면 테스트한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> | 현재 R 패키지가 있다면 검사한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> | 현재 R 패키지가 있다면 문서화한다. |
+
+### RStudio 키맵
+
+RStudio 키 바인딩을 사용하려면 다음 단계를 수행하면 다음 RStudio 키
+매핑이 활성화된다.
+
+-   Positron 설정을 연다(<kbd>Cmd</kbd>+<kbd>,</kbd> 또는
+    <kbd>Ctrl</kbd>+<kbd>,</kbd>).
+-   "keymap"을 검색하거나 *Extensions \> RStudio Keymap*으로 이동한다.
+-   "Enable RStudio key mappings for Positron" 체크박스를 선택한다.
+
+| 단축키 | 설명 |
+|-------------------------------|-----------------------------------------|
+| <kbd>Ctrl</kbd>+<kbd>1</kbd> | 소스에 초점을 맞춘다. |
+| <kbd>Ctrl</kbd>+<kbd>2</kbd> | 콘솔에 초점을 맞춘다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>.</kbd> | 심벌로 이동한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> | 한 줄을 주석 처리하거나 주석 해제한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> | 새 R 파일을 생성한다. |
+| <kbd>F2</kbd> | 정의로 이동한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>I</kbd> | 선택 영역을 다시 들여쓰기한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> | 선택 영역을 재포맷한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> | 현재 R 스크립트를 소스로 실행한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | 이름을 변경한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> | 새 Quarto/R Markdown 셀을 삽입한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd> | 버전 관리 창을 연다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Left</kbd> | 이전 탭으로 이동한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Right</kbd> | 다음 탭으로 이동한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>D</kbd> | 현재 줄을 삭제한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | 파이프 연산자를 삽입한다. |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | 섹션을 삽입한다. |
+| <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> | 전역 키 바인딩 목록을 연다. |
+| <kbd>Alt</kbd>+<kbd>-</kbd> | 왼쪽 할당 연산자 `<-`를 삽입한다. |
+
+## 위지윅 편집기
+
+RStudio에서 쿼토, R마크다운, 마크다운 문서를 편집할 때 위지윅(WYSIWYG)
+기능을 비주얼 편집기(Visual Editor) 기능을 통해서 제공하였다. 동일한
+기능은 쿼토(Quart) 확장 기능을 설치하게 되면 포함되어 있다. 수식이나
+도형 등 기본 미리보기 기능은 내장되어 제공되지만 위지윅 편집 기능은
+<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F4</kbd> 단축키를 눌러 위지윅
+모드, 텍스트 편집 모드 사이를 자유로이 오갈 수 있다.
+
+위지윅 편집기능을 통해서 문서에 적정한 이미지 크기 조절 및 정렬을
+비롯하여 참고문헌 등 다양한 용도로 활용하여 문서제작 생산성을 획기적으로
+높일 수 있다.
+
+![포지트론 위지윅
+편집기능](images/positron_visual_editor.gif){fig-align="center"
+width="492"}
+
+## 코딩 글꼴
+
+다른 언어와 마찬가지로 R 코드로 데이터 과학 제품을 개발할 경우 글꼴도
+코딩에 적합한 한글 글꼴을 설정한다. 먼저 [D2 Coding
+글꼴](https://github.com/naver/d2codingfont)을 다운로드하여 운영체제에
+설치한다.
+
+포지트론/VS코드 좌측 하단 톱니바퀴 <kbd> Settings </kbd> 설정을 클릭
+혹은 메뉴에서 "File" → "Preferences" → "Settings"를 통해
+`편집기 (Text Editor)`로 들어가 운영체제에 설치한 코딩 폰트를 지정한다.
+**Font Ligatures** 도 `true`로 설정한다. 이를 통해 `< -` 표시가 &larra;
+로 화면에 표현된다.
+
+![D2코딩 글꼴 장착](images/positron_font.jpg){fig-align="center"
+width="613"}
+
+`settings.json` 설정파일에 Font Family, Font Size, Font Ligature를
+설정하는 방식도 있다.
+
+``` json
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "editor.fontFamily": "'D2Coding ligature', D2Coding, monospace",
+    "editor.fontSize": 15,
+    "editor.fontLigatures": true
+}
+```
+
+## 테마
+
+[VS Code Themes](https://vscodethemes.com/) 웹사이트에서 Visual Studio
+Code의 테마를 검색하고 발견할 수 있는 웹사이트로 다양한 테마를 설치할 수
+있고, 평점 등으로 정렬하여 쉽게 찾을 수 있도록 돕고 있으며, 어두운
+테마와 밝은 테마 등 여러 카테고리로 나뉘어져 있다.
+
+Command Palette (`CTRL + SHIFT + P`) → `CTRL + K` `CTRL + T` 단축키를
+통해 테마를 변경할 수 있다.
+
+[Open VSX 레지스트리](https://open-vsx.org/)는 Visual Studio Code 확장을
+위한 오픈 소스 마켓플레이스 플랫폼으로 커뮤니티 주도로 운영되며,
+개발자들이 확장을 게시하고 발견하며 설치할 수 있게 한다. 독립적으로
+운영되어 독점적인 확장 마켓플레이스에 대한 대안으로 각광받고 있다.
+
+![Positron 테마 변경과정](images/positron_theme.jpg){fig-align="center"
+width="493"}
+
+## 프로그래밍 엔진
+
+R도 동일하지만, 특히 파이썬 버전을 달리하여 설치하고 아나콘다, 가상환경
+등 다양한 파이썬 버전을 설치할 경우 경우에 포지트론에서 잡히지 않는
+경우가 있다. 이와 같은 문제가 있는 경우
+<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> "명령 팔레트" (Command
+Palette)를 실행하고 나서 `Devloper: Reload Window` 명령어를 실행하게
+되면 일렉트론(electron)으로 제작된 윈도우가 재실행되어 설치된 파이썬
+버전을 찾을 수 있다.
+
+![파이썬 버전 활성화](images/positron_python.jpg){#fig-python}
+
+## 맞춤법 검사
+
+[비주얼 스튜디오 코드
+한스펠](https://github.com/9beach/vscode-hanspell)은 개인이나 학생에게는
+무료인 맞춤법 VS 코드 맞춤법 기능을 제공하는 확장프로그램이다. 아마도
+당분간 포지트론에서 확장기능을 제공하지 않을 것으로 보인다. 따라서,
+`vscode-hanspell` 확장기능을 포지트론에서 사용하기 위해서 `.vsix` 파일을
+소스코드를 컴파일해서 `Extenstions` → `...` → `Install from VSIX...`을
+통해 로컬 파일형태로 설치한다. 소스코드를 컴파일하지 않고 확장프로그램만
+사용하실 분은 다음 `.vsix` 파일을 설치해서 사용하면 된다.
+
+{{< downloadthis data/vscode-hanspell-0.6.5.vsix dname="vscode-hanspell-0.6.5.vsix" label=".vsix 확장프로그램" icon="database-fill-down" type="info" >}}
+
+::: {layout-ncol="3"}
+![vscode-hanspell
+확장프로그램](images/positron_spelling.jpg){#fig-hanspell}
+
+![맞춤법 선택](images/positron_spelling_dict.jpg){#fig-hanspell-dict
+fig-align="center"}
+
+![VS 코드 맞춤법 검사](images/positorn_spelling.jpg){#fig-spelling}
+:::
+
+### `.vsix` 컴파일 과정
+
+윈도우 환경에서 GitHub 저장소에 소스 코드만 있는 경우, 확장 프로그램을
+직접 빌드하고 설치해야 한다.
+
+1.  먼저, Node.js가 컴퓨터에 설치되어 있어야 하고, 설치되어 있지 않다면
+    Node.js 웹사이트에서 다운로드하여 설치한다.
+
+2.  터미널(명령 프롬프트)을 연다.
+
+3.  GitHub 저장소를 클론한다.
+
+    ```         
+    git clone https://github.com/9beach/vscode-hanspell.git
+    ```
+
+4.  클론한 디렉토리로 이동한다.
+
+    ```         
+    cd vscode-hanspell
+    ```
+
+5.  필요한 의존성을 설치한다.
+
+    ```         
+    npm install
+    ```
+
+6.  `vsce` 를 확인한다.
+    `npm config get prefix     /c/Users/YourUsername/AppData/Roaming/npm/vsce.cmd --version`
+
+7.  확장 프로그램을 빌드한다.
+
+    ```         
+    /c/Users/YourUsername/AppData/Roaming/npm/vsce.cmd package  
+    ```
+
+    `vsce.cmd package` 명령어는 .vsix 파일을 생성한다.
+
+8.  포짓트론을 실행한다.
+
+9.  포짓트론에서 확장 마켓플레이스(Ctrl+Shift+X)를 열고, 상단의 "..."
+    메뉴를 클릭한다.
+
+10. "Install from VSIX..."를 선택하고 방금 생성한 .vsix 파일을 선택한다.
+
+11. 설치가 완료되면 포지트론을 재시작한다.
+
+### 사용자 정의 설정
+
+`~/.hanspell-bad-expressions.json`, `~/.hanspell-ignore`을 적용한다.
+자세한 사항은 [비주얼 스튜디오 코드 한스펠
+설정](https://gist.github.com/9beach/3e11ceafcf9477b0bf9f6512f8a4b55a)을
+참고한다.
+
+## 문서 제작
+
+### 쿼토 문서
+
+쿼토(Quarto) 확장프로그램을 설치하게 되면 `New File...`에서
+`Quarto Document`와 `Quarto Project`를 선택하여 쿼토 문서를 제작할 수
+있다.
+
+![Positron 쿼토 문서
+작성](images/positron_quarto.jpg){fig-align="center" width="483"}
+
+### PDF 보기
+
+포지트론에서 PDF 파일을 직접 열어보기 위해서는 `vscode-pdf`
+확장프로그램을 설치하면 별도 프로그램(아도브 애크로뱃 등) 없이 PDF
+파일을 바로 열 수 있다.
+
+![PDF 확장프로그램 -
+`vscode-pdf`](images/positron_pdf.jpg){#fig-positron-pdf}
+
+### R/파이썬
+
+[quarto-webr](https://github.com/coatless/quarto-webr),
+[pyodide](https://github.com/coatless-quarto/pyodide) 쿼토
+확장프로그램을 설치하면 R, 파이썬 콘솔을 쿼토 문서에서 직접 프로그래밍
+할 수 있다.
+
+``` bash
+quarto add coatless/quarto-webr
+quarto add coatless-quarto/pyodide
+```
+
+::: panel-tabset
+### R
+
+```{webr-r}
+#| label: webr-lm
+fit = lm(mpg ~ am, data = mtcars)
+
+summary(fit)
+```
+
+### 파이썬
+
+```{pyodide-python}
+#| label: py-while
+n = 10
+while n > 0:
+  print(n)
+  n = n - 1
+
+print('발사!')
+```
+:::
+
+### 샤이니 앱
+
+`shiny` 확장프로그램을 설치하면 포지트론에서 웹앱을 제작할 수 있다.
+
+Posit(이전의 RStudio)에서 Shiny 앱을 실행하는 단축키는 다음과 같다.
+
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) 또는
+<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Mac)
+
+추가로 알아두면 좋은 관련 단축키들은 다음과 같다.
+
+1.  앱 중지: <kbd>Esc</kbd> 키
+2.  앱 새로고침 (코드 변경 후): <kbd>Ctrl</kbd>+<kbd>Enter</kbd>
+    (Windows/Linux) 또는 <kbd>Cmd</kbd>+<kbd>Enter</kbd> (Mac)
+3.  Run App 버튼 클릭: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>
+    (Windows/Linux) 또는
+    <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Mac)
+
+::: callout-note
+### shiny app을 포지트론에서 실행할 때 오류
+
+> Could not find R. Is R installed on your system?If R is installed,
+> please make sure your PATH environment variable is configured
+> correctly.
+
+환경설정에서 설치된 R 경로를 추가한다.
+:::
+
+::: {#fig-shiny layout-ncol="2"}
+![`shiny` 확장 프로그램](images/positron_shiny.jpg){fig-align="center"
+width="454"}
+
+![`shiny` 앱 실행](images/positron_shiny_run.jpg)
+:::
+
+### shinylive
+
+`shinylive` 패키지를
+[r-shinylive](https://github.com/posit-dev/r-shinylive)에서 설치하고
+쿼토 확장프로그램도 설치하면 개발한 shiny 앱을 문서를 포함한 다양한 곳에
+삽입할 수 있다.
+
+``` bash
+quarto add quarto-ext/shinylive
+```
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 600
+library(shiny)
+library(ggplot2)
+
+# Load the Old Faithful dataset
+data(faithful)
+
+# Define UI
+ui <- fluidPage(
+  titlePanel("Hello Shiny!"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("bins",
+                  "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30)
+    ),
+    mainPanel(
+      plotOutput("distPlot")
+    )
+  )
+)
+
+# Define server logic
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    ggplot(faithful, aes(x = waiting)) +
+      geom_histogram(bins = input$bins, fill = "steelblue", color = "white") +
+      labs(title = "Histogram of waiting times",
+           x = "Waiting time to next eruption (in mins)",
+           y = "Frequency") +
+      theme_minimal() +
+      theme(plot.title = element_text(hjust = 0.5))
+  })
+}
+
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
+## R 패키지 저장소
+
+'C:/Program Files/R/R-4.4.1/library' 디렉터리에 패키지를 설치할 수
+있도록 환경을 설정하는 방법은 다음과 같다. 시스템 관리자 권한이
+필요하며, 윈도즈 시스템 설정을 변경해야 한다.
+
+1.  먼저 R을 관리자 권한으로 실행한다.
+    -   R 아이콘에 우클릭하고 "관리자 권한으로 실행"을 선택한다.
+2.  R 콘솔에서 현재 라이브러리 경로를 확인한다.
+
+```{r}
+.libPaths()
+```
+
+3.  시스템 환경 변수를 설정한다.
+
+    -   Windows 검색창에 "시스템 환경 변수 편집"을 입력하고 실행한다.
+    -   "환경 변수" 버튼을 클릭한다.
+    -   "시스템 변수" 섹션에서 "새로 만들기"를 클릭한다.
+    -   변수 이름에 "R_LIBS"를 입력한다.
+    -   변수 값에 "C:/Program Files/R/R-4.4.1/library"를 입력한다.
+    -   "확인"을 눌러 저장한다.
+
+4.  R을 재시작한다.
+
+5.  다시 R을 관리자 권한으로 실행하고, 라이브러리 경로를 확인한다.
+
+```{r}
+.libPaths()
+```
+
+6.  이제 패키지 설치를 시도한다.
+
+``` r
+install.packages("remotes")
+```
+
+그럼에도 불구하고 패키지를 시스템 환경에 저장할 수 없는 경우,
+`R_LIBS_USER`을 사용해서 패키지 저장소를 설정한다.
+
+::: callout-note
+### 사용자 R 패키지 저장소
+
+`R_LIBS_USER` 사용자 R 패키지 저장소를 `.libPaths()` 설정하고 패키지
+저장소로 활용한다.
+
+```{r}
+#| eval: false
+# 사용자 라이브러리 디렉토리 생성
+dir.create(path = Sys.getenv("R_LIBS_USER"), showWarnings = FALSE, recursive = TRUE)
+
+# .libPaths()에 사용자 라이브러리 추가
+.libPaths(Sys.getenv("R_LIBS_USER"))
+
+# 패키지 설치 시도
+install.packages("remotes")
+```
+:::
+
+## 프로젝트 관리자
+
+프로젝트를 넘나들며 작업하기 위해서 [Project Manager 확장
+프로그램](https://open-vsx.org/extension/alefragnani/project-manager)을
+설치한다.
+
+![](images/positron_pm.jpg){fig-align="center" width="503"}
+
+```{mermaid}
+graph TD
+    A[시작] --> B{Say Hello?}
+    B -->|Yes| C[Hello World!]
+    B -->|No| D[Goodbye!]
+    C --> E[종료]
+    D --> E
+```
+
+## 데이터 탐색기
+
+데이터 탐색기(Data Explorer)는 코드 우선 데이터 탐색을 보완하기 위한
+도구다. 스프레드시트와 유사한 그리드에 데이터를 표시하고, 데이터 필터링
+및 정렬을 지원하여 `Positron` 내에서 직접 요약 통계를 제공한다. 데이터
+탐색기 목표는 코드 기반 워크플로우를 대체하는 것이 아니라, 코드를 통해
+데이터를 추가로 탐색하거나 수정할 때 한번 쓰고 버리는 데이터 뷰나 요약
+통계를 제공하여 보완하는 것이다. `Positron` 위키 Data Explorer을 번역한
+것으로 [Data
+Explorer](https://github.com/posit-dev/positron/wiki/Data-Explorer)에서
+원문을 확인할 수 있다.
+
+데이터 탐색기는 다음과 같은 세 가지 주요 구성 요소를 가지고 있다.
+
+-   데이터 그리드: 개별 셀과 열의 스프레드시트 형태 표시 및 정렬 기능
+-   요약 패널: 각 열의 열 이름, 유형 및 결측 데이터 비율
+-   필터 바: 특정 열에 대한 일시적 필터
+
+<img src="https://github.com/posit-dev/positron/assets/29187501/d2a83395-19e4-4f2c-be0c-a6266fc11ee4" alt="data-explorer" fig-align="center" width="540"/>
+
+### 데이터프레임 열기
+
+각 데이터 탐색기 인스턴스는 언어 런타임에 의해 구동되며 Python(`pandas`)
+또는 R(`data.frame`, `tibble`, `data.table`)의 데이터프레임을 표시할 수
+있다. 또한 `polars`에 대한 실험적 지원도 제공하며, 향후 추가적인 Python
+데이터프레임 라이브러리가 추가될 예정이다.
+
+데이터 탐색기의 각 인스턴스는 기본 데이터의 변경 사항에 따라 새로
+고쳐진다. 이를 통해 UI 중심의 데이터 탐색기와 코드 우선 접근 방식이
+결합된 워크플로우가 가능하다.
+
+특정 데이터프레임에 대한 새 데이터 탐색기 인스턴스를 열려면 다음 방법 중
+하나를 사용한다:
+
+-   언어 런타임을 직접 사용:
+    -   Python을 통해: `%view dataframe label`
+    -   R을 통해: `View(dataframe, "label")`
+-   변수 창으로 이동하여 특정 데이터프레임 객체에 대한 데이터 탐색기
+    아이콘을 클릭
+
+<img src="https://github.com/posit-dev/positron/assets/29187501/4e8e2a81-9a8e-4290-8240-6a14d5d239ed" alt="data-explorer-variables" fig-align="center" width="461"/>
+
+### 데이터 그리드
+
+데이터 그리드는 주요 표시 영역으로, 스프레드시트와 유사한 셀별 뷰를
+제공한다. 수백만 행이나 열까지의 비교적 큰 인메모리 데이터셋을
+효율적으로 처리하도록 설계되었다. 각 열 헤더에는 열 이름과 함께 언어
+런타임에서 사용되는 데이터 유형이 표시된다. 각 열의 오른쪽 상단에 있는
+문맥 메뉴를 통해 정렬을 제어하거나 선택한 열에 대한 필터를 빠르게 추가할
+수 있다. 열 경계를 클릭하고 드래그하여 열의 크기를 조정할 수 있다.
+
+<img src="https://github.com/posit-dev/positron/assets/29187501/91f03e0d-6cb6-4d9b-9a62-e90959ffd536" alt="data-explorer-column-menu" fig-align="center" width="458"/>
+
+행 레이블은 기본적으로 관찰된 행 인덱스를 사용하며, Python에서는 0부터
+시작하는 인덱스를, R에서는 1부터 시작하는 인덱스를 사용한다. 또는
+`pandas`와 R 사용자는 수정된 인덱스나 문자열 기반 레이블이 있는 행을
+가질 수 있다.
+
+### 요약 패널
+
+요약 패널은 모든 열 이름과 해당 유형을 나타내는 아이콘을 세로로
+스크롤되는 목록으로 표시한다. 또한 결측 데이터의 양을 증가하는 백분율과
+인라인 막대 그래프로 표시한다.
+
+<img src="https://github.com/posit-dev/positron/assets/29187501/8514760c-1baa-4a79-9a1c-cd44af6b14f6" alt="data-explorer-summary-panel" fig-align="center" width="386"/>
+
+열 이름을 더블 클릭하면 데이터 그리드에서 해당 열에 초점을 맞추어 더
+넓은 데이터를 빠르게 탐색할 수 있다. 요약 패널은 레이아웃 컨트롤을 통해
+데이터 탐색기의 왼쪽이나 오른쪽에 배치하거나 일시적으로 숨길 수 있다.
+
+### 필터 바
+
+필터 바에는 기존 필터를 표시, 숨기거나 제거하는 컨트롤과 새 필터를
+추가하는 <kbd>+</kbd> 버튼이 있다. 데이터 탐색기 하단의 상태 표시줄에는
+필터 적용 후 남은 행의 백분율과 수가 표시된다. 새 필터를 만들 때는 전체
+목록을 스크롤하거나 특정 문자열로 열을 검색하여 열을 선택해야 한다. 열을
+선택하면 해당 열 유형에 사용할 수 있는 필터가 표시된다. 또는 데이터
+그리드의 각 열 레이블에 있는 콘텍스트 메뉴를 통해 열 이름이 미리 채워진
+필터를 만들 수 있다.
+
+<img src="https://github.com/posit-dev/positron/assets/29187501/1486aa8f-4b27-4d95-abd6-01db7b02a397" alt="data-explorer-filter" fig-align="center" width="302"/>
+
+사용할 수 있는 필터는 열 유형에 따라 다르다. 예를 들어, 문자열 열에는
+다음과 같은 필터 옵션이 있다: 포함, 시작 또는 끝남, 비어 있음, 정확히
+일치. 반면 숫자 열에는 다음과 같은 논리 연산이 있다: 미만 또는 초과,
+같음, 또는 두 값 사이(포함).
+
+```{r}
+#| eval: false
+# install.packages("palmerpenguins")
+library(palmerpenguins)
+library(tidyverse)
+
+View(penguins)
+```
+

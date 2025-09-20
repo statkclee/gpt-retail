@@ -1,0 +1,3766 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-KR" xml:lang="ko-KR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.16">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; AI 기초 – AI가 밝혀낸 유통 고수요 데이터의 진실</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./basic_engineering.html" rel="next">
+<link href="./index.html" rel="prev">
+<link href="./assets/android-chrome-192x192.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0fe41346b718ff62733f5cc60e32bfbd.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "일치 없음",
+    "search-matching-documents-text": "일치된 문서",
+    "search-copy-link-title": "검색 링크 복사",
+    "search-hide-matches-text": "추가 검색 결과 숨기기",
+    "search-more-match-text": "추가 검색결과",
+    "search-more-matches-text": "추가 검색결과",
+    "search-clear-button-title": "제거",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "취소",
+    "search-submit-button-title": "검색",
+    "search-label": "검색"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-229551680-1', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basic.html"><strong>1부 기본지식</strong></a></li><li class="breadcrumb-item"><a href="./basic.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI 기초</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI가 밝혀낸 유통 고수요 데이터의 진실</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="리더 모드 전환">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">서문</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>1부 기본지식</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI 기초</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI 공학</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_ide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">데이터 과학 IDE</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">API와 웹서비스</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>2부 AI 코딩</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./coding_prompt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">프롬프트 엔지니어링</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./coding_context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">컨텍스트 엔지니어링</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./coding_openai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">OpenAI API</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./coding_claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">클로드 코드</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>3부 사례 분석</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_penguin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">펭귄 생태 분석</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_penguin_py.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">펭귄 생태 분석(파이썬)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_market.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">고수요 데이터</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./end.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">맺음말</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고문헌</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">목차</h2>
+   
+  <ul>
+  <li><a href="#ai-기초-이해" id="toc-ai-기초-이해" class="nav-link active" data-scroll-target="#ai-기초-이해"><span class="header-section-number">1.1</span> AI 기초 이해</a>
+  <ul class="collapse">
+  <li><a href="#ai-언어-이해-메커니즘" id="toc-ai-언어-이해-메커니즘" class="nav-link" data-scroll-target="#ai-언어-이해-메커니즘"><span class="header-section-number">1.1.1</span> AI 언어 이해 메커니즘</a></li>
+  <li><a href="#챗봇의-진화와-챗gpt" id="toc-챗봇의-진화와-챗gpt" class="nav-link" data-scroll-target="#챗봇의-진화와-챗gpt"><span class="header-section-number">1.1.2</span> 챗봇의 진화와 챗GPT</a></li>
+  <li><a href="#gpt-모델-진화" id="toc-gpt-모델-진화" class="nav-link" data-scroll-target="#gpt-모델-진화"><span class="header-section-number">1.1.3</span> GPT 모델 진화</a></li>
+  </ul></li>
+  <li><a href="#ai-검색-시대-도래" id="toc-ai-검색-시대-도래" class="nav-link" data-scroll-target="#ai-검색-시대-도래"><span class="header-section-number">1.2</span> 2. AI 검색 시대 도래</a>
+  <ul class="collapse">
+  <li><a href="#야후-구글" id="toc-야후-구글" class="nav-link" data-scroll-target="#야후-구글"><span class="header-section-number">1.2.1</span> 야후 → 구글</a></li>
+  <li><a href="#구글-검색-제국" id="toc-구글-검색-제국" class="nav-link" data-scroll-target="#구글-검색-제국"><span class="header-section-number">1.2.2</span> 구글 검색 제국</a></li>
+  <li><a href="#chatgpt-등장" id="toc-chatgpt-등장" class="nav-link" data-scroll-target="#chatgpt-등장"><span class="header-section-number">1.2.3</span> ChatGPT 등장</a></li>
+  <li><a href="#구글-위기와-대응" id="toc-구글-위기와-대응" class="nav-link" data-scroll-target="#구글-위기와-대응"><span class="header-section-number">1.2.4</span> 구글 위기와 대응</a></li>
+  <li><a href="#검색의-미래는-대화" id="toc-검색의-미래는-대화" class="nav-link" data-scroll-target="#검색의-미래는-대화"><span class="header-section-number">1.2.5</span> 검색의 미래는 대화</a></li>
+  </ul></li>
+  <li><a href="#통계와-데이터-과학" id="toc-통계와-데이터-과학" class="nav-link" data-scroll-target="#통계와-데이터-과학"><span class="header-section-number">1.3</span> 통계와 데이터 과학</a>
+  <ul class="collapse">
+  <li><a href="#ai-영향" id="toc-ai-영향" class="nav-link" data-scroll-target="#ai-영향"><span class="header-section-number">1.3.1</span> AI 영향</a></li>
+  <li><a href="#최신-트렌드" id="toc-최신-트렌드" class="nav-link" data-scroll-target="#최신-트렌드"><span class="header-section-number">1.3.2</span> 최신 트렌드</a></li>
+  </ul></li>
+  <li><a href="#ai-윤리와-책임있는-사용" id="toc-ai-윤리와-책임있는-사용" class="nav-link" data-scroll-target="#ai-윤리와-책임있는-사용"><span class="header-section-number">1.4</span> AI 윤리와 책임있는 사용</a>
+  <ul class="collapse">
+  <li><a href="#ai-오남용-유형" id="toc-ai-오남용-유형" class="nav-link" data-scroll-target="#ai-오남용-유형"><span class="header-section-number">1.4.1</span> AI 오남용 유형</a></li>
+  <li><a href="#윤리-이슈와-대응" id="toc-윤리-이슈와-대응" class="nav-link" data-scroll-target="#윤리-이슈와-대응"><span class="header-section-number">1.4.2</span> 윤리 이슈와 대응</a></li>
+  <li><a href="#ai-윤리-원칙" id="toc-ai-윤리-원칙" class="nav-link" data-scroll-target="#ai-윤리-원칙"><span class="header-section-number">1.4.3</span> AI 윤리 원칙</a></li>
+  <li><a href="#책임있는-ai-사용-원칙" id="toc-책임있는-ai-사용-원칙" class="nav-link" data-scroll-target="#책임있는-ai-사용-원칙"><span class="header-section-number">1.4.4</span> 책임있는 AI 사용 원칙</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basic.html"><strong>1부 기본지식</strong></a></li><li class="breadcrumb-item"><a href="./basic.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI 기초</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI 기초</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>2025년 현재, AI는 데이터 과학과 통계 분석의 패러다임을 근본적으로 변화시키고 있다. 수십 년간 R, Python, SAS로 수행하던 통계 분석을 이제는 자연어로 요청하고, 복잡한 시각화를 AI가 자동으로 생성하며, 머신러닝 모델의 해석을 대화형으로 수행하는 시대가 되었다. 특히 2022년 11월 ChatGPT의 등장은 데이터 과학자와 통계학자들이 일하는 방식을 혁명적으로 바꾸고 있다.</p>
+<p>AI의 발전은 세 가지 핵심 영역에서 데이터 과학을 변화시켰다:</p>
+<ol type="1">
+<li><strong>통계 분석의 민주화</strong>: 복잡한 통계 기법을 코딩 없이 자연어로 수행</li>
+<li><strong>자동화된 데이터 시각화</strong>: 데이터의 특성을 이해하고 최적의 시각화를 자동 추천</li>
+<li><strong>인사이트 대화형 탐색</strong>: 분석 결과를 AI와 대화하며 심층적으로 이해</li>
+</ol>
+<p>챗GPT로 대표되는 AI를 활용하여 데이터 분석과 통계 작업에 효과적으로 활용하기 위한 기본 지식<span class="citation" data-cites="ciesla2024book">(<a href="references.html#ref-ciesla2024book" role="doc-biblioref">Ciesla, 2024</a>)</span>을 살펴본다. 특히 통계학자와 데이터 과학자의 관점에서 AI를 어떻게 활용할 수 있는지에 중점을 둔다.</p>
+<div class="cell" data-fig-width="6" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-learning-roadmap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-learning-roadmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-learning-roadmap">graph LR
+    A[AI 기초 이해] --&gt; B[AI 검색 혁명]
+    B --&gt; C["통계/데이터과학&lt;br&gt;활용"]
+    C --&gt; D["윤리 및 책임있는&lt;br&gt;사용"]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#9ff,stroke:#333,stroke-width:2px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-learning-roadmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1.1: 데이터 과학자를 위한 AI 학습 로드맵
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="ai-기초-이해" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="ai-기초-이해"><span class="header-section-number">1.1</span> AI 기초 이해</h2>
+<section id="ai-언어-이해-메커니즘" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="ai-언어-이해-메커니즘"><span class="header-section-number">1.1.1</span> AI 언어 이해 메커니즘</h3>
+<p>챗GPT가 우리의 말을 이해하고 응답하는 과정은 마법처럼 보이지만, 실제로는 체계적인 언어 처리 과정을 거친다. 이 과정을 이해하면 AI와 더 효과적으로 소통할 수 있다. 먼저, AI는 텍스트를 토큰화를 통해 읽게 된다.</p>
+<div class="cell" data-fig-width="6" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-tokenization" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tokenization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-tokenization">graph LR
+    A["안녕하세요 챗GPT"] --&gt; B[토큰화]
+    B --&gt; C["[안녕, 하세요, 챗, GPT]"]
+    C --&gt; D[숫자로 변환]
+    D --&gt; E["[1234, 5678, 9012, 3456]"]
+    
+    style B fill:#ffd700,stroke:#333,stroke-width:2px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tokenization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1.2: 텍스트가 토큰으로 변환되는 과정
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>AI는 텍스트를 ’토큰’이라는 작은 단위로 나누어 처리한다. 한국어의 경우 주로 형태소 단위로, 영어는 단어나 서브워드 단위로 토큰화된다.</p>
+<div class="cell">
+<div id="tbl-chatgpt-language" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-chatgpt-language-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;1.1: 텍스트를 챗GPT가 언어로 이해하는 과정
+</figcaption>
+<div aria-describedby="tbl-chatgpt-language-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="eaxbigxwvj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eaxbigxwvj table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#eaxbigxwvj thead, #eaxbigxwvj tbody, #eaxbigxwvj tfoot, #eaxbigxwvj tr, #eaxbigxwvj td, #eaxbigxwvj th {
+  border-style: none;
+}
+
+#eaxbigxwvj p {
+  margin: 0;
+  padding: 0;
+}
+
+#eaxbigxwvj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 8px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#eaxbigxwvj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#eaxbigxwvj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#eaxbigxwvj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#eaxbigxwvj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#eaxbigxwvj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#eaxbigxwvj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#eaxbigxwvj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#eaxbigxwvj .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#eaxbigxwvj .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#eaxbigxwvj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#eaxbigxwvj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#eaxbigxwvj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#eaxbigxwvj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#eaxbigxwvj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaxbigxwvj .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#eaxbigxwvj .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#eaxbigxwvj .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#eaxbigxwvj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaxbigxwvj .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#eaxbigxwvj .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaxbigxwvj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#eaxbigxwvj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaxbigxwvj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eaxbigxwvj .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaxbigxwvj .gt_left {
+  text-align: left;
+}
+
+#eaxbigxwvj .gt_center {
+  text-align: center;
+}
+
+#eaxbigxwvj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#eaxbigxwvj .gt_font_normal {
+  font-weight: normal;
+}
+
+#eaxbigxwvj .gt_font_bold {
+  font-weight: bold;
+}
+
+#eaxbigxwvj .gt_font_italic {
+  font-style: italic;
+}
+
+#eaxbigxwvj .gt_super {
+  font-size: 65%;
+}
+
+#eaxbigxwvj .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#eaxbigxwvj .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#eaxbigxwvj .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#eaxbigxwvj .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#eaxbigxwvj .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#eaxbigxwvj .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#eaxbigxwvj .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#eaxbigxwvj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#eaxbigxwvj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 22%">
+<col style="width: 28%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">챗GPT 언어 이해 과정</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a처리단계" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">처리 단계</th>
+<th id="a설명" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">설명</th>
+<th id="a챗GPT적용" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">챗GPT에서의 적용</th>
+<th id="a실습예제" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">실습 예제</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="처리단계" style="font-weight: bold">1. 토큰화</td>
+<td class="gt_row gt_center" headers="설명">텍스트를 작은 단위로 분해</td>
+<td class="gt_row gt_center" headers="챗GPT적용">Byte Pair Encoding 알고리즘 사용</td>
+<td class="gt_row gt_center" headers="실습예제">"오늘 날씨 어때?" → ["오늘", "날씨", "어때", "?"]</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="처리단계" style="font-weight: bold">2. 임베딩</td>
+<td class="gt_row gt_center" headers="설명">토큰을 수치 벡터로 변환</td>
+<td class="gt_row gt_center" headers="챗GPT적용">각 토큰을 고차원 공간 점으로 표현</td>
+<td class="gt_row gt_center" headers="실습예제">"날씨" → [0.2, -0.5, 0.8, ...] (수백 개 차원)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="처리단계" style="font-weight: bold">3. 문맥 파악</td>
+<td class="gt_row gt_center" headers="설명">주변 단어들과의 관계 분석</td>
+<td class="gt_row gt_center" headers="챗GPT적용">Transformer Attention 메커니즘 활용</td>
+<td class="gt_row gt_center" headers="실습예제">"사과"가 과일인지 사죄인지 문맥으로 판단</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="처리단계" style="font-weight: bold">4. 의미 추론</td>
+<td class="gt_row gt_center" headers="설명">전체 문장의 의도 파악</td>
+<td class="gt_row gt_center" headers="챗GPT적용">다층 신경망을 통한 의미 추출</td>
+<td class="gt_row gt_center" headers="실습예제">"비 오나요?"가 날씨 정보 요청임을 이해</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="처리단계" style="font-weight: bold">5. 응답 생성</td>
+<td class="gt_row gt_center" headers="설명">적절한 답변 구성</td>
+<td class="gt_row gt_center" headers="챗GPT적용">학습된 패턴을 바탕으로 토큰 생성</td>
+<td class="gt_row gt_center" headers="실습예제">날씨 정보 + 적절한 조언 생성</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="처리단계" style="font-weight: bold">6. 후처리</td>
+<td class="gt_row gt_center" headers="설명">자연스러운 문장으로 변환</td>
+<td class="gt_row gt_center" headers="챗GPT적용">토큰을 다시 텍스트로 조합</td>
+<td class="gt_row gt_center" headers="실습예제">문법적으로 올바른 한국어 문장 출력</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>챗GPT가 한국어를 이해하는 방식은 한국어가 교착어로서 영어와 다른 특성을 가지고 있어, AI가 처리하는 방식도 다르다.</p>
+<ol type="1">
+<li><strong>조사 처리</strong>: “나는”, “나를”, “나에게”를 서로 다른 의미로 구분</li>
+<li><strong>어순 유연성</strong>: “철수가 영희를 좋아한다” = “영희를 철수가 좋아한다”</li>
+<li><strong>높임법</strong>: 상황에 맞는 존댓말과 반말 구분</li>
+<li><strong>띄어쓰기</strong>: 의미 단위로 정확한 분리</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">중요</span>실전 팁
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>한국어로 챗GPT와 대화할 때는 명확한 주어 사용(한국어는 주어 생략이 흔함), 구체적인 맥락 제공, 복잡한 문장보다는 간결한 표현을 사용하는 것이 중요하다.</p>
+</div>
+</div>
+</section>
+<section id="챗봇의-진화와-챗gpt" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="챗봇의-진화와-챗gpt"><span class="header-section-number">1.1.2</span> 챗봇의 진화와 챗GPT</h3>
+<p>이전 챗봇들과 챗GPT의 근본적인 차이점을 이해하면, 왜 갑자기 AI가 우리 일상에 들어왔는지 알 수 있다.</p>
+<div class="cell" data-fig-width="4" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-chatbot-evolution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-chatbot-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-chatbot-evolution">timeline
+    
+    1960s-1990s : 규칙 기반 시대
+                 : ELIZA (1966)
+                 : PARRY (1972)
+                 : 단순 패턴 매칭
+    
+    2000s-2010s : 머신러닝 시대
+                 : A.L.I.C.E. (1995)
+                 : IBM Watson (2011)
+                 : 통계적 학습
+    
+    2020s-현재  : 대규모 언어모델 시대
+                : GPT-3 (2020)
+                : ChatGPT (2022)
+                : 생성형 AI
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chatbot-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1.3: 챗봇 기술의 진화 과정
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>챗봇의 역사는 크게 세 시대로 나뉜다. 1960년대부터 1990년대까지의 1세대 규칙 기반 챗봇들은 미리 정의된 규칙과 패턴으로 응답했다. 대표적인 사례인 ELIZA는 “How do you feel about that?”과 같은 정형화된 응답만을 제공했고, 예상치 못한 질문에는 전혀 대응할 수 없었다. 사용자가 조금만 다른 방식으로 질문해도 시스템은 혼란에 빠지곤 했죠.</p>
+<p>2000년대부터 2010년대까지의 2세대 통계적 학습 기반 챗봇들은 데이터에서 패턴을 학습하는 방식으로 진화했다. IBM Watson이나 A.L.I.C.E.와 같은 시스템들은 이전보다 더 자연스러운 대화가 가능했지만, 여전히 제한된 주제와 맥락 내에서만 작동했다. 날씨를 물어보는 챗봇은 날씨만 답할 수 있었고, 고객 서비스 챗봇은 미리 학습한 FAQ 범위를 벗어나면 무력해졌다.</p>
+<p>2020년대에 등장한 3세대 대규모 언어모델은 완전히 다른 차원의 기술이다. ChatGPT, Claude, Gemini로 대표되는 이들은 수조 개의 매개변수를 통해 언어 자체를 이해한다. 단순히 패턴을 매칭하거나 통계를 계산하는 것이 아니라, 문맥을 파악하고 창의적으로 생성하며 다양한 작업을 수행한다. 한 번의 대화에서 시를 쓰고, 코드를 작성하고, 복잡한 개념을 설명하고, 번역까지 해내는 것이 가능해진 것이다.</p>
+<div class="cell">
+<div id="tbl-chatbot-comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-chatbot-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;1.2: 전통적인 챗봇 서비스와 ChatGPT 특성에 따른 비교
+</figcaption>
+<div aria-describedby="tbl-chatbot-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="lkgvsbjgcj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lkgvsbjgcj table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#lkgvsbjgcj thead, #lkgvsbjgcj tbody, #lkgvsbjgcj tfoot, #lkgvsbjgcj tr, #lkgvsbjgcj td, #lkgvsbjgcj th {
+  border-style: none;
+}
+
+#lkgvsbjgcj p {
+  margin: 0;
+  padding: 0;
+}
+
+#lkgvsbjgcj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lkgvsbjgcj .gt_title {
+  color: #333333;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lkgvsbjgcj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lkgvsbjgcj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#lkgvsbjgcj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#lkgvsbjgcj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#lkgvsbjgcj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#lkgvsbjgcj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#lkgvsbjgcj .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lkgvsbjgcj .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#lkgvsbjgcj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#lkgvsbjgcj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#lkgvsbjgcj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#lkgvsbjgcj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#lkgvsbjgcj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lkgvsbjgcj .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#lkgvsbjgcj .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#lkgvsbjgcj .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lkgvsbjgcj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lkgvsbjgcj .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#lkgvsbjgcj .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lkgvsbjgcj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#lkgvsbjgcj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lkgvsbjgcj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lkgvsbjgcj .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lkgvsbjgcj .gt_left {
+  text-align: left;
+}
+
+#lkgvsbjgcj .gt_center {
+  text-align: center;
+}
+
+#lkgvsbjgcj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lkgvsbjgcj .gt_font_normal {
+  font-weight: normal;
+}
+
+#lkgvsbjgcj .gt_font_bold {
+  font-weight: bold;
+}
+
+#lkgvsbjgcj .gt_font_italic {
+  font-style: italic;
+}
+
+#lkgvsbjgcj .gt_super {
+  font-size: 65%;
+}
+
+#lkgvsbjgcj .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#lkgvsbjgcj .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#lkgvsbjgcj .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#lkgvsbjgcj .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#lkgvsbjgcj .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#lkgvsbjgcj .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#lkgvsbjgcj .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#lkgvsbjgcj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lkgvsbjgcj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">전통 챗봇과 ChatGPT 비교</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a특성" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">특성</th>
+<th id="a전통적챗봇" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">전통적 챗봇</th>
+<th id="ChatGPT" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">ChatGPT</th>
+<th id="a차이점의미" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">차이점의 의미</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #F0F0F0">이해 방식</td>
+<td class="gt_row gt_center" headers="전통적챗봇" style="background-color: #F0F0F0">키워드 매칭</td>
+<td class="gt_row gt_center" headers="ChatGPT" style="background-color: #F0F0F0">문맥 이해</td>
+<td class="gt_row gt_center" headers="차이점의미" style="background-color: #F0F0F0">자연스러운 대화 가능</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold">응답 생성</td>
+<td class="gt_row gt_center" headers="전통적챗봇">미리 준비된 답변</td>
+<td class="gt_row gt_center" headers="ChatGPT">실시간 생성</td>
+<td class="gt_row gt_center" headers="차이점의미">창의적이고 유연한 응답</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #F0F0F0">지식 범위</td>
+<td class="gt_row gt_center" headers="전통적챗봇" style="background-color: #F0F0F0">특정 도메인</td>
+<td class="gt_row gt_center" headers="ChatGPT" style="background-color: #F0F0F0">거의 모든 분야</td>
+<td class="gt_row gt_center" headers="차이점의미" style="background-color: #F0F0F0">범용 도구로 활용 가능</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold">학습 방식</td>
+<td class="gt_row gt_center" headers="전통적챗봇">수동 업데이트</td>
+<td class="gt_row gt_center" headers="ChatGPT">대규모 사전 학습</td>
+<td class="gt_row gt_center" headers="차이점의미">지속적인 성능 향상</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #F0F0F0">맥락 기억</td>
+<td class="gt_row gt_center" headers="전통적챗봇" style="background-color: #F0F0F0">단일 대화</td>
+<td class="gt_row gt_center" headers="ChatGPT" style="background-color: #F0F0F0">전체 대화 기억</td>
+<td class="gt_row gt_center" headers="차이점의미" style="background-color: #F0F0F0">깊이 있는 대화 가능</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>이러한 특성 차이는 사용자 경험에서 극명하게 드러난다. 전통적 챗봇과 대화할 때는 마치 자동 응답 시스템과 대화하는 느낌이 강했다. 정해진 스크립트에서 벗어나면 “죄송합니다. 이해하지 못했습니다”라는 응답이 돌아왔다. 반면 ChatGPT와의 대화는 지식이 풍부한 사람과 대화하는 것처럼 자연스럽다. 같은 질문을 다르게 표현해도 이해하고, 문맥을 기억하며, 창의적인 답변을 생성한다.</p>
+</section>
+<section id="gpt-모델-진화" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="gpt-모델-진화"><span class="header-section-number">1.1.3</span> GPT 모델 진화</h3>
+<div class="cell" data-fig-width="6" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-gpt-evolution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gpt-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-gpt-evolution">graph LR
+    A[GPT-1&lt;br/&gt;2018년&lt;br/&gt;117M 매개변수] --&gt; B[GPT-2&lt;br/&gt;2019년&lt;br/&gt;1.5B 매개변수]
+    B --&gt; C[GPT-3&lt;br/&gt;2020년&lt;br/&gt;175B 매개변수]
+    C --&gt; D[GPT-3.5&lt;br/&gt;2022년&lt;br/&gt;ChatGPT 출시]
+    D --&gt; E[GPT-4&lt;br/&gt;2023년&lt;br/&gt;멀티모달 지원]
+    E --&gt; F[GPT-4o&lt;br/&gt;2024년&lt;br/&gt;실시간 대화]
+    
+    style D fill:#ff6b6b,stroke:#333,stroke-width:3px
+    style E fill:#4ecdc4,stroke:#333,stroke-width:3px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gpt-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1.4: GPT 모델의 발전 과정
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>GPT(Generative Pre-trained Transformer) 시리즈의 발전은 AI 기술의 기하급수적 성장을 보여주는 대표적인 사례다. 2018년 OpenAI가 발표한 GPT-1은 1억 1700만 개의 매개변수를 가진 모델로, 당시에는 혁신적이었지만 지금 기준으로는 소규모 모델이다. 이 모델은 책 한 권 분량의 텍스트를 학습하여 기본적인 문장을 생성할 수 있었다.</p>
+<p>2019년 GPT-2는 15억 개의 매개변수로 10배 이상 증가했다. OpenAI는 처음에 이 모델의 전체 버전 공개를 주저했는데, 가짜 뉴스나 스팸 생성에 악용될 가능성을 우려했기 때문이다. GPT-2는 일관성 있는 긴 문장을 생성할 수 있었고, 간단한 질문에 대답하거나 이야기를 이어 쓸 수 있었다.</p>
+<p>2020년 GPT-3는 진정한 도약이었다. 1750억 개의 매개변수를 가진 이 모델은 인터넷에 있는 거의 모든 텍스트를 학습했다. GPT-3는 프로그래밍, 번역, 창작, 분석 등 다양한 작업을 수행할 수 있었으며, few-shot learning 능력으로 몇 가지 예시만으로도 새로운 작업을 학습할 수 있었다.</p>
+<p>2022년 11월 출시된 ChatGPT(GPT-3.5 기반)는 대화에 최적화된 모델이다. RLHF (Reinforcement Learning from Human Feedback) 기법을 통해 인간의 피드백을 학습하여 더 안전하고 유용한 응답을 생성한다. 출시 5일 만에 100만 사용자를 돌파하며 AI 대중화의 시대를 열었다.</p>
+<p>2023년 GPT-4는 멀티모달 기능을 추가하여 텍스트뿐만 아니라 이미지도 이해할 수 있게 되었다. 논리적 추론 능력이 크게 향상되어 복잡한 수학 문제나 코딩 작업도 수행할 수 있으며, 창의성과 정확성 면에서도 이전 모델들을 크게 앞서다.</p>
+<p>2024년 GPT-4o(옴니)는 실시간 대화가 가능한 모델로, 음성, 비전, 텍스트를 통합적으로 처리한다. 인간과 거의 구별이 안 될 정도로 자연스러운 대화가 가능하며, 감정을 이해하고 표현할 수 있다.</p>
+</section>
+</section>
+<section id="ai-검색-시대-도래" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="ai-검색-시대-도래"><span class="header-section-number">1.2</span> 2. AI 검색 시대 도래</h2>
+<p>검색의 역사는 인터넷의 역사와 함께한다. 1990년대 중반, 인터넷이 막 대중화되기 시작했을 때 우리는 원하는 정보를 찾기 위해 야후의 디렉토리를 뒤적였다. 그리고 구글이 등장하면서 검색의 패러다임이 완전히 바뀌었고, 이제 AI가 또 한 번의 혁명을 일으키고 있다.</p>
+<section id="야후-구글" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="야후-구글"><span class="header-section-number">1.2.1</span> 야후 → 구글</h3>
+<p>1994년 스탠포드 대학생 제리 양과 데이비드 파일로가 만든 야후는 인터넷 초기 시대의 상징이었다. 사람이 직접 웹사이트를 카테고리별로 분류하고 정리한 ‘휴먼 디렉토리’ 방식은 당시로서는 혁신적이었다. 사용자들은 스포츠, 뉴스, 엔터테인먼트 등의 카테고리를 클릭하며 원하는 정보를 찾아갔다.</p>
+<p>하지만 인터넷이 폭발적으로 성장하면서 이 방식의 한계가 드러났다. 하루에도 수천 개씩 생겨나는 웹사이트를 사람이 일일이 분류하고 관리하는 것은 불가능했다. 검색의 품질은 떨어졌고, 사용자들은 원하는 정보를 찾기 위해 여러 페이지를 뒤적여야 했다.</p>
+<p>이때 등장한 것이 구글이다. 1998년 래리 페이지와 세르게이 브린이 개발한 페이지랭크(PageRank) 알고리즘은 웹페이지의 중요도를 다른 페이지들이 얼마나 많이 링크하는지로 판단했다. 마치 학술 논문에서 인용이 많은 논문이 중요한 것처럼, 링크를 많이 받는 웹페이지가 더 가치 있다고 본 것이다. 이 간단하면서도 강력한 아이디어는 검색의 품질을 획기적으로 향상시켰다.</p>
+</section>
+<section id="구글-검색-제국" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="구글-검색-제국"><span class="header-section-number">1.2.2</span> 구글 검색 제국</h3>
+<p>구글이 단순히 좋은 검색 알고리즘을 가진 회사에서 검색 시장을 지배하는 제국으로 성장한 데는 몇 가지 핵심 전략이 있었다.</p>
+<p>첫째, 크롬 브라우저의 출시다. 2008년에 출시된 크롬은 빠른 속도와 간결한 디자인으로 사용자들의 마음을 사로잡았다. 하지만 크롬의 진짜 목적은 다른 곳에 있었다. 크롬 사용자들은 자연스럽게 구글을 기본 검색엔진으로 사용하게 되었고, 구글은 사용자들의 검색 행동 데이터를 수집해 알고리즘을 더욱 정교하게 만들 수 있었다. 현재 크롬의 시장 점유율은 65%를 넘어서며, 이는 곧 구글 검색의 지배력으로 이어진다.</p>
+<p>둘째, 광고 비즈니스 모델의 혁신이다. 구글은 검색을 무료로 제공하면서도 막대한 수익을 창출하는 방법을 찾았다. 2000년에 출시된 애드워즈(AdWords, 현재의 Google Ads)는 사용자의 검색어에 맞춰 광고를 보여주는 혁신적인 시스템이었다. ’운동화’를 검색하면 운동화 광고가, ’여행’을 검색하면 여행 상품 광고가 나타났다. 광고주들은 실제로 관심 있는 사용자에게만 광고를 보여줄 수 있어 효율적이었고, 구글은 클릭당 비용을 받아 수익을 창출했다.</p>
+<div class="cell" data-fig-width="3" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-google-ecosystem" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-google-ecosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-google-ecosystem">graph TD
+    A[무료 검색 서비스] --&gt; B[대규모 사용자 확보]
+    B --&gt; C[검색 데이터 축적]
+    C --&gt; D[알고리즘 개선]
+    D --&gt; E[더 나은 검색 결과]
+    E --&gt; B
+    
+    C --&gt; F[정밀한 광고 타겟팅]
+    F --&gt; G[광고 수익 증대]
+    G --&gt; H[서비스 개선 투자]
+    H --&gt; A
+    
+    style A fill:#4285f4,stroke:#333,stroke-width:2px
+    style G fill:#0f9d58,stroke:#333,stroke-width:2px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-google-ecosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1.5: 구글의 검색 생태계 구축
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>셋째, 데이터 네트워크 효과의 극대화다. 구글은 더 많은 사용자가 검색할수록 더 많은 데이터를 얻고, 이를 통해 검색 품질을 개선하는 선순환 구조를 만들었다. 또한 지메일, 유튜브, 안드로이드 등 다양한 서비스를 통해 사용자 데이터를 수집하고, 이를 광고 타겟팅에 활용했다. 2023년 기준 구글의 광고 수익은 연간 2,800억 달러를 넘어섰다.</p>
+</section>
+<section id="chatgpt-등장" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="chatgpt-등장"><span class="header-section-number">1.2.3</span> ChatGPT 등장</h3>
+<p>2022년 11월 30일, OpenAI가 ChatGPT를 공개했을 때 많은 사람들은 이것이 단순한 재미있는 챗봇 정도로 생각했다. 하지만 불과 5일 만에 100만 사용자를 돌파하고, 두 달 만에 1억 사용자를 확보하면서 상황이 달라졌다. 사람들은 구글에서 검색하는 대신 ChatGPT에게 직접 물어보기 시작했다.</p>
+<p>ChatGPT가 가져온 가장 큰 변화는 ’검색’에서 ’대화’로의 전환이다. 구글에서 “파이썬 for문 사용법”을 검색하면 관련 웹페이지 링크들이 나열된다. 사용자는 여러 페이지를 방문해 정보를 수집하고 종합해야 한다. 반면 ChatGPT에게 같은 질문을 하면 즉시 이해하기 쉬운 설명과 예제 코드를 제공한다. 심지어 “초보자도 이해할 수 있게 설명해줘”라고 추가 요청하면 더 쉬운 설명으로 바꿔준다.</p>
+<p>이러한 변화는 특히 복잡한 질문이나 창의적인 작업에서 두드러진다. “친구 생일 파티를 준비하는데 예산은 10만원이고 참석자는 10명이야. 어떻게 준비하면 좋을까?”와 같은 질문에 구글은 여러 파티 준비 관련 페이지를 보여주지만, ChatGPT는 구체적인 계획과 예산 배분, 준비 체크리스트까지 제시한다.</p>
+</section>
+<section id="구글-위기와-대응" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="구글-위기와-대응"><span class="header-section-number">1.2.4</span> 구글 위기와 대응</h3>
+<p>ChatGPT의 성공은 구글에게 전례 없는 위기를 가져왔다. 2022년 12월, 구글은 내부적으로 “코드 레드”를 선언했다. 이는 회사 전체가 비상 대응 체제로 전환한다는 의미였다. 창업자인 래리 페이지와 세르게이 브린까지 복귀해 대응 전략을 논의했다.</p>
+<p>구글이 직면한 가장 큰 딜레마는 비즈니스 모델의 충돌이었다. AI가 직접 답변을 제공하면 사용자들이 웹사이트를 방문할 필요가 없어진다. 웹사이트 방문이 줄어들면 광고 노출도 줄어들고, 이는 곧 구글의 수익 감소로 이어진다. 연간 1,600억 달러가 넘는 검색 광고 수익이 위협받는 상황이었다.</p>
+<div class="cell">
+<div id="tbl-google-dilema" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-google-dilema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;1.3: AI로 인한 구글 딜레마
+</figcaption>
+<div aria-describedby="tbl-google-dilema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="lgafijravr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lgafijravr table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#lgafijravr thead, #lgafijravr tbody, #lgafijravr tfoot, #lgafijravr tr, #lgafijravr td, #lgafijravr th {
+  border-style: none;
+}
+
+#lgafijravr p {
+  margin: 0;
+  padding: 0;
+}
+
+#lgafijravr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#lgafijravr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lgafijravr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lgafijravr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lgafijravr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lgafijravr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lgafijravr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lgafijravr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#lgafijravr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#lgafijravr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#lgafijravr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#lgafijravr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#lgafijravr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lgafijravr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#lgafijravr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#lgafijravr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#lgafijravr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#lgafijravr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#lgafijravr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lgafijravr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#lgafijravr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#lgafijravr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lgafijravr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lgafijravr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#lgafijravr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#lgafijravr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lgafijravr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lgafijravr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#lgafijravr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lgafijravr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#lgafijravr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lgafijravr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lgafijravr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lgafijravr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lgafijravr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lgafijravr .gt_left {
+  text-align: left;
+}
+
+#lgafijravr .gt_center {
+  text-align: center;
+}
+
+#lgafijravr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lgafijravr .gt_font_normal {
+  font-weight: normal;
+}
+
+#lgafijravr .gt_font_bold {
+  font-weight: bold;
+}
+
+#lgafijravr .gt_font_italic {
+  font-style: italic;
+}
+
+#lgafijravr .gt_super {
+  font-size: 65%;
+}
+
+#lgafijravr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#lgafijravr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#lgafijravr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#lgafijravr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#lgafijravr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#lgafijravr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#lgafijravr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#lgafijravr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lgafijravr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 45%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<td colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">구글이 직면한 AI 시대의 딜레마</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a구글의딜레마" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">구글 딜레마</th>
+<th id="a상세내용" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">상세 내용</th>
+<th id="a영향" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">영향</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="구글의딜레마" style="font-weight: bold; background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">수익 모델 충돌</td>
+<td class="gt_row gt_center" headers="상세내용" style="background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">AI 답변 → 웹사이트 방문 감소 → 광고 수익 감소</td>
+<td class="gt_row gt_center" headers="영향" style="background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">핵심 비즈니스 모델 위협</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="구글의딜레마" style="font-weight: bold; background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">컴퓨팅 비용</td>
+<td class="gt_row gt_center" headers="상세내용" style="background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">모든 검색에 LLM 적용 시 막대한 비용 발생</td>
+<td class="gt_row gt_center" headers="영향" style="background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">수익성 악화 우려</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="구글의딜레마" style="font-weight: bold; background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">품질 리스크</td>
+<td class="gt_row gt_center" headers="상세내용" style="background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">AI의 잘못된 정보 제공 시 신뢰도 하락</td>
+<td class="gt_row gt_center" headers="영향" style="background-color: #FFF3CD; border-left-width: 1px; border-left-style: solid; border-left-color: #ffc107; border-right-width: 1px; border-right-style: solid; border-right-color: #ffc107; border-top-width: 1px; border-top-style: solid; border-top-color: #ffc107; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #ffc107">브랜드 가치 훼손</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>구글은 2023년 3월 바드(Bard)를 서둘러 출시했지만, 시연 중 잘못된 정보를 제공하는 실수로 주가가 하루 만에 1,000억 달러 하락하는 굴욕을 겪었다. 이후 제미나이(Gemini)로 재편하고, 검색 결과에 AI 요약을 추가하는 ‘AI Overview’ 기능을 도입하는 등 전통적 검색과 AI를 결합하는 하이브리드 전략을 추진하고 있다.</p>
+</section>
+<section id="검색의-미래는-대화" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="검색의-미래는-대화"><span class="header-section-number">1.2.5</span> 검색의 미래는 대화</h3>
+<p>현재 검색 시장은 급격한 변화의 소용돌이 속에 있다. OpenAI의 ChatGPT, Microsoft의 Bing Chat, Anthropic의 Claude, Perplexity 등 다양한 AI 검색 서비스가 경쟁하고 있다. 이들은 각자의 강점을 내세우며 사용자들을 유치하고 있다.</p>
+<p>이제 우리는 정보를 ‘찾는’ 시대에서 정보와 ‘대화하는’ 시대로 넘어가고 있다. 야후가 인간이 정리한 디렉토리였고, 구글이 알고리즘이 정렬한 링크 목록이었다면, AI 검색은 지식을 이해하고 종합해 맞춤형 답변을 제공하는 지능형 어시스턴트다. 이 변화는 단순히 기술의 진화가 아니라, 인간이 지식에 접근하고 활용하는 방식의 근본적인 전환을 의미한다.</p>
+<div class="cell" data-fig-width="6" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-stats-comparison" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stats-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-stats-comparison">graph TB
+    subgraph T["전통적 워크플로우"]
+        direction LR
+        T1[데이터 수집] --&gt; T2[데이터 정제]
+        T2 --&gt; T3[탐색적 분석&lt;br/&gt;EDA]
+        T3 --&gt; T4[통계 모델링]
+        T4 --&gt; T5[결과 해석]
+        T5 --&gt; T6[시각화 및 보고]
+    end
+    
+    subgraph A["AI 기반 워크플로우"]
+        direction LR
+        A1[데이터 업로드] --&gt; A2[AI와 대화로&lt;br/&gt;분석 목표 설정]
+        A2 --&gt; A3[자동 EDA 및&lt;br/&gt;인사이트 발견]
+        A3 --&gt; A4[AI 추천&lt;br/&gt;모델링]
+        A4 --&gt; A5[대화형&lt;br/&gt;결과 해석]
+        A5 --&gt; A6[자동 리포트&lt;br/&gt;생성]
+        
+        AI[AI 어시스턴트]
+        A2 -.-&gt; AI
+        A3 -.-&gt; AI
+        A4 -.-&gt; AI
+        A5 -.-&gt; AI
+        AI -.-&gt; A3
+        AI -.-&gt; A4
+        AI -.-&gt; A5
+        AI -.-&gt; A6
+    end
+    
+    T -.-&gt;|"전환"| A
+    
+    style T1 fill:#ff9999,stroke:#333,stroke-width:2px
+    style T6 fill:#99ccff,stroke:#333,stroke-width:2px
+    style A1 fill:#ff9999,stroke:#333,stroke-width:2px
+    style A6 fill:#99ccff,stroke:#333,stroke-width:2px
+    style AI fill:#ffcc99,stroke:#333,stroke-width:3px
+    
+    style T fill:#fef3c7,stroke:#d97706,stroke-width:2px
+    style A fill:#e0f2fe,stroke:#0891b2,stroke-width:2px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1.6: 전통적 vs AI 기반 통계 분석 워크플로우 비교
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="통계와-데이터-과학" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="통계와-데이터-과학"><span class="header-section-number">1.3</span> 통계와 데이터 과학</h2>
+<p>전통적인 통계 분석 방법과 AI 기반 통계 분석 워크플로우의 차이를 <a href="#fig-stats-comparison" class="quarto-xref">그림&nbsp;<span>1.6</span></a> 을 통해 명확하게 확인할 수 있다. 전통적으로 데이터 수집부터 시각화 및 보고까지 각 단계를 순차적으로 거쳐야 했으며, 각 단계마다 전문적인 지식과 상당한 시간 투자가 필요했다. 반면 AI 기반 워크플로우에서는 데이터를 업로드한 후 자연어로 분석 목표를 설명하면, AI가 데이터 정제, 탐색적 분석(EDA), 모델링 등의 복잡한 과정을 자동으로 수행한다. 이는 분석 과정의 진입 장벽을 크게 낮추고 효율성을 극대화하는 혁신적인 변화를 보여준다.</p>
+<p>데이터 시각화 도구의 진화 과정은 지난 30여 년간 이 분야가 어떻게 발전해왔는지를 일목요연하게 <a href="#tbl-spss-evolution" class="quarto-xref">표&nbsp;<span>1.4</span></a> 에 정리되어 있다. 1세대(1990-2000)의 Excel과 SPSS는 기본적인 차트 위주의 정적 시각화에 머물렀지만, 2세대(2000-2015)에 이르러 R의 ggplot2와 같은 문법 기반 시각화 도구가 등장하면서 더욱 정교하고 아름다운 시각화가 가능해졌다. 3세대(2015-2022)에서는 Plotly와 Power BI 같은 도구들이 선언적 시각화 방식과 자동 추천 기능을 도입했고, 현재의 4세대(2023-현재)는 ChatGPT와 Code Interpreter의 결합으로 자연어만으로 복잡한 시각화를 생성할 수 있게 되었다. 특히 4세대의 가장 큰 특징은 사용자의 의도를 맥락적으로 이해하고 창의적인 시각화 방안을 제시할 수 있다는 점으로, 이는 데이터 시각화의 민주화를 실현하는 중요한 전환점이 되고 있다.</p>
+<div class="cell">
+<div id="tbl-spss-evolution" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-spss-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;1.4: 데이터 시각화 도구의 진화 - 1990년부터 현재까지 발전 과정
+</figcaption>
+<div aria-describedby="tbl-spss-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="onydoygfvh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#onydoygfvh table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#onydoygfvh thead, #onydoygfvh tbody, #onydoygfvh tfoot, #onydoygfvh tr, #onydoygfvh td, #onydoygfvh th {
+  border-style: none;
+}
+
+#onydoygfvh p {
+  margin: 0;
+  padding: 0;
+}
+
+#onydoygfvh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#onydoygfvh .gt_title {
+  color: #333333;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#onydoygfvh .gt_subtitle {
+  color: #333333;
+  font-size: 14px;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#onydoygfvh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#onydoygfvh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#onydoygfvh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#onydoygfvh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#onydoygfvh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#onydoygfvh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#onydoygfvh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#onydoygfvh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#onydoygfvh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#onydoygfvh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#onydoygfvh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#onydoygfvh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#onydoygfvh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#onydoygfvh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#onydoygfvh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#onydoygfvh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#onydoygfvh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#onydoygfvh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#onydoygfvh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#onydoygfvh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#onydoygfvh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#onydoygfvh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#onydoygfvh .gt_left {
+  text-align: left;
+}
+
+#onydoygfvh .gt_center {
+  text-align: center;
+}
+
+#onydoygfvh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#onydoygfvh .gt_font_normal {
+  font-weight: normal;
+}
+
+#onydoygfvh .gt_font_bold {
+  font-weight: bold;
+}
+
+#onydoygfvh .gt_font_italic {
+  font-style: italic;
+}
+
+#onydoygfvh .gt_super {
+  font-size: 65%;
+}
+
+#onydoygfvh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#onydoygfvh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#onydoygfvh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#onydoygfvh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#onydoygfvh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#onydoygfvh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#onydoygfvh .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#onydoygfvh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#onydoygfvh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="a시대" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">시대</th>
+<th id="a도구" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">도구</th>
+<th id="a특징" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">특징</th>
+<th id="a한계" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">한계</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="시대" style="font-weight: bold; background-color: #E7F3FF">1세대<br>(1990-2000)</td>
+<td class="gt_row gt_center" headers="도구">Excel, SPSS</td>
+<td class="gt_row gt_center" headers="특징">기본 차트 위주 정적 시각화</td>
+<td class="gt_row gt_center" headers="한계">제한된 차트 유형 수동 조작 필요</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="시대" style="font-weight: bold; background-color: #F8F9FA">2세대<br>(2000-2015)</td>
+<td class="gt_row gt_center" headers="도구" style="background-color: #F8F9FA">R(ggplot2), D3.js Tableau</td>
+<td class="gt_row gt_center" headers="특징" style="background-color: #F8F9FA">문법 기반 시각화 인터랙티브 대시보드</td>
+<td class="gt_row gt_center" headers="한계" style="background-color: #F8F9FA">높은 학습 곡선 코딩 필요</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="시대" style="font-weight: bold; background-color: #E7F3FF">3세대<br>(2015-2022)</td>
+<td class="gt_row gt_center" headers="도구">Plotly, Altair Power BI</td>
+<td class="gt_row gt_center" headers="특징">선언적 시각화 자동 추천 기능</td>
+<td class="gt_row gt_center" headers="한계">여전히 기술적 지식 필요</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="시대" style="font-weight: bold; background-color: #F8F9FA">4세대<br>(2023-현재)</td>
+<td class="gt_row gt_center" headers="도구" style="background-color: #F8F9FA">AI 기반 도구 ChatGPT + Code Interpreter</td>
+<td class="gt_row gt_center" headers="특징" style="background-color: #F8F9FA">자연어로 시각화 생성 자동 인사이트 추출</td>
+<td class="gt_row gt_center" headers="한계" style="background-color: #F8F9FA">맥락 이해와 창의성</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<section id="ai-영향" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="ai-영향"><span class="header-section-number">1.3.1</span> AI 영향</h3>
+<p>AI가 데이터 과학 분야에 가져온 가장 혁명적인 변화 중 하나는 AutoML의 대중화다. 과거에는 머신러닝 모델을 개발하려면 고도의 전문 지식이 필요했다. 알고리즘을 선택하고, 하이퍼파라미터를 튜닝하고, 모델을 평가하는 모든 과정에 깊은 이해가 필요했다. 하지만 이제는 “이 데이터로 고객 이탈을 예측하는 모델을 만들어줘”라는 자연어 명령만으로도 충분하다. 이러한 변화는 도메인 전문가들이 데이터 과학자의 도움 없이도 직접 예측 모델을 구축할 수 있게 만들었다.</p>
+<p>실시간 데이터 스토리텔링도 AI가 가져온 중요한 변화다. 전통적인 분석 과정은 데이터를 수집하고, 분석하고, 인사이트를 도출한 후 시각화를 만들고 보고서를 작성하는 순차적 과정이었다. 각 단계마다 상당한 시간이 소요되었고, 최종 보고서가 나올 때쯤이면 이미 상황이 변해있는 경우도 많았다. 현재 AI는 데이터를 읽는 즉시 스토리를 생성한다. 데이터의 패턴을 파악하고, 이상치를 발견하고, 비즈니스 맥락에서 의미를 해석하는 모든 과정이 실시간으로 이루어진다. 이는 의사결정 속도를 획기적으로 단축시켰다.</p>
+<p>통계적 추론의 자동화는 특히 비전문가들에게 큰 도움이 되고 있다. p-value가 무엇인지, 신뢰구간은 어떻게 해석해야 하는지 몰라도 AI가 적절한 통계 검정을 자동으로 선택하고 결과를 평이한 언어로 설명해준다. “이 두 그룹 간의 차이는 통계적으로 유의미하며, 95% 확률로 실제 차이가 있다고 볼 수 있다”와 같은 설명을 제공함으로써, 통계 지식이 부족한 사용자도 올바른 추론을 할 수 있게 되었다.</p>
+</section>
+<section id="최신-트렌드" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="최신-트렌드"><span class="header-section-number">1.3.2</span> 최신 트렌드</h3>
+<p>2024년과 2025년 데이터 과학 분야에서 가장 주목받는 트렌드는 Multimodal 데이터 분석이다. 이제 AI는 텍스트, 이미지, 숫자 데이터를 개별적으로 처리하는 것을 넘어 이들을 통합적으로 분석한다. 의료 분야에서 이러한 변화는 특히 두드러진다. 의사가 환자의 CT 스캔 이미지를 보면서 동시에 혈액 검사 수치를 확인하고, 과거 진료 기록을 검토하는 것처럼, AI도 이제 의료 영상, 검사 수치, 의사 소견을 종합하여 더 정확한 진단을 내릴 수 있게 되었다.</p>
+<p>Causal AI의 등장은 데이터 분석의 패러다임을 근본적으로 바꾸고 있다. 기존의 머신러닝은 주로 상관관계를 찾는 데 집중했다. “A와 B가 함께 발생한다”는 것은 알 수 있었지만, “A가 B를 일으킨다”는 인과관계는 파악하기 어려웠다. 하지만 Causal AI는 단순한 상관관계를 넘어 실제 원인과 결과를 추론한다. 예를 들어, 매출이 증가했을 때 그것이 마케팅 캠페인 때문인지, 계절적 요인 때문인지, 아니면 경쟁사의 실수 때문인지를 구분할 수 있게 된 것이다.</p>
+<p>Explainable AI for Statistics는 AI의 블랙박스 문제를 해결하는 데 중점을 둔다. 복잡한 딥러닝 모델이 왜 특정한 예측을 했는지 통계적으로 설명할 수 있게 되었다. “이 고객이 이탈할 확률이 85%인 이유는 최근 3개월간 구매 빈도가 70% 감소했고, 고객 서비스 문의가 200% 증가했기 때문이다. 이 예측의 95% 신뢰구간은 82-88%이다”와 같은 구체적이고 통계적으로 타당한 설명을 제공한다.</p>
+<p>Real-time Collaborative Analysis는 AI와 인간 분석가가 실시간으로 협업하는 새로운 분석 방식이다. 분석가가 “지난 분기 매출 감소가 특정 지역에 집중되어 있는지 확인해봐”라고 가설을 제시하면, AI가 즉시 데이터를 분석하여 “네, 서부 지역에서 35% 감소가 있었고, 이는 전체 매출 감소의 78%를 차지합니다”라고 응답한다. 이러한 대화형 분석은 인간의 직관과 AI의 계산 능력을 결합하여 더 깊이 있는 인사이트를 도출한다.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">힌트</span>데이터 과학자를 위한 AI 활용 팁
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>AI는 도구, 통계적 사고는 필수</strong>: AI가 제시한 분석 결과를 비판적으로 검토</li>
+<li><strong>도메인 지식 + AI = 시너지</strong>: 분야별 전문성이 AI 활용도를 극대화</li>
+<li><strong>실험적 접근</strong>: 전통적 방법과 AI 방법을 비교하며 최적 조합 찾기</li>
+</ol>
+</div>
+</div>
+</section>
+</section>
+<section id="ai-윤리와-책임있는-사용" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="ai-윤리와-책임있는-사용"><span class="header-section-number">1.4</span> AI 윤리와 책임있는 사용</h2>
+<p>AI 기술의 발전은 우리에게 놀라운 기회를 제공하지만, 동시에 새로운 윤리적 도전 과제를 제시한다. 특히 데이터 과학 분야에서는 개인정보 보호, 알고리즘 편향, 결과의 해석가능성 등이 중요한 이슈다.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">중요</span>기억하세요
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI는 인간을 대체하는 것이 아니라 인간의 능력을 증강시키는 도구다. 최종 판단과 책임은 항상 사용자에게 있다.</p>
+</div>
+</div>
+<p>AI의 급속한 발전과 보편화는 우리 사회에 깊은 영향을 미치고 있다. 2022년 ChatGPT의 등장 이후 AI는 더 이상 전문가들만의 도구가 아닌 일반인들도 쉽게 접근할 수 있는 기술이 되었다. 하지만 이러한 접근성의 향상은 동시에 오남용의 위험도 증가시켰다. 딥페이크 기술을 이용한 가짜 영상 제작, AI를 활용한 대규모 허위정보 생성, 개인정보를 무분별하게 학습하는 AI 모델 등 다양한 문제들이 나타나고 있다.</p>
+<p>데이터 과학자와 통계 전문가들에게 AI 윤리는 특히 중요한 의미를 갖는다. 우리가 다루는 데이터는 단순한 숫자가 아니라 사람들의 삶과 직결된 정보다. AI 모델이 내리는 결정은 대출 승인, 채용 결정, 의료 진단 등 개인의 인생에 중대한 영향을 미칠 수 있다. 따라서 우리는 기술적 우수성뿐만 아니라 윤리적 책임감도 함께 갖춰야 한다.</p>
+<section id="ai-오남용-유형" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="ai-오남용-유형"><span class="header-section-number">1.4.1</span> AI 오남용 유형</h3>
+<p>AI 기술의 오남용은 크게 네 가지 주요 카테고리로 분류할 수 있다. 첫째는 정보 조작으로, 딥페이크와 같은 기술을 사용해 진짜와 구별하기 어려운 가짜 콘텐츠를 만들거나 대규모로 허위정보를 생성하여 여론을 조작하는 시도들이 포함된다. 둘째는 사기 및 범죄 활동으로, AI를 이용한 정교한 피싱 메시지 작성이나 신원 도용 등이 여기에 해당한다. 셋째는 개인정보 침해로, 사용자가 모르는 사이에 개인 데이터를 수집하거나 프라이버시를 침해하는 행위들이다. 마지막으로 학술 부정직은 AI를 이용한 표절이나 과제물 대리 작성 등 교육 분야에서의 부정행위를 포함한다.</p>
+<div class="cell" data-fig-width="6" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ai-misuse" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-misuse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-ai-misuse">graph TD
+    A[AI 오남용] --&gt; B[정보 조작]
+    A --&gt; C[사기 및 범죄]
+    A --&gt; D[개인정보 침해]
+    A --&gt; E[학술 부정직]
+    
+    B --&gt; B1[허위정보/딥페이크]
+    B --&gt; B2[여론 조작]
+    
+    C --&gt; C1[피싱/스캠]
+    C --&gt; C2[신원 도용]
+    
+    D --&gt; D1[데이터 수집]
+    D --&gt; D2[프라이버시 침해]
+    
+    E --&gt; E1[AI 표절]
+    E --&gt; E2[부정 과제물]
+    
+    style A fill:#ff6b6b,stroke:#333,stroke-width:2px
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-misuse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1.7: AI 오남용의 주요 카테고리
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>이러한 오남용 사례들은 단순히 기술적 문제가 아니라 사회적 신뢰를 훼손하고 개인의 권리를 침해하는 심각한 문제다. 특히 데이터 과학 분야에서 일하는 전문가들은 자신이 개발하거나 사용하는 AI 시스템이 이러한 오남용에 악용되지 않도록 각별한 주의를 기울여야 한다.</p>
+</section>
+<section id="윤리-이슈와-대응" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="윤리-이슈와-대응"><span class="header-section-number">1.4.2</span> 윤리 이슈와 대응</h3>
+<p>AI 기술을 활용하면서 우리가 직면하는 윤리적 이슈들은 매우 다양하고 복잡하다. 허위정보 확산 문제는 특히 심각한데, AI가 생성한 가짜뉴스나 딥페이크 콘텐츠는 진짜와 구별하기 어려울 정도로 정교해졌다. 2024년 전 세계적으로 진행된 선거들에서 AI로 조작된 콘텐츠가 여론에 영향을 미치려는 시도들이 여러 차례 포착되었다. 이에 대응하기 위해서는 출처 확인을 습관화하고, 신뢰할 수 있는 팩트체킹 도구를 활용하며, 항상 비판적 사고를 유지하는 것이 중요하다.</p>
+<p>프라이버시 침해 문제도 간과할 수 없다. 많은 사용자들이 편리함에 이끌려 민감한 개인정보를 AI 서비스에 입력하고 있다. 하지만 이러한 정보가 어떻게 저장되고 활용되는지는 명확하지 않은 경우가 많다. 예를 들어, 의료 데이터나 금융 정보를 AI 챗봇에 입력하는 것은 심각한 프라이버시 위험을 초래할 수 있다. 따라서 민감한 정보는 입력을 자제하고, 개인정보는 마스킹 처리하며, 서비스의 보안 설정을 꼼꼼히 확인해야 한다.</p>
+<p>AI 의존성 증가는 또 다른 우려사항이다. AI가 즉각적이고 정확한 답변을 제공하다 보니, 스스로 생각하고 문제를 해결하는 능력이 퇴화할 수 있다. 특히 교육 현장에서 학생들이 과제를 AI에게 맡기는 사례가 늘어나면서 비판적 사고력과 창의성 발달에 대한 우려가 커지고 있다. AI는 어디까지나 보조 도구로 활용하되, 결과물에 대한 자체 검증은 필수적이며, 인간의 판단력을 유지하기 위한 균형잡힌 사용이 필요하다.</p>
+<p>편향과 차별 문제는 데이터 과학자들에게 특히 중요한 이슈다. AI 모델은 학습 데이터에 내재된 편향을 그대로 반영하거나 때로는 증폭시킬 수 있다. 채용 AI가 특정 성별이나 인종에 불리한 결정을 내리거나, 대출 심사 AI가 특정 지역 거주자를 차별하는 사례들이 실제로 발생하고 있다. 이를 방지하기 위해서는 다양한 관점에서 모델을 검토하고, 편향 인식 교육을 받으며, 공정성 평가를 정기적으로 수행해야 한다.</p>
+<p>학술 부정직 문제는 교육과 연구 분야에서 시급히 해결해야 할 과제다. AI를 이용한 표절이나 대리 작성은 학문의 근간을 흔드는 행위다. 연구자와 학생들은 AI를 연구 도구로 활용할 때 반드시 그 사실을 명시하고, 인용 규칙을 준수하며, 기관의 AI 활용 가이드라인을 따라야 한다.</p>
+<div class="cell">
+<div id="tbl-ai-ethics" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ai-ethics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;1.5: AI 윤리 이슈와 위험
+</figcaption>
+<div aria-describedby="tbl-ai-ethics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="xxilbtfvfm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xxilbtfvfm table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xxilbtfvfm thead, #xxilbtfvfm tbody, #xxilbtfvfm tfoot, #xxilbtfvfm tr, #xxilbtfvfm td, #xxilbtfvfm th {
+  border-style: none;
+}
+
+#xxilbtfvfm p {
+  margin: 0;
+  padding: 0;
+}
+
+#xxilbtfvfm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xxilbtfvfm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xxilbtfvfm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xxilbtfvfm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xxilbtfvfm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xxilbtfvfm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xxilbtfvfm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xxilbtfvfm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xxilbtfvfm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xxilbtfvfm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xxilbtfvfm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xxilbtfvfm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xxilbtfvfm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xxilbtfvfm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xxilbtfvfm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xxilbtfvfm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xxilbtfvfm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xxilbtfvfm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xxilbtfvfm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xxilbtfvfm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xxilbtfvfm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xxilbtfvfm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xxilbtfvfm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xxilbtfvfm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xxilbtfvfm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xxilbtfvfm .gt_left {
+  text-align: left;
+}
+
+#xxilbtfvfm .gt_center {
+  text-align: center;
+}
+
+#xxilbtfvfm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xxilbtfvfm .gt_font_normal {
+  font-weight: normal;
+}
+
+#xxilbtfvfm .gt_font_bold {
+  font-weight: bold;
+}
+
+#xxilbtfvfm .gt_font_italic {
+  font-style: italic;
+}
+
+#xxilbtfvfm .gt_super {
+  font-size: 65%;
+}
+
+#xxilbtfvfm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xxilbtfvfm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xxilbtfvfm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xxilbtfvfm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xxilbtfvfm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xxilbtfvfm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xxilbtfvfm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xxilbtfvfm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xxilbtfvfm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 27%">
+<col style="width: 30%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal">AI 윤리적 이슈와 대응 전략</td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">책임있는 AI 사용을 위한 가이드</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="a윤리적이슈" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">윤리적 이슈</th>
+<th id="a구체적위험" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">구체적 위험</th>
+<th id="a예방및대응방안" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">예방 및 대응 방안</th>
+<th id="a모두의역할" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">모두의 역할</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="윤리적이슈" style="font-weight: bold; background-color: #FEE2E2">허위정보 확산</td>
+<td class="gt_row gt_left" headers="구체적위험">가짜뉴스, 딥페이크, 조작된 콘텐츠</td>
+<td class="gt_row gt_left" headers="예방및대응방안">출처 확인 습관화, 팩트체킹 도구 활용, 비판적 사고 유지</td>
+<td class="gt_row gt_center" headers="모두의역할">정보 검증 문화 확산</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="윤리적이슈" style="font-weight: bold; background-color: #FEF3C7">프라이버시 침해</td>
+<td class="gt_row gt_left" headers="구체적위험">개인정보 수집, 데이터 오용</td>
+<td class="gt_row gt_left" headers="예방및대응방안">민감정보 입력 자제, 개인정보 마스킹, 보안 설정 확인</td>
+<td class="gt_row gt_center" headers="모두의역할">데이터 보호 인식 제고</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="윤리적이슈" style="font-weight: bold; background-color: #DBEAFE">AI 의존성</td>
+<td class="gt_row gt_left" headers="구체적위험">비판적 사고력 저하, 창의성 감소</td>
+<td class="gt_row gt_left" headers="예방및대응방안">AI는 도구로만 활용, 자체 검증 필수, 균형잡힌 사용</td>
+<td class="gt_row gt_center" headers="모두의역할">주체적 사고 유지</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="윤리적이슈" style="font-weight: bold; background-color: #E0E7FF">편향과 차별</td>
+<td class="gt_row gt_left" headers="구체적위험">알고리즘 편향, 불공정한 결과</td>
+<td class="gt_row gt_left" headers="예방및대응방안">다양한 관점 확인, 편향 인식 교육, 공정성 평가</td>
+<td class="gt_row gt_center" headers="모두의역할">포용적 AI 개발</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="윤리적이슈" style="font-weight: bold; background-color: #F3E8FF">학술 부정직</td>
+<td class="gt_row gt_left" headers="구체적위험">AI 표절, 대리 작성</td>
+<td class="gt_row gt_left" headers="예방및대응방안">인용 명시, 정직한 사용, AI 활용 가이드라인</td>
+<td class="gt_row gt_center" headers="모두의역할">학문적 진실성 수호</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="ai-윤리-원칙" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="ai-윤리-원칙"><span class="header-section-number">1.4.3</span> AI 윤리 원칙</h3>
+<p>데이터 과학자들이 AI를 활용할 때 지켜야 할 윤리 원칙은 FAIR라는 약어로 정리할 수 있다. 공정성(Fairness)은 알고리즘이 특정 집단에 대해 편향된 결과를 내지 않도록 하는 것이다. 이를 위해서는 학습 데이터의 다양성을 확보하고, 모델의 예측 결과를 여러 인구통계학적 그룹별로 분석해야 한다. 책임성(Accountability)은 AI 모델의 결과에 대해 명확한 책임 소재를 정하는 것이다. AI가 내린 결정이라 하더라도 최종 책임은 이를 개발하고 배포한 사람에게 있음을 인식해야 한다.</p>
+<p>해석가능성(Interpretability)은 블랙박스로 여겨지는 AI 모델의 의사결정 과정을 이해할 수 있도록 만드는 것이다. 특히 의료, 금융, 법률 등 중요한 결정이 이루어지는 분야에서는 모델이 왜 특정한 예측을 했는지 설명할 수 있어야 한다. 재현가능성(Reproducibility)은 동일한 데이터와 방법론으로 동일한 결과를 얻을 수 있도록 모든 분석 과정을 문서화하는 것이다. 이는 과학적 엄밀성을 보장하고 결과의 신뢰성을 높이는 데 필수적이다.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">힌트</span>FAIR 원칙
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>F</strong>airness (공정성): 알고리즘 편향 최소화</li>
+<li><strong>A</strong>ccountability (책임성): 분석 결과에 대한 책임</li>
+<li><strong>I</strong>nterpretability (해석가능성): 모델 결정 과정 설명</li>
+<li><strong>R</strong>eproducibility (재현가능성): 분석 과정 문서화</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="책임있는-ai-사용-원칙" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="책임있는-ai-사용-원칙"><span class="header-section-number">1.4.4</span> 책임있는 AI 사용 원칙</h3>
+<p>모든 AI 사용자가 지켜야 할 TRUST 원칙은 책임있는 AI 활용의 기반이 된다. 투명성(Transparency)은 AI를 사용했다는 사실을 숨기지 않고 명확히 밝히는 것이다. 연구 논문이든 비즈니스 보고서든 AI의 도움을 받았다면 이를 명시해야 한다. 책임감(Responsibility)은 AI가 생성한 결과물에 대해서도 사용자가 최종 책임을 진다는 인식이다. AI가 잘못된 정보를 제공했다고 해서 책임을 회피할 수는 없다.</p>
+<p>이해(Understanding)는 AI의 능력과 한계를 정확히 파악하는 것이다. AI는 놀라운 능력을 가지고 있지만 완벽하지 않다. 할루시네이션(환각) 현상으로 그럴듯한 거짓 정보를 생성할 수 있고, 최신 정보에 대한 접근이 제한적일 수 있다. 안전성(Safety)은 개인정보 보호와 보안을 최우선으로 고려하는 것이다. 회사의 기밀 정보나 개인의 민감한 데이터를 AI 서비스에 입력하는 것은 심각한 보안 위험을 초래할 수 있다.</p>
+<p>진실성(Truth)은 AI가 제공한 정보의 정확성을 항상 검증하는 자세다. AI는 매우 설득력 있게 잘못된 정보를 제시할 수 있으므로, 중요한 의사결정에 사용하기 전에는 반드시 사실 확인 과정을 거쳐야 한다. 특히 통계 수치나 역사적 사실, 과학적 정보 등은 신뢰할 수 있는 출처를 통해 재확인하는 것이 필수적이다.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">힌트</span>TRUST 원칙
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>T</strong>ransparency (투명성): AI 사용 사실을 명시</li>
+<li><strong>R</strong>esponsibility (책임감): 결과에 대한 책임 인식</li>
+<li><strong>U</strong>nderstanding (이해): AI의 한계와 위험 이해</li>
+<li><strong>S</strong>afety (안전성): 개인정보와 보안 우선</li>
+<li><strong>T</strong>ruth (진실성): 정확성 검증과 사실 확인</li>
+</ul>
+</div>
+</div>
+<p>AI 시대를 살아가는 우리 모두는 기술의 혜택을 누리면서도 그에 따른 책임을 인식해야 한다. AI는 우리의 업무를 효율적으로 만들고 창의성을 증폭시킬 수 있는 강력한 도구이지만, 그 사용에는 신중함이 필요하다. 데이터 과학자들은 특히 AI가 사회에 미치는 영향력을 고려하여, 기술적 우수성과 윤리적 책임감의 균형을 맞춰야 한다.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-ciesla2024book" class="csl-entry" role="listitem">
+Ciesla, R. (2024). <em>The Book of Chatbots: From ELIZA to ChatGPT</em>. Springer Nature.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "복사완료!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "복사완료!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="서문">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">서문</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./basic_engineering.html" class="pagination-link" aria-label="AI 공학">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI 공학</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-book"></i> <a href="https://quarto.org/">Quarto</a>로 제작<br> <i class="bi bi-palette"></i> <a href="https://r2bit.com/">R2bit</a> 디자인</p>
+</div>
+</div>   
+    <div class="nav-footer-center">
+<div style="text-align: center;">
+<p><img src="assets/favicon-32x32.png" alt="Logo" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> <strong>챗GPT AI</strong> | AI와 함께하는 데이터 과학 여행<br> <span style="font-size: 0.9em;">© 2025 <a href="mailto:admin@r2bit.com">한국 R 사용자회</a> | 이광춘 저</span></p>
+</div>
+</div>
+    <div class="nav-footer-right">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-github"></i> <a href="https://github.com/bit2r/gpt-ai">소스 코드</a><br> <i class="bi bi-bug"></i> <a href="https://github.com/bit2r/gpt-ai/issues">이슈 리포트</a></p>
+</div>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

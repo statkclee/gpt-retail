@@ -1,0 +1,136 @@
+project:
+  type: book
+  output-dir: docs
+  preview:
+    port: 7771
+    browser: false  
+  render:
+    - "*.qmd"
+    - "!*.Rmd"
+  resources:
+    - "data/*.mp3"
+    - "data/*.wav"
+    - "data/LibriSpeech/*.mp3"
+
+lang: ko-KR
+
+crossref:
+  chapters: true
+  sec-prefix: ""
+
+language:
+  crossref-ch-prefix: ""
+  section-title-abstract: "초록"
+  section-title-references: "참고문헌"
+
+book:
+  title: "AI가 밝혀낸 유통 고수요 데이터의 진실"
+  subtitle: "챗GPT AI 데이터 과학" 
+  author:
+    - name: "이광춘"
+      affiliations: "한국 R 사용자회"
+    - name: "김상우"
+      affiliations: "마켓링크"
+    - name: "김종호"
+      affiliations: "마켓링크"
+    - name: "정근호"
+      affiliations: "마켓링크"
+  date: last-modified
+  date-format: "YYYY년 MM월 DD일"  
+  reader-mode: true
+  favicon: "assets/android-chrome-192x192.png"
+  cover-image: assets/android-chrome-512x512.png
+  google-analytics: "UA-229551680-1"
+  search:
+    location: navbar
+    type: overlay
+  chapters:
+    - index.qmd
+    - part: "**1부 기본지식**"
+      chapters:
+        - basic_gpt.qmd         # OK      
+        - basic.qmd             # OK
+        - basic_engineering.qmd # OK
+        - basic_ide.qmd         # OK
+        - basic_api.qmd         # OK
+    - part: "**2부 AI 코딩**"
+      chapters:
+        - coding_prompt.qmd     # OK
+        - coding_context.qmd    # OK
+        - coding_openai.qmd     # OK        
+        - coding_ide.qmd        # OK
+        - coding_ellmer.qmd     # OK
+        - coding_claude.qmd     # OK
+    - part: "**3부 사례 분석**"
+      chapters:
+        - proj_penguin.qmd      # OK
+        - proj_penguin_py.qmd   # OK
+        - proj_market.qmd       # OK
+        - proj_survey.qmd       # OK
+        - proj_car.qmd          # OK
+
+    - end.qmd
+    - references.qmd
+  page-footer:
+    background: "#1e5b96"
+    left: |
+      <div style="font-size: 0.85em;">
+      <i class="bi bi-book"></i> [Quarto](https://quarto.org/)로 제작<br>
+      <i class="bi bi-palette"></i> [R2bit](https://r2bit.com/) 디자인
+      </div>
+    center: |
+      <div style="text-align: center;">
+      <img src="assets/favicon-32x32.png" alt="Logo" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> **챗GPT AI** | AI와 함께하는 데이터 과학 여행<br>
+      <span style="font-size: 0.9em;">© 2025 [한국 R 사용자회](mailto:admin@r2bit.com) | 이광춘 저</span>
+      </div>
+    right: |
+      <div style="font-size: 0.85em;">
+      <i class="bi bi-github"></i> [소스 코드](https://github.com/bit2r/gpt-ai)<br>
+      <i class="bi bi-bug"></i> [이슈 리포트](https://github.com/bit2r/gpt-ai/issues)
+      </div>
+
+# format:
+  # bitPublish-pdf: default
+
+# Filters
+filters:
+  - shinylive
+  - webr
+  - pyodide  
+
+# Bibliography
+bibliography: assets/references.bib
+csl: assets/apa-single-spaced.csl
+link-citations: true
+
+# Execution
+execute:
+  freeze: auto
+
+# ---------------------------------- #
+engine: knitr
+
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+    collapse: true
+    code-overflow: wrap
+    fig-crop: false
+    comment: "#>"
+    R.options:
+      knitr.graphics.auto_pdf: true
+
+# Jupyter
+jupyter:
+  kernelspec:
+    name: "pandas_env"
+    language: "python"
+    display_name: "Python (pandas_env)"
+
+# Editor
+editor_options: 
+  chunk_output_type: console
+
+# Additional features
+lightbox: true
