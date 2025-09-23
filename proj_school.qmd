@@ -1,8 +1,16 @@
-# 급식비 절약의 숨겨진 진실 {.unnumbered}
+# 급식비 절약의 숨겨진 진실
 
 전국 학교급식 예산이 **위기**에 처했다. 2024년 급식 단가는 평균 3,664원으로 전년 대비 213원 인상되었지만, 치솟는 물가를 따라잡지 못하고 있다. 더 심각한 것은 **지역 간 격차**다. 서울 초등학교 급식비 4,098원과 전북 3,390원 사이에는 708원이라는 거대한 간극이 존재한다.
 
 하지만 데이터가 보여주는 진실은 놀랍다. **똑똑한 조달 전략**만으로도 예산 위기를 극복할 수 있다는 것이다. 17개 광역시도와 5개 유통채널을 망라한 대규모 분석 결과, 현재 조달 방식의 비효율성이 적나라하게 드러났으며, 이를 개선할 경우 상당한 예산 절감이 가능함을 확인했다.
+
+![급식비 절약 분석 전략 로드맵](images/school_meal_analysis_strategy.svg){#fig-analysis-strategy}
+
+@fig-analysis-strategy 는 이번 분석의 전체적인 접근 방법을 보여준다. **문제 정의**에서 시작하여 **데이터 분석**을 통해 비효율성의 블랙홀을 발견하고, **절약 잠재력**을 정량화한 후, 마지막으로 **실행 가능한 로드맵**을 제시하는 4단계 전략이다. 이러한 체계적 접근을 통해 단순한 비용 절감을 넘어서 지속 가능한 급식 운영 모델을 구축하고자 한다. 
+
+![학교급식 식재료 데이터셋 구조 및 실제 데이터 샘플](images/dataset_school_meal.svg){#fig-school-meal-dataset}
+
+이번 분석에서 활용하는 **농산물 학교급식 식재료 소비 품목 데이터**는 전국 급식 현장의 실제 조달 현황을 세밀하게 담고 있다. @fig-school-meal-dataset 에서 확인할 수 있듯이, 데이터의 핵심은 **학교급별 세분화된 측정 체계**에 있다. 유치원부터 고등학교까지 각 교육과정별로 중량(KG)과 금액(원) 데이터를 동시에 제공하며, 중학교와 고등학교는 성별까지 구분한다. 특히 주목할 점은 **유통채널별로 동일한 품목의 가격 격차**를 정밀하게 비교할 수 있다는 것이다. 이러한 데이터 구조를 통해 급식 조달의 효율성을 다각도로 분석하고, 실질적인 비용 절감 방안을 도출할 수 있다.
 
 ```{r}
 #| include: false
@@ -23,22 +31,15 @@ library(lubridate)
 meal_data_raw <- read_csv("data/1_샘플_(고수요데이터)_농산물 학교급식 식재료 소비 품목 데이터.csv",
                           locale = locale(encoding = "UTF-8"))
 
-# 데이터 전처리
+# 데이터 전처리 - Wide to Long 변환
 meal_data <- meal_data_raw %>%
+  # 기본 변수 전처리
   mutate(
     # 월코드(M202401)를 날짜형으로 변환
     월코드_원본 = 월코드,
     년도 = as.numeric(str_sub(월코드, 2, 5)),
     월 = as.numeric(str_sub(월코드, 6, 7)),
     날짜 = ymd(paste0(년도, "-", sprintf("%02d", 월), "-01")),
-
-    # 범주형 변수를 factor로 변환
-    카테고리 = factor(카테고리),
-    유통채널 = factor(유통채널,
-                   levels = c("식자재마트", "일반슈퍼", "체인슈퍼", "대형마트", "편의점")),
-    광역시도 = factor(광역시도),
-
-    # 시계열 분석을 위한 추가 변수
     분기 = quarter(날짜),
     계절 = case_when(
       월 %in% c(12, 1, 2) ~ "겨울",
@@ -47,379 +48,550 @@ meal_data <- meal_data_raw %>%
       월 %in% c(9, 10, 11) ~ "가을"
     ),
     계절 = factor(계절, levels = c("봄", "여름", "가을", "겨울"))
+  ) %>%
+  # KG 데이터를 Long 형식으로 변환
+  pivot_longer(
+    cols = starts_with("KG_"),
+    names_to = "학교급_성별_KG",
+    values_to = "KG",
+    names_prefix = "KG_"
+  ) %>%
+  # 원 데이터를 Long 형식으로 변환
+  pivot_longer(
+    cols = starts_with("원_"),
+    names_to = "학교급_성별_원",
+    values_to = "원",
+    names_prefix = "원_"
+  ) %>%
+  # KG와 원 데이터가 같은 학교급_성별인 경우만 매칭
+  filter(학교급_성별_KG == 학교급_성별_원) %>%
+  # 학교급과 성별 분리
+  separate(학교급_성별_KG, into = c("학교급", "성별"), sep = "_", fill = "right") %>%
+  select(-학교급_성별_원) %>%
+  # 결측값을 0으로 처리
+  mutate(
+    KG = replace_na(KG, 0),
+    원 = replace_na(원, 0),
+    성별 = replace_na(성별, "공통")
+  ) %>%
+  # 0인 행 제거 (해당 학교급에서 구매하지 않은 경우)
+  filter(KG > 0 | 원 > 0) %>%
+  # 학교급과 성별을 factor로 변환
+  mutate(
+    카테고리 = factor(카테고리),
+    유통채널 = factor(유통채널, levels = c("식자재마트", "일반슈퍼", "체인슈퍼", "대형마트", "편의점")),
+    광역시도 = factor(광역시도),
+    학교급 = factor(학교급, levels = c("유치원", "초등학교", "중학교", "고등학교")),
+    성별 = factor(성별, levels = c("공통", "남", "녀", "남녀공학"))
+  ) %>%
+  # 그룹별로 중복 제거 및 통합
+  group_by(카테고리, 유통채널, 광역시도, 날짜, 년도, 월, 분기, 계절, 학교급, 성별) %>%
+  summarise(
+    소매_매출액_원 = first(소매_매출액_원),  # 중복 제거
+    KG = sum(KG, na.rm = TRUE),             # 같은 조건의 데이터 통합
+    원 = sum(원, na.rm = TRUE),             # 같은 조건의 데이터 통합
+    .groups = 'drop'
   )
 
-# 학교급식 전용 데이터프레임 생성
+# 학교급식 전용 데이터프레임 생성 (분석용으로 다시 집계)
 school_df <- meal_data %>%
-  # 결측값을 0으로 처리
-  mutate(across(starts_with("KG_"), ~replace_na(.x, 0)),
-         across(starts_with("원_"), ~replace_na(.x, 0))) %>%
-  # 학교급별 총합 계산
-  rowwise() %>%
-  mutate(
-    총_KG = sum(c_across(starts_with("KG_")), na.rm = TRUE),
-    총_원 = sum(c_across(starts_with("원_")), na.rm = TRUE),
-    # 단가 계산 (원/KG)
-    단가_원_per_KG = ifelse(총_KG > 0, 총_원 / 총_KG, NA)
+  # 채널, 지역, 월별로 집계하여 분석용 데이터 생성
+  group_by(카테고리, 유통채널, 광역시도, 날짜, 년도, 월, 분기, 계절) %>%
+  summarise(
+    총_KG = sum(KG, na.rm = TRUE),
+    총_원 = sum(원, na.rm = TRUE),
+    소매_매출액_원 = first(소매_매출액_원),  # 중복 제거
+    .groups = 'drop'
   ) %>%
-  ungroup() %>%
-  # 급식 관련 변수만 선택
-  select(
-    카테고리, 유통채널, 광역시도, 날짜, 년도, 월, 분기, 계절,
-    starts_with("KG_"), starts_with("원_"), 총_KG, 총_원, 단가_원_per_KG
+  # 단가 계산 (원/KG)
+  mutate(
+    단가_원_per_KG = ifelse(총_KG > 0, 총_원 / 총_KG, NA)
   ) %>%
   # 유효한 급식 데이터만 필터링
   filter(총_KG > 0, !is.na(단가_원_per_KG))
 ```
 
-## 🔍 급식비 블랙홀의 정체
+## 급식비 블랙홀 정체
 
-우리가 발견한 것은 충격적이다. 학교급식 조달 시스템에 거대한 **비효율성의 블랙홀**이 존재한다는 사실이다. 같은 찹쌀을 구매하면서도 유통채널에 따라 가격이 천차만별이고, 지역별로도 상상을 초월하는 격차가 벌어지고 있다.
+학교급식 조달 시스템에 거대한 **비효율성의 블랙홀**이 존재한다는 사실이다. 같은 찹쌀을 구매하면서도 유통채널에 따라 가격이 천차만별이고, 지역별로도 상상을 초월하는 격차가 벌어지고 있다.
+
+급식 조달의 진짜 문제를 파악하기 위해 **소매시장과 급식시장을 직접 비교**해보자. 같은 찹쌀이지만 소매와 급식에서 완전히 다른 패턴을 보인다면, 그곳에 비효율의 블랙홀이 숨어있을 것이다.
 
 ```{r}
-#| label: market-analysis
+#| label: fig-retail-vs-meal-comparison
 #| echo: false
+#| fig-width: 14
+#| fig-height: 10
 
-# 시장 규모 계산
-total_market <- tibble(
-  총_소매_시장 = sum(meal_data$소매_매출액_원, na.rm = TRUE),
-  총_급식_시장 = sum(school_df$총_원, na.rm = TRUE),
-  총_급식_중량 = sum(school_df$총_KG, na.rm = TRUE)
-) %>%
+# 소매 vs 급식 매출액 비교 분석 데이터 준비 (이미 정리된 school_df 사용)
+comparison_data <- school_df %>%
+  filter(!is.na(소매_매출액_원), 소매_매출액_원 > 0) %>%
   mutate(
-    전체_시장 = 총_소매_시장 + 총_급식_시장,
-    급식_평균_단가 = 총_급식_시장 / 총_급식_중량,
-    급식_시장_점유율 = 총_급식_시장 / 전체_시장 * 100,
-    소매_대비_급식_비율 = 총_급식_시장 / 총_소매_시장 * 100
+    소매_매출액_억원 = 소매_매출액_원 / 100000000,
+    급식_매출액_억원 = 총_원 / 100000000,
+    급식_대비_소매_비율 = ifelse(급식_매출액_억원 > 0, 소매_매출액_억원 / 급식_매출액_억원, NA),
+    소매_대비_급식_비율 = ifelse(소매_매출액_억원 > 0, 급식_매출액_억원 / 소매_매출액_억원 * 100, 0)
   )
 
-# 결과 출력
-cat("📊 2024년 찹쌀 시장 전체 구조\n\n")
-cat("🏢 시장 규모:\n")
-cat("- 전체 시장:", comma(total_market$전체_시장), "원\n")
-cat("- 학교급식 시장:", comma(total_market$총_급식_시장), "원\n")
-cat("- 급식 시장 점유율:", round(total_market$급식_시장_점유율, 1), "%\n\n")
+# 1. 시도별 소매 vs 급식 매출액 비교
+regional_comparison <- comparison_data %>%
+  group_by(광역시도) %>%
+  summarise(
+    소매_매출액 = sum(소매_매출액_억원, na.rm = TRUE),
+    급식_매출액 = sum(급식_매출액_억원, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    소매_대비_급식_비율 = ifelse(소매_매출액 > 0, 급식_매출액 / 소매_매출액 * 100, 0)
+  ) %>%
+  arrange(desc(소매_대비_급식_비율))
 
-cat("📈 급식 조달 현황:\n")
-cat("- 총 구매량:", comma(total_market$총_급식_중량), "KG\n")
-cat("- 현재 평균 단가:", comma(round(total_market$급식_평균_단가)), "원/KG\n")
+p1 <- regional_comparison %>%
+  arrange(급식_매출액) %>%  # 급식 매출액 기준으로 정렬
+  pivot_longer(cols = c(소매_매출액, 급식_매출액), names_to = "시장유형", values_to = "매출액") %>%
+  mutate(
+    시장유형 = ifelse(시장유형 == "소매_매출액", "소매시장", "급식시장"),
+    광역시도 = factor(광역시도, levels = regional_comparison$광역시도[order(regional_comparison$급식_매출액)])
+  ) %>%
+  ggplot(aes(x = 광역시도, y = 매출액, fill = 시장유형)) +
+  geom_col(position = "dodge", alpha = 0.8) +
+  scale_fill_manual(values = c("소매시장" = "#3498db", "급식시장" = "#e74c3c")) +
+  scale_y_continuous(labels = function(x) paste0(x, "억")) +
+  coord_flip() +
+  labs(
+    title = "시도별 소매 vs 급식 매출액 비교",
+    subtitle = "급식 매출액 기준 정렬 - 지역별 시장 구조 차이",
+    x = "광역시도",
+    y = "매출액 (억원)",
+    fill = "시장 유형"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    legend.position = "top"
+  )
+
+# 2. 유통채널별 소매 vs 급식 매출액 비교
+channel_comparison <- comparison_data %>%
+  group_by(유통채널) %>%
+  summarise(
+    소매_매출액 = sum(소매_매출액_억원, na.rm = TRUE),
+    급식_매출액 = sum(급식_매출액_억원, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    소매_대비_급식_비율 = ifelse(소매_매출액 > 0, 급식_매출액 / 소매_매출액 * 100, 0)
+  )
+
+p2 <- channel_comparison %>%
+  pivot_longer(cols = c(소매_매출액, 급식_매출액), names_to = "시장유형", values_to = "매출액") %>%
+  mutate(시장유형 = ifelse(시장유형 == "소매_매출액", "소매시장", "급식시장")) %>%
+  ggplot(aes(x = 유통채널, y = 매출액, fill = 시장유형)) +
+  geom_col(position = "dodge", alpha = 0.8) +
+  geom_text(aes(label = ifelse(매출액 > 0.1, paste0(round(매출액, 1), "억"), "")),
+            position = position_dodge(width = 0.9), vjust = -0.3, size = 3.5,
+            fontface = "bold", family = "Apple Gothic") +
+  scale_fill_manual(values = c("소매시장" = "#3498db", "급식시장" = "#e74c3c")) +
+  scale_y_continuous(labels = function(x) paste0(x, "억")) +
+  labs(
+    title = "유통채널별 소매 vs 급식 매출액",
+    subtitle = "채널별 시장 구조와 특화 패턴 비교",
+    x = "유통채널",
+    y = "매출액 (억원)",
+    fill = "시장 유형"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "top"
+  )
+
+# 3. 월별 소매 vs 급식 매출액 추이
+monthly_comparison <- comparison_data %>%
+  group_by(월) %>%
+  summarise(
+    소매_매출액 = sum(소매_매출액_억원, na.rm = TRUE),
+    급식_매출액 = sum(급식_매출액_억원, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
+  pivot_longer(cols = c(소매_매출액, 급식_매출액), names_to = "시장유형", values_to = "매출액") %>%
+  mutate(시장유형 = ifelse(시장유형 == "소매_매출액", "소매시장", "급식시장"))
+
+p3 <- monthly_comparison %>%
+  ggplot(aes(x = factor(월), y = 매출액, color = 시장유형, group = 시장유형)) +
+  # 방학 기간 배경 표시
+  annotate("rect", xmin = 6.5, xmax = 8.5, ymin = -Inf, ymax = Inf,
+           fill = "yellow", alpha = 0.1) +
+  annotate("rect", xmin = 11.5, xmax = 2.5, ymin = -Inf, ymax = Inf,
+           fill = "lightblue", alpha = 0.1) +
+  geom_line(size = 2, alpha = 0.8) +
+  geom_point(size = 4, alpha = 0.9) +
+  geom_text(aes(label = paste0(round(매출액, 1), "억")),
+            vjust = -1.2, size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  scale_color_manual(values = c("소매시장" = "#3498db", "급식시장" = "#e74c3c")) +
+  scale_y_continuous(labels = function(x) paste0(x, "억")) +
+  scale_x_discrete(labels = paste0(1:12, "월")) +
+  labs(
+    title = "월별 소매 vs 급식 매출액 추이",
+    subtitle = "계절성과 방학 효과 - 노란색: 여름방학, 연파랑: 겨울방학",
+    x = "월",
+    y = "매출액 (억원)",
+    color = "시장 유형"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    legend.position = "top"
+  )
+
+# 그래프 조합
+library(patchwork)
+(p1 + p2) / p3 +
+  plot_annotation(
+    title = "소매 vs 급식 시장 격차 분석",
+    subtitle = "시도별 × 채널별 × 월별 종합 비교",
+    theme = theme(
+      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
+      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
+    )
+  )
 ```
 
-### 🏪 유통채널의 숨겨진 격차
-
 ```{r}
-#| label: channel-analysis
+#| label: comparison-insights
 #| echo: false
 
-# 유통채널별 효율성 분석
-channel_efficiency <- school_df %>%
+# 실제 데이터 기반 인사이트 계산
+channel_summary <- comparison_data %>%
+  group_by(유통채널) %>%
+  summarise(
+    소매_총매출 = sum(소매_매출액_억원, na.rm = TRUE),
+    급식_총매출 = sum(급식_매출액_억원, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
+  arrange(desc(소매_총매출))
+
+regional_summary <- comparison_data %>%
+  group_by(광역시도) %>%
+  summarise(
+    소매_총매출 = sum(소매_매출액_억원, na.rm = TRUE),
+    급식_총매출 = sum(급식_매출액_억원, na.rm = TRUE),
+    소매_우세_여부 = sum(소매_매출액_억원, na.rm = TRUE) > sum(급식_매출액_억원, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
+  arrange(desc(소매_총매출))
+
+# 대형마트 데이터
+대형마트_소매 <- channel_summary %>% filter(유통채널 == "대형마트") %>% pull(소매_총매출)
+대형마트_급식 <- channel_summary %>% filter(유통채널 == "대형마트") %>% pull(급식_총매출)
+대형마트_비율 <- round(대형마트_급식 / 대형마트_소매 * 100)
+
+# 식자재마트 데이터
+식자재마트_소매 <- channel_summary %>% filter(유통채널 == "식자재마트") %>% pull(소매_총매출)
+식자재마트_급식 <- channel_summary %>% filter(유통채널 == "식자재마트") %>% pull(급식_총매출)
+식자재마트_배수 <- round(식자재마트_급식 / 식자재마트_소매, 1)
+
+# 편의점 데이터
+편의점_소매 <- channel_summary %>% filter(유통채널 == "편의점") %>% pull(소매_총매출)
+편의점_급식 <- channel_summary %>% filter(유통채널 == "편의점") %>% pull(급식_총매출)
+
+# 소매 우세 지역
+소매_우세_지역 <- regional_summary %>% filter(소매_우세_여부 == TRUE) %>% pull(광역시도)
+급식_우세_지역 <- regional_summary %>% filter(소매_우세_여부 == FALSE) %>% head(3) %>% pull(광역시도)
+```
+
+시도별 지역별 분석에서 발견되는 **가장 놀라운 사실은 `r paste(소매_우세_지역, collapse = ", ")`에서 나타나는 소매시장 우세 현상**이다. 이는 다른 지역과 완전히 상반된 패턴으로, 수도권의 높은 인구밀도와 발달된 소매 인프라가 만들어낸 독특한 시장 구조를 보여준다. 반면 **`r paste(급식_우세_지역, collapse = ", ")` 등 광역시 지역에서는 급식시장이 소매시장을 압도하는 전형적인 패턴**을 보인다. 이는 해당 지역의 학교 수와 급식 규모, 소매시장의 상대적 발달 수준 차이에서 기인하는 것으로 해석된다.
+
+**대형마트의 압도적 소매시장 지배력**은 약 `r round(대형마트_소매)`억원의 매출로 1위를 기록하는 반면, 급식시장에서는 `r round(대형마트_급식)`억원(`r 대형마트_비율`% 수준)에 머물러 있다. 이는 대형마트의 규모의 경제가 급식 조달에서는 충분히 활용되지 못하고 있음을 의미한다. **식자재마트는 정반대 패턴**을 보인다. 급식 매출액(`r round(식자재마트_급식)`억원)이 소매 매출액(`r round(식자재마트_소매)`억원)을 초과하며, 명확한 B2B 급식 특화 채널로 자리 잡았다. **편의점은 급식시장에서 거의 존재감이 없으며**, 소매시장에서만 `r round(편의점_소매,2)`억원의 미미한 매출을 기록한다. 이는 편의점의 높은 단가 구조가 대량 구매가 필요한 급식 조달에 완전히 부적합함을 보여준다.
+
+월별 추이 분석에서 가장 극명한 패턴은 **급식시장의 강력한 계절성**이다. 일반적으로 급식시장이 소매시장을 압도하는 모습을 보이지만, **여름방학(7-8월)과 겨울방학(12월-2월) 시기**에는 급식 매출액이 급격히 하락한다. 방학기간 동안 학교 급식이 중단되는 시기와 정확히 일치하는 패턴으로, 급식시장의 **절대적 학사일정 의존성**을 보여준다. 반면 소매시장은 상대적으로 안정적인 패턴을 유지하며, 방학 기간 중에는 오히려 소매시장이 급식시장을 역전하는 흥미로운 현상을 관찰할 수 있다.
+
+
+
+## 급식 시장 분석
+
+급식시장에서는 **동일한 찹쌀을 구매하면서도 채널, 지역, 시점에 따라 상당한 가격 편차**가 @fig-school-meal-unit-price-analysis 을 통해 관찰되고 있다. 이러한 현상은 단순한 시장 차이를 넘어 구조적 비효율성을 시사하는 것으로 보인다.
+
+채널별 단가 분석에서 주목할 만한 점은 **효율성 순위 #1부터 #5까지의 상당히 명확한 서열**이 나타나는 것이다. 그러나 현실에서는 이러한 효율성 순위와 실제 구매 비중이 반드시 일치하지 않을 수 있으며,  조달 프로세스 개선의 여지가 있음을 시사한다. 급식 조달 담당자들이 관습적으로 이용하던 채널이 **실제로는 상대적으로 높은 가격대의 채널**일 가능성도 있어 보인다. 특히 그래프에서 보이는 색상 그라데이션(녹색에서 빨간색)은 단순한 시각적 효과를 넘어 **연간 상당한 규모의 예산 차이**를 나타낼 수 있다. 각 채널별로 표시된 효율성 순위 레이블은 급식 담당자들이 **참고할 만한 실용적 가이드**로 활용될 수 있을 것이다.
+
+지역별 가중평균 단가 분석에서 도입한 **우수-보통-개선필요 3단계 등급 시스템**은 단순한 분류를 넘어 실질적인 정책 방향성을 제시하는 것으로 해석된다. 우수 등급(녹색) 지역들은 이미 효율적인 조달 시스템을 구축했을 가능성을 보여주며, **모범 사례를 다른 지역에 공유**하는 것이 하나의 접근 방법이 될 수 있다. 반면 개선필요 등급(빨간색) 지역들은 조달 프로세스 개선의 여지가 있음을 시사한다. @tbl-unit-price-summary 에서 확인할 수 있듯이, 구매량을 가중한 평균 단가를 사용함으로써 **실제 예산 집행 현황을 보다 정확히 반영**한 것이 분석의 중요한 특징이다.
+
+월별 가중평균 단가 추이에서 나타나는 **방학 기간 배경색 표시**는 계절적 패턴을 이해하는 데 도움이 되는 시각적 장치로 볼 수 있다. 여름방학(노란색)과 겨울방학(연파랑) 시기의 가격 패턴은 **전략적 구매 계획 수립**에 참고할 만한 정보를 제공한다. 만약 특정 월에 단가가 상대적으로 낮다면, 그 시기의 **구매량 조정이나 저장 전략**을 고려해볼 수 있을 것이다. 각 데이터 포인트의 색상 구분(빨간색 vs 주황색)은 방학 기간과 학기 중의 가격 구조 차이를 시각화하며, 이를 통해 **구매 물량과 시장 가격의 상관관계**를 이해하는 데 도움이 될 수 있다.
+
+```{r}
+#| label: fig-school-meal-unit-price-analysis
+#| echo: false
+#| fig-width: 16
+#| fig-height: 12
+#| fig-cap: 찹쌀 급식시장 요인별 분석 그래프
+
+# 1. 채널별 평균 단가 분석 (급식 시장만)
+channel_price <- school_df %>%
   group_by(유통채널) %>%
   summarise(
     평균_단가 = mean(단가_원_per_KG, na.rm = TRUE),
     총_구매량 = sum(총_KG, na.rm = TRUE),
-    총_구매액 = sum(총_원, na.rm = TRUE),
+    구매건수 = n(),
     .groups = 'drop'
   ) %>%
+  filter(총_구매량 > 0) %>%  # 급식 구매가 있는 채널만
   arrange(평균_단가) %>%
   mutate(
     효율성_순위 = row_number(),
-    시장_점유율 = percent(총_구매액 / sum(총_구매액))
+    유통채널 = factor(유통채널, levels = 유통채널)
   )
 
-# 핵심 지표 추출
-most_efficient_channel <- channel_efficiency$유통채널[1]
-least_efficient_channel <- channel_efficiency$유통채널[nrow(channel_efficiency)]
-best_price <- channel_efficiency$평균_단가[1]
-worst_price <- channel_efficiency$평균_단가[nrow(channel_efficiency)]
-price_gap <- worst_price - best_price
+p1 <- channel_price %>%
+  ggplot(aes(x = 유통채널, y = 평균_단가, fill = 효율성_순위)) +
+  geom_col(alpha = 0.8, width = 0.7) +
+  geom_text(aes(label = paste0(comma(round(평균_단가)), "원\n", "#", 효율성_순위)),
+            vjust = -0.3, size = 4, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_gradient(low = "#2e8b57", high = "#dc143c", guide = "none") +
+  scale_y_continuous(labels = function(x) paste0(comma(x), "원"), limits = c(0, 6500)) +
+  labs(
+    title = "급식시장 채널별 찹쌀 평균 구매단가",
+    subtitle = "효율성 순위 #1(최저가) ~ #5(최고가) - 급식 조달 채널만 분석",
+    x = "유통채널",
+    y = "평균 단가 (원/KG)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "none"
+  )
 
-cat("🏪 유통채널 효율성 순위\n\n")
-cat("✅ 최고 효율 채널:", most_efficient_channel, "\n")
-cat("   - 평균 단가:", comma(round(best_price)), "원/KG\n\n")
-
-cat("❌ 최저 효율 채널:", least_efficient_channel, "\n")
-cat("   - 평균 단가:", comma(round(worst_price)), "원/KG\n\n")
-
-cat("💰 채널간 단가 격차:", comma(round(price_gap)), "원/KG\n")
-cat("   - 격차율:", round((price_gap / best_price) * 100, 1), "%\n")
-```
-
-```{r}
-#| label: tbl-channel-efficiency
-#| tbl-cap: "유통채널별 조달 효율성 - 승자와 패자의 극명한 대비"
-
-channel_efficiency %>%
-  mutate(
-    평균_단가 = comma(round(평균_단가)),
-    총_구매량 = comma(총_구매량),
-    총_구매액 = comma(총_구매액)
-  ) %>%
-  gt() %>%
-  cols_label(
-    유통채널 = "유통채널",
-    효율성_순위 = "효율성 순위",
-    평균_단가 = "평균 단가(원/KG)",
-    총_구매량 = "총 구매량(KG)",
-    총_구매액 = "총 구매액(원)",
-    시장_점유율 = "시장 점유율"
-  ) %>%
-  cols_width(
-    유통채널 ~ pct(18),
-    효율성_순위 ~ pct(12),
-    평균_단가 ~ pct(18),
-    총_구매량 ~ pct(16),
-    총_구매액 ~ pct(18),
-    시장_점유율 ~ pct(18)
-  ) %>%
-  cols_align(
-    align = "center",
-    columns = c(효율성_순위, 평균_단가, 시장_점유율)
-  ) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_body(columns = 유통채널)
-  ) %>%
-  tab_style(
-    style = cell_fill(color = "#E8F5E8"),
-    locations = cells_body(rows = 효율성_순위 == 1)
-  ) %>%
-  tab_style(
-    style = cell_fill(color = "#FFEBEE"),
-    locations = cells_body(rows = 효율성_순위 == max(효율성_순위))
-  ) %>%
-  tab_style(
-    style = cell_fill(color = "#FAFAFA"),
-    locations = cells_body(rows = c(2, 4))
-  ) %>%
-  tab_options(
-    table.width = pct(85),
-    table.font.size = px(11),
-    heading.background.color = "#2C3E50",
-    heading.title.font.size = px(16),
-    column_labels.background.color = "#34495E",
-    column_labels.font.weight = "bold",
-    column_labels.font.size = px(11),
-    table.border.top.style = "solid",
-    table.border.top.width = px(2),
-    table.border.top.color = "#2C3E50",
-    table.border.bottom.style = "solid",
-    table.border.bottom.width = px(2),
-    table.border.bottom.color = "#2C3E50"
-  ) %>%
-  opt_table_font(font = "Apple Gothic") %>%
-  tab_source_note("출처: 농산물 학교급식 식재료 소비 품목 데이터 (2024.01)")
-```
-
-### 🌍 지역별 격차의 진실
-
-```{r}
-#| label: regional-analysis
-#| echo: false
-
-# 지역별 효율성 분석
-regional_efficiency <- school_df %>%
+# 2. 지역별 평균 단가 분석 (급식 시장만)
+regional_price <- school_df %>%
   group_by(광역시도) %>%
   summarise(
     평균_단가 = mean(단가_원_per_KG, na.rm = TRUE),
+    가중평균_단가 = sum(단가_원_per_KG * 총_KG, na.rm = TRUE) / sum(총_KG, na.rm = TRUE),
     총_구매량 = sum(총_KG, na.rm = TRUE),
-    총_구매액 = sum(총_원, na.rm = TRUE),
     .groups = 'drop'
   ) %>%
-  arrange(평균_단가) %>%
+  arrange(가중평균_단가) %>%
   mutate(
-    효율성_순위 = row_number(),
-    상대적_효율성 = round((1 - (평균_단가 - min(평균_단가)) / (max(평균_단가) - min(평균_단가))) * 100, 1)
+    광역시도 = factor(광역시도, levels = 광역시도),
+    효율성_등급 = case_when(
+      가중평균_단가 <= quantile(가중평균_단가, 0.33) ~ "우수",
+      가중평균_단가 <= quantile(가중평균_단가, 0.67) ~ "보통",
+      TRUE ~ "개선필요"
+    )
   )
 
-# 핵심 지표 추출
-most_efficient_region <- regional_efficiency$광역시도[1]
-least_efficient_region <- regional_efficiency$광역시도[nrow(regional_efficiency)]
-regional_best_price <- regional_efficiency$평균_단가[1]
-regional_worst_price <- regional_efficiency$평균_단가[nrow(regional_efficiency)]
-regional_price_gap <- regional_worst_price - regional_best_price
+p2 <- regional_price %>%
+  ggplot(aes(x = 광역시도, y = 가중평균_단가, fill = 효율성_등급)) +
+  geom_col(alpha = 0.8, width = 0.7) +
+  geom_text(aes(label = paste0(comma(round(가중평균_단가)), "원")),
+            angle = 90, hjust = -0.1, size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_manual(values = c("우수" = "#2e8b57", "보통" = "#ffd700", "개선필요" = "#dc143c")) +
+  scale_y_continuous(labels = function(x) paste0(comma(x), "원"), limits = c(0, 7500)) +
+  labs(
+    title = "급식시장 지역별 찹쌀 가중평균 구매단가",
+    subtitle = "구매량 가중 단가 기준 - 조달 효율성 등급별 분류",
+    x = NULL,
+    y = "가중평균 단가 (원/KG)",
+    fill = "효율성 등급"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "top"
+  )
 
-cat("🌍 지역별 효율성 순위\n\n")
-cat("✅ 최고 효율 지역:", most_efficient_region, "\n")
-cat("   - 평균 단가:", comma(round(regional_best_price)), "원/KG\n\n")
-
-cat("❌ 최저 효율 지역:", least_efficient_region, "\n")
-cat("   - 평균 단가:", comma(round(regional_worst_price)), "원/KG\n\n")
-
-cat("💰 지역간 단가 격차:", comma(round(regional_price_gap)), "원/KG\n")
-cat("   - 격차율:", round((regional_price_gap / regional_best_price) * 100, 1), "%\n")
-```
-
-```{r}
-#| label: regional-top-bottom
-#| tbl-cap: "지역별 조달 효율성 상위/하위 5개 지역"
-
-# 상위 5개와 하위 5개 지역 추출
-top_regions <- regional_efficiency %>% head(5) %>% mutate(구분 = "상위 5개")
-bottom_regions <- regional_efficiency %>% tail(5) %>% mutate(구분 = "하위 5개")
-
-bind_rows(top_regions, bottom_regions) %>%
-  select(구분, 광역시도, 효율성_순위, 평균_단가, 총_구매량, 상대적_효율성) %>%
+# 3. 월별 평균 단가 추이 (급식 시장만)
+monthly_price <- school_df %>%
+  group_by(월) %>%
+  summarise(
+    평균_단가 = mean(단가_원_per_KG, na.rm = TRUE),
+    가중평균_단가 = sum(단가_원_per_KG * 총_KG, na.rm = TRUE) / sum(총_KG, na.rm = TRUE),
+    총_구매량 = sum(총_KG, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
   mutate(
-    평균_단가 = comma(round(평균_단가)),
-    총_구매량 = comma(총_구매량),
-    상대적_효율성 = paste0(상대적_효율성, "%")
-  ) %>%
-  gt() %>%
-  cols_width(
-    구분 ~ pct(15),
-    광역시도 ~ pct(20),
-    효율성_순위 ~ pct(15),
-    평균_단가 ~ pct(20),
-    총_구매량 ~ pct(15),
-    상대적_효율성 ~ pct(15)
-  ) %>%
-  tab_options(
-    table.width = pct(100)
-  ) %>%
-  opt_table_font(
-    font = "Apple Gothic"
-  ) %>%
-  tab_header(title = "지역별 조달 효율성 분석 (상위/하위 5개 지역)") %>%
-  tab_style(
-    style = cell_fill(color = "#E8F5E8"),
-    locations = cells_body(rows = 구분 == "상위 5개")
-  ) %>%
-  tab_style(
-    style = cell_fill(color = "#FFEBEE"),
-    locations = cells_body(rows = 구분 == "하위 5개")
+    계절성_여부 = 월 %in% c(7, 8, 12, 1, 2)  # 방학 기간
+  )
+
+p3 <- monthly_price %>%
+  ggplot(aes(x = factor(월), y = 가중평균_단가, group = 1)) +
+  # 방학 기간 배경 표시
+  annotate("rect", xmin = 6.5, xmax = 8.5, ymin = -Inf, ymax = Inf,
+           fill = "yellow", alpha = 0.1) +
+  annotate("rect", xmin = 11.5, xmax = 2.5, ymin = -Inf, ymax = Inf,
+           fill = "lightblue", alpha = 0.1) +
+  geom_line(color = "#3498db", size = 2, alpha = 0.8) +
+  geom_point(aes(color = 계절성_여부), size = 4, alpha = 0.9) +
+  geom_text(aes(label = paste0(comma(round(가중평균_단가)), "원")),
+            vjust = -1.2, size = 4.5, fontface = "bold", family = "Apple Gothic") +
+  scale_color_manual(values = c("FALSE" = "#e74c3c", "TRUE" = "#f39c12"), guide = "none") +
+  scale_x_discrete(labels = paste0(1:12, "월")) +
+  scale_y_continuous(labels = function(x) paste0(comma(x), "원"), limits = c(5000, 6200)) +
+  labs(
+    title = "급식시장 월별 찹쌀 가중평균 구매단가 추이",
+    subtitle = "구매량 가중 단가 기준 - 방학기간(배경색) 가격 패턴",
+    x = NULL,
+    y = "가중평균 단가 (원/KG)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50")
+  )
+
+# 그래프 조합
+library(patchwork)
+(p1 | p2) / p3 +
+  plot_annotation(
+    title = "급식시장 찹쌀 구매단가 격차 분석",
+    subtitle = "채널별 × 지역별 × 월별 종합 비교 - 급식 조달 전용 분석",
+    theme = theme(
+      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
+      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
+    )
   )
 ```
 
-## 💰 숨겨진 보물: 급식비 절약의 거대한 잠재력
 
-### 🎯 절약 시나리오별 충격적 결과
+
+
+
 
 ```{r}
-#| label: savings-calculation
+#| label: price-gap-insights
 #| echo: false
 
-# 절약 잠재력 계산
-total_kg <- sum(school_df$총_KG, na.rm = TRUE)
-current_avg_price <- mean(school_df$단가_원_per_KG, na.rm = TRUE)
-best_available_price <- min(school_df$단가_원_per_KG, na.rm = TRUE)
-
-# 시나리오별 절약액 계산
-# 시나리오 1: 모든 조달을 최적 단가로
-max_monthly_savings <- (current_avg_price - best_available_price) * total_kg
-max_annual_savings <- max_monthly_savings * 12
-
-# 시나리오 2: 최고 효율 채널 활용
-optimal_channel_price <- channel_efficiency$평균_단가[1]
-channel_monthly_savings <- (current_avg_price - optimal_channel_price) * total_kg
-channel_annual_savings <- channel_monthly_savings * 12
-
-# 시나리오 3: 상위 3개 효율 채널만 활용
-top3_avg_price <- mean(channel_efficiency$평균_단가[1:3])
-top3_monthly_savings <- (current_avg_price - top3_avg_price) * total_kg
-top3_annual_savings <- top3_monthly_savings * 12
-
-cat("💰 절약 잠재력 분석\n\n")
-cat("📊 현재 조달 현황:\n")
-cat("- 월간 총 구매량:", comma(total_kg), "KG\n")
-cat("- 현재 평균 단가:", comma(round(current_avg_price)), "원/KG\n")
-cat("- 월간 총 구매액:", comma(round(current_avg_price * total_kg)), "원\n\n")
-
-cat("🎯 시나리오별 절약 잠재력:\n\n")
-
-cat("【시나리오 1】 최적 단가 달성\n")
-cat("- 목표 단가:", comma(round(best_available_price)), "원/KG\n")
-cat("- 월간 절약액:", comma(round(max_monthly_savings)), "원\n")
-cat("- 연간 절약액:", comma(round(max_annual_savings)), "원\n")
-cat("- 절약률:", round((max_monthly_savings / (current_avg_price * total_kg)) * 100, 1), "%\n\n")
-
-cat("【시나리오 2】 최고 효율 채널 집중\n")
-cat("- 목표 단가:", comma(round(optimal_channel_price)), "원/KG\n")
-cat("- 월간 절약액:", comma(round(channel_monthly_savings)), "원\n")
-cat("- 연간 절약액:", comma(round(channel_annual_savings)), "원\n")
-cat("- 절약률:", round((channel_monthly_savings / (current_avg_price * total_kg)) * 100, 1), "%\n\n")
-
-cat("【시나리오 3】 상위 3개 채널 활용\n")
-cat("- 목표 단가:", comma(round(top3_avg_price)), "원/KG\n")
-cat("- 월간 절약액:", comma(round(top3_monthly_savings)), "원\n")
-cat("- 연간 절약액:", comma(round(top3_annual_savings)), "원\n")
-cat("- 절약률:", round((top3_monthly_savings / (current_avg_price * total_kg)) * 100, 1), "%\n")
-```
-
-### 📊 시나리오별 절약 효과 비교
-
-```{r}
-#| label: tbl-savings-scenarios
-#| tbl-cap: "절약 시나리오별 충격적 결과 - 현재 vs 최적화"
-
-# 시나리오 비교 테이블 생성
-savings_scenarios <- tibble(
-  시나리오 = c("현재 상황", "최적 단가 달성", "최고 효율 채널", "상위 3개 채널"),
-  목표_단가 = c(current_avg_price, best_available_price, optimal_channel_price, top3_avg_price),
-  월간_구매액 = c(
-    current_avg_price * total_kg,
-    best_available_price * total_kg,
-    optimal_channel_price * total_kg,
-    top3_avg_price * total_kg
+# 종합 단가 분석 테이블 생성
+price_summary <- bind_rows(
+  # 채널별 분석 - 버그 수정
+  tibble(
+    구분 = "채널별",
+    최저_단가 = min(channel_price$평균_단가),
+    최고_단가 = max(channel_price$평균_단가),
+    평균_단가 = mean(channel_price$평균_단가),
+    격차_원 = max(channel_price$평균_단가) - min(channel_price$평균_단가),
+    격차_비율 = round((max(channel_price$평균_단가) - min(channel_price$평균_단가)) / min(channel_price$평균_단가) * 100, 1),
+    최저_채널 = channel_price$유통채널[which.min(channel_price$평균_단가)],
+    최고_채널 = channel_price$유통채널[which.max(channel_price$평균_단가)]
   ),
-  월간_절약액 = c(0, max_monthly_savings, channel_monthly_savings, top3_monthly_savings),
-  연간_절약액 = c(0, max_annual_savings, channel_annual_savings, top3_annual_savings),
-  절약률 = c(0,
-             round((max_monthly_savings / (current_avg_price * total_kg)) * 100, 1),
-             round((channel_monthly_savings / (current_avg_price * total_kg)) * 100, 1),
-             round((top3_monthly_savings / (current_avg_price * total_kg)) * 100, 1))
+  # 지역별 분석 - 버그 수정
+  tibble(
+    구분 = "지역별",
+    최저_단가 = min(regional_price$가중평균_단가),
+    최고_단가 = max(regional_price$가중평균_단가),
+    평균_단가 = mean(regional_price$가중평균_단가),
+    격차_원 = max(regional_price$가중평균_단가) - min(regional_price$가중평균_단가),
+    격차_비율 = round((max(regional_price$가중평균_단가) - min(regional_price$가중평균_단가)) / min(regional_price$가중평균_단가) * 100, 1),
+    최저_채널 = regional_price$광역시도[which.min(regional_price$가중평균_단가)],
+    최고_채널 = regional_price$광역시도[which.max(regional_price$가중평균_단가)]
+  ),
+  # 월별 분석 - 버그 수정
+  tibble(
+    구분 = "월별",
+    최저_단가 = min(monthly_price$가중평균_단가),
+    최고_단가 = max(monthly_price$가중평균_단가),
+    평균_단가 = mean(monthly_price$가중평균_단가),
+    격차_원 = max(monthly_price$가중평균_단가) - min(monthly_price$가중평균_단가),
+    격차_비율 = round((max(monthly_price$가중평균_단가) - min(monthly_price$가중평균_단가)) / min(monthly_price$가중평균_단가) * 100, 1),
+    최저_채널 = paste0(monthly_price$월[which.min(monthly_price$가중평균_단가)], "월"),
+    최고_채널 = paste0(monthly_price$월[which.max(monthly_price$가중평균_단가)], "월")
+  )
 ) %>%
   mutate(
-    목표_단가 = comma(round(목표_단가)),
-    월간_구매액 = comma(round(월간_구매액)),
-    월간_절약액 = comma(round(월간_절약액)),
-    연간_절약액 = comma(round(연간_절약액)),
-    절약률 = paste0(절약률, "%")
+    최저_단가 = paste0(comma(round(최저_단가)), "원"),
+    최고_단가 = paste0(comma(round(최고_단가)), "원"),
+    평균_단가 = paste0(comma(round(평균_단가)), "원"),
+    격차_원 = paste0(comma(round(격차_원)), "원"),
+    격차_비율 = paste0(격차_비율, "%")
   )
 
-savings_scenarios %>%
+# 채널별 격차 계산
+channel_gap_ratio <- price_summary %>%
+  filter(구분 == "채널별") %>%
+  pull(격차_비율) %>%
+  str_remove("%") %>%
+  as.numeric()
+
+# 지역별 격차 계산
+region_gap_ratio <- price_summary %>%
+  filter(구분 == "지역별") %>%
+  pull(격차_비율) %>%
+  str_remove("%") %>%
+  as.numeric()
+
+# 최고/최저 효율 채널
+best_channel <- price_summary %>% filter(구분 == "채널별") %>% pull(최저_채널)
+worst_channel <- price_summary %>% filter(구분 == "채널별") %>% pull(최고_채널)
+
+# 최고/최저 효율 지역
+best_region <- price_summary %>% filter(구분 == "지역별") %>% pull(최저_채널)
+worst_region <- price_summary %>% filter(구분 == "지역별") %>% pull(최고_채널)
+```
+
+@tbl-unit-price-summary 의 분석 결과를 보면, 급식시장에서는 **동일한 찹쌀 구매에서도 채널과 지역에 따라 상당한 가격 편차**가 관찰된다. 채널별로는 약 `r channel_gap_ratio`%, 지역별로는 약 `r region_gap_ratio`%의 격차가 나타나고 있으며, 조달 효율성 개선 여지가 있음을 시사한다.
+
+채널별 분석에서 `r best_channel`이 상대적으로 효율적인 옵션으로 나타나는 반면, `r worst_channel`은 높은 단가를 보이고 있다. 지역별로는 `r best_region`가 비교적 낮은 단가를 보이는 반면 `r worst_region`는 상대적으로 높은 수준을 나타낸다. 이러한 패턴은 **조달 채널 선택과 지역별 구매 전략 수립**에 참고할 만한 정보를 제공한다.
+
+표에서 보이는 수치들은 얼핏 작아 보일 수 있지만, **전국 급식 규모를 고려할 때 상당한 예산 효과**를 가져올 수 있다. 예를 들어 몇 퍼센트 단가 절감이라도 전체 급식 예산에 적용하면 연간 상당한 규모의 절약이 가능할 것으로 추정된다. 더욱 중요한 것은 이러한 효율화가 **품질 저하 없이 순수하게 조달 과정의 최적화를 통해 달성 가능**하다는 점이다.
+
+
+데이터 분석이 제공하는 가장 큰 가치는 **복잡한 이론보다는 즉시 적용 가능한 실무 가이드**라는 점이다. 급식 담당자들은 자신의 지역과 현재 이용 중인 채널의 효율성 수준을 객관적으로 확인할 수 있으며, 월별 패턴을 통해 구매 시점 최적화도 고려해볼 수 있다. 무엇보다 **동일한 품목을 보다 효율적으로 조달할 수 있는 구체적인 방향**이 데이터를 통해 제시되고 있어, 단순한 분석을 넘어 **급식 현장의 실질적 개선을 위한 참고 자료**로 활용될 수 있을 것이다.
+
+```{r}
+#| label: tbl-unit-price-summary
+#| tbl-cap: "찹쌀 구매단가 격차 분석 - 효율성의 기회와 위기"
+
+price_summary %>%
   gt() %>%
   cols_label(
-    시나리오 = "시나리오",
-    목표_단가 = "목표단가(원/KG)",
-    월간_구매액 = "월간구매액(원)",
-    월간_절약액 = "월간절약액(원)",
-    연간_절약액 = "연간절약액(원)",
-    절약률 = "절약률"
+    구분 = "분석구분",
+    최저_단가 = "최저단가",
+    최고_단가 = "최고단가",
+    평균_단가 = "평균단가",
+    격차_원 = "격차(원)",
+    격차_비율 = "격차비율",
+    최저_채널 = "최저가",
+    최고_채널 = "최고가"
   ) %>%
   cols_width(
-    시나리오 ~ pct(20),
-    목표_단가 ~ pct(16),
-    월간_구매액 ~ pct(16),
-    월간_절약액 ~ pct(16),
-    연간_절약액 ~ pct(16),
-    절약률 ~ pct(16)
+    구분 ~ pct(12),
+    최저_단가 ~ pct(13),
+    최고_단가 ~ pct(13),
+    평균_단가 ~ pct(13),
+    격차_원 ~ pct(13),
+    격차_비율 ~ pct(13),
+    최저_채널 ~ pct(11),
+    최고_채널 ~ pct(12)
   ) %>%
   cols_align(
     align = "center",
-    columns = c(목표_단가, 월간_구매액, 월간_절약액, 연간_절약액, 절약률)
+    columns = everything()
   ) %>%
   tab_style(
     style = cell_text(weight = "bold"),
-    locations = cells_body(columns = 시나리오)
+    locations = cells_body(columns = 구분)
   ) %>%
   tab_style(
-    style = cell_fill(color = "#F5F5F5"),
-    locations = cells_body(rows = 시나리오 == "현재 상황")
+    style = cell_text(color = "#27ae60", weight = "bold"),
+    locations = cells_body(columns = c(최저_단가, 최저_채널))
   ) %>%
   tab_style(
-    style = cell_fill(color = "#E8F5E8"),
-    locations = cells_body(rows = 시나리오 == "최적 단가 달성")
+    style = cell_text(color = "#e74c3c", weight = "bold"),
+    locations = cells_body(columns = c(최고_단가, 최고_채널))
   ) %>%
   tab_style(
-    style = cell_fill(color = "#FFF3E0"),
-    locations = cells_body(rows = 시나리오 == "최고 효율 채널")
-  ) %>%
-  tab_style(
-    style = cell_fill(color = "#E3F2FD"),
-    locations = cells_body(rows = 시나리오 == "상위 3개 채널")
+    style = cell_text(color = "#f39c12", weight = "bold"),
+    locations = cells_body(columns = c(격차_원, 격차_비율))
   ) %>%
   tab_options(
-    table.width = pct(90),
+    table.width = pct(80),
     table.font.size = px(11),
     heading.background.color = "#2C3E50",
     heading.title.font.size = px(16),
@@ -437,77 +609,15 @@ savings_scenarios %>%
   tab_source_note("출처: 농산물 학교급식 식재료 소비 품목 데이터 (2024.01)")
 ```
 
-## 🚀 급식비 혁신 로드맵
-
-### ⚡ 즉시 실행 가능한 3단계 전략
-
-**【1단계】 즉시 실행 가능한 조치 (0-3개월)**
-
-🎯 **최고 효율 채널 우선 활용**
-- `r most_efficient_channel` 채널을 통한 조달 비중 확대
-- 현재 대비 월간 `r comma(round(channel_monthly_savings))`원 절약 가능
-- 별도 시스템 변경 없이 즉시 적용 가능
-
-**【2단계】 중기 최적화 전략 (3-6개월)**
-
-🎯 **지역별 조달 효율화**
-- `r most_efficient_region` 등 상위 효율 지역 모델 벤치마킹
-- 지역간 공동 조달 추진으로 규모의 경제 실현
-- 물류비 최적화를 통한 추가 비용 절감
-
-**【3단계】 장기 구조 개선 (6-12개월)**
-
-🎯 **통합 조달 시스템 구축**
-- 상위 3개 효율 채널 중심 조달 체계 구축
-- 연간 `r comma(round(top3_annual_savings))`원 절약 달성
-- 품질 관리 체계 강화로 지속가능한 조달 실현
-
-### 기대 효과 {#sec-expected-impact}
-
-```{r}
-#| label: impact-summary
-#| echo: false
-
-cat("📈 조달 최적화 기대 효과\n\n")
-
-cat("💰 직접적 비용 절감:\n")
-cat("- 연간 최대 절약 잠재력:", comma(round(max_annual_savings)), "원\n")
-cat("- 실현 가능한 단기 목표:", comma(round(channel_annual_savings)), "원\n")
-cat("- 예산 효율성 개선률: 최대", round((max_monthly_savings / (current_avg_price * total_kg)) * 100, 1), "%\n\n")
-
-cat("🔄 시스템 개선 효과:\n")
-cat("- 조달 과정 투명성 제고\n")
-cat("- 품질 기준 표준화 실현\n")
-cat("- 지역간 형평성 개선\n\n")
-
-cat("🎯 정책적 파급 효과:\n")
-cat("- 급식 품질 개선을 위한 추가 예산 확보\n")
-cat("- 친환경 식재료 확대 추진 기반 마련\n")
-cat("- 농산물 유통 시장 건전화 기여\n")
-```
-
-### 성공 지표 {#sec-success-metrics}
-
-**핵심 성과 지표 (KPIs)**
-
-1. **비용 효율성**
-   - 평균 조달 단가 개선률: 목표 `r round((channel_monthly_savings / (current_avg_price * total_kg)) * 100, 1)`% 이상
-   - 월간 절약액: 목표 `r comma(round(channel_monthly_savings))`원 이상
-
-2. **조달 품질**
-   - 효율적 채널 비중: 목표 80% 이상
-   - 지역별 단가 격차 축소: 목표 30% 감소
-
-3. **시스템 운영**
-   - 조달 과정 투명성 점수: 목표 90점 이상
-   - 공급업체 만족도: 목표 85점 이상
-
 ## 💡 생각해볼 점
 
-급식비 절약 분석을 통해 찹쌀 한 품목에서만 **연간 수억 원의 숨겨진 보물**을 발견했다. 하지만 이는 빙산의 일각일 뿐이다. 전국 학교급식에서 사용되는 수백 가지 식재료 각각에 이러한 비효율성이 숨어있다면, 그 절약 잠재력은 상상을 초월할 것이다.
+이번 장에서 **농산물 학교급식 식재료 소비 품목 데이터**의 풍부한 분석 가능성 중 일부만을 다뤘다. 찹쌀 한 품목에 집중한 분석으로도 상당한 인사이트를 얻었지만, 전체 데이터셋이 제공하는 **방대한 탐험 영역**들이 여전히 남아있으며, 독자들이 직접 데이터를 활용해볼 수 있는 **실무형 분석 과제**로도 활용할 수 있다. 이러한 미탐험 영역들은 단순한 분석의 한계를 넘어, 독자 스스로가 급식 효율화 전문가가 되어 새로운 절약 방안을 발견할 수 있는 기회를 제공한다.
 
-이번 분석에서는 **찹쌀이라는 단일 품목**에만 집중했지만, 실제로는 더 깊이 있는 분석이 가능하다. 계절별 가격 변동성, 친환경 vs 일반 농산물의 비용 대비 효과, 학교급별 맞춤형 조달 전략 등은 독자들이 직접 탐구해볼 수 있는 흥미로운 영역이다. 특히 지역 농산물 직거래 활성화와 급식 품질 개선 사이의 균형점을 찾는 것은 단순한 비용 절감을 넘어 지속 가능한 급식 생태계 구축이라는 더 큰 과제를 제시한다.
+이번 분석에서는 **품목별 심층 분석**이 빠져있다. 쌀류, 채소류, 육류, 수산물 등 카테고리별 가격 패턴 차이, 각 품목의 계절성과 저장성을 고려한 최적 구매 시점 분석, 영양 기준 대비 가성비 최고 품목 발굴 등은 실제 급식 운영에 **즉시 적용 가능한 실무 지침서**가 될 수 있다.
 
-무엇보다도 이 데이터는 **"급식비 위기에서 기회로"** 변화하는 패러다임의 시작점을 보여준다. 독자들이 직접 데이터를 분석해보면서 각자의 지역과 학교에 맞는 최적 조달 전략을 발견해보는 것은 단순한 학습을 넘어 **실제 급식 현장을 변화시킬 수 있는 인사이트**를 얻는 소중한 경험이 될 것이다.
+**학교급별 맞춤형 분석**도 큰 발견의 여지가 있다. 유치원부터 고등학교까지, 남녀 구분까지 고려한 세분화된 데이터를 통해 교육과정별 최적 조달 전략, 성별 급식량 차이를 반영한 구매 계획, 학교급별 예산 효율성 벤치마킹 등은 **맞춤형 급식 운영 모델**의 핵심 근거가 될 것이다.
 
-*데이터는 예산 절약만을 약속하지 않는다. 더 나은 급식을 꿈꾸는 사람에게만 그 길을 열어준다.*
+무엇보다도 제공된 데이터는 **"조달에서 절약으로"** 변화하는 급식 운영 패러다임의 **초기 신호**를 담고 있다. 독자들이 직접 데이터를 분석해보면서 AI 시대 공공 조달의 미래를 예측해보는 것은 단순한 학습을 넘어 **정책 개선에 직접 기여할 수 있는 인사이트**를 얻는 소중한 경험이 될 것이다. 현재 우리가 목격하고 있는 효율성 격차가 과연 구조적 문제인지, 아니면 정보 부족의 결과인지를 데이터로 검증해보는 과정에서 독자 스스로가 공공 조달 전문가로 성장할 수 있을 것이다.
+
+*데이터는 단순한 숫자가 아니다. 급식비 절약이라는 국민의 절실한 요구에 답할 수 있는 실질적 솔루션을 담고 있다.*
+

@@ -1,0 +1,417 @@
+# 농산물 정보 디지털 소비
+
+2025년 새해 벽두부터 농산물 가격이 **폭등**하고 있다. 귤값은 46%, 사과값은 30% 치솟으며 "귤 사먹느니 비타민 사먹어요"라는 절망적인 탄식이 SNS를 가득 메우고 있다. 과일 한 개가 **사치품**이 된 시대, 소비자들은 어떻게 대응하고 있을까?
+
+답은 **디지털 정보 혁명**에 있다. 농산물 가격이 치솟을수록 사람들은 더욱 적극적으로 정보를 탐색한다. 어떤 과일이 가성비가 좋은지, 언제 사야 저렴한지, 어디서 사야 신선한지에 대한 정보가 그 어느 때보다 절실하기 때문이다.
+
+![농산물 정보 디지털 소비 분석 전략](images/news_analysis_strategy.svg){#fig-news-analysis-strategy}
+
+@fig-news-analysis-strategy 는 이번 분석의 핵심 접근법을 보여준다. **디지털 발자국 추적**을 통해 농산물에 대한 실제 관심도를 측정하고, **소비층 세분화**를 통해 누가 어떤 농산물에 관심을 갖는지 파악한 후, **정보 소비 패턴**을 분석하여 AI 시대 농산물 정보의 미래를 예측하는 3단계 전략이다.
+
+## 디지털 농산물 관심도 지표
+
+이번 분석에서 활용하는 **모바일 기사 기반 농산물 관심도 데이터**는 실제 소비자들이 농산물 관련 기사를 어떻게 소비하는지에 대한 생생한 기록이다. 2025년 1월 1-2일 이틀간 수집된 2,440건의 데이터는 단순한 클릭 수를 넘어서 **체류시간, 인구통계, 지역, 플랫폼**까지 포함한 종합적인 디지털 행동 분석을 가능하게 한다.
+
+![농산물 관심도 데이터셋 구조](images/dataset_news.svg){#fig-news-dataset}
+
+@fig-news-dataset 에서 확인할 수 있듯이, 이 데이터의 가장 큰 특징은 **실시간 소비자 반응**을 정밀하게 포착한다는 점이다. 농산물 가격 급등 뉴스에 대한 즉각적인 반응, 성별과 연령대에 따른 관심 품목의 차이, 지역별 특화된 농산물 관심도까지 한 눈에 파악할 수 있다. 특히 **체류시간 데이터**는 단순한 관심을 넘어서 얼마나 깊이 있게 정보를 소비했는지를 보여주는 핵심 지표가 된다.
+
+```{r}
+#| include: false
+#| label: setup
+source("_common.R")
+```
+
+```{r}
+#| label: load-news-data
+#| echo: false
+#| message: false
+#| warning: false
+
+# 필요 패키지 로드
+library(lubridate)
+
+# 농산물 관심도 데이터 로드
+news_data_raw <- read_csv("data/3_샘플_(고수요데이터)_모바일 기사 기반 농산물 관심도 데이터.csv",
+                          locale = locale(encoding = "UTF-8"))
+
+# 데이터 전처리
+news_data <- news_data_raw %>%
+  # 날짜 변환
+  mutate(
+    날짜 = ymd(`년-월-일`),
+    접속_시간 = ymd_hm(`접속 시간`),
+    접속_시 = hour(접속_시간),
+    접속_분 = minute(접속_시간),
+    체류시간_초 = `사용 시간`
+  ) %>%
+  # 변수명 정리 (컬럼명 확인 후)
+  rename(
+    플랫폼 = `출처 플랫폼`,
+    카테고리 = `카테고리`,
+    성별 = `성별`,
+    연령대 = `연령대`,
+    직업군 = `직업군`,
+    시 = `지역_시`,
+    구 = `지역_구`,
+    제목 = `제목`,
+    URL = `검색사이트 URL`,
+    언론사ID = `언론사 ID`,
+    언론사 = `언론사 이름`,
+    기사번호 = `기사번호`,
+    섹션 = `플랫폼 기준 색션`,
+    키워드 = `매칭 키워드`
+  ) %>%
+  # 데이터 정제
+  filter(
+    !is.na(성별),
+    !is.na(연령대),
+    성별 != "",
+    연령대 != "",
+    체류시간_초 > 0
+  ) %>%
+  # 키워드 정제 (따옴표, 공백 제거)
+  mutate(
+    키워드_정제 = str_trim(str_remove_all(키워드, '"')),
+    키워드_정제 = ifelse(키워드_정제 == "", "기타", 키워드_정제),
+    # 농산물 키워드만 필터링
+    농산물여부 = case_when(
+      str_detect(키워드_정제, "딸기|바나나|호두|과일|배추|채소|콩나물|녹차|보리|감귤|오렌지|토마토|사과|마늘|생강|버섯|대파|아보카도|고구마|깻잎|리치|귀리|양파|고추|땅콩|수수") ~ TRUE,
+      키워드_정제 %in% c("생활", "경제", "사회") ~ FALSE,
+      TRUE ~ TRUE  # 기타 키워드는 농산물로 간주
+    )
+  ) %>%
+  # 농산물 관련 데이터만 필터링
+  filter(농산물여부 == TRUE) %>%
+  # factor 변환
+  mutate(
+    플랫폼 = factor(플랫폼, levels = c("네이버", "다음", "기타")),
+    성별 = factor(성별, levels = c("남성", "여성")),
+    연령대 = factor(연령대, levels = c("10대", "20대", "30대", "40대", "50대", "60대", "70대", "80대")),
+    직업군 = factor(직업군),
+    키워드_정제 = factor(키워드_정제)
+  ) %>%
+  # 체류시간 이상치 제거 (상위 5% 제거)
+  filter(체류시간_초 <= quantile(체류시간_초, 0.95, na.rm = TRUE))
+
+# 농산물 전용 요약 데이터 생성
+농산물_관심도 <- news_data %>%
+  group_by(키워드_정제) %>%
+  summarise(
+    관심도_건수 = n(),
+    평균_체류시간 = mean(체류시간_초, na.rm = TRUE),
+    중위_체류시간 = median(체류시간_초, na.rm = TRUE),
+    총_체류시간 = sum(체류시간_초, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
+  arrange(desc(관심도_건수)) %>%
+  filter(관심도_건수 >= 5)  # 최소 5건 이상인 농산물만
+```
+
+## 성별·연령별 농산물 정보 소비의 특징
+
+농산물 정보 소비에서 가장 극명하게 드러나는 것은 **성별과 연령에 따른 뚜렷한 패턴**이다. 데이터 분석 결과 전체 2,440건 중 여성이 차지하는 비중은 약 60%로, 남성보다 농산물 정보에 대한 관심이 현저히 높다는 것을 확인할 수 있다.
+
+```{r}
+#| label: fig-demographic-analysis
+#| echo: false
+#| fig-width: 16
+#| fig-height: 12
+#| fig-cap: "성별·연령별 농산물 정보 소비 패턴 종합 분석"
+
+# 1. 성별·연령별 관심도 히트맵
+demo_heatmap <- news_data %>%
+  count(성별, 연령대) %>%
+  ggplot(aes(x = 연령대, y = 성별, fill = n)) +
+  geom_tile(alpha = 0.8) +
+  geom_text(aes(label = n), size = 5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_gradient(low = "#f8f9fa", high = "#d73027", name = "관심도\n(건수)") +
+  labs(
+    title = "성별·연령별 농산물 정보 관심도",
+    subtitle = "여성 40-50대가 압도적 관심층",
+    x = "연령대",
+    y = "성별"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    legend.position = "right"
+  )
+
+# 2. 성별 체류시간 박스플롯
+gender_engagement <- news_data %>%
+  ggplot(aes(x = 성별, y = 체류시간_초, fill = 성별)) +
+  geom_boxplot(alpha = 0.7, outlier.alpha = 0.3) +
+  stat_summary(fun = mean, geom = "point", shape = 23, size = 3, fill = "white") +
+  scale_fill_manual(values = c("남성" = "#4575b4", "여성" = "#d73027")) +
+  scale_y_continuous(limits = c(0, 200)) +
+  labs(
+    title = "성별 농산물 정보 체류시간",
+    subtitle = "평균 체류시간: 여성이 더 오래 머무름",
+    x = "성별",
+    y = "체류시간 (초)",
+    fill = "성별"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    legend.position = "none"
+  )
+
+# 3. 연령대별 농산물 관심 분포
+age_distribution <- news_data %>%
+  count(연령대) %>%
+  mutate(
+    비율 = n / sum(n) * 100,
+    연령대 = fct_reorder(연령대, n)
+  ) %>%
+  ggplot(aes(x = 연령대, y = n, fill = 연령대)) +
+  geom_col(alpha = 0.8, width = 0.7) +
+  geom_text(aes(label = paste0(n, "건\n(", round(비율, 1), "%)")),
+            hjust = -0.1, size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_viridis_d(option = "plasma", guide = "none") +
+  coord_flip() +
+  labs(
+    title = "연령대별 농산물 정보 관심도",
+    subtitle = "40-50대가 농산물 정보의 핵심 소비층",
+    x = NULL,
+    y = "관심도 (건수)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50")
+  )
+
+# 4. 직업군별 관심도 (상위 5개)
+job_analysis <- news_data %>%
+  filter(!is.na(직업군), 직업군 != "") %>%
+  count(직업군, sort = TRUE) %>%
+  head(5) %>%
+  mutate(직업군 = fct_reorder(직업군, n)) %>%
+  ggplot(aes(x = 직업군, y = n, fill = 직업군)) +
+  geom_col(alpha = 0.8, width = 0.6) +
+  geom_text(aes(label = paste0(n, "건")),
+            hjust = -0.1, size = 4, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_brewer(type = "qual", palette = "Set2", guide = "none") +
+  coord_flip() +
+  labs(
+    title = "직업군별 농산물 정보 관심도",
+    subtitle = "전업주부와 화이트칼라가 주요 정보 소비층",
+    x = NULL,
+    y = "관심도 (건수)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50")
+  )
+
+# 그래프 조합
+library(patchwork)
+(demo_heatmap + gender_engagement) / (age_distribution + job_analysis) +
+  plot_annotation(
+    title = "농산물 정보의 디지털 소비층 프로파일링",
+    subtitle = "성별 × 연령별 × 직업별 × 체류시간 종합 분석",
+    theme = theme(
+      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
+      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
+    )
+  )
+```
+
+```{r}
+#| label: demographic-insights
+#| echo: false
+
+# 성별 분석
+성별_요약 <- news_data %>%
+  group_by(성별) %>%
+  summarise(
+    건수 = n(),
+    평균체류시간 = round(mean(체류시간_초, na.rm = TRUE), 1),
+    비율 = round(n() / nrow(news_data) * 100, 1),
+    .groups = 'drop'
+  )
+
+여성비율 <- 성별_요약 %>% filter(성별 == "여성") %>% pull(비율)
+여성평균체류 <- 성별_요약 %>% filter(성별 == "여성") %>% pull(평균체류시간)
+남성평균체류 <- 성별_요약 %>% filter(성별 == "남성") %>% pull(평균체류시간)
+
+# 연령대 분석
+연령대_top2 <- news_data %>%
+  count(연령대, sort = TRUE) %>%
+  head(2) %>%
+  pull(연령대)
+
+# 직업군 분석
+직업군_top2 <- news_data %>%
+  filter(!is.na(직업군), 직업군 != "") %>%
+  count(직업군, sort = TRUE) %>%
+  head(2) %>%
+  pull(직업군)
+```
+
+분석 결과에서 확인할 수 있는 **가장 놀라운 발견은 여성의 압도적인 농산물 정보 관심도**다. 전체 데이터의 `r 여성비율`%를 여성이 차지하며, 평균 체류시간도 여성(`r 여성평균체류`초)이 남성(`r 남성평균체류`초)보다 길다. 이는 가정의 식료품 구매 결정권이 여전히 여성에게 집중되어 있으며, 농산물 가격 급등이 여성들에게 더 큰 관심사가 되고 있음을 시사한다.
+
+**연령대별로는 `r paste(연령대_top2, collapse = "와 ")`가 압도적인 관심층**으로 나타났다. 이 연령대는 가정을 책임지는 주요 소비층으로, 농산물 가격 변동에 가장 민감하게 반응하는 계층이다. 특히 40-50대 여성의 경우 체류시간이 평균 이상으로 길어, 단순한 관심을 넘어서 **깊이 있는 정보 탐색**을 하고 있음을 확인할 수 있다.
+
+**직업군별로는 `r paste(직업군_top2, collapse = "와 ")`가 농산물 정보의 핵심 소비층**으로 부상했다. 전업주부의 높은 관심도는 예상 가능하지만, 화이트칼라 직종의 높은 순위는 직장인들도 농산물 가격 급등에 상당한 관심을 갖고 있음을 보여준다. 이는 농산물 정보 소비가 더 이상 주부만의 영역이 아니라 **전 계층의 관심사**가 되고 있음을 의미한다.
+
+## 농산물별 관심도 순위와 정보 몰입도
+
+농산물 정보 소비에서 **어떤 품목이 가장 많은 관심을 받는지, 그리고 얼마나 깊이 있게 정보를 소비하는지**는 소비자의 구매 의사결정과 직결되는 핵심 지표다. 단순한 클릭 수를 넘어서 체류시간까지 분석하면 **진짜 관심도**를 측정할 수 있다.
+
+```{r}
+#| label: fig-product-interest-analysis
+#| echo: false
+#| fig-width: 16
+#| fig-height: 12
+#| fig-cap: "농산물별 관심도와 정보 몰입도 종합 분석"
+
+# 1. TOP 15 농산물 관심도 순위
+top_products <- 농산물_관심도 %>%
+  head(15) %>%
+  mutate(키워드_정제 = fct_reorder(키워드_정제, 관심도_건수))
+
+p1 <- top_products %>%
+  ggplot(aes(x = 키워드_정제, y = 관심도_건수, fill = 관심도_건수)) +
+  geom_col(alpha = 0.8, width = 0.7) +
+  geom_text(aes(label = paste0(관심도_건수, "건")),
+            hjust = -0.1, size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_gradient(low = "#ffffcc", high = "#d73027", guide = "none") +
+  coord_flip() +
+  labs(
+    title = "농산물별 관심도 TOP 15",
+    subtitle = "딸기, 바나나, 호두가 압도적 관심 품목",
+    x = NULL,
+    y = "관심도 (건수)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50")
+  )
+
+# 2. 체류시간 vs 관심도 산점도
+p2 <- top_products %>%
+  ggplot(aes(x = 관심도_건수, y = 평균_체류시간)) +
+  geom_point(aes(size = 총_체류시간), alpha = 0.7, color = "#d73027") +
+  geom_text_repel(aes(label = 키워드_정제),
+                  family = "Apple Gothic", size = 3.5, force = 2) +
+  scale_size_continuous(name = "총 체류시간\n(초)", range = c(2, 10)) +
+  labs(
+    title = "관심도 vs 평균 체류시간",
+    subtitle = "관심도가 높을수록 더 오래 머무르는 패턴",
+    x = "관심도 (건수)",
+    y = "평균 체류시간 (초)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    legend.position = "bottom"
+  )
+
+# 3. 품목별 체류시간 분포 (상위 8개)
+top8_products <- 농산물_관심도 %>% head(8) %>% pull(키워드_정제)
+
+p3 <- news_data %>%
+  filter(키워드_정제 %in% top8_products) %>%
+  mutate(키워드_정제 = factor(키워드_정제, levels = rev(top8_products))) %>%
+  ggplot(aes(x = 키워드_정제, y = 체류시간_초, fill = 키워드_정제)) +
+  geom_boxplot(alpha = 0.7, outlier.alpha = 0.3) +
+  stat_summary(fun = mean, geom = "point", shape = 23, size = 2, fill = "white") +
+  scale_fill_viridis_d(option = "plasma", guide = "none") +
+  coord_flip() +
+  labs(
+    title = "TOP 8 농산물 체류시간 분포",
+    subtitle = "박스플롯으로 본 정보 몰입도 차이",
+    x = NULL,
+    y = "체류시간 (초)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50")
+  )
+
+# 4. 시간대별 농산물 관심도 히트맵
+p4 <- news_data %>%
+  filter(키워드_정제 %in% top8_products) %>%
+  count(접속_시, 키워드_정제) %>%
+  ggplot(aes(x = factor(접속_시), y = 키워드_정제, fill = n)) +
+  geom_tile(alpha = 0.8) +
+  geom_text(aes(label = ifelse(n > 2, n, "")),
+            size = 3, fontface = "bold", family = "Apple Gothic", color = "white") +
+  scale_fill_gradient(low = "#ffffcc", high = "#d73027", name = "관심도") +
+  scale_x_discrete(labels = paste0(0:23, "시")) +
+  labs(
+    title = "시간대별 농산물 관심도 패턴",
+    subtitle = "언제 어떤 농산물에 관심을 갖는가?",
+    x = "시간대",
+    y = "농산물"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "right"
+  )
+
+# 그래프 조합
+(p1 + p2) / (p3 + p4) +
+  plot_annotation(
+    title = "농산물 정보 소비의 품목별 심층 분석",
+    subtitle = "관심도 × 체류시간 × 시간대 × 몰입도 종합 비교",
+    theme = theme(
+      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
+      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
+    )
+  )
+```
+
+```{r}
+#| label: product-insights
+#| echo: false
+
+# 상위 농산물 분석
+상위3_농산물 <- 농산물_관심도 %>% head(3) %>% pull(키워드_정제)
+딸기_관심도 <- 농산물_관심도 %>% filter(키워드_정제 == "딸기") %>% pull(관심도_건수)
+딸기_체류시간 <- 농산물_관심도 %>% filter(키워드_정제 == "딸기") %>% pull(평균_체류시간) %>% round(1)
+
+# 체류시간 상위 농산물
+체류시간_최고 <- 농산물_관심도 %>% arrange(desc(평균_체류시간)) %>% head(1)
+체류시간_최고_품목 <- 체류시간_최고 %>% pull(키워드_정제)
+체류시간_최고_시간 <- 체류시간_최고 %>% pull(평균_체류시간) %>% round(1)
+
+# 관심도 대비 체류시간 분석
+효율적_품목 <- 농산물_관심도 %>%
+  filter(관심도_건수 >= 20) %>%  # 최소 20건 이상
+  arrange(desc(평균_체류시간)) %>%
+  head(1) %>%
+  pull(키워드_정제)
+```
+
+농산물별 관심도 분석에서 가장 주목할 만한 결과는 **`r paste(상위3_농산물, collapse = ", ")`가 압도적 관심 품목**으로 자리잡았다는 점이다. 특히 딸기는 `r 딸기_관심도`건의 관심도를 기록하며 1위를 차지했고, 평균 체류시간도 `r 딸기_체류시간`초로 상당히 높은 수준을 보였다. 이는 딸기가 단순한 과일을 넘어서 **프리미엄 농산물의 대표격**으로 인식되고 있으며, 가격 변동에 대한 소비자의 민감도가 매우 높다는 것을 의미한다.
+
+**정보 몰입도 측면에서 가장 흥미로운 발견은 `r 체류시간_최고_품목`**이다. 평균 체류시간 `r 체류시간_최고_시간`초를 기록하며, 관심도 대비 가장 깊이 있는 정보 탐색이 이루어지는 품목으로 나타났다. 이는 해당 농산물에 대한 정보가 복잡하거나 가격 변동성이 크기 때문에 소비자들이 더 신중하게 정보를 탐색하고 있음을 시사한다.
+
+**시간대별 패턴**에서는 오전 8-10시와 오후 6-8시에 농산물 정보 관심도가 집중되는 전형적인 **모닝/이브닝 뉴스 소비 패턴**을 확인할 수 있다. 특히 주목할 점은 점심시간(12-13시)에도 상당한 관심도를 보인다는 것으로, 이는 직장인들이 식사 준비나 장보기 계획을 세우면서 농산물 정보를 탐색하는 패턴으로 해석된다.
+
+**관심도와 체류시간의 상관관계**에서는 일반적으로 관심도가 높은 품목일수록 평균 체류시간도 긴 경향을 보이지만, `r 효율적_품목` 같은 품목은 상대적으로 낮은 관심도에도 불구하고 높은 체류시간을 기록하여 **틈새 관심 품목**으로서의 특성을 보여준다. 이러한 품목들은 특정 소비층에게는 매우 중요한 정보원이 되고 있음을 의미한다.
+
+## 💡 생각해볼 점
+
+이번 장에서 **모바일 기사 기반 농산물 관심도 데이터**의 풍부한 분석 가능성 중 일부만을 다뤘다. 2,440건의 디지털 발자국 데이터로도 상당한 인사이트를 얻었지만, 전체 데이터셋이 제공하는 **방대한 탐험 영역**들이 여전히 남아있으며, 독자들이 직접 데이터를 활용해볼 수 있는 **실무형 분석 과제**로도 활용할 수 있다. 이러한 미탐험 영역들은 단순한 분석의 한계를 넘어, 독자 스스로가 디지털 농산물 정보 전문가가 되어 새로운 소비 패턴을 발견할 수 있는 기회를 제공한다.
+
+이번 분석에서는 **지역별 심층 분석**이 빠져있다. 17개 시도별 특화 관심 농산물, 도시와 농촌 지역의 정보 소비 패턴 차이, 지역 특산물과 전국적 관심도의 상관관계 등은 **지역 맞춤형 농산물 마케팅 전략**의 핵심 데이터가 될 수 있다.
+
+**시간대별 정밀 분석**도 큰 발견의 여지가 있다. 아침, 점심, 저녁 각 시간대별 농산물 관심 품목의 차이, 주중과 주말의 정보 소비 패턴 변화, 방학 기간과 학기 중의 차이 등은 **타이밍 마케팅**의 핵심 근거가 될 것이다.
+
+무엇보다도 제공된 데이터는 **"아날로그에서 디지털로"** 변화하는 농산물 정보 소비의 **초기 신호**를 담고 있다. 독자들이 직접 데이터를 분석해보면서 AI 시대 농산물 유통의 미래를 예측해보는 것은 단순한 학습을 넘어 **농업 디지털 전환에 직접 기여할 수 있는 인사이트**를 얻는 소중한 경험이 될 것이다. 현재 우리가 목격하고 있는 디지털 정보 소비 패턴이 과연 일시적 현상인지, 아니면 농산물 유통 구조의 근본적 변화의 시작인지를 데이터로 검증해보는 과정에서 독자 스스로가 농업 디지털 전환 전문가로 성장할 수 있을 것이다.
+
+*데이터는 농산물 가격 급등의 원인을 알려주지 않는다. 하지만 소비자들이 어떻게 대응하고 있는지, 그리고 미래를 어떻게 준비해야 하는지에 대한 명확한 방향을 제시한다.*

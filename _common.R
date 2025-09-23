@@ -11,6 +11,7 @@ library(DT)
 library(sysfonts)
 library(ragg)
 library(rsvg)
+library(ggrepel)
 
 # 폰트 등록
 sysfonts::font_add("Apple Gothic", "/System/Library/Fonts/AppleGothic.ttf")
@@ -59,12 +60,6 @@ format_numbers <- function(data, columns = NULL) {
   }
 }
 
-library(tidyverse)
-library(gt)
-library(readr)
-library(sysfonts)
-library(ragg)
-library(rsvg)
 
 # 폰트 등록
 sysfonts::font_add("Apple Gothic", "/System/Library/Fonts/AppleGothic.ttf")

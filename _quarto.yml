@@ -23,6 +23,11 @@ language:
   section-title-abstract: "초록"
   section-title-references: "참고문헌"
 
+# _quarto.yml
+format:
+  html:
+    css: assets/quarto.css
+
 book:
   title: "AI가 밝혀낸 유통 고수요 데이터의 진실"
   subtitle: "챗GPT AI 데이터 과학" 
@@ -69,8 +74,8 @@ book:
         # - proj_survey.qmd       # OK
         # - proj_car.qmd          # OK
         - proj_app.qmd
-        - school_meal_analysis.qmd
-        - mz_shopping_app_analysis.qmd
+        - proj_school.qmd
+        - proj_news.qmd
     - end.qmd
     - references.qmd
   page-footer:
@@ -120,6 +125,8 @@ knitr:
     echo: false
     code-overflow: wrap
     fig-crop: false
+    out-width: "90%"
+    fig-align: "center"
     comment: "#>"
     R.options:
       knitr.graphics.auto_pdf: true
@@ -137,3 +144,4 @@ editor_options:
 
 # Additional features
 lightbox: true
+

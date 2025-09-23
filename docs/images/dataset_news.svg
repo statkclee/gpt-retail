@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0, 75, 1400, 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .main-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #2c3e50; }
+      .section-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #34495e; }
+      .header-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #2c3e50; }
+      .item-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 12px; fill: #2c3e50; }
+      .small-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .data-text { font-family: 'Monaco', 'Consolas', monospace; font-size: 11px; fill: #2c3e50; }
+
+      .schema-bg { fill: #e8f4fd; stroke: #3498db; stroke-width: 2; }
+      .data-bg { fill: #e8f5e8; stroke: #27ae60; stroke-width: 2; }
+      .header-bg { fill: #2196f3; }
+      .row-bg { fill: #ffffff; stroke: #bdc3c7; stroke-width: 1; }
+      .alt-row-bg { fill: #f8f9fa; stroke: #bdc3c7; stroke-width: 1; }
+    </style>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1400" height="650" fill="#fafafa"/>
+
+  <text x="100" y="120" text-anchor="left" class="section-title">2025년 1월 농산물 관심도 데이터 • 2,440건 레코드 • 네이버/다음 기사 기반</text>
+
+  <!-- 왼쪽: 스키마 정보 -->
+  <rect x="50" y="140" width="550" height="370" class="schema-bg" rx="10"/>
+  <text x="325" y="170" text-anchor="middle" class="section-title">📋 농산물 관심도 데이터 스키마</text>
+
+  <!-- 스키마 테이블 헤더 -->
+  <rect x="70" y="190" width="50" height="30" class="header-bg" rx="3"/>
+  <rect x="120" y="190" width="140" height="30" class="header-bg" rx="3"/>
+  <rect x="260" y="190" width="100" height="30" class="header-bg" rx="3"/>
+  <rect x="360" y="190" width="220" height="30" class="header-bg" rx="3"/>
+
+  <text x="95" y="210" text-anchor="middle" class="header-text" fill="white">순번</text>
+  <text x="190" y="210" text-anchor="middle" class="header-text" fill="white">컬럼명</text>
+  <text x="310" y="210" text-anchor="middle" class="header-text" fill="white">타입</text>
+  <text x="470" y="210" text-anchor="middle" class="header-text" fill="white">설명</text>
+
+  <!-- 스키마 테이블 데이터 -->
+  <!-- Row 1 -->
+  <rect x="70" y="220" width="510" height="20" class="row-bg"/>
+  <text x="95" y="233" text-anchor="middle" class="item-text">1</text>
+  <text x="190" y="233" text-anchor="middle" class="item-text">년-월-일</text>
+  <text x="310" y="233" text-anchor="middle" class="item-text">DATE</text>
+  <text x="470" y="233" text-anchor="middle" class="small-text">데이터 수집 일자</text>
+
+  <!-- Row 2 -->
+  <rect x="70" y="240" width="510" height="20" class="alt-row-bg"/>
+  <text x="95" y="253" text-anchor="middle" class="item-text">2</text>
+  <text x="190" y="253" text-anchor="middle" class="item-text">출처 플랫폼</text>
+  <text x="310" y="253" text-anchor="middle" class="item-text">VARCHAR(5)</text>
+  <text x="470" y="253" text-anchor="middle" class="small-text">네이버, 다음 등</text>
+
+  <!-- Row 3 -->
+  <rect x="70" y="260" width="510" height="20" class="row-bg"/>
+  <text x="95" y="273" text-anchor="middle" class="item-text">3</text>
+  <text x="190" y="273" text-anchor="middle" class="item-text">성별</text>
+  <text x="310" y="273" text-anchor="middle" class="item-text">VARCHAR(3)</text>
+  <text x="470" y="273" text-anchor="middle" class="small-text">남성, 여성</text>
+
+  <!-- Row 4 -->
+  <rect x="70" y="280" width="510" height="20" class="alt-row-bg"/>
+  <text x="95" y="293" text-anchor="middle" class="item-text">4</text>
+  <text x="190" y="293" text-anchor="middle" class="item-text">연령대</text>
+  <text x="310" y="293" text-anchor="middle" class="item-text">VARCHAR(4)</text>
+  <text x="470" y="293" text-anchor="middle" class="small-text">10대-80대 구분</text>
+
+  <!-- Row 5 -->
+  <rect x="70" y="300" width="510" height="20" class="row-bg"/>
+  <text x="95" y="313" text-anchor="middle" class="item-text">5</text>
+  <text x="190" y="313" text-anchor="middle" class="item-text">직업군</text>
+  <text x="310" y="313" text-anchor="middle" class="item-text">VARCHAR(5)</text>
+  <text x="470" y="313" text-anchor="middle" class="small-text">화이트칼라, 전업주부 등</text>
+
+  <!-- Row 6 -->
+  <rect x="70" y="320" width="510" height="20" class="alt-row-bg"/>
+  <text x="95" y="333" text-anchor="middle" class="item-text">6</text>
+  <text x="190" y="333" text-anchor="middle" class="item-text">지역_시</text>
+  <text x="310" y="333" text-anchor="middle" class="item-text">VARCHAR(10)</text>
+  <text x="470" y="333" text-anchor="middle" class="small-text">거주지 시도</text>
+
+  <!-- Row 7 -->
+  <rect x="70" y="340" width="510" height="20" class="row-bg"/>
+  <text x="95" y="353" text-anchor="middle" class="item-text">7</text>
+  <text x="190" y="353" text-anchor="middle" class="item-text">지역_구</text>
+  <text x="310" y="353" text-anchor="middle" class="item-text">VARCHAR(20)</text>
+  <text x="470" y="353" text-anchor="middle" class="small-text">거주지 구군</text>
+
+  <!-- Row 8 -->
+  <rect x="70" y="360" width="510" height="20" class="alt-row-bg"/>
+  <text x="95" y="373" text-anchor="middle" class="item-text">8</text>
+  <text x="190" y="373" text-anchor="middle" class="item-text">제목</text>
+  <text x="310" y="373" text-anchor="middle" class="item-text">VARCHAR(300)</text>
+  <text x="470" y="373" text-anchor="middle" class="small-text">기사 및 블로그 제목</text>
+
+  <!-- Row 9 -->
+  <rect x="70" y="380" width="510" height="20" class="row-bg"/>
+  <text x="95" y="393" text-anchor="middle" class="item-text">9</text>
+  <text x="190" y="393" text-anchor="middle" class="item-text">접속 시간</text>
+  <text x="310" y="393" text-anchor="middle" class="item-text">VARCHAR(20)</text>
+  <text x="470" y="393" text-anchor="middle" class="small-text">접속한 시간</text>
+
+  <!-- Row 10 - 강조 -->
+  <rect x="70" y="400" width="510" height="20" class="alt-row-bg"/>
+  <text x="95" y="413" text-anchor="middle" class="item-text">10</text>
+  <text x="190" y="413" text-anchor="middle" class="item-text" fill="#e74c3c">사용 시간</text>
+  <text x="310" y="413" text-anchor="middle" class="item-text">SMALLINT</text>
+  <text x="470" y="413" text-anchor="middle" class="small-text" fill="#e74c3c">체류시간(초) - 관심도 지표</text>
+
+  <!-- Row 11 -->
+  <rect x="70" y="420" width="510" height="20" class="row-bg"/>
+  <text x="95" y="433" text-anchor="middle" class="item-text">11</text>
+  <text x="190" y="433" text-anchor="middle" class="item-text">언론사 이름</text>
+  <text x="310" y="433" text-anchor="middle" class="item-text">VARCHAR(20)</text>
+  <text x="470" y="433" text-anchor="middle" class="small-text">언론사명</text>
+
+  <!-- Row 12 - 강조 -->
+  <rect x="70" y="440" width="510" height="20" class="alt-row-bg"/>
+  <text x="95" y="453" text-anchor="middle" class="item-text">12</text>
+  <text x="190" y="453" text-anchor="middle" class="item-text" fill="#e74c3c">매칭 키워드</text>
+  <text x="310" y="453" text-anchor="middle" class="item-text">VARCHAR(20)</text>
+  <text x="470" y="453" text-anchor="middle" class="small-text" fill="#e74c3c">농산물 품목 식별</text>
+
+  <!-- Row 13 -->
+  <rect x="70" y="460" width="510" height="20" class="row-bg"/>
+  <text x="95" y="473" text-anchor="middle" class="item-text">⋮</text>
+  <text x="190" y="473" text-anchor="middle" class="item-text">... (총 17개 컬럼)</text>
+  <text x="310" y="473" text-anchor="middle" class="item-text">...</text>
+  <text x="470" y="473" text-anchor="middle" class="small-text">URL, 기사번호, 섹션 등</text>
+
+  <!-- 핵심 지표 강조 -->
+  <text x="325" y="495" text-anchor="middle" class="small-text" fill="#e74c3c">★ 체류시간 × 키워드 매칭으로 농산물 관심도 정량화</text>
+
+  <!-- 오른쪽: 실제 데이터 샘플 -->
+  <rect x="650" y="140" width="720" height="370" class="data-bg" rx="10"/>
+  <text x="1010" y="170" text-anchor="middle" class="section-title">📊 실제 데이터 샘플</text>
+  <text x="1010" y="190" text-anchor="middle" class="small-text">2025-01 농산물 관련 기사 이용 현황 (2,440건 중 일부)</text>
+
+  <!-- 데이터 테이블 헤더 -->
+  <rect x="670" y="210" width="70" height="35" class="header-bg" rx="3"/>
+  <rect x="740" y="210" width="60" height="35" class="header-bg" rx="3"/>
+  <rect x="800" y="210" width="50" height="35" class="header-bg" rx="3"/>
+  <rect x="850" y="210" width="50" height="35" class="header-bg" rx="3"/>
+  <rect x="900" y="210" width="280" height="35" class="header-bg" rx="3"/>
+  <rect x="1180" y="210" width="60" height="35" class="header-bg" rx="3"/>
+  <rect x="1240" y="210" width="70" height="35" class="header-bg" rx="3"/>
+  <rect x="1310" y="210" width="50" height="35" class="header-bg" rx="3"/>
+
+  <text x="705" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">날짜</text>
+  <text x="770" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">플랫폼</text>
+  <text x="825" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">성별</text>
+  <text x="875" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">연령</text>
+  <text x="1040" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">기사 제목 (요약)</text>
+  <text x="1210" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">체류시간</text>
+  <text x="1275" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">언론사</text>
+  <text x="1335" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">키워드</text>
+
+  <!-- Row 1: 과일 관련 -->
+  <rect x="670" y="245" width="690" height="25" class="row-bg"/>
+  <text x="705" y="260" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="770" y="260" text-anchor="middle" class="data-text" font-size="9">네이버</text>
+  <text x="825" y="260" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="875" y="260" text-anchor="middle" class="data-text" font-size="9">60대</text>
+  <text x="1040" y="260" text-anchor="middle" class="data-text" font-size="8">귤 사먹느니 비타민...천정부지로 치솟는 과일값</text>
+  <text x="1210" y="260" text-anchor="middle" class="data-text" font-size="9" fill="#e74c3c">16초</text>
+  <text x="1275" y="260" text-anchor="middle" class="data-text" font-size="9">한국경제</text>
+  <text x="1335" y="260" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">과일</text>
+
+  <!-- Row 2: 딸기 관련 -->
+  <rect x="670" y="270" width="690" height="25" class="alt-row-bg"/>
+  <text x="705" y="285" text-anchor="middle" class="data-text" font-size="9">01-02</text>
+  <text x="770" y="285" text-anchor="middle" class="data-text" font-size="9">다음</text>
+  <text x="825" y="285" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="875" y="285" text-anchor="middle" class="data-text" font-size="9">40대</text>
+  <text x="1040" y="285" text-anchor="middle" class="data-text" font-size="8">딸기 한 팩에 만원...겨울 과일 폭등</text>
+  <text x="1210" y="285" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">23초</text>
+  <text x="1275" y="285" text-anchor="middle" class="data-text" font-size="9">연합뉴스</text>
+  <text x="1335" y="285" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">딸기</text>
+
+  <!-- Row 3: 바나나 관련 -->
+  <rect x="670" y="295" width="690" height="25" class="row-bg"/>
+  <text x="705" y="310" text-anchor="middle" class="data-text" font-size="9">01-03</text>
+  <text x="770" y="310" text-anchor="middle" class="data-text" font-size="9">네이버</text>
+  <text x="825" y="310" text-anchor="middle" class="data-text" font-size="9">남성</text>
+  <text x="875" y="310" text-anchor="middle" class="data-text" font-size="9">50대</text>
+  <text x="1040" y="310" text-anchor="middle" class="data-text" font-size="8">바나나 값 1년새 30% 폭등...수입과일 비상</text>
+  <text x="1210" y="310" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">19초</text>
+  <text x="1275" y="310" text-anchor="middle" class="data-text" font-size="9">조선일보</text>
+  <text x="1335" y="310" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">바나나</text>
+
+  <!-- Row 4: 호두 관련 -->
+  <rect x="670" y="320" width="690" height="25" class="alt-row-bg"/>
+  <text x="705" y="335" text-anchor="middle" class="data-text" font-size="9">01-04</text>
+  <text x="770" y="335" text-anchor="middle" class="data-text" font-size="9">다음</text>
+  <text x="825" y="335" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="875" y="335" text-anchor="middle" class="data-text" font-size="9">30대</text>
+  <text x="1040" y="335" text-anchor="middle" class="data-text" font-size="8">견과류 가격 급등...호두 1kg 4만원대</text>
+  <text x="1210" y="335" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">35초</text>
+  <text x="1275" y="335" text-anchor="middle" class="data-text" font-size="9">매일경제</text>
+  <text x="1335" y="335" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">호두</text>
+
+  <!-- Row 5: 쌀 관련 -->
+  <rect x="670" y="345" width="690" height="25" class="row-bg"/>
+  <text x="705" y="360" text-anchor="middle" class="data-text" font-size="9">01-05</text>
+  <text x="770" y="360" text-anchor="middle" class="data-text" font-size="9">네이버</text>
+  <text x="825" y="360" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="875" y="360" text-anchor="middle" class="data-text" font-size="9">50대</text>
+  <text x="1040" y="360" text-anchor="middle" class="data-text" font-size="8">올해 쌀값 안정...정부 비축미 방출 효과</text>
+  <text x="1210" y="360" text-anchor="middle" class="data-text" font-size="9">12초</text>
+  <text x="1275" y="360" text-anchor="middle" class="data-text" font-size="9">뉴시스</text>
+  <text x="1335" y="360" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">쌀</text>
+
+  <!-- Row 6: 사과 관련 -->
+  <rect x="670" y="370" width="690" height="25" class="alt-row-bg"/>
+  <text x="705" y="385" text-anchor="middle" class="data-text" font-size="9">01-06</text>
+  <text x="770" y="385" text-anchor="middle" class="data-text" font-size="9">네이버</text>
+  <text x="825" y="385" text-anchor="middle" class="data-text" font-size="9">남성</text>
+  <text x="875" y="385" text-anchor="middle" class="data-text" font-size="9">40대</text>
+  <text x="1040" y="385" text-anchor="middle" class="data-text" font-size="8">국산 사과 품질 향상...수출 확대 기대</text>
+  <text x="1210" y="385" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">28초</text>
+  <text x="1275" y="385" text-anchor="middle" class="data-text" font-size="9">농민신문</text>
+  <text x="1335" y="385" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">사과</text>
+
+  <!-- 추가 정보 -->
+  <rect x="670" y="410" width="690" height="90" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8"/>
+  <text x="1015" y="435" text-anchor="middle" class="header-text" fill="#d84315">📊 데이터 구조의 핵심 특징</text>
+
+  <text x="690" y="455" class="item-text" fill="#5d4037">• 실시간 소비자 관심도: 체류시간으로 진짜 관심도 측정</text>
+  <text x="690" y="470" class="item-text" fill="#5d4037">• 다차원 분석 가능: 성별×연령×지역×시간대 복합 분석</text>
+  <text x="690" y="485" class="item-text" fill="#5d4037">• 농산물 품목별 트렌드: 키워드 매칭으로 정확한 품목 식별</text>
+
+  <!-- 연결 화살표 -->
+  <path d="M 600 350 Q 625 320 650 350" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="625" y="315" text-anchor="middle" class="item-text" fill="#e74c3c">스키마 → 실제 데이터</text>
+
+</svg>
