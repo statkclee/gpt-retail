@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Apple Gothic', sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #1565C0; }
+      .problem-title { font-family: 'Apple Gothic', sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #D32F2F; }
+      .part-title { font-family: 'Apple Gothic', sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #333; }
+      .section-text { font-family: 'Apple Gothic', sans-serif; font-size: 11px; text-anchor: middle; fill: #555; }
+      .insight-title { font-family: 'Apple Gothic', sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #2E7D32; }
+      .problem-box { fill: #FFEBEE; stroke: #D32F2F; stroke-width: 2; }
+      .part1-box { fill: #E3F2FD; stroke: #1976D2; stroke-width: 2; }
+      .part2-box { fill: #F3E5F5; stroke: #7B1FA2; stroke-width: 2; }
+      .part3-box { fill: #E8F5E8; stroke: #388E3C; stroke-width: 2; }
+      .part4-box { fill: #FFF3E0; stroke: #F57C00; stroke-width: 2; }
+      .insight-box { fill: #E8F5E8; stroke: #2E7D32; stroke-width: 2; }
+      .process-arrow { stroke: #1976D2; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+     refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#FAFAFA"/>
+
+  <!-- 제목 -->
+  <text x="400" y="30" class="title">학교급식 식재료 조달 효율화 분석</text>
+
+  <!-- 문제 인식 -->
+  <rect x="250" y="50" width="300" height="60" rx="8" class="problem-box"/>
+  <text x="400" y="70" class="problem-title">🔍 핵심 문제</text>
+  <text x="400" y="88" class="section-text">• 급식 조달 비용 증가</text>
+  <text x="400" y="102" class="section-text">• 지역별 조달 격차</text>
+
+  <!-- 분석 과정 -->
+  <text x="400" y="140" class="part-title">📊 분석 접근 방법</text>
+
+  <!-- 1단계: 소매시장 분석 -->
+  <rect x="50" y="160" width="140" height="80" rx="6" class="part1-box"/>
+  <text x="120" y="180" class="part-title">1단계</text>
+  <text x="120" y="195" class="section-text">🏪 소매시장 분석</text>
+  <text x="120" y="210" class="section-text">시장 전체 맥락</text>
+  <text x="120" y="225" class="section-text">가격 기준점 설정</text>
+
+  <!-- 2단계: 급식시장 분석 -->
+  <rect x="210" y="160" width="140" height="80" rx="6" class="part2-box"/>
+  <text x="280" y="180" class="part-title">2단계</text>
+  <text x="280" y="195" class="section-text">🍚 급식시장 분석</text>
+  <text x="280" y="210" class="section-text">조달 현황 파악</text>
+  <text x="280" y="225" class="section-text">효율성 측정</text>
+
+  <!-- 3단계: 비교 분석 -->
+  <rect x="370" y="160" width="140" height="80" rx="6" class="part3-box"/>
+  <text x="440" y="180" class="part-title">3단계</text>
+  <text x="440" y="195" class="section-text">🔄 통합 비교</text>
+  <text x="440" y="210" class="section-text">시장간 격차</text>
+  <text x="440" y="225" class="section-text">상관관계 분석</text>
+
+  <!-- 4단계: 세부 분석 -->
+  <rect x="530" y="160" width="140" height="80" rx="6" class="part4-box"/>
+  <text x="600" y="180" class="part-title">4단계</text>
+  <text x="600" y="195" class="section-text">🏫 세부 분석</text>
+  <text x="600" y="210" class="section-text">학교급별</text>
+  <text x="600" y="225" class="section-text">지역별 특성</text>
+
+  <!-- 연결 화살표 -->
+  <line x1="190" y1="200" x2="210" y2="200" class="process-arrow"/>
+  <line x1="350" y1="200" x2="370" y2="200" class="process-arrow"/>
+  <line x1="510" y1="200" x2="530" y2="200" class="process-arrow"/>
+
+  <!-- 상하 연결 화살표 -->
+  <line x1="400" y1="110" x2="400" y2="140" class="process-arrow"/>
+  <line x1="400" y1="250" x2="400" y2="280" class="process-arrow"/>
+
+  <!-- 인사이트 및 해결방안 -->
+  <rect x="150" y="290" width="500" height="120" rx="8" class="insight-box"/>
+  <text x="400" y="315" class="insight-title">💡 핵심 인사이트 및 해결방안</text>
+
+  <!-- 3개 컬럼으로 나누어 인사이트 표시 -->
+  <rect x="170" y="330" width="140" height="70" rx="4" fill="#F1F8E9" stroke="#689F38" stroke-width="1"/>
+  <text x="240" y="345" class="section-text" style="font-weight:bold;">비용 효율화</text>
+  <text x="240" y="360" class="section-text">최적 유통채널</text>
+  <text x="240" y="373" class="section-text">지역별 조달 전략</text>
+  <text x="240" y="386" class="section-text">가격 최적화</text>
+
+  <rect x="330" y="330" width="140" height="70" rx="4" fill="#F3E5F5" stroke="#8E24AA" stroke-width="1"/>
+  <text x="400" y="345" class="section-text" style="font-weight:bold;">제도 개선</text>
+  <text x="400" y="360" class="section-text">조달 시스템</text>
+  <text x="400" y="373" class="section-text">지역 격차 해소</text>
+  <text x="400" y="386" class="section-text">정책 제언</text>
+
+  <rect x="490" y="330" width="140" height="70" rx="4" fill="#FFF3E0" stroke="#FB8C00" stroke-width="1"/>
+  <text x="560" y="345" class="section-text" style="font-weight:bold;">실행 방안</text>
+  <text x="560" y="360" class="section-text">단계적 실행</text>
+  <text x="560" y="373" class="section-text">성과 측정</text>
+  <text x="560" y="386" class="section-text">지속 개선</text>
+
+  <!-- 기대 효과 -->
+  <rect x="200" y="430" width="400" height="80" rx="6" fill="#E8F5E8" stroke="#4CAF50" stroke-width="2"/>
+  <text x="400" y="450" class="insight-title">🎯 기대 효과</text>
+  <text x="220" y="470" class="section-text">• 급식 조달 비용 절감을 통한 예산 효율성 향상</text>
+  <text x="220" y="485" class="section-text">• 지역간 조달 격차 해소 및 급식 품질 균등화</text>
+  <text x="220" y="500" class="section-text">• 데이터 기반 의사결정으로 투명한 조달 시스템 구축</text>
+
+  <!-- 데이터 범위 -->
+  <rect x="50" y="530" width="700" height="50" rx="4" fill="#F5F5F5" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="400" y="545" class="section-text" style="font-weight:bold;">📊 분석 데이터: 2024년 전체 (12개월) | 17개 광역시도 | 5개 유통채널 | 4개 학교급</text>
+  <text x="400" y="565" class="section-text">찹쌀 품목 기준 소매시장 매출액 vs 학교급식 조달 데이터 비교 분석</text>
+
+</svg>

@@ -46,29 +46,31 @@ book:
     type: overlay
   chapters:
     - index.qmd
-    - part: "**1부 기본지식**"
-      chapters:
-        - basic_gpt.qmd         # OK      
-        - basic.qmd             # OK
-        - basic_engineering.qmd # OK
-        - basic_ide.qmd         # OK
-        - basic_api.qmd         # OK
-    - part: "**2부 AI 코딩**"
-      chapters:
-        - coding_prompt.qmd     # OK
-        - coding_context.qmd    # OK
-        - coding_openai.qmd     # OK        
-        - coding_ide.qmd        # OK
-        - coding_ellmer.qmd     # OK
-        - coding_claude.qmd     # OK
+    # - part: "**1부 기본지식**"
+    #   chapters:
+    #     - basic_gpt.qmd         # OK      
+    #     - basic.qmd             # OK
+    #     - basic_engineering.qmd # OK
+    #     - basic_ide.qmd         # OK
+    #     - basic_api.qmd         # OK
+    # - part: "**2부 AI 코딩**"
+    #   chapters:
+    #     - coding_prompt.qmd     # OK
+    #     - coding_context.qmd    # OK
+    #     - coding_openai.qmd     # OK        
+    #     - coding_ide.qmd        # OK
+    #     - coding_ellmer.qmd     # OK
+    #     - coding_claude.qmd     # OK
     - part: "**3부 사례 분석**"
       chapters:
-        - proj_penguin.qmd      # OK
-        - proj_penguin_py.qmd   # OK
-        - proj_market.qmd       # OK
-        - proj_survey.qmd       # OK
-        - proj_car.qmd          # OK
-
+        # - proj_penguin.qmd      # OK
+        # - proj_penguin_py.qmd   # OK
+        # - proj_market.qmd       # OK
+        # - proj_survey.qmd       # OK
+        # - proj_car.qmd          # OK
+        - proj_app.qmd
+        - school_meal_analysis.qmd
+        - mz_shopping_app_analysis.qmd
     - end.qmd
     - references.qmd
   page-footer:
@@ -115,6 +117,7 @@ knitr:
     message: false
     warning: false
     collapse: true
+    echo: false
     code-overflow: wrap
     fig-crop: false
     comment: "#>"

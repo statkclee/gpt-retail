@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 30 800 510" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Apple Gothic', sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #1565C0; }
+      .header { font-family: 'Apple Gothic', sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #333; }
+      .subtext { font-family: 'Apple Gothic', sans-serif; font-size: 11px; text-anchor: middle; fill: #555; }
+      .label { font-family: 'Apple Gothic', sans-serif; font-size: 10px; text-anchor: middle; fill: #666; }
+      .category-box { fill: #E3F2FD; stroke: #1976D2; stroke-width: 2; }
+      .dimension-box { fill: #F3E5F5; stroke: #7B1FA2; stroke-width: 1.5; }
+      .channel-box { fill: #FCE4EC; stroke: #C2185B; stroke-width: 1; }
+      .school-box { fill: #E8F5E8; stroke: #388E3C; stroke-width: 1; }
+      .data-box { fill: #FFF3E0; stroke: #F57C00; stroke-width: 1; }
+      .connector { stroke: #666; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="800" height="600" fill="#FAFAFA"/>
+
+  <!-- 최상위 데이터셋 -->
+  <rect x="275" y="50" width="250" height="40" rx="5" class="category-box"/>
+  <text x="400" y="70" class="header">학교급식 식재료 데이터</text>
+  <text x="400" y="82" class="subtext">(찹쌀 품목)</text>
+
+  <!-- 주요 차원들 -->
+  <rect x="50" y="130" width="120" height="30" rx="3" class="dimension-box"/>
+  <text x="110" y="148" class="header">유통채널</text>
+  <text x="110" y="158" class="subtext">(5개)</text>
+
+  <rect x="200" y="130" width="120" height="30" rx="3" class="dimension-box"/>
+  <text x="260" y="148" class="header">광역시도</text>
+  <text x="260" y="158" class="subtext">(17개)</text>
+
+  <rect x="340" y="130" width="120" height="30" rx="3" class="dimension-box"/>
+  <text x="400" y="148" class="header">월코드</text>
+  <text x="400" y="158" class="subtext">(시계열)</text>
+
+  <rect x="480" y="130" width="120" height="30" rx="3" class="dimension-box"/>
+  <text x="540" y="148" class="header">소매매출액</text>
+  <text x="540" y="158" class="subtext">(원)</text>
+
+  <rect x="630" y="130" width="120" height="30" rx="3" class="dimension-box"/>
+  <text x="690" y="148" class="header">학교급별</text>
+  <text x="690" y="158" class="subtext">(세분화)</text>
+
+  <!-- 연결선들 -->
+  <line x1="400" y1="90" x2="110" y2="130" class="connector"/>
+  <line x1="400" y1="90" x2="260" y2="130" class="connector"/>
+  <line x1="400" y1="90" x2="400" y2="130" class="connector"/>
+  <line x1="400" y1="90" x2="540" y2="130" class="connector"/>
+  <line x1="400" y1="90" x2="690" y2="130" class="connector"/>
+
+  <!-- 유통채널 세부 -->
+  <text x="110" y="185" class="header">유통채널 세분화</text>
+  <rect x="20" y="195" width="75" height="20" rx="2" class="channel-box"/>
+  <text x="57" y="207" class="label">대형마트</text>
+
+  <rect x="100" y="195" width="75" height="20" rx="2" class="channel-box"/>
+  <text x="137" y="207" class="label">체인슈퍼</text>
+
+  <rect x="20" y="220" width="75" height="20" rx="2" class="channel-box"/>
+  <text x="57" y="232" class="label">편의점</text>
+
+  <rect x="100" y="220" width="75" height="20" rx="2" class="channel-box"/>
+  <text x="137" y="232" class="label">일반슈퍼</text>
+
+  <rect x="60" y="245" width="75" height="20" rx="2" class="channel-box"/>
+  <text x="97" y="257" class="label">직거래마트</text>
+
+  <!-- 학교급별 데이터 구조 - 개선된 버전 -->
+  <text x="400" y="250" class="title">학교급별 데이터 구조</text>
+
+  <!-- 중앙 제어 박스 -->
+  <g transform="translate(0, -50)">
+    <rect x="350" y="320" width="100" height="40" rx="5" class="category-box"/>
+    <text x="400" y="340" class="header">데이터 분류</text>
+    <text x="400" y="352" class="subtext">중량 ↔ 금액</text>
+  </g>
+
+  <!-- 왼쪽: 중량 데이터 (KG) -->
+  <g transform="translate(0, -50)">
+    <rect x="50" y="380" width="280" height="120" rx="8" class="school-box"/>
+    <text x="190" y="400" class="header">🏋️ 중량 데이터 (KG)</text>
+
+    <!-- KG 데이터를 학교급별로 그룹화 -->
+    <rect x="70" y="410" width="120" height="85" rx="4" fill="#E8F5E8" stroke="#4CAF50" stroke-width="1"/>
+    <text x="130" y="425" class="label" style="font-weight:bold;">기본 학교급</text>
+    <text x="105" y="440" class="label">KG_유치원</text>
+    <text x="105" y="453" class="label">KG_초등학교</text>
+
+    <rect x="200" y="410" width="120" height="85" rx="4" fill="#E3F2FD" stroke="#2196F3" stroke-width="1"/>
+    <text x="260" y="425" class="label" style="font-weight:bold;">중고등학교</text>
+    <text x="240" y="440" class="label">KG_중학교_남</text>
+    <text x="240" y="453" class="label">KG_중학교_여</text>
+    <text x="240" y="466" class="label">KG_중학교_공학</text>
+    <text x="240" y="479" class="label">KG_고등학교_남</text>
+  </g>
+
+
+  <!-- 오른쪽: 금액 데이터 (원) -->
+  <g transform="translate(0, -50)">
+    <rect x="470" y="380" width="280" height="120" rx="8" class="data-box"/>
+    <text x="610" y="400" class="header">💰 금액 데이터 (원)</text>
+
+    <!-- 원 데이터를 학교급별로 그룹화 -->
+    <rect x="490" y="410" width="120" height="85" rx="4" fill="#FFF3E0" stroke="#FF9800" stroke-width="1"/>
+    <text x="550" y="425" class="label" style="font-weight:bold;">기본 학교급</text>
+    <text x="525" y="440" class="label">원_유치원</text>
+    <text x="525" y="453" class="label">원_초등학교</text>
+
+    <rect x="620" y="410" width="120" height="85" rx="4" fill="#FCE4EC" stroke="#E91E63" stroke-width="1"/>
+    <text x="680" y="425" class="label" style="font-weight:bold;">중고등학교</text>
+    <text x="660" y="440" class="label">원_중학교_남</text>
+    <text x="660" y="453" class="label">원_중학교_여</text>
+    <text x="660" y="466" class="label">원_중학교_공학</text>
+    <text x="660" y="479" class="label">원_고등학교_남</text>
+  </g>
+
+  <!-- 연결선들 - 더 깔끔하게 -->
+  <line x1="690" y1="160" x2="400" y2="270" class="connector"/>
+  <line x1="350" y1="300" x2="190" y2="330" class="connector" stroke="#4CAF50" stroke-width="2"/>
+  <line x1="450" y1="300" x2="610" y2="330" class="connector" stroke="#FF9800" stroke-width="2"/>
+
+
+  <!-- 통계 정보 -->
+  <g transform="translate(0, -50)">
+    <rect x="50" y="520" width="700" height="60" rx="5" fill="#F5F5F5" stroke="#BDBDBD" stroke-width="1"/>
+    <text x="400" y="540" class="header">데이터 구성 요약</text>
+    <text x="120" y="555" class="subtext">• 총 21개 필드</text>
+    <text x="240" y="555" class="subtext">• 기본 정보 5개</text>
+    <text x="360" y="555" class="subtext">• KG 데이터 8개</text>
+    <text x="480" y="555" class="subtext">• 원화 데이터 8개</text>
+    <text x="600" y="555" class="subtext">• 2024년 1월 데이터</text>
+
+    <text x="150" y="570" class="subtext">• 5개 유통채널</text>
+    <text x="280" y="570" class="subtext">• 17개 광역시도</text>
+    <text x="420" y="570" class="subtext">• 4개 학교급</text>
+    <text x="540" y="570" class="subtext">• 성별 구분 포함</text>
+  </g>
+</svg>
