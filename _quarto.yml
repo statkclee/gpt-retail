@@ -76,6 +76,7 @@ book:
         - proj_app.qmd
         - proj_school.qmd
         - proj_news.qmd
+        - proj_trade.qmd
     - end.qmd
     - references.qmd
   page-footer:

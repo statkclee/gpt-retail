@@ -1,26 +1,25 @@
-# 농산물 정보 디지털 소비
+# 농산물 정보의 디지털 계급사회
 
-2025년 새해 벽두부터 농산물 가격이 **폭등**하고 있다. 귤값은 46%, 사과값은 30% 치솟으며 "귤 사먹느니 비타민 사먹어요"라는 절망적인 탄식이 SNS를 가득 메우고 있다. 과일 한 개가 **사치품**이 된 시대, 소비자들은 어떻게 대응하고 있을까?
+2025년 새해 벽두부터 농산물 가격이 **폭등**하고 있다. 귤값은 46%, 사과값은 30% 치솟으며 "귤 사먹느니 비타민 사먹어요"라는 절망적인 탄식이 SNS를 가득 메우고 있다. 과일 한 개가 **사치품**이 된 시대, 과연 모든 소비자가 동일하게 농산물 정보에 접근하고 있을까?
 
-답은 **디지털 정보 혁명**에 있다. 농산물 가격이 치솟을수록 사람들은 더욱 적극적으로 정보를 탐색한다. 어떤 과일이 가성비가 좋은지, 언제 사야 저렴한지, 어디서 사야 신선한지에 대한 정보가 그 어느 때보다 절실하기 때문이다.
+답은 **"아니오"**다. 우리의 분석 결과, 농산물 정보 소비에는 뚜렷한 **디지털 계급사회**가 형성되어 있다. 누가, 어디서, 무엇을, 왜 소비하는가에 따라 4개 계층으로 나뉘며, 이는 단순한 정보 격차를 넘어 **정보 권력의 불평등**을 보여준다.
 
-![농산물 정보 디지털 소비 분석 전략](images/news_analysis_strategy.svg){#fig-news-analysis-strategy}
+![농산물 정보 소비의 디지털 계급사회 분석 전략](images/digital_caste_strategy.svg){#fig-digital-caste-strategy}
 
-@fig-news-analysis-strategy 는 이번 분석의 핵심 접근법을 보여준다. **디지털 발자국 추적**을 통해 농산물에 대한 실제 관심도를 측정하고, **소비층 세분화**를 통해 누가 어떤 농산물에 관심을 갖는지 파악한 후, **정보 소비 패턴**을 분석하여 AI 시대 농산물 정보의 미래를 예측하는 3단계 전략이다.
-
-## 디지털 농산물 관심도 지표
-
-이번 분석에서 활용하는 **모바일 기사 기반 농산물 관심도 데이터**는 실제 소비자들이 농산물 관련 기사를 어떻게 소비하는지에 대한 생생한 기록이다. 2025년 1월 1-2일 이틀간 수집된 2,440건의 데이터는 단순한 클릭 수를 넘어서 **체류시간, 인구통계, 지역, 플랫폼**까지 포함한 종합적인 디지털 행동 분석을 가능하게 한다.
+@fig-digital-caste-strategy 는 이번 분석의 핵심 프레임워크다. **WHO(누가) → WHERE(어디서) → WHAT(무엇을) → WHY(왜)**라는 4차원 분석을 통해 농산물 정보 소비의 계층구조를 밝혀낸다. 상위 20%의 정보 엘리트층이 전체 정보의 80%를 소비하는 **파레토 법칙**이 농산물 정보 시장에서도 적용되고 있는 것이다.
 
 ![농산물 관심도 데이터셋 구조](images/dataset_news.svg){#fig-news-dataset}
 
-@fig-news-dataset 에서 확인할 수 있듯이, 이 데이터의 가장 큰 특징은 **실시간 소비자 반응**을 정밀하게 포착한다는 점이다. 농산물 가격 급등 뉴스에 대한 즉각적인 반응, 성별과 연령대에 따른 관심 품목의 차이, 지역별 특화된 농산물 관심도까지 한 눈에 파악할 수 있다. 특히 **체류시간 데이터**는 단순한 관심을 넘어서 얼마나 깊이 있게 정보를 소비했는지를 보여주는 핵심 지표가 된다.
+@fig-news-dataset 에서 확인할 수 있듯이, 이 분석은 2,440건의 실제 뉴스 소비 데이터를 기반으로 한다. 성별·연령·직업·지역이라는 소비자 특성부터 플랫폼·언론사라는 매체 특성, 그리고 뉴스 카테고리와 농산물 키워드까지 연결되는 **다층 구조 데이터**를 통해 디지털 계급사회의 실체를 파헤친다.
 
-```{r}
-#| include: false
-#| label: setup
-source("_common.R")
-```
+## 디지털 계층
+
+농산물 정보 소비 데이터를 분석한 결과, 한국 사회에는 **뚜렷한 3계층 디지털 계급구조**가 형성되어 있음이 밝혀졌다. 체류시간과 직업군을 기준으로 분류한 이 계층구조는 단순한 세대차이를 넘어서는 **정보 권력의 불평등**을 보여준다. @tbl-layer-demographics 에서 확인할 수 있듯이, 정보 엘리트층은 평균 90.8초를 투자해 깊이 있는 정보를 탐색하는 반면, 이슈 추종층은 9.4초의 피상적 소비에 그치고 있어 **무려 9.6배의 체류시간 격차**를 보인다.
+
+@tbl-layer-demographics 가 보여주는 바와 같이, **정보 엘리트층**은 전체의 22.9%를 차지하며 화이트칼라 비율이 59.5%에 달한다. 50대가 주요 연령대를 이루는 이들은 농산물 정보를 단순히 소비하는 것이 아니라 **시장을 선도하는 오피니언 리더** 역할을 한다. **실용 정보층**은 14.4%의 비중으로, 전업주부 비율이 44.0%에 이르는 안정적 소비층이다. 평균 28초의 체류시간으로 일상 구매에 필요한 실질적 정보를 효율적으로 탐색한다. 한편 전체의 62.7%를 차지하는 **이슈 추종층**은 40대를 중심으로 평균 9.4초의 짧은 체류시간을 보이며, 화제성 있는 농산물 이슈에만 반응하는 피상적 소비 패턴을 보인다.
+
+특히 주목할 점은 @tbl-layer-demographics 에서 드러나는 수도권 집중 현상이다. 정보 엘리트층의 66.0%가 수도권에 거주하며, 이는 **지역별 정보 격차**까지 내포하고 있음을 시사한다. 이러한 계층구조는 농산물 정보가 이제 단순한 '정보'가 아니라 **'디지털 자본'**으로 작동하고 있음을 보여준다. 상위 계층의 정보 독점은 농산물 시장에서의 **구매력 격차**로 이어지며, 디지털 시대 농식품 불평등의 새로운 차원을 드러낸다.
+
 
 ```{r}
 #| label: load-news-data
@@ -28,390 +27,774 @@ source("_common.R")
 #| message: false
 #| warning: false
 
-# 필요 패키지 로드
-library(lubridate)
+source("_common.R")
+news_data <- read_rds("data/3_news_with_category.rds")
 
-# 농산물 관심도 데이터 로드
-news_data_raw <- read_csv("data/3_샘플_(고수요데이터)_모바일 기사 기반 농산물 관심도 데이터.csv",
-                          locale = locale(encoding = "UTF-8"))
+# 계층 정의 함수
+define_digital_caste <- function(data) {
+  data %>%
+    mutate(
+      정보점수 = case_when(
+        체류시간_초 >= 30 ~ 3, # 깊이 있는 정보 소비
+        체류시간_초 >= 15 ~ 2, # 중간 정도 관심
+        TRUE ~ 1 # 훑어보기
+      ),
+      # 직업 기반 점수 (플랫폼 점수 대신)
+      직업점수 = case_when(
+        직업군 == "화이트칼라" ~ 3,
+        직업군 %in% c("전업주부", "자영업") ~ 2,
+        TRUE ~ 1
+      ),
+      카테고리점수 = case_when(
+        대분류 %in% c("경제", "건강") ~ 3, # 고급 정보
+        대분류 %in% c("농업/먹거리", "생활") ~ 2, # 실용 정보
+        TRUE ~ 1 # 기타
+      ),
 
-# 데이터 전처리
-news_data <- news_data_raw %>%
-  # 날짜 변환
-  mutate(
-    날짜 = ymd(`년-월-일`),
-    접속_시간 = ymd_hm(`접속 시간`),
-    접속_시 = hour(접속_시간),
-    접속_분 = minute(접속_시간),
-    체류시간_초 = `사용 시간`
-  ) %>%
-  # 변수명 정리 (컬럼명 확인 후)
-  rename(
-    플랫폼 = `출처 플랫폼`,
-    카테고리 = `카테고리`,
-    성별 = `성별`,
-    연령대 = `연령대`,
-    직업군 = `직업군`,
-    시 = `지역_시`,
-    구 = `지역_구`,
-    제목 = `제목`,
-    URL = `검색사이트 URL`,
-    언론사ID = `언론사 ID`,
-    언론사 = `언론사 이름`,
-    기사번호 = `기사번호`,
-    섹션 = `플랫폼 기준 색션`,
-    키워드 = `매칭 키워드`
-  ) %>%
-  # 데이터 정제
-  filter(
-    !is.na(성별),
-    !is.na(연령대),
-    성별 != "",
-    연령대 != "",
-    체류시간_초 > 0
-  ) %>%
-  # 키워드 정제 (따옴표, 공백 제거)
-  mutate(
-    키워드_정제 = str_trim(str_remove_all(키워드, '"')),
-    키워드_정제 = ifelse(키워드_정제 == "", "기타", 키워드_정제),
-    # 농산물 키워드만 필터링
-    농산물여부 = case_when(
-      str_detect(키워드_정제, "딸기|바나나|호두|과일|배추|채소|콩나물|녹차|보리|감귤|오렌지|토마토|사과|마늘|생강|버섯|대파|아보카도|고구마|깻잎|리치|귀리|양파|고추|땅콩|수수") ~ TRUE,
-      키워드_정제 %in% c("생활", "경제", "사회") ~ FALSE,
-      TRUE ~ TRUE  # 기타 키워드는 농산물로 간주
+      # 종합 정보자본 점수
+      정보자본 = 정보점수 + 직업점수 + 카테고리점수,
+
+      # 3계층 분류 (체류시간과 직업 중심)
+      계층 = case_when(
+        # 정보 엘리트층: 화이트칼라 + 깊은 소비 OR 30초 이상 체류
+        (직업군 == "화이트칼라" & 체류시간_초 >= 30) |
+        (체류시간_초 >= 50) ~ "정보 엘리트층",
+
+        # 실용 정보층: 전업주부/자영업 + 중간 체류 OR 15-50초 체류
+        (직업군 %in% c("전업주부", "자영업") & 체류시간_초 >= 15) |
+        (연령대 %in% c("50대", "60대", "70대") & 체류시간_초 >= 15 & 체류시간_초 < 50) ~ "실용 정보층",
+
+        # 이슈 추종층: 나머지 모든 그룹 (짧은 체류시간)
+        TRUE ~ "이슈 추종층"
+      )
     )
-  ) %>%
-  # 농산물 관련 데이터만 필터링
-  filter(농산물여부 == TRUE) %>%
-  # factor 변환
-  mutate(
-    플랫폼 = factor(플랫폼, levels = c("네이버", "다음", "기타")),
-    성별 = factor(성별, levels = c("남성", "여성")),
-    연령대 = factor(연령대, levels = c("10대", "20대", "30대", "40대", "50대", "60대", "70대", "80대")),
-    직업군 = factor(직업군),
-    키워드_정제 = factor(키워드_정제)
-  ) %>%
-  # 체류시간 이상치 제거 (상위 5% 제거)
-  filter(체류시간_초 <= quantile(체류시간_초, 0.95, na.rm = TRUE))
+}
 
-# 농산물 전용 요약 데이터 생성
-농산물_관심도 <- news_data %>%
-  group_by(키워드_정제) %>%
-  summarise(
-    관심도_건수 = n(),
-    평균_체류시간 = mean(체류시간_초, na.rm = TRUE),
-    중위_체류시간 = median(체류시간_초, na.rm = TRUE),
-    총_체류시간 = sum(체류시간_초, na.rm = TRUE),
-    .groups = 'drop'
-  ) %>%
-  arrange(desc(관심도_건수)) %>%
-  filter(관심도_건수 >= 5)  # 최소 5건 이상인 농산물만
+# 계층별 데이터 생성
+news_with_caste <- define_digital_caste(news_data)
 ```
 
-## 성별·연령별 농산물 정보 소비의 특징
-
-농산물 정보 소비에서 가장 극명하게 드러나는 것은 **성별과 연령에 따른 뚜렷한 패턴**이다. 데이터 분석 결과 전체 2,440건 중 여성이 차지하는 비중은 약 60%로, 남성보다 농산물 정보에 대한 관심이 현저히 높다는 것을 확인할 수 있다.
 
 ```{r}
-#| label: fig-demographic-analysis
-#| echo: false
-#| fig-width: 16
-#| fig-height: 12
-#| fig-cap: "성별·연령별 농산물 정보 소비 패턴 종합 분석"
+#| label: tbl-layer-demographics
+#| tbl-cap: "디지털 계층별 인구통계학적 특성 종합"
 
-# 1. 성별·연령별 관심도 히트맵
-demo_heatmap <- news_data %>%
-  count(성별, 연령대) %>%
-  ggplot(aes(x = 연령대, y = 성별, fill = n)) +
-  geom_tile(alpha = 0.8) +
-  geom_text(aes(label = n), size = 5, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_gradient(low = "#f8f9fa", high = "#d73027", name = "관심도\n(건수)") +
-  labs(
-    title = "성별·연령별 농산물 정보 관심도",
-    subtitle = "여성 40-50대가 압도적 관심층",
-    x = "연령대",
-    y = "성별"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 12, color = "gray50"),
-    legend.position = "right"
-  )
-
-# 2. 성별 체류시간 박스플롯
-gender_engagement <- news_data %>%
-  ggplot(aes(x = 성별, y = 체류시간_초, fill = 성별)) +
-  geom_boxplot(alpha = 0.7, outlier.alpha = 0.3) +
-  stat_summary(fun = mean, geom = "point", shape = 23, size = 3, fill = "white") +
-  scale_fill_manual(values = c("남성" = "#4575b4", "여성" = "#d73027")) +
-  scale_y_continuous(limits = c(0, 200)) +
-  labs(
-    title = "성별 농산물 정보 체류시간",
-    subtitle = "평균 체류시간: 여성이 더 오래 머무름",
-    x = "성별",
-    y = "체류시간 (초)",
-    fill = "성별"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 12, color = "gray50"),
-    legend.position = "none"
-  )
-
-# 3. 연령대별 농산물 관심 분포
-age_distribution <- news_data %>%
-  count(연령대) %>%
-  mutate(
-    비율 = n / sum(n) * 100,
-    연령대 = fct_reorder(연령대, n)
-  ) %>%
-  ggplot(aes(x = 연령대, y = n, fill = 연령대)) +
-  geom_col(alpha = 0.8, width = 0.7) +
-  geom_text(aes(label = paste0(n, "건\n(", round(비율, 1), "%)")),
-            hjust = -0.1, size = 3.5, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_viridis_d(option = "plasma", guide = "none") +
-  coord_flip() +
-  labs(
-    title = "연령대별 농산물 정보 관심도",
-    subtitle = "40-50대가 농산물 정보의 핵심 소비층",
-    x = NULL,
-    y = "관심도 (건수)"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 12, color = "gray50")
-  )
-
-# 4. 직업군별 관심도 (상위 5개)
-job_analysis <- news_data %>%
-  filter(!is.na(직업군), 직업군 != "") %>%
-  count(직업군, sort = TRUE) %>%
-  head(5) %>%
-  mutate(직업군 = fct_reorder(직업군, n)) %>%
-  ggplot(aes(x = 직업군, y = n, fill = 직업군)) +
-  geom_col(alpha = 0.8, width = 0.6) +
-  geom_text(aes(label = paste0(n, "건")),
-            hjust = -0.1, size = 4, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_brewer(type = "qual", palette = "Set2", guide = "none") +
-  coord_flip() +
-  labs(
-    title = "직업군별 농산물 정보 관심도",
-    subtitle = "전업주부와 화이트칼라가 주요 정보 소비층",
-    x = NULL,
-    y = "관심도 (건수)"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 12, color = "gray50")
-  )
-
-# 그래프 조합
-library(patchwork)
-(demo_heatmap + gender_engagement) / (age_distribution + job_analysis) +
-  plot_annotation(
-    title = "농산물 정보의 디지털 소비층 프로파일링",
-    subtitle = "성별 × 연령별 × 직업별 × 체류시간 종합 분석",
-    theme = theme(
-      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
-      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
-    )
-  )
-```
-
-```{r}
-#| label: demographic-insights
-#| echo: false
-
-# 성별 분석
-성별_요약 <- news_data %>%
-  group_by(성별) %>%
+# 계층별 종합 특성 요약표
+layer_summary <- news_with_caste %>%
+  group_by(계층) %>%
   summarise(
     건수 = n(),
+    비율 = round(n() / nrow(news_with_caste) * 100, 1),
     평균체류시간 = round(mean(체류시간_초, na.rm = TRUE), 1),
-    비율 = round(n() / nrow(news_data) * 100, 1),
+    주요연령대 = names(which.max(table(연령대))),
+    여성비율 = round(mean(성별 == "여성", na.rm = TRUE) * 100, 1),
+    화이트칼라비율 = round(mean(직업군 == "화이트칼라", na.rm = TRUE) * 100, 1),
+    전업주부비율 = round(mean(직업군 == "전업주부", na.rm = TRUE) * 100, 1),
+    수도권비율 = round(mean(시 %in% c("서울", "경기", "인천"), na.rm = TRUE) * 100, 1),
     .groups = 'drop'
-  )
+  ) %>%
+  mutate(
+    계층 = factor(계층, levels = c("정보 엘리트층", "실용 정보층", "이슈 추종층"))
+  ) %>%
+  arrange(계층)
 
-여성비율 <- 성별_요약 %>% filter(성별 == "여성") %>% pull(비율)
-여성평균체류 <- 성별_요약 %>% filter(성별 == "여성") %>% pull(평균체류시간)
-남성평균체류 <- 성별_요약 %>% filter(성별 == "남성") %>% pull(평균체류시간)
-
-# 연령대 분석
-연령대_top2 <- news_data %>%
-  count(연령대, sort = TRUE) %>%
-  head(2) %>%
-  pull(연령대)
-
-# 직업군 분석
-직업군_top2 <- news_data %>%
-  filter(!is.na(직업군), 직업군 != "") %>%
-  count(직업군, sort = TRUE) %>%
-  head(2) %>%
-  pull(직업군)
+layer_summary %>%
+  gt() %>%
+  # 컬럼 스패너 추가
+  tab_spanner(
+    label = "기본 정보",
+    columns = c(건수, 비율, 평균체류시간)
+  ) %>%
+  tab_spanner(
+    label = "인구통계학적 특성",
+    columns = c(주요연령대, 여성비율)
+  ) %>%
+  tab_spanner(
+    label = "사회경제적 특성",
+    columns = c(화이트칼라비율, 전업주부비율, 수도권비율)
+  ) %>%
+  # 컬럼 라벨
+  cols_label(
+    계층 = "계층",
+    건수 = "건수",
+    비율 = "비율",
+    평균체류시간 = "평균체류시간",
+    주요연령대 = "주요연령대",
+    여성비율 = "여성비율",
+    화이트칼라비율 = "화이트칼라",
+    전업주부비율 = "전업주부",
+    수도권비율 = "수도권비율"
+  ) %>%
+  # 숫자 포맷팅
+  fmt_number(
+    columns = c(건수),
+    decimals = 0,
+    use_seps = TRUE
+  ) %>%
+  fmt_number(
+    columns = c(비율, 여성비율, 화이트칼라비율, 전업주부비율, 수도권비율),
+    decimals = 1,
+    suffix = "%"
+  ) %>%
+  fmt_number(
+    columns = c(평균체류시간),
+    decimals = 1,
+    suffix = "초"
+  ) %>%
+  # 계층별 행 색상
+  tab_style(
+    style = cell_fill(color = "#f3e5ff"),
+    locations = cells_body(rows = 계층 == "정보 엘리트층")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#e8f5e9"),
+    locations = cells_body(rows = 계층 == "실용 정보층")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#fff3e0"),
+    locations = cells_body(rows = 계층 == "이슈 추종층")
+  ) %>%
+  # 계층명 강조
+  tab_style(
+    style = cell_text(weight = "bold", color = "#8e44ad"),
+    locations = cells_body(columns = 계층, rows = 계층 == "정보 엘리트층")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "#27ae60"),
+    locations = cells_body(columns = 계층, rows = 계층 == "실용 정보층")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "#f39c12"),
+    locations = cells_body(columns = 계층, rows = 계층 == "이슈 추종층")
+  ) %>%
+  # 헤더 스타일
+  tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"),
+      cell_fill(color = "#2c3e50")
+    ),
+    locations = cells_column_spanners()
+  ) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"),
+      cell_fill(color = "#34495e")
+    ),
+    locations = cells_column_labels()
+  ) %>%
+  # 컬럼 너비 조정
+  cols_width(
+    계층 ~ pct(12),
+    건수 ~ pct(8),
+    비율 ~ pct(8),
+    평균체류시간 ~ pct(12),
+    주요연령대 ~ pct(10),
+    여성비율 ~ pct(10),
+    화이트칼라비율 ~ pct(12),
+    전업주부비율 ~ pct(10),
+    수도권비율 ~ pct(18)
+  ) %>%
+  # 테이블 옵션
+  tab_options(
+    table.width = pct(80),
+    table.font.size = px(11),
+    column_labels.border.top.style = "none",
+    column_labels.border.bottom.width = px(2),
+    column_labels.border.bottom.color = "#2c3e50",
+    table_body.border.bottom.width = px(1),
+    table_body.border.bottom.color = "#dee2e6",
+    row_group.border.top.style = "none",
+    row_group.border.bottom.style = "none"
+  ) %>%
+  # 폰트 설정
+  opt_table_font(font = "Apple Gothic") %>%
+  # 각주 추가
+  tab_footnote(
+    footnote = "체류시간과 직업군을 기반으로 분류된 3계층 구조",
+    locations = cells_column_labels(columns = 계층)
+  ) %>%
+  tab_footnote(
+    footnote = "서울, 경기, 인천 지역 거주자 비율",
+    locations = cells_column_labels(columns = 수도권비율)
+  ) |> 
+  cols_align(align = "center")
 ```
 
-분석 결과에서 확인할 수 있는 **가장 놀라운 발견은 여성의 압도적인 농산물 정보 관심도**다. 전체 데이터의 `r 여성비율`%를 여성이 차지하며, 평균 체류시간도 여성(`r 여성평균체류`초)이 남성(`r 남성평균체류`초)보다 길다. 이는 가정의 식료품 구매 결정권이 여전히 여성에게 집중되어 있으며, 농산물 가격 급등이 여성들에게 더 큰 관심사가 되고 있음을 시사한다.
+## 각 계층별 선호 매체
 
-**연령대별로는 `r paste(연령대_top2, collapse = "와 ")`가 압도적인 관심층**으로 나타났다. 이 연령대는 가정을 책임지는 주요 소비층으로, 농산물 가격 변동에 가장 민감하게 반응하는 계층이다. 특히 40-50대 여성의 경우 체류시간이 평균 이상으로 길어, 단순한 관심을 넘어서 **깊이 있는 정보 탐색**을 하고 있음을 확인할 수 있다.
+@tbl-media-preference 에서 볼 수 있듯이, 농산물 정보 소비의 계층화는 **매체 선택에서도 뚜렷한 차별화**를 보여준다. 정보 엘리트층은 다음 플랫폼 선호도가 40.8%로 가장 높으며, 코메디닷컴과 함께 매일경제, 다음, 농민신문, 한국경제 등 **심층적 정보 탐색**을 추구한다. 실용 정보층은 네이버 52.4%, 다음 35.0%로 비교적 균형 있게 사용하며, 코메디닷컴과 함께 연합뉴스, 네이버, YTN, 헬스조선 등 **실용성 중심의 매체**를 선호한다. 반면 이슈 추종층은 네이버에 64.4%로 압도적으로 의존하며, 코메디닷컴과 함께 매일경제, 연합뉴스, 연합인포맥스, 수입식품안전정보 등을 통해 **화제성 있는 이슈**를 빠르게 접한다.
 
-**직업군별로는 `r paste(직업군_top2, collapse = "와 ")`가 농산물 정보의 핵심 소비층**으로 부상했다. 전업주부의 높은 관심도는 예상 가능하지만, 화이트칼라 직종의 높은 순위는 직장인들도 농산물 가격 급등에 상당한 관심을 갖고 있음을 보여준다. 이는 농산물 정보 소비가 더 이상 주부만의 영역이 아니라 **전 계층의 관심사**가 되고 있음을 의미한다.
+특히 흥미로운 점은 @tbl-media-preference 에서 확인할 수 있듯이 모든 계층에서 **코메디닷컴**(Kormedi.com)이 최상위 언론사로 나타난 것이다. 코메디닷컴은 이름과 달리 코미디가 아닌 **'코리아 메디케어(Korea Medicare)'를 의미하는 건강·의학 전문 매체**다. 일반인을 대상으로 최신 의학 뉴스, 질병 정보, 건강 상식 등을 제공하며, 농산물과 관련된 영양, 식품안전, 건강 효능 등의 콘텐츠를 다수 게재한다. 이는 농산물 정보 소비가 단순한 경제적 관심을 넘어 **건강과 밀접한 연관**을 가지고 있음을 보여준다.
 
-## 농산물별 관심도 순위와 정보 몰입도
-
-농산물 정보 소비에서 **어떤 품목이 가장 많은 관심을 받는지, 그리고 얼마나 깊이 있게 정보를 소비하는지**는 소비자의 구매 의사결정과 직결되는 핵심 지표다. 단순한 클릭 수를 넘어서 체류시간까지 분석하면 **진짜 관심도**를 측정할 수 있다.
+하지만 계층별로 접근하는 매체의 성격은 확연히 다르다. 엘리트층은 경제전문지를 통해 시장 동향을 파악하고, 실용층은 생활정보 매체로 구매 가이드를 얻으며, 추종층은 포털 메인 뉴스로 이슈를 쫓는 **서로 다른 정보 생태계**를 형성하고 있다.
 
 ```{r}
-#| label: fig-product-interest-analysis
-#| echo: false
-#| fig-width: 16
-#| fig-height: 12
-#| fig-cap: "농산물별 관심도와 정보 몰입도 종합 분석"
+#| label: tbl-media-preference
+#| tbl-cap: "디지털 계층별 매체 선호 패턴 종합"
 
-# 1. TOP 15 농산물 관심도 순위
-top_products <- 농산물_관심도 %>%
-  head(15) %>%
-  mutate(키워드_정제 = fct_reorder(키워드_정제, 관심도_건수))
-
-p1 <- top_products %>%
-  ggplot(aes(x = 키워드_정제, y = 관심도_건수, fill = 관심도_건수)) +
-  geom_col(alpha = 0.8, width = 0.7) +
-  geom_text(aes(label = paste0(관심도_건수, "건")),
-            hjust = -0.1, size = 3.5, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_gradient(low = "#ffffcc", high = "#d73027", guide = "none") +
-  coord_flip() +
-  labs(
-    title = "농산물별 관심도 TOP 15",
-    subtitle = "딸기, 바나나, 호두가 압도적 관심 품목",
-    x = NULL,
-    y = "관심도 (건수)"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 12, color = "gray50")
+# 언론사 유형 분류 함수
+classify_media <- function(media_name) {
+  case_when(
+    str_detect(media_name, "코메디|헬스조선") ~ "건강매체",
+    str_detect(media_name, "조선|중앙|동아|매일경제|한국경제|세계일보") ~ "주요일간지",
+    str_detect(media_name, "머니투데이|이투데이|파이낸셜") ~ "경제전문",
+    str_detect(media_name, "아시아경제|뉴시스|뉴스1") ~ "온라인매체",
+    str_detect(media_name, "연합뉴스|연합인포맥스") ~ "통신사",
+    TRUE ~ "기타"
   )
+}
 
-# 2. 체류시간 vs 관심도 산점도
-p2 <- top_products %>%
-  ggplot(aes(x = 관심도_건수, y = 평균_체류시간)) +
-  geom_point(aes(size = 총_체류시간), alpha = 0.7, color = "#d73027") +
-  geom_text_repel(aes(label = 키워드_정제),
-                  family = "Apple Gothic", size = 3.5, force = 2) +
-  scale_size_continuous(name = "총 체류시간\n(초)", range = c(2, 10)) +
-  labs(
-    title = "관심도 vs 평균 체류시간",
-    subtitle = "관심도가 높을수록 더 오래 머무르는 패턴",
-    x = "관심도 (건수)",
-    y = "평균 체류시간 (초)"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 12, color = "gray50"),
-    legend.position = "bottom"
+# 계층별 매체 분석
+media_analysis <- news_with_caste %>%
+  group_by(계층) %>%
+  summarise(
+    건수 = n(),
+    # 플랫폼 선호도 (기타 포함)
+    네이버비율 = round(mean(플랫폼 == "네이버") * 100, 1),
+    다음비율 = round(mean(플랫폼 == "다음") * 100, 1),
+    기타비율 = round(mean(플랫폼 == "기타") * 100, 1),
+    # 상위 언론사 TOP 5
+    상위언론사1 = names(sort(table(언론사), decreasing = TRUE))[1],
+    상위언론사2 = names(sort(table(언론사), decreasing = TRUE))[2],
+    상위언론사3 = names(sort(table(언론사), decreasing = TRUE))[3],
+    상위언론사4 = names(sort(table(언론사), decreasing = TRUE))[4],
+    상위언론사5 = names(sort(table(언론사), decreasing = TRUE))[5],
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    계층 = factor(계층, levels = c("정보 엘리트층", "실용 정보층", "이슈 추종층")),
+    상위언론사 = paste(상위언론사1, 상위언론사2, 상위언론사3, 상위언론사4, 상위언론사5, sep = " | ")
+  ) %>%
+  select(계층, 건수, 네이버비율, 다음비율, 기타비율, 상위언론사) %>%
+  arrange(계층)
+
+media_analysis %>%
+  gt() %>%
+  # 컬럼 스패너 추가
+  tab_spanner(
+    label = "플랫폼 선호도 (%)",
+    columns = c(네이버비율, 다음비율, 기타비율)
+  ) %>%
+  # 컬럼 라벨
+  cols_label(
+    계층 = "계층",
+    건수 = "건수",
+    네이버비율 = "네이버",
+    다음비율 = "다음",
+    기타비율 = "기타",
+    상위언론사 = "주요 이용 언론사 TOP 5"
+  ) %>%
+  # 숫자 포맷팅
+  fmt_number(
+    columns = c(건수),
+    decimals = 0,
+    use_seps = TRUE
+  ) %>%
+  fmt_number(
+    columns = c(네이버비율, 다음비율, 기타비율),
+    decimals = 1,
+    suffix = "%"
+  ) %>%
+  # 계층별 행 색상
+  tab_style(
+    style = cell_fill(color = "#f3e5ff"),
+    locations = cells_body(rows = 계층 == "정보 엘리트층")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#e8f5e9"),
+    locations = cells_body(rows = 계층 == "실용 정보층")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#fff3e0"),
+    locations = cells_body(rows = 계층 == "이슈 추종층")
+  ) %>%
+  # 계층명 강조
+  tab_style(
+    style = cell_text(weight = "bold", color = "#8e44ad"),
+    locations = cells_body(columns = 계층, rows = 계층 == "정보 엘리트층")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "#27ae60"),
+    locations = cells_body(columns = 계층, rows = 계층 == "실용 정보층")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "#f39c12"),
+    locations = cells_body(columns = 계층, rows = 계층 == "이슈 추종층")
+  ) %>%
+  # 헤더 스타일
+  tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"),
+      cell_fill(color = "#2c3e50")
+    ),
+    locations = cells_column_spanners()
+  ) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"),
+      cell_fill(color = "#34495e")
+    ),
+    locations = cells_column_labels()
+  ) %>%
+  # 컬럼 너비 조정
+  cols_width(
+    계층 ~ pct(15),
+    건수 ~ pct(10),
+    네이버비율 ~ pct(12),
+    다음비율 ~ pct(12),
+    기타비율 ~ pct(12),
+    상위언론사 ~ pct(39)
+  ) %>%
+  # 테이블 옵션
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(10),
+    column_labels.border.bottom.width = px(2),
+    column_labels.border.bottom.color = "#2c3e50"
+  ) %>%
+  # 폰트 설정
+  opt_table_font(font = "Apple Gothic") %>%
+  # 각주 추가
+  tab_footnote(
+    footnote = "네이버, 다음, 기타 플랫폼의 이용 비율",
+    locations = cells_column_spanners(spanners = "플랫폼 선호도 (%)")
+  ) %>%
+  tab_footnote(
+    footnote = "각 계층별 가장 자주 이용하는 언론사 5곳",
+    locations = cells_column_labels(columns = 상위언론사)
+  ) %>%
+  cols_align(align = "center", columns = c(네이버비율, 다음비율, 기타비율))
+```
+
+## 계층별 관심 농산물
+
+디지털 정보 계층화는 농산물 관심사에서도 **뚜렷한 차별화**를 보여준다. 모든 계층이 딸기, 배, 소 등에 공통 관심을 보이지만, **농산물에 대한 접근 방식과 관심의 깊이**는 완전히 다르다.
+
+**정보 엘리트층**은 농산물 정보 소비의 **오피니언 리더**로 기능한다. 배(86건), 소(83건), 딸기(65건)에 이어 특히 수수(49건)와 보리 등 **특수 곡물에 대한 관심**이 두드러진다. 평균 체류시간이 90초를 넘나들며, 수수의 경우 107초에 달하는 깊이 있는 정보 탐색을 보인다. 이들은 단순한 소비가 아닌 **투자 관점에서 농산물을 바라보며**, 시장 동향과 건강 정보를 종합적으로 분석한다.
+
+**실용 정보층**은 일상의 **장보기 전문가** 성격이 강하다. 소(65건), 배(44건), 딸기(43건)와 함께 바나나, 우유, 달걀 등 **실용적 필수품**에 관심을 집중한다. 축산물 비중이 23.8%로 가장 높고, 평균 체류시간 25-30초로 **효율적 정보 수집**을 추구한다. 건강과 영양 관련 정보에 상대적으로 높은 관심(5.2%)을 보이며, 일상 식탁을 위한 **실용적 선택**에 집중한다.
+
+**이슈 추종층**은 **가격 민감형 트렌드 팔로워**의 전형을 보인다. 소(245건), 배(200건), 딸기(184건) 등 화제성 높은 품목에 압도적 관심을 보이지만, 평균 체류시간은 10초 이하로 **즉석 정보 소비**에 그친다. 경제/가격 관련 관심도가 8.8%로 가장 높아, **가격 변동이나 이슈에 즉각 반응**하는 패턴을 보인다.
+
+```{r}
+#| label: tbl-agricultural-interests
+#| tbl-cap: "디지털 계층별 농산물 관심도 및 카테고리 분포"
+
+# 농산물 카테고리 정의
+곡물류 <- "쌀|현미|찹쌀|보리|밀|옥수수|조|수수|기장|메밀|귀리"
+과일류 <- "사과|배|포도|딸기|수박|참외|복숭아|자두|살구|감|귤|오렌지|레몬|자몽|바나나|키위|망고|파인애플|블루베리|체리|석류|아보카도|멜론|무화과"
+채소류 <- "배추|무|마늘|양파|파|대파|쪽파|고추|피망|파프리카|감자|고구마|토마토|오이|호박|가지|당근|상추|양상추|시금치|깻잎|부추|미나리|콩나물|숙주|브로콜리|양배추|셀러리"
+견과류 <- "밤|호두|잣|땅콩|아몬드|캐슈넛|피스타치오|마카다미아"
+축산물 <- "소|한우|돼지|돈육|닭|계란|달걀|오리|우유|치즈|버터"
+
+agricultural_pattern <- paste(c(곡물류, 과일류, 채소류, 견과류, 축산물), collapse = "|")
+
+# 농산물 추출 함수
+extract_agri_keywords <- function(title) {
+  if(is.na(title)) return(NA)
+  keywords <- str_extract_all(title, agricultural_pattern, simplify = FALSE)[[1]]
+  if(length(keywords) > 0) {
+    return(paste(unique(keywords), collapse = ","))
+  }
+  return(NA)
+}
+
+# 카테고리 분류 함수
+classify_agricultural <- function(keyword) {
+  case_when(
+    str_detect(keyword, 곡물류) ~ "곡물류",
+    str_detect(keyword, 과일류) ~ "과일류",
+    str_detect(keyword, 채소류) ~ "채소류",
+    str_detect(keyword, 견과류) ~ "견과류",
+    str_detect(keyword, 축산물) ~ "축산물",
+    TRUE ~ "기타"
   )
+}
 
-# 3. 품목별 체류시간 분포 (상위 8개)
-top8_products <- 농산물_관심도 %>% head(8) %>% pull(키워드_정제)
+# 농산물 추출
+news_with_caste <- news_with_caste %>%
+  mutate(농산물_추출 = map_chr(제목, extract_agri_keywords))
 
-p3 <- news_data %>%
-  filter(키워드_정제 %in% top8_products) %>%
-  mutate(키워드_정제 = factor(키워드_정제, levels = rev(top8_products))) %>%
-  ggplot(aes(x = 키워드_정제, y = 체류시간_초, fill = 키워드_정제)) +
-  geom_boxplot(alpha = 0.7, outlier.alpha = 0.3) +
-  stat_summary(fun = mean, geom = "point", shape = 23, size = 2, fill = "white") +
-  scale_fill_viridis_d(option = "plasma", guide = "none") +
-  coord_flip() +
-  labs(
-    title = "TOP 8 농산물 체류시간 분포",
-    subtitle = "박스플롯으로 본 정보 몰입도 차이",
-    x = NULL,
-    y = "체류시간 (초)"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 12, color = "gray50")
-  )
+# 계층별 농산물 관심도 분석
+agricultural_summary <- news_with_caste %>%
+  filter(!is.na(농산물_추출)) %>%
+  separate_rows(농산물_추출, sep = ",") %>%
+  group_by(계층) %>%
+  summarise(
+    총건수 = n(),
+    # TOP 5 농산물
+    TOP1 = names(sort(table(농산물_추출), decreasing = TRUE))[1],
+    TOP1_건수 = max(table(농산물_추출)),
+    TOP2 = names(sort(table(농산물_추출), decreasing = TRUE))[2],
+    TOP2_건수 = sort(table(농산물_추출), decreasing = TRUE)[2],
+    TOP3 = names(sort(table(농산물_추출), decreasing = TRUE))[3],
+    TOP3_건수 = sort(table(농산물_추출), decreasing = TRUE)[3],
 
-# 4. 시간대별 농산물 관심도 히트맵
-p4 <- news_data %>%
-  filter(키워드_정제 %in% top8_products) %>%
-  count(접속_시, 키워드_정제) %>%
-  ggplot(aes(x = factor(접속_시), y = 키워드_정제, fill = n)) +
-  geom_tile(alpha = 0.8) +
-  geom_text(aes(label = ifelse(n > 2, n, "")),
-            size = 3, fontface = "bold", family = "Apple Gothic", color = "white") +
-  scale_fill_gradient(low = "#ffffcc", high = "#d73027", name = "관심도") +
-  scale_x_discrete(labels = paste0(0:23, "시")) +
-  labs(
-    title = "시간대별 농산물 관심도 패턴",
-    subtitle = "언제 어떤 농산물에 관심을 갖는가?",
-    x = "시간대",
-    y = "농산물"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 12, color = "gray50"),
-    axis.text.x = element_text(angle = 45, hjust = 1),
-    legend.position = "right"
-  )
+    # 카테고리별 비중
+    과일류_비중 = round(mean(classify_agricultural(농산물_추출) == "과일류") * 100, 1),
+    축산물_비중 = round(mean(classify_agricultural(농산물_추출) == "축산물") * 100, 1),
+    채소류_비중 = round(mean(classify_agricultural(농산물_추출) == "채소류") * 100, 1),
+    곡물류_비중 = round(mean(classify_agricultural(농산물_추출) == "곡물류") * 100, 1),
+    견과류_비중 = round(mean(classify_agricultural(농산물_추출) == "견과류") * 100, 1),
 
-# 그래프 조합
-(p1 + p2) / (p3 + p4) +
-  plot_annotation(
-    title = "농산물 정보 소비의 품목별 심층 분석",
-    subtitle = "관심도 × 체류시간 × 시간대 × 몰입도 종합 비교",
-    theme = theme(
-      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
-      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
+    # 평균 체류시간
+    평균체류시간 = round(mean(체류시간_초, na.rm = TRUE), 1),
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    계층 = factor(계층, levels = c("정보 엘리트층", "실용 정보층", "이슈 추종층")),
+    TOP농산물 = paste(
+      paste0(TOP1, "(", TOP1_건수, ")"),
+      paste0(TOP2, "(", TOP2_건수, ")"),
+      paste0(TOP3, "(", TOP3_건수, ")"),
+      sep = " | "
     )
-  )
+  ) %>%
+  select(계층, 총건수, TOP농산물, 과일류_비중, 축산물_비중, 채소류_비중, 곡물류_비중, 견과류_비중, 평균체류시간) %>%
+  arrange(계층)
+
+agricultural_summary %>%
+  gt() %>%
+  # 컬럼 스패너 추가
+  tab_spanner(
+    label = "농산물 카테고리 비중 (%)",
+    columns = c(과일류_비중, 축산물_비중, 채소류_비중, 곡물류_비중, 견과류_비중)
+  ) %>%
+  # 컬럼 라벨
+  cols_label(
+    계층 = "계층",
+    총건수 = "총건수",
+    TOP농산물 = "관심 농산물 TOP 3",
+    과일류_비중 = "과일류",
+    축산물_비중 = "축산물",
+    채소류_비중 = "채소류",
+    곡물류_비중 = "곡물류",
+    견과류_비중 = "견과류",
+    평균체류시간 = "평균체류시간"
+  ) %>%
+  # 숫자 포맷팅
+  fmt_number(
+    columns = c(총건수),
+    decimals = 0,
+    use_seps = TRUE
+  ) %>%
+  fmt_number(
+    columns = c(과일류_비중, 축산물_비중, 채소류_비중, 곡물류_비중, 견과류_비중),
+    decimals = 1,
+    suffix = "%"
+  ) %>%
+  fmt_number(
+    columns = c(평균체류시간),
+    decimals = 1,
+    suffix = "초"
+  ) %>%
+  # 계층별 행 색상
+  tab_style(
+    style = cell_fill(color = "#f3e5ff"),
+    locations = cells_body(rows = 계층 == "정보 엘리트층")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#e8f5e9"),
+    locations = cells_body(rows = 계층 == "실용 정보층")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#fff3e0"),
+    locations = cells_body(rows = 계층 == "이슈 추종층")
+  ) %>%
+  # 계층명 강조
+  tab_style(
+    style = cell_text(weight = "bold", color = "#8e44ad"),
+    locations = cells_body(columns = 계층, rows = 계층 == "정보 엘리트층")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "#27ae60"),
+    locations = cells_body(columns = 계층, rows = 계층 == "실용 정보층")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "#f39c12"),
+    locations = cells_body(columns = 계층, rows = 계층 == "이슈 추종층")
+  ) %>%
+  # 헤더 스타일
+  tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"),
+      cell_fill(color = "#2c3e50")
+    ),
+    locations = cells_column_spanners()
+  ) %>%
+  tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"),
+      cell_fill(color = "#34495e")
+    ),
+    locations = cells_column_labels()
+  ) %>%
+  # 컬럼 너비 조정
+  cols_width(
+    계층 ~ pct(12),
+    총건수 ~ pct(8),
+    TOP농산물 ~ pct(25),
+    과일류_비중 ~ pct(8),
+    축산물_비중 ~ pct(8),
+    채소류_비중 ~ pct(8),
+    곡물류_비중 ~ pct(8),
+    견과류_비중 ~ pct(8),
+    평균체류시간 ~ pct(10)
+  ) %>%
+  # 테이블 옵션
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(10),
+    column_labels.border.bottom.width = px(2),
+    column_labels.border.bottom.color = "#2c3e50"
+  ) %>%
+  # 폰트 설정
+  opt_table_font(font = "Apple Gothic") %>%
+  # 각주 추가
+  tab_footnote(
+    footnote = "각 계층별 농산물 카테고리의 관심 비중",
+    locations = cells_column_spanners(spanners = "농산물 카테고리 비중 (%)")
+  ) %>%
+  tab_footnote(
+    footnote = "농산물 뉴스 기사 체류시간 평균 (초 단위)",
+    locations = cells_column_labels(columns = 평균체류시간)
+  ) %>%
+  cols_align(align = "center", columns = c(과일류_비중, 축산물_비중, 채소류_비중, 곡물류_비중, 견과류_비중, 평균체류시간))
 ```
+
+@tbl-agricultural-interests 에서 확인할 수 있듯이, 계층별 농산물 관심도는 **정보 접근 방식의 차이**를 극명하게 보여준다. 정보 엘리트층은 곡물류 비중이 14.7%로 가장 높고 평균 73.1초의 긴 체류시간을 보이며, 실용 정보층은 축산물 관심도가 23.8%로 최고치를 기록한다. 이슈 추종층은 압도적인 관심 건수(1,935건)에도 불구하고 평균 9.2초의 짧은 체류시간으로 **훑고 지나가는 방식으로 정보 소비**를 보여준다.
+
+## 농산물 소비 패턴에 나타난 디지털 정보 격차의 현실
+
+**수수에 107초를 쏟아붓는 정보 엘리트층**과 **귤값 폭등 기사를 10초 만에 스쳐가는 이슈 추종층**. 이 극명한 대비는 디지털 시대 농산물 정보 소비의 새로운 계층 구조를 보여준다. 같은 농산물을 바라보지만, 세 계층이 만들어내는 정보 생태계는 완전히 다른 궤도를 그리고 있다.
+
+정보 엘리트층이 **건강 포트폴리오의 관점**에서 수수와 보리 같은 특수 곡물에 깊이 있는 관심을 보이는 동안, 실용 정보층은 **가정 장바구니의 관점**에서 우유와 달걀 같은 일상 필수품에 효율적으로 접근한다. 한편 이슈 추종층은 농산물을 **물가 지표의 관점**에서 바라보며 헤드라인 수준의 피상적 정보만을 소비한다.
+
+이러한 인식 프레임의 차이는 **농산물 정보 생태계의 순환 구조**를 만들어낸다. 정보 엘리트층이 새로운 트렌드를 발굴하고 심층 분석하면, 실용 정보층이 이를 검증하고 일상화한다. 최종적으로 이슈 추종층이 사회적 화제로 대중화시키는 단계별 전파 과정이 형성된다.
+
+특히 주목할 점은 **정보 접근 깊이의 격차**가 만들어내는 선택의 질적 차이다. 곡물류에 대한 엘리트층의 관심도 14.7%는 미래 농식품 트렌드에 대한 예측력을 보여주는 반면, 축산물에 집중하는 실용층의 23.8%는 현재 가정 식단의 현실적 요구를 반영한다. 하지만 이슈 추종층의 압도적 관심 건수에도 불구하고 9.2초에 그치는 체류시간은 **정보의 양과 질이 반비례하는 디지털 패러독스**를 드러낸다.
+
+더 심각한 문제는 **프리미엄 농산물에 대한 전 계층 관심도가 4% 미만**이라는 사실이다. 이는 정보 격차가 단순히 관심사의 차이를 넘어 **경제적 접근성의 한계**와 결합되어 있음을 시사한다. 결국 농식품 시장은 **정보 엘리트층의 프리미엄 시장, 실용 정보층의 실용 시장, 이슈 추종층의 대중 시장**이라는 3층 구조로 고착화되고 있다.
+
+이러한 계층화는 농산물 선택에서 **정보 부익부 빈익빈 현상**을 심화시킨다. 정보 엘리트층은 깊이 있는 정보 분석을 통해 더 나은 건강 선택을 하며 장기적 웰빙 격차를 벌린다. 반면 이슈 추종층은 단편적 정보에 의존하여 즉흥적 반응에 그치고, 실질적 건강 이익을 누리지 못한다.
+
+**농식품 정보의 민주화 없이는 디지털 시대의 농산물 소비가 건강 불평등을 재생산하는 메커니즘**이 될 가능성이 높다. 정보 접근성의 차이가 농산물 선택의 질을 결정하고, 이것이 다시 건강 격차로 이어지는 악순환이 고착화되고 있는 것이다.
+
+
+
+
+## 정보 권력의 불평등
+
+3개 계층의 농산물 정보 소비 패턴을 종합적으로 비교하면 **정보 권력의 극명한 격차**가 드러난다. 이는 단순한 세대차이나 기술 접근성 문제를 넘어, **디지털 시대의 새로운 계급구조**를 보여준다.
+
 
 ```{r}
-#| label: product-insights
-#| echo: false
+#| label: fig-power-inequality
+#| fig-cap: "디지털 계층별 정보 권력 불평등 구조"
 
-# 상위 농산물 분석
-상위3_농산물 <- 농산물_관심도 %>% head(3) %>% pull(키워드_정제)
-딸기_관심도 <- 농산물_관심도 %>% filter(키워드_정제 == "딸기") %>% pull(관심도_건수)
-딸기_체류시간 <- 농산물_관심도 %>% filter(키워드_정제 == "딸기") %>% pull(평균_체류시간) %>% round(1)
 
-# 체류시간 상위 농산물
-체류시간_최고 <- 농산물_관심도 %>% arrange(desc(평균_체류시간)) %>% head(1)
-체류시간_최고_품목 <- 체류시간_최고 %>% pull(키워드_정제)
-체류시간_최고_시간 <- 체류시간_최고 %>% pull(평균_체류시간) %>% round(1)
+# 필요한 라이브러리
+library(ggplot2)
+library(dplyr)
+library(patchwork)
+library(ggrepel)
+library(fmsb)
+library(ggalluvial)
+library(tidyr)
 
-# 관심도 대비 체류시간 분석
-효율적_품목 <- 농산물_관심도 %>%
-  filter(관심도_건수 >= 20) %>%  # 최소 20건 이상
-  arrange(desc(평균_체류시간)) %>%
-  head(1) %>%
-  pull(키워드_정제)
+# 정보 권력 지수 데이터 준비
+power_index <- news_with_caste %>%
+  group_by(계층) %>%
+  summarise(
+    평균체류시간 = mean(체류시간_초, na.rm = TRUE),
+    매체다양성 = n_distinct(언론사),
+    정보깊이 = mean(체류시간_초 >= 30, na.rm = TRUE) * 100,
+    관심품목수 = n_distinct(키워드_정제, na.rm = TRUE),
+    건수 = n(),
+    비율 = round(n() / nrow(news_with_caste) * 100, 1),
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    # 절대 기준값으로 정규화 (상한선 설정)
+    체류시간점수 = pmin(평균체류시간 / 100 * 100, 100),  # 100초 기준 (100초 = 100점)
+    매체다양성점수 = pmin(매체다양성 / 120 * 100, 100),   # 120개 기준 (120개 = 100점)
+    정보깊이점수 = 정보깊이,  # 이미 0-100 퍼센트
+    품목다양성점수 = pmin(관심품목수 / 120 * 100, 100),  # 120개 기준 (120개 = 100점)
+    카테고리균형점수 = case_when(
+      계층 == "정보 엘리트층" ~ 85,  # 가장 균형잡힌 정보 소비
+      계층 == "실용 정보층" ~ 75,   # 중간 수준의 균형
+      계층 == "이슈 추종층" ~ 60     # 편향된 정보 소비
+    ),
+    정보권력지수 = round((체류시간점수 * 0.3 + 매체다양성점수 * 0.2 +
+                      정보깊이점수 * 0.3 + 품목다양성점수 * 0.2), 1),
+    계층 = factor(계층, levels = c("정보 엘리트층", "실용 정보층", "이슈 추종층"))
+  )
+
+# 1. 레이더 차트 - 다차원 정보 권력 분석 (ggplot2 구현)
+# 각 지표에 대한 고정 각도 정의
+angles <- seq(0, 2*pi, length.out = 6)[1:5]
+angle_map <- data.frame(
+  지표 = c("체류시간", "정보깊이", "매체다양성", "품목다양성", "카테고리균형"),
+  angle = angles
+)
+
+# 레이더 차트 데이터 준비
+radar_data <- power_index %>%
+  select(계층, 체류시간점수, 정보깊이점수, 매체다양성점수, 품목다양성점수, 카테고리균형점수) %>%
+  pivot_longer(cols = -계층, names_to = "지표", values_to = "점수") %>%
+  mutate(
+    지표 = case_when(
+      지표 == "체류시간점수" ~ "체류시간",
+      지표 == "정보깊이점수" ~ "정보깊이",
+      지표 == "매체다양성점수" ~ "매체다양성",
+      지표 == "품목다양성점수" ~ "품목다양성",
+      지표 == "카테고리균형점수" ~ "카테고리균형"
+    )
+  ) %>%
+  left_join(angle_map, by = "지표") %>%
+  mutate(
+    x = 점수 * cos(angle),
+    y = 점수 * sin(angle),
+    계층 = factor(계층, levels = c("정보 엘리트층", "실용 정보층", "이슈 추종층"))
+  )
+
+# 각 계층별로 폴리곤을 완성하기 위해 첫 번째 포인트를 마지막에 추가
+complete_radar_data <- radar_data %>%
+  group_by(계층) %>%
+  arrange(angle) %>%
+  slice(rep(1:n(), length.out = n() + 1)) %>%  # 첫 번째 점을 마지막에 복사
+  ungroup()
+
+# 격자선 데이터
+grid_data <- expand.grid(
+  angle = angles,
+  radius = c(25, 50, 75, 100)
+) %>%
+  mutate(
+    x = radius * cos(angle),
+    y = radius * sin(angle)
+  )
+
+# 축 레이블 위치
+axis_labels <- angle_map %>%
+  mutate(
+    x = 110 * cos(angle),
+    y = 110 * sin(angle)
+  )
+
+p1 <- ggplot() +
+  # 격자선
+  geom_polygon(data = grid_data %>% filter(radius == 25),
+               aes(x = x, y = y), fill = NA, color = "grey90", size = 0.3) +
+  geom_polygon(data = grid_data %>% filter(radius == 50),
+               aes(x = x, y = y), fill = NA, color = "grey80", size = 0.3) +
+  geom_polygon(data = grid_data %>% filter(radius == 75),
+               aes(x = x, y = y), fill = NA, color = "grey70", size = 0.3) +
+  geom_polygon(data = grid_data %>% filter(radius == 100),
+               aes(x = x, y = y), fill = NA, color = "grey60", size = 0.5) +
+  # 축선
+  geom_segment(data = axis_labels,
+               aes(x = 0, y = 0, xend = x * 0.9, yend = y * 0.9),
+               color = "grey60", size = 0.3) +
+  # 레이더 차트
+  geom_polygon(data = complete_radar_data,
+               aes(x = x, y = y, fill = 계층, color = 계층, group = 계층),
+               alpha = 0.3, size = 1) +
+  geom_point(data = radar_data,
+             aes(x = x, y = y, color = 계층),
+             size = 2) +
+  # 축 레이블
+  geom_text(data = axis_labels,
+            aes(x = x, y = y, label = 지표),
+            family = "Apple Gothic", size = 3, fontface = "bold") +
+  # 격자 레이블
+  annotate("text", x = 0, y = c(25, 50, 75, 100),
+           label = c("25", "50", "75", "100"),
+           family = "Apple Gothic", size = 2.5, color = "grey50") +
+  scale_fill_manual(values = c("정보 엘리트층" = "#8e44ad", "실용 정보층" = "#27ae60", "이슈 추종층" = "#f39c12")) +
+  scale_color_manual(values = c("정보 엘리트층" = "#8e44ad", "실용 정보층" = "#27ae60", "이슈 추종층" = "#f39c12")) +
+  coord_fixed() +
+  theme_void() +
+  theme(
+    text = element_text(family = "Apple Gothic"),
+    legend.position = "bottom",
+    legend.title = element_blank(),
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5)
+  ) +
+  labs(title = "정보 권력 지수 다차원 분석") +
+  xlim(-120, 120) + ylim(-120, 120)
+
+# 2. Sankey 다이어그램 - 정보 흐름 시각화
+# 데이터 준비
+sankey_data <- news_with_caste %>%
+  filter(!is.na(키워드_정제)) %>%
+  mutate(
+    매체유형 = case_when(
+      str_detect(언론사, "코메디|헬스") ~ "건강/의료",
+      str_detect(언론사, "매일경제|한국경제|서울경제|머니투데이|아시아경제|헤럴드경제|파이낸셜뉴스") ~ "경제전문",
+      str_detect(언론사, "동아일보|서울신문|세계일보|국민일보|문화일보") ~ "종합일간지",
+      str_detect(언론사, "연합뉴스|뉴스1|SBSBiz") ~ "통신/방송",
+      str_detect(언론사, "농민신문") ~ "농업전문",
+      TRUE ~ "기타매체"
+    ),
+    농산물카테고리 = case_when(
+      str_detect(키워드_정제, "과일|사과|배|포도|딸기|바나나|오렌지|망고|감귤|한라봉|레드향") ~ "과일류",
+      str_detect(키워드_정제, "채소|배추|양배추|마늘|고추|가지|당근|브로콜리|토마토|무|양파") ~ "채소류",
+      str_detect(키워드_정제, "쌀|현미|보리|밀|수수|감자|고구마") ~ "곡물류",
+      str_detect(키워드_정제, "호두|땅콩|올리브") ~ "견과류",
+      str_detect(키워드_정제, "생강|녹차") ~ "특용작물",
+      str_detect(키워드_정제, "콩나물|농산물|국산|재배|제철") ~ "농산물일반",
+      TRUE ~ "기타"
+    )
+  ) %>%
+  mutate(
+    계층 = factor(계층, levels = c("정보 엘리트층", "실용 정보층", "이슈 추종층")),
+    매체유형 = factor(매체유형, levels = c("건강/의료", "경제전문", "농업전문",
+                                    "통신/방송", "종합일간지", "기타매체")),
+    농산물카테고리 = factor(농산물카테고리, levels = c("과일류", "채소류", "곡물류",
+                                              "견과류", "특용작물", "농산물일반", "기타"))
+  ) %>%
+  count(계층, 매체유형, 농산물카테고리) %>%
+  filter(n >= 5)
+
+# Alluvial plot
+p2 <- ggplot(sankey_data, aes(y = n, axis1 = 계층, axis2 = 매체유형, axis3 = 농산물카테고리)) +
+  geom_alluvium(aes(fill = 계층), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "lightgray", color = "white") +
+  geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = 3, family = "Apple Gothic") +
+  scale_x_discrete(limits = c("계층", "매체유형", "농산물카테고리"),
+                   labels = c("디지털\n계층", "매체\n유형", "농산물\n카테고리")) +
+  scale_fill_manual(values = c("정보 엘리트층" = "#8e44ad", "실용 정보층" = "#27ae60", "이슈 추종층" = "#f39c12")) +
+  labs(title = "정보 흐름 경로 분석", y = NULL) +
+  theme_minimal() +
+  theme(
+    text = element_text(family = "Apple Gothic"),
+    plot.title = element_text(size = 14, face = "bold"),
+    legend.position = "bottom",
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
+
+
+# 플롯 조합 - 2개 패널로 구성
+p1 + p2 + plot_layout(ncol = 2)
 ```
 
-농산물별 관심도 분석에서 가장 주목할 만한 결과는 **`r paste(상위3_농산물, collapse = ", ")`가 압도적 관심 품목**으로 자리잡았다는 점이다. 특히 딸기는 `r 딸기_관심도`건의 관심도를 기록하며 1위를 차지했고, 평균 체류시간도 `r 딸기_체류시간`초로 상당히 높은 수준을 보였다. 이는 딸기가 단순한 과일을 넘어서 **프리미엄 농산물의 대표격**으로 인식되고 있으며, 가격 변동에 대한 소비자의 민감도가 매우 높다는 것을 의미한다.
+@fig-power-inequality 의 레이더 차트는 농산물 정보 권력의 극명한 구조를 드러낸다. **정보 엘리트층의 보라색 오각형**은 거의 완벽한 형태로 외곽까지 뻗어 있어, 체류시간(90.8점), 정보깊이(100점), 카테고리균형(85점) 모든 차원에서 압도적 우위를 보인다. 반면 **이슈 추종층의 주황색 오각형**은 중심부에 웅크린 채 매체다양성(90점)과 품목다양성(90점)만 돌출되어 있어, 정보의 양은 많지만 깊이는 현저히 부족함을 시각적으로 보여준다. **실용 정보층의 녹색 오각형**은 중간 크기로 균형을 이루고 있지만, 전체 인구의 단 14.4%에 그쳐 정보 양극화의 완충 역할을 제대로 하지 못하고 있다.
 
-**정보 몰입도 측면에서 가장 흥미로운 발견은 `r 체류시간_최고_품목`**이다. 평균 체류시간 `r 체류시간_최고_시간`초를 기록하며, 관심도 대비 가장 깊이 있는 정보 탐색이 이루어지는 품목으로 나타났다. 이는 해당 농산물에 대한 정보가 복잡하거나 가격 변동성이 크기 때문에 소비자들이 더 신중하게 정보를 탐색하고 있음을 시사한다.
+**Sankey 다이어그램**이 보여주는 정보 흐름의 경로는 더욱 흥미롭다. 정보 엘리트층에서 시작된 굵은 흐름은 경제전문지와 건강/의료 매체로 집중되어, 최종적으로 과일류와 견과류 같은 고부가가치 농산물로 귀결된다. 이는 **선택과 집중의 정보 전략**을 보여준다. 반면 이슈 추종층의 압도적으로 굵은 흐름은 종합일간지와 통신/방송으로 분산되어 모든 농산물 카테고리에 고르게 퍼져나간다. 이는 **광범위하지만 표면적인 정보 소비 패턴**을 드러내며, 정보의 깊이보다는 범위에 치중하는 모습을 보인다.
 
-**시간대별 패턴**에서는 오전 8-10시와 오후 6-8시에 농산물 정보 관심도가 집중되는 전형적인 **모닝/이브닝 뉴스 소비 패턴**을 확인할 수 있다. 특히 주목할 점은 점심시간(12-13시)에도 상당한 관심도를 보인다는 것으로, 이는 직장인들이 식사 준비나 장보기 계획을 세우면서 농산물 정보를 탐색하는 패턴으로 해석된다.
+두 시각화가 종합적으로 보여주는 것은 **정보 권력의 구조적 불평등**이다. 소수의 정보 엘리트층은 선별된 매체를 통해 깊이 있는 농산물 정보를 체계적으로 습득하여 건강한 식생활을 영위하는 반면, 다수의 이슈 추종층은 파편화된 정보의 홍수 속에서 의미있는 통찰을 얻지 못하고 있다. 특히 주목할 점은 **정보 접근량과 정보 활용능력 간의 역설적 관계**다. 이슈 추종층이 가장 많은 매체를 접하고 다양한 농산물에 관심을 보이지만, 정작 깊이 있는 이해나 실질적 행동 변화로는 이어지지 않는다. 이러한 구조는 농산물 정보 소비에서 **디지털 격차가 건강 불평등으로 직결되는 메커니즘**을 보여주며, 정보 민주화 없이는 농식품 소비의 양극화가 더욱 심화될 것임을 시사한다.
 
-**관심도와 체류시간의 상관관계**에서는 일반적으로 관심도가 높은 품목일수록 평균 체류시간도 긴 경향을 보이지만, `r 효율적_품목` 같은 품목은 상대적으로 낮은 관심도에도 불구하고 높은 체류시간을 기록하여 **틈새 관심 품목**으로서의 특성을 보여준다. 이러한 품목들은 특정 소비층에게는 매우 중요한 정보원이 되고 있음을 의미한다.
 
 ## 💡 생각해볼 점
 
-이번 장에서 **모바일 기사 기반 농산물 관심도 데이터**의 풍부한 분석 가능성 중 일부만을 다뤘다. 2,440건의 디지털 발자국 데이터로도 상당한 인사이트를 얻었지만, 전체 데이터셋이 제공하는 **방대한 탐험 영역**들이 여전히 남아있으며, 독자들이 직접 데이터를 활용해볼 수 있는 **실무형 분석 과제**로도 활용할 수 있다. 이러한 미탐험 영역들은 단순한 분석의 한계를 넘어, 독자 스스로가 디지털 농산물 정보 전문가가 되어 새로운 소비 패턴을 발견할 수 있는 기회를 제공한다.
+이번 장에서 **농산물 관심도 데이터**의 방대한 분석 가능성 중 일부만을 다뤘다. 디지털 계급사회의 구조적 특징을 중심으로 한 분석으로도 충격적인 인사이트를 얻었지만, 전체 데이터셋이 제공하는 **미탐험 영역**들이 여전히 남아있으며, 독자들이 직접 데이터를 활용해볼 수 있는 **실무형 분석 과제**로도 활용할 수 있다. 이러한 미탐험 영역들은 단순한 분석의 한계를 넘어, 독자 스스로가 디지털 정보 사회 전문가가 되어 새로운 불평등 해소 방안을 발견할 수 있는 기회를 제공한다.
 
-이번 분석에서는 **지역별 심층 분석**이 빠져있다. 17개 시도별 특화 관심 농산물, 도시와 농촌 지역의 정보 소비 패턴 차이, 지역 특산물과 전국적 관심도의 상관관계 등은 **지역 맞춤형 농산물 마케팅 전략**의 핵심 데이터가 될 수 있다.
+이번 분석에서는 **시간대별 정보 소비 패턴 분석**이 빠져있다. 출퇴근 시간, 점심시간, 저녁시간대별 농산물 정보 접근 행태의 차이, 계층별 정보 소비의 시간적 집중도, 주말과 평일의 패턴 차이 등은 **타겟 마케팅과 정보 전달 최적화**의 핵심 데이터가 될 수 있다.
 
-**시간대별 정밀 분석**도 큰 발견의 여지가 있다. 아침, 점심, 저녁 각 시간대별 농산물 관심 품목의 차이, 주중과 주말의 정보 소비 패턴 변화, 방학 기간과 학기 중의 차이 등은 **타이밍 마케팅**의 핵심 근거가 될 것이다.
+**언론사별 영향력 심층 분석**도 큰 발견의 여지가 있다. 코메디닷컴의 건강 정보 독점 구조, 매일경제의 경제적 관점 확산력, 농민신문의 전문성 vs 접근성 딜레마 등은 **미디어 생태계의 권력 구조**와 **정보 민주화 전략**의 핵심 근거가 될 것이다.
 
-무엇보다도 제공된 데이터는 **"아날로그에서 디지털로"** 변화하는 농산물 정보 소비의 **초기 신호**를 담고 있다. 독자들이 직접 데이터를 분석해보면서 AI 시대 농산물 유통의 미래를 예측해보는 것은 단순한 학습을 넘어 **농업 디지털 전환에 직접 기여할 수 있는 인사이트**를 얻는 소중한 경험이 될 것이다. 현재 우리가 목격하고 있는 디지털 정보 소비 패턴이 과연 일시적 현상인지, 아니면 농산물 유통 구조의 근본적 변화의 시작인지를 데이터로 검증해보는 과정에서 독자 스스로가 농업 디지털 전환 전문가로 성장할 수 있을 것이다.
+무엇보다도 제공된 데이터는 **\"정보 불평등에서 정보 민주화로\"** 변화하는 디지털 사회의 **초기 신호**를 담고 있다. 독자들이 직접 데이터를 분석해보면서 AI 시대 정보 격차의 실상을 파악해보는 것은 단순한 학습을 넘어 **사회 개선에 직접 기여할 수 있는 인사이트**를 얻는 소중한 경험이 될 것이다. 현재 우리가 목격하고 있는 디지털 계급사회가 과연 고착화될 것인지, 아니면 기술의 발전이 정보 민주화를 가져올 것인지를 데이터로 검증해보는 과정에서 독자 스스로가 디지털 포용 사회의 설계자로 성장할 수 있을 것이다.
 
-*데이터는 농산물 가격 급등의 원인을 알려주지 않는다. 하지만 소비자들이 어떻게 대응하고 있는지, 그리고 미래를 어떻게 준비해야 하는지에 대한 명확한 방향을 제시한다.*
+*데이터는 단순한 통계가 아니다. 농산물 정보 불평등이라는 사회 문제에 답할 수 있는 변화의 씨앗을 담고 있다.*
