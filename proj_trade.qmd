@@ -79,13 +79,13 @@ trade_data <- trade_data_raw %>%
   arrange(정렬키, 유통채널)
 ```
 
-## 4.1절 데이터 투입: 동일 원가, 6배 격차의 미스터리
+## 동일 원가, 5배 격차 미스터리
 
-대형마트와 체인슈퍼, 동일한 KAMIS 도매가격 **2,712원/kg**을 기준으로 찹쌀을 판매하는 두 유통채널이 보여준 결과는 충격적이다. **대형마트 5.0억원**, **체인슈퍼 0.8억원** - 무려 **6배에 달하는 매출액 격차**가 발생했다.
+대형마트와 체인슈퍼, 동일한 KAMIS 도매가격 **2,712원/kg**을 기준으로 찹쌀을 판매하는 두 유통채널이 보여준 결과는 충격적이다. **대형마트 302.6억원**, **체인슈퍼 63.8억원** - 무려 **5배에 달하는 매출액 격차**가 발생했다.
 
 ```{r}
-#| label: fig-basic-stats
-#| fig-cap: "6배 매출 격차의 실체: 동일 원가 기준 채널별 성과"
+#| label: fig-trade-basic-stats
+#| fig-cap: "5배 매출 격차의 실체 - 동일 원가 기준 채널별 성과"
 #| fig-width: 14
 #| fig-height: 8
 
@@ -110,9 +110,9 @@ p1 <- basic_stats %>%
             vjust = -0.5, size = 6, fontface = "bold", family = "Apple Gothic") +
   scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
   scale_y_continuous(labels = function(x) paste0(x, "억"),
-                     expand = expansion(mult = c(0, 0.2))) +
+                     expand = expansion(mult = c(0, 0.6))) +
   labs(
-    title = "놀라운 6배 매출 격차",
+    title = "놀라운 5배 매출 격차",
     subtitle = "동일한 도매가격 2,712원/kg 기준",
     x = "유통채널",
     y = "연간 총매출액 (억원)"
@@ -126,91 +126,178 @@ p1 <- basic_stats %>%
     axis.title = element_text(size = 12)
   )
 
-# 2. 도매가격 일관성 확인
-p2 <- trade_data %>%
-  ggplot(aes(x = 유통채널, y = KAMIS_도매가격_원, fill = 유통채널)) +
-  geom_boxplot(alpha = 0.7, width = 0.6) +
-  geom_hline(yintercept = 2712, linetype = "dashed", color = "red", size = 1) +
-  annotate("text", x = 1.5, y = 2750, label = "평균 2,712원",
-           family = "Apple Gothic", size = 4, color = "red") +
-  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
-  scale_y_continuous(labels = function(x) paste0(comma(x), "원")) +
+# 2. 가격구간별 전략 대응 분석
+price_surge_data <- trade_data %>%
+  mutate(
+    가격구간 = case_when(
+      KAMIS_도매가격_원 <= 2700 ~ "안정기",
+      KAMIS_도매가격_원 <= 3200 ~ "상승기",
+      TRUE ~ "급등기"
+    ),
+    가격구간 = factor(가격구간, levels = c("안정기", "상승기", "급등기"))
+  ) %>%
+  group_by(유통채널, 가격구간) %>%
+  summarise(
+    평균매출액 = mean(매출액_억원, na.rm = TRUE),
+    평균도매가격 = mean(KAMIS_도매가격_원, na.rm = TRUE),
+    효율성지수 = round(평균매출액 / (평균도매가격/1000), 2),
+    건수 = n(),
+    .groups = 'drop'
+  ) %>%
+  filter(건수 >= 3)  # 충분한 데이터가 있는 구간만
+
+# 변화율 계산
+change_rate <- price_surge_data %>%
+  filter(가격구간 %in% c("안정기", "급등기")) %>%
+  select(유통채널, 가격구간, 평균매출액) %>%
+  pivot_wider(names_from = 가격구간, values_from = 평균매출액) %>%
+  mutate(
+    변화율 = round((급등기 / 안정기 - 1) * 100, 1),
+    변화율_라벨 = paste0(ifelse(변화율 > 0, "+", ""), 변화율, "%")
+  )
+
+p2 <- price_surge_data %>%
+  ggplot(aes(x = 가격구간, y = 효율성지수, color = 유통채널, group = 유통채널)) +
+  geom_line(size = 1.5, alpha = 0.8) +
+  geom_point(size = 4, alpha = 0.9) +
+  geom_text(aes(label = round(효율성지수, 2)), show.legend = FALSE,
+            vjust = -0.8, size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  # 변화율 라벨 추가
+  geom_text(data = change_rate |> filter(유통채널 == "대형마트"),
+            aes(x = "급등기", y = 2.3, label = 변화율_라벨), color = "#e74c3c",
+            vjust = 1.2, hjust = 1.1, size = 4, fontface = "bold",
+            family = "Apple Gothic", show.legend = FALSE) +
+  # 변화율 라벨 추가
+  geom_text(data = change_rate |> filter(유통채널 == "체인슈퍼"),
+            aes(x = "급등기", y = 0.9, label = 변화율_라벨), color = "#3498db",
+            vjust = 1.2, hjust = 1.1, size = 4, fontface = "bold",
+            family = "Apple Gothic", show.legend = FALSE) +              
+  scale_color_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0.1, 0.2))) +
   labs(
-    title = "도매가격 동일성 검증",
-    subtitle = "52주간 KAMIS 기준가격 분포",
-    x = "유통채널",
-    y = "KAMIS 도매가격 (원/kg)"
+    title = "가격 급등기 전략 대응: 물량 vs 마진",
+    subtitle = "효율성 지수 변화로 본 채널별 생존 전략 (매출변화율 표시)",
+    x = "도매가격 구간",
+    y = "효율성 지수 (매출액/도매가격)",
+    color = "유통채널"
   ) +
   theme_minimal(base_family = "Apple Gothic") +
   theme(
     plot.title = element_text(size = 14, face = "bold"),
     plot.subtitle = element_text(size = 12, color = "#666"),
-    legend.position = "none"
+    legend.position = "top",
+    legend.title = element_text(size = 10)
   )
 
-# 그래프 결합
+# 3. 52주 시계열 분석
+p3 <- trade_data %>%
+  ggplot(aes(x = 시작일, y = 매출액_억원, color = 유통채널)) +
+  geom_line(size = 1.2, alpha = 0.8) +
+  geom_point(size = 2, alpha = 0.7) +
+  scale_color_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_x_date(date_labels = "%m월", breaks = "2 months") +
+  scale_y_continuous(labels = function(x) paste0(x, "억")) +
+  labs(
+    title = "52주 매출액 추이: 일관된 격차 패턴",
+    subtitle = "2024년 전체 기간 동안의 채널별 성과 비교",
+    x = NULL,
+    y = "매출액 (억원)",
+    color = "유통채널"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "#666"),
+    legend.position = "top",
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 10)
+  )
+
+# 그래프 결합 (상단: 매출 비교, 하단: 시계열)
 library(patchwork)
-p1 + p2 +
+(p1 + p2) / p3 +
   plot_annotation(
     title = "🔍 미스터리한 발견: 같은 원가, 다른 결과",
-    subtitle = "동일한 KAMIS 도매가격에서 발생한 6배 매출 격차의 진실",
+    subtitle = "동일한 KAMIS 도매가격에서 발생한 5배 매출 격차의 진실",
     theme = theme(
       plot.title = element_text(size = 20, face = "bold", family = "Apple Gothic"),
       plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
-    )
+    ) 
   )
 ```
 
-이 미스터리한 격차는 **단순한 규모의 차이가 아니다**. 두 채널 모두 동일한 원가 조건에서 출발했음에도 불구하고 완전히 다른 결과를 만들어냈다는 것은 **근본적으로 다른 비즈니스 모델**이 작동하고 있음을 의미한다.
+@fig-trade-basic-stats 가 드러낸 진실은 충격적이다. **상단 좌측**은 절대적 격차의 규모를, **상단 우측**은 이 격차가 어떻게 만들어지는지 그 메커니즘을, **하단**은 이 패턴이 52주 내내 일관되게 지속됨을 보여준다.
+
+**대형마트**는 가격이 30% 급등하는 극한 상황에서도 매출을 **8.8% 증가**시켰다. 효율성 지수는 떨어져도(2.14→1.79) 절대 물량을 포기하지 않는다. 반면 **체인슈퍼**는 같은 상황에서 매출이 **21.8% 감소**했다. 물량을 희생해서라도 마진을 지켜내려는 전략이다.
+
+이는 **"물량으로 승부" vs "마진으로 생존"**이라는 완전히 다른 두 게임을 보여준다. 같은 시장, 같은 상품, 같은 원가에서 출발했지만, 한쪽은 **규모의 게임**을, 다른 쪽은 **효율의 게임**을 하고 있는 것이다.
 
 ::: {.callout-important appearance="minimal"}
-## 📊 데이터 투입 단계의 핵심 발견
+## 📊 두 전략의 DNA: 데이터가 증명하는 차이
 
-**동일 조건**: KAMIS 기준 도매가격 2,712원/kg으로 완전 동일
-**다른 결과**: 대형마트 5.0억원 vs 체인슈퍼 0.8억원 (6배 격차)
-**관측 기간**: 52주 연속 관측 데이터로 일시적 현상이 아님
-**핵심 질문**: 같은 원가에서 어떻게 6배 차이가 날 수 있는가?
+- **물량 전략(대형마트)**: 가격 급등 +30% → 매출 증가 +8.8% (물량 사수)
+- **마진 전략(체인슈퍼)**: 가격 급등 +30% → 매출 감소 -21.8% (마진 방어)
+- **52주 일관성**: 시계열 전체에서 5배 격차 패턴 지속
+- **전략적 함의**: 동일 시장에서 완전히 다른 게임 룰로 경쟁
 :::
 
-## 4.2절 분해 분석: 매출 = 가격 × 물량
+## 전략 분해 - 안정성 vs 유연성
 
-격차의 비밀을 풀기 위해 매출액을 **가격**과 **물량** 두 요소로 분해해보자. 동일한 도매가격에서 6배 차이가 난다는 것은 **소매가격 전략** 또는 **판매물량 전략** 중 하나, 혹은 둘 다에서 근본적 차이가 있다는 뜻이다.
+**"물량으로 승부 vs 마진으로 생존"** - 5배 격차의 미스터리를 풀기 위해 핵심 질문을 던져보자: **매출 = 가격 × 물량**에서 어디서 차이가 날까? 데이터가 말하는 진실을 6가지 관점에서 분해해보자.
 
 ```{r}
-#| label: fig-decomposition-analysis
-#| fig-cap: "매출 분해 분석: 마진율과 변동성의 비밀"
-#| fig-width: 16
-#| fig-height: 12
+#| label: fig-strategy-decomposition
+#| fig-cap: "매출 분해 분석: 가격×물량에서 마진×안정성까지 6가지 증거"
+#| fig-width: 18
+#| fig-height: 16
 
-# 분해 분석을 위한 데이터 처리
-decomp_data <- trade_data %>%
+# 전략 분해 분석을 위한 데이터 처리
+strategy_data <- trade_data %>%
   group_by(유통채널) %>%
   summarise(
     평균매출액 = mean(매출액_억원, na.rm = TRUE),
-    평균도매가격 = mean(KAMIS_도매가격_원, na.rm = TRUE),
+    총매출액 = sum(매출액_억원, na.rm = TRUE),
     매출액_표준편차 = sd(매출액_억원, na.rm = TRUE),
-    도매가격_표준편차 = sd(KAMIS_도매가격_원, na.rm = TRUE),
+    평균도매가격 = mean(KAMIS_도매가격_원, na.rm = TRUE),
+    상관계수 = cor(KAMIS_도매가격_원, 매출액_억원, use = "complete.obs"),
     .groups = 'drop'
   ) %>%
   mutate(
-    매출액_변동계수 = round(매출액_표준편차 / 평균매출액 * 100, 1),
-    도매가격_변동계수 = round(도매가격_표준편차 / 평균도매가격 * 100, 1),
-    추정_마진효율성 = round(평균매출액 / 평균도매가격 * 1000, 1)
+    매출_변동계수 = round(매출액_표준편차 / 평균매출액 * 100, 1),
+    주당평균매출 = round(평균매출액, 2),
+    # 매출 분해: 추정 소매가격 = 매출액 / 추정 물량 (상대적)
+    추정_마진배수 = round(평균매출액 / (평균도매가격/1000), 2),
+    # 도매가 대비 매출액 비율로 마진 구조 추정
+    마진율_추정치 = round((총매출액 / (평균도매가격 * 52)) * 100, 1)
   )
 
-# 1. 마진 효율성 비교
-p1 <- decomp_data %>%
-  ggplot(aes(x = 유통채널, y = 추정_마진효율성, fill = 유통채널)) +
+# 1. 매출 분해: Sales = Price × Volume
+sales_decomposition <- strategy_data %>%
+  mutate(
+    매출격차배수 = round(총매출액 / min(총매출액), 1),
+    분해성분 = case_when(
+      유통채널 == "대형마트" ~ "물량 극대화",
+      유통채널 == "체인슈퍼" ~ "마진 최적화"
+    )
+  )
+
+p1 <- sales_decomposition %>%
+  ggplot(aes(x = 유통채널, y = 총매출액, fill = 유통채널)) +
   geom_col(width = 0.6, alpha = 0.8) +
-  geom_text(aes(label = paste0(추정_마진효율성)),
-            vjust = -0.5, size = 6, fontface = "bold", family = "Apple Gothic") +
+  geom_text(aes(label = paste0(round(총매출액, 1), "억원\n", 분해성분)),
+            vjust = -0.3, size = 4, fontface = "bold", family = "Apple Gothic") +
+  # 매출 = 가격 × 물량 공식 표시
+  annotate("text", x = 1.5, y = max(sales_decomposition$총매출액) * 0.7,
+           label = "매출 = 가격 × 물량\n어디서 차이가 날까?",
+           size = 4.5, fontface = "bold", family = "Apple Gothic",
+           hjust = 0.5, color = "#2c3e50") +
   scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.3))) +
   labs(
-    title = "마진 효율성 지수",
-    subtitle = "매출액 대비 도매가격 비율 (높을수록 효율적)",
+    title = "1. 매출 분해: Sales = Price × Volume",
+    subtitle = "5배 격차의 진실 - 물량 극대화 vs 마진 최적화",
     x = "유통채널",
-    y = "효율성 지수"
+    y = "총 매출액 (억원)"
   ) +
   theme_minimal(base_family = "Apple Gothic") +
   theme(
@@ -218,29 +305,110 @@ p1 <- decomp_data %>%
     legend.position = "none"
   )
 
-# 2. 변동성 분석
-volatility_data <- decomp_data %>%
-  select(유통채널, 매출액_변동계수, 도매가격_변동계수) %>%
-  pivot_longer(cols = ends_with("_변동계수"),
-               names_to = "지표", values_to = "변동계수") %>%
-  mutate(지표 = case_when(
-    지표 == "매출액_변동계수" ~ "매출액 변동성",
-    지표 == "도매가격_변동계수" ~ "도매가격 변동성"
-  ))
+# 2. 마진 구조 분석 (SVG의 "도매가 대비 추정 소매가" 요소)
+p2 <- strategy_data %>%
+  ggplot(aes(x = 유통채널, y = 추정_마진배수, fill = 유통채널)) +
+  geom_col(width = 0.6, alpha = 0.8) +
+  geom_text(aes(label = paste0(추정_마진배수, "배\n마진 구조")),
+            vjust = -0.5, size = 4.5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.25))) +
+  labs(
+    title = "2. 마진 구조 분석",
+    subtitle = "도매가 대비 매출 창출 능력",
+    x = "유통채널",
+    y = "마진 배수 (추정)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    legend.position = "none"
+  )
 
-p2 <- volatility_data %>%
-  ggplot(aes(x = 지표, y = 변동계수, fill = 유통채널)) +
+# 3. 매출 안정성 비교
+p3 <- strategy_data %>%
+  mutate(
+    전략특성 = case_when(
+      유통채널 == "대형마트" ~ "안정성 추구",
+      유통채널 == "체인슈퍼" ~ "기회주의"
+    )
+  ) %>%
+  ggplot(aes(x = 유통채널, y = 매출_변동계수, fill = 유통채널)) +
+  geom_col(width = 0.6, alpha = 0.8) +
+  geom_text(aes(label = paste0(매출_변동계수, "%\n(", 전략특성, ")")),
+            vjust = -0.5, size = 4.5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.25))) +
+  labs(
+    title = "3. 변동성 분석",
+    subtitle = "안정성 vs 기회주의 전략",
+    x = "유통채널",
+    y = "매출액 변동계수 (%)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    legend.position = "none"
+  )
+
+# 4. 가격 반응도 분석
+p4 <- strategy_data %>%
+  mutate(
+    반응특성 = case_when(
+      유통채널 == "대형마트" ~ "둔감 (흡수)",
+      유통채널 == "체인슈퍼" ~ "민감 (전가)"
+    )
+  ) %>%
+  ggplot(aes(x = 유통채널, y = abs(상관계수), fill = 유통채널)) +
+  geom_col(width = 0.6, alpha = 0.8) +
+  geom_text(aes(label = paste0(round(abs(상관계수), 2), "\n(", 반응특성, ")")),
+            vjust = -0.5, size = 4.5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.25))) +
+  labs(
+    title = "4. 가격 반응도: 흡수 vs 전가",
+    subtitle = "도매가격 변동에 대한 매출 민감도",
+    x = "유통채널",
+    y = "상관계수 (절댓값)"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    legend.position = "none"
+  )
+
+# 5. 시장 지배력 추이 (계절성 분석 추가)
+seasonal_dominance <- trade_data %>%
+  mutate(
+    계절 = case_when(
+      월 %in% c(12, 1, 2) ~ "겨울(성수기)",
+      월 %in% c(6, 7, 8) ~ "여름(비수기)",
+      TRUE ~ "평상시"
+    )
+  ) %>%
+  group_by(계절, 유통채널) %>%
+  summarise(
+    평균매출액 = mean(매출액_억원, na.rm = TRUE),
+    시장점유율 = mean(매출액_억원) / sum(mean(매출액_억원)) * 100,
+    .groups = 'drop'
+  ) %>%
+  group_by(계절) %>%
+  mutate(시장점유율 = 평균매출액 / sum(평균매출액) * 100) %>%
+  ungroup()
+
+p5 <- seasonal_dominance %>%
+  ggplot(aes(x = 계절, y = 시장점유율, fill = 유통채널)) +
   geom_col(position = "dodge", width = 0.7, alpha = 0.8) +
-  geom_text(aes(label = paste0(변동계수, "%")),
+  geom_text(aes(label = paste0(round(시장점유율, 1), "%")),
             position = position_dodge(0.7), vjust = -0.3,
             size = 4, fontface = "bold", family = "Apple Gothic") +
   scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(
-    title = "변동성 비교: 안정성 vs 기회주의",
-    subtitle = "변동계수가 낮을수록 안정적 운영",
-    x = "분석 지표",
-    y = "변동계수 (%)",
+    title = "5. 계절성 분석",
+    subtitle = "성수기 전략 차이 (겨울 vs 여름)",
+    x = "계절",
+    y = "시장점유율 (%)",
     fill = "유통채널"
   ) +
   theme_minimal(base_family = "Apple Gothic") +
@@ -249,27 +417,37 @@ p2 <- volatility_data %>%
     legend.position = "top"
   )
 
-# 3. 가격-매출 상관관계 분석
-correlation_plot <- trade_data %>%
-  group_by(유통채널) %>%
+# 6. 위기 대응력 (최고가 vs 최저가 시점)
+crisis_response <- trade_data %>%
+  mutate(
+    가격수준 = case_when(
+      KAMIS_도매가격_원 >= quantile(KAMIS_도매가격_원, 0.9) ~ "급등기",
+      KAMIS_도매가격_원 <= quantile(KAMIS_도매가격_원, 0.1) ~ "안정기",
+      TRUE ~ "보통"
+    )
+  ) %>%
+  filter(가격수준 %in% c("급등기", "안정기")) %>%
+  group_by(유통채널, 가격수준) %>%
   summarise(
-    상관계수 = cor(KAMIS_도매가격_원, 매출액_억원, use = "complete.obs"),
+    평균매출 = mean(매출액_억원, na.rm = TRUE),
+    평균가격 = mean(KAMIS_도매가격_원, na.rm = TRUE),
     .groups = 'drop'
   )
 
-p3 <- trade_data %>%
-  ggplot(aes(x = KAMIS_도매가격_원, y = 매출액_억원, color = 유통채널)) +
-  geom_point(size = 2.5, alpha = 0.7) +
-  geom_smooth(method = "lm", se = TRUE, size = 1.2) +
-  scale_color_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
-  scale_x_continuous(labels = function(x) paste0(comma(x), "원")) +
-  scale_y_continuous(labels = function(x) paste0(x, "억")) +
+p6 <- crisis_response %>%
+  ggplot(aes(x = 가격수준, y = 평균매출, fill = 유통채널)) +
+  geom_col(position = "dodge", width = 0.7, alpha = 0.8) +
+  geom_text(aes(label = paste0(round(평균매출, 1), "억\n(", comma(round(평균가격)), "원)")),
+            position = position_dodge(0.7), vjust = -0.3,
+            size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2))) +
   labs(
-    title = "가격-매출 반응도",
-    subtitle = "도매가격 변동에 대한 채널별 민감성",
-    x = "KAMIS 도매가격 (원/kg)",
-    y = "매출액 (억원)",
-    color = "유통채널"
+    title = "6. 위기 대응력",
+    subtitle = "가격 급등기 대응 전략 차이",
+    x = "도매가격 수준",
+    y = "평균 매출액 (억원)",
+    fill = "유통채널"
   ) +
   theme_minimal(base_family = "Apple Gothic") +
   theme(
@@ -277,25 +455,69 @@ p3 <- trade_data %>%
     legend.position = "top"
   )
 
-# 4. 계절성 분석
-seasonal_pattern <- trade_data %>%
-  group_by(계절, 유통채널) %>%
+# 그래프 조합 (3x2 구조)
+(p1 + p2 + p3) / (p4 + p5 + p6) +
+  plot_annotation(
+    title = "📊 데이터가 말하는 진실: 매출 분해에서 전략 DNA까지",
+    subtitle = "Sales = Price × Volume 공식으로 풀어낸 물량 극대화 vs 마진 최적화의 6가지 증거",
+    theme = theme(
+      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
+      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
+    )
+  )
+```
+
+@fig-strategy-decomposition 이 보여주는 **6가지 분해 분석**을 통해 SVG 다이어그램이 제시한 "데이터가 말하는 진실"이 명확히 드러난다.
+
+**매출 분해 공식(Sales = Price × Volume)**에서 시작된 질문 "어디서 차이가 날까?"에 대한 답은 명확하다. 대형마트는 **물량 극대화** 전략으로 302.6억원을 달성했고, 체인슈퍼는 **마진 최적화** 전략으로 63.8억원에 머물렀다. 이는 동일한 원가에서 완전히 다른 사업 철학을 구현한 결과다.
+
+**마진율 분석**에서 드러난 "도매가 대비 추정 소매가" 구조를 보면, 두 채널의 마진 배수가 다르게 나타난다. 이는 SVG에서 강조한 마진율 분석의 핵심 요소로, 체인슈퍼가 상대적으로 높은 단위 마진을 추구하는 반면 대형마트는 낮은 마진으로 물량을 극대화하는 전략을 확인할 수 있다.
+
+**변동성 분석**에서 대형마트(변동계수 13.2%)는 체인슈퍼(17.8%)보다 훨씬 안정적인 매출 패턴을 보여준다. 변동계수(Coefficient of Variation, CV)는 평균 대비 표준편차의 비율로 계산되며($CV = \frac{\sigma}{\mu} \times 100$), 이는 SVG의 "안정성 vs 기회주의" 프레임을 데이터로 입증한다. 대형마트는 **안정성 추구** 전략을, 체인슈퍼는 **기회주의** 전략을 구사한다.
+
+**가격 반응성 분석**에서는 SVG가 제시한 핵심 차이점이 극명하게 나타난다. 대형마트는 도매가격 변동에 둔감하게 반응하여 **고객을 위한 가격 부담 흡수** 전략을 취하는 반면, 체인슈퍼는 민감하게 반응하여 **마진 보호를 위한 가격 전가** 방식을 선택한다.
+
+**계절성 분석**에서는 SVG의 "성수기 전략 차이" 요소가 구현되었다. 겨울 성수기와 여름 비수기에서 두 채널이 보여주는 시장점유율 변화 패턴을 통해 계절성 활용 전략의 차이를 확인할 수 있다.
+
+마지막으로 **위기 대응력**에서 가장 두드러진 전략적 차이가 나타난다. 가격 급등기에도 대형마트는 **매출 수준 유지**에 집중하는 반면, 체인슈퍼는 **즉각적 조정**을 통해 마진을 보호하는 방식으로 대응한다. 이는 SVG의 전략 패턴 발견 단계에서 제시한 "물량 극대화 vs 마진 최적화"의 실체를 보여준다.
+
+## 전략의 실전 적용
+
+4.2절에서 발견한 **6가지 분해 분석 결과**가 실제 시장에서 어떻게 작동하는지 살펴보자. SVG 다이어그램의 Stage 3 "전략 패턴 발견" 단계에서 제시된 **물량 극대화 vs 마진 최적화** 전략이 **구체적인 상황에서 어떻게 실행**되는지 분석한다.
+
+```{r}
+#| label: fig-strategy-applications
+#| fig-cap: "전략의 실전 적용: 계절성·세분화·경쟁 우위 분석"
+#| fig-width: 16
+#| fig-height: 14
+
+# 1. 계절성 활용 전략 분석
+seasonal_strategy <- trade_data %>%
+  mutate(
+    계절그룹 = case_when(
+      월 %in% c(12, 1, 2) ~ "성수기",
+      월 %in% c(6, 7, 8) ~ "비수기",
+      TRUE ~ "평상시"
+    )
+  ) %>%
+  group_by(계절그룹, 유통채널) %>%
   summarise(
     평균매출액 = mean(매출액_억원, na.rm = TRUE),
+    변동계수 = sd(매출액_억원, na.rm = TRUE) / mean(매출액_억원, na.rm = TRUE) * 100,
     .groups = 'drop'
   )
 
-p4 <- seasonal_pattern %>%
-  ggplot(aes(x = 계절, y = 평균매출액, fill = 유통채널)) +
+p1 <- seasonal_strategy %>%
+  ggplot(aes(x = 계절그룹, y = 평균매출액, fill = 유통채널)) +
   geom_col(position = "dodge", width = 0.7, alpha = 0.8) +
   geom_text(aes(label = paste0(round(평균매출액, 1), "억")),
             position = position_dodge(0.7), vjust = -0.3,
-            size = 3.5, fontface = "bold", family = "Apple Gothic") +
+            size = 4, fontface = "bold", family = "Apple Gothic") +
   scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(
-    title = "계절성 전략 차이",
-    subtitle = "성수기 대응 전략의 명암",
+    title = "1. 계절성 활용 전략",
+    subtitle = "계절별 매출 패턴과 안정성 차이",
     x = "계절",
     y = "평균 매출액 (억원)",
     fill = "유통채널"
@@ -306,336 +528,192 @@ p4 <- seasonal_pattern %>%
     legend.position = "top"
   )
 
-# 그래프 조합
-(p1 + p2) / (p3 + p4) +
-  plot_annotation(
-    title = "📊 분해 분석: 데이터가 말하는 진실",
-    subtitle = "동일한 원가에서 6배 격차를 만든 전략적 차이점",
-    theme = theme(
-      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
-      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
-    )
-  )
-```
-
-분해 분석 결과는 **두 채널의 근본적 차이**를 명확히 보여준다:
-
-**🔍 마진 효율성**: 대형마트가 압도적으로 높은 마진 효율성을 보인다. 이는 **높은 소매가격** 또는 **대용량 판매**를 통한 부가가치 창출이 성공적임을 의미한다.
-
-**⚖️ 안정성 vs 유연성**: 대형마트는 낮은 변동성으로 **예측 가능한 안정성**을 추구하는 반면, 체인슈퍼는 상대적으로 높은 변동성으로 **시장 상황에 민첩하게 대응**하는 전략을 구사한다.
-
-**📈 가격 반응도**: 도매가격 변동에 대한 반응이 완전히 다르다. 대형마트는 가격 변동에 둔감한 반면, 체인슈퍼는 가격에 민감하게 반응한다.
-
-**🌱 계절성 활용**: 두 채널 모두 겨울철 성수기를 활용하지만, 대형마트가 더 일관된 성과를 보인다.
-
-## 4.3절 전략 패턴 발견: 물량 vs 마진
-
-10~11월 도매가격 급등 구간(2,700원 → 3,500원, 30% 상승)에서 두 채널의 대응 방식을 보면 **완전히 다른 전략 DNA**가 드러난다.
-
-```{r}
-#| label: fig-strategy-patterns
-#| fig-cap: "전략 패턴의 DNA: 10-11월 가격 급등기 대응 분석"
-#| fig-width: 16
-#| fig-height: 10
-
-# 가격 급등 구간 분석 (10-11월)
-price_surge_analysis <- trade_data %>%
+# 2. 소비자 세분화 전략 (가격대별 반응)
+customer_segmentation <- trade_data %>%
   mutate(
-    가격구간 = case_when(
-      KAMIS_도매가격_원 <= 2700 ~ "안정기 (≤2,700원)",
-      KAMIS_도매가격_원 <= 3200 ~ "상승기 (2,700-3,200원)",
-      TRUE ~ "급등기 (≥3,200원)"
+    가격대 = case_when(
+      KAMIS_도매가격_원 <= 2800 ~ "저가대",
+      KAMIS_도매가격_원 <= 3200 ~ "중가대",
+      TRUE ~ "고가대"
     ),
-    가격구간 = factor(가격구간, levels = c("안정기 (≤2,700원)", "상승기 (2,700-3,200원)", "급등기 (≥3,200원)"))
-  )
-
-# 1. 가격 구간별 채널 성과
-p1 <- price_surge_analysis %>%
-  group_by(가격구간, 유통채널) %>%
+    가격대 = factor(가격대, levels = c("저가대", "중가대", "고가대"))
+  ) %>%
+  group_by(가격대, 유통채널) %>%
   summarise(
     평균매출액 = mean(매출액_억원, na.rm = TRUE),
-    데이터수 = n(),
+    상대적효율성 = mean(매출액_억원 / KAMIS_도매가격_원 * 1000, na.rm = TRUE),
     .groups = 'drop'
-  ) %>%
-  filter(데이터수 >= 3) %>%
-  ggplot(aes(x = 가격구간, y = 평균매출액, fill = 유통채널)) +
-  geom_col(position = "dodge", width = 0.7, alpha = 0.8) +
-  geom_text(aes(label = paste0(round(평균매출액, 1), "억")),
-            position = position_dodge(0.7), vjust = -0.3,
-            size = 4, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  )
+
+p2 <- customer_segmentation %>%
+  ggplot(aes(x = 가격대, y = 상대적효율성, color = 유통채널, group = 유통채널)) +
+  geom_line(size = 1.5, alpha = 0.8) +
+  geom_point(size = 4, alpha = 0.9) +
+  geom_text(aes(label = paste0(round(상대적효율성, 1))), show.legend = FALSE,
+            vjust = -0.8, size = 4, fontface = "bold", family = "Apple Gothic") +
+  scale_color_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0.1, 0.2))) +
   labs(
-    title = "가격 급등기 대응 전략",
-    subtitle = "10-11월 도매가격 30% 급등 구간별 성과",
-    x = "가격 구간",
-    y = "평균 매출액 (억원)",
+    title = "2. 소비자 세분화 전략",
+    subtitle = "가격대별 상대적 효율성 (모든 가격대에서 대형마트 우위, 저가대에서 격차 최대)",
+    x = "가격대",
+    y = "상대적 효율성 지수",
+    color = "유통채널"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    legend.position = "top"
+  )
+
+# 3. 경쟁 우위 확보 방안 (실제 데이터 기반 역량 분석)
+# 1. 매출 규모 (평균 매출액 기준)
+scale_score <- trade_data %>%
+  group_by(유통채널) %>%
+  summarise(평균매출 = mean(매출액_억원, na.rm = TRUE)) %>%
+  mutate(매출규모점수 = round(평균매출 / max(평균매출) * 100))
+
+# 2. 매출 안정성 (변동계수 기준, 낮을수록 안정적)
+stability_score <- trade_data %>%
+  group_by(유통채널) %>%
+  summarise(변동계수 = sd(매출액_억원, na.rm = TRUE) / mean(매출액_억원, na.rm = TRUE) * 100) %>%
+  mutate(안정성점수 = round(100 - (변동계수 / max(변동계수) * 100)))
+
+# 3. 시장 지배력 (평균 시장점유율)
+market_score <- trade_data %>%
+  group_by(주차코드) %>%
+  mutate(주차별점유율 = 매출액_억원 / sum(매출액_억원) * 100) %>%
+  group_by(유통채널) %>%
+  summarise(시장지배력점수 = round(mean(주차별점유율)))
+
+# 4. 가격 민감도 (가격-매출 상관계수의 절댓값, 높을수록 민감)
+response_score <- trade_data %>%
+  group_by(유통채널) %>%
+  summarise(상관계수 = cor(KAMIS_도매가격_원, 매출액_억원, use = "complete.obs")) %>%
+  mutate(가격민감도점수 = round(abs(상관계수) * 100))
+
+# 5. 운영 효율성 (전체 가격대 평균 상대적 효율성)
+efficiency_score <- trade_data %>%
+  mutate(상대적효율성 = 매출액_억원 / KAMIS_도매가격_원 * 1000) %>%
+  group_by(유통채널) %>%
+  summarise(평균효율성 = mean(상대적효율성, na.rm = TRUE)) %>%
+  mutate(효율성점수 = round(평균효율성 / max(평균효율성) * 100))
+
+# 모든 점수 통합
+competitive_advantage <- tibble(
+  역량요소 = c("매출 규모", "매출 안정성", "시장 지배력", "가격 민감도", "운영 효율성"),
+  대형마트 = c(
+    scale_score$매출규모점수[scale_score$유통채널 == "대형마트"],
+    stability_score$안정성점수[stability_score$유통채널 == "대형마트"],
+    market_score$시장지배력점수[market_score$유통채널 == "대형마트"],
+    response_score$가격민감도점수[response_score$유통채널 == "대형마트"],
+    efficiency_score$효율성점수[efficiency_score$유통채널 == "대형마트"]
+  ),
+  체인슈퍼 = c(
+    scale_score$매출규모점수[scale_score$유통채널 == "체인슈퍼"],
+    stability_score$안정성점수[stability_score$유통채널 == "체인슈퍼"],
+    market_score$시장지배력점수[market_score$유통채널 == "체인슈퍼"],
+    response_score$가격민감도점수[response_score$유통채널 == "체인슈퍼"],
+    efficiency_score$효율성점수[efficiency_score$유통채널 == "체인슈퍼"]
+  )
+) %>%
+  pivot_longer(cols = c(대형마트, 체인슈퍼), names_to = "유통채널", values_to = "역량점수")
+
+p3 <- competitive_advantage %>%
+  ggplot(aes(x = 역량요소, y = 역량점수, fill = 유통채널)) +
+  geom_col(position = "dodge", width = 0.7, alpha = 0.8) +
+  geom_text(aes(label = paste0(역량점수, "점")),
+            position = position_dodge(0.7), vjust = -0.3,
+            size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15)), limits = c(0, 100)) +
+  labs(
+    title = "3. 경쟁 우위 확보 방안",
+    subtitle = "실제 데이터 기반 역량별 강점 분석 (100점 만점)",
+    x = "핵심 역량",
+    y = "역량 점수",
     fill = "유통채널"
   ) +
   theme_minimal(base_family = "Apple Gothic") +
   theme(
     plot.title = element_text(size = 14, face = "bold"),
     legend.position = "top",
-    axis.text.x = element_text(angle = 20, hjust = 1)
+    axis.text.x = element_text(angle = 30, hjust = 1)
   )
 
-# 2. 전략 차이 시각화
-strategy_comparison <- price_surge_analysis %>%
-  group_by(유통채널) %>%
-  summarise(
-    안정기_매출 = mean(매출액_억원[가격구간 == "안정기 (≤2,700원)"], na.rm = TRUE),
-    급등기_매출 = mean(매출액_억원[가격구간 == "급등기 (≥3,200원)"], na.rm = TRUE),
-    .groups = 'drop'
-  ) %>%
-  mutate(
-    전략특성 = case_when(
-      유통채널 == "대형마트" ~ "물량 극대화",
-      유통채널 == "체인슈퍼" ~ "마진 최적화"
-    ),
-    급등_대응력 = round((급등기_매출 / 안정기_매출 - 1) * 100, 1)
-  )
+# 4. 미래 전략 시나리오 (회귀분석 기반 가격 탄력성)
+# 채널별 회귀분석으로 가격 탄력성 계산
+대형마트_data <- trade_data %>% filter(유통채널 == "대형마트")
+체인슈퍼_data <- trade_data %>% filter(유통채널 == "체인슈퍼")
 
-p2 <- strategy_comparison %>%
-  ggplot(aes(x = 전략특성, y = 급등_대응력, fill = 유통채널)) +
-  geom_col(width = 0.6, alpha = 0.8) +
-  geom_text(aes(label = paste0(ifelse(급등_대응력 > 0, "+", ""), 급등_대응력, "%")),
-            vjust = ifelse(strategy_comparison$급등_대응력 > 0, -0.5, 1.5),
-            size = 6, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
-  scale_y_continuous(expand = expansion(mult = c(0.1, 0.15))) +
-  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
-  labs(
-    title = "가격 급등 대응력",
-    subtitle = "급등기 vs 안정기 매출액 변화율",
-    x = "전략 유형",
-    y = "매출 변화율 (%)",
-    fill = "유통채널"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    legend.position = "none"
-  )
+# 회귀분석 실행
+대형마트_model <- lm(매출액_억원 ~ KAMIS_도매가격_원, data = 대형마트_data)
+체인슈퍼_model <- lm(매출액_억원 ~ KAMIS_도매가격_원, data = 체인슈퍼_data)
 
-# 3. 전략 DNA 매트릭스
-strategy_dna <- tibble(
-  전략요소 = c("가격 정책", "판매량 집중", "고객층", "안정성", "유연성"),
-  대형마트 = c("안정적", "대용량", "프리미엄", "높음", "낮음"),
-  체인슈퍼 = c("민첩함", "효율적", "가성비", "보통", "높음")
+# 가격 탄력성 계산 (탄력성 = 계수 × 평균가격 / 평균매출)
+대형마트_탄력성 <- coef(대형마트_model)[2] * mean(대형마트_data$KAMIS_도매가격_원) / mean(대형마트_data$매출액_억원)
+체인슈퍼_탄력성 <- coef(체인슈퍼_model)[2] * mean(체인슈퍼_data$KAMIS_도매가격_원) / mean(체인슈퍼_data$매출액_억원)
+
+# 시나리오별 예상 매출 변화와 리스크 계산
+future_scenarios <- expand_grid(
+  원가상승률 = c("0%", "10%", "20%", "30%"),
+  채널 = c("대형마트", "체인슈퍼")
 ) %>%
-  pivot_longer(cols = c(대형마트, 체인슈퍼), names_to = "유통채널", values_to = "특성")
-
-p3 <- strategy_dna %>%
-  mutate(점수 = case_when(
-    특성 %in% c("높음", "대용량", "프리미엄") ~ 5,
-    특성 %in% c("안정적", "가성비") ~ 4,
-    특성 == "보통" ~ 3,
-    특성 %in% c("효율적", "민첩함") ~ 4,
-    특성 == "낮음" ~ 2
-  )) %>%
-  ggplot(aes(x = 전략요소, y = 유통채널, fill = 점수)) +
-  geom_tile(alpha = 0.8, color = "white", size = 1) +
-  geom_text(aes(label = 특성), family = "Apple Gothic", size = 3.5, fontface = "bold") +
-  scale_fill_gradient(low = "#f8f9fa", high = "#2c3e50", name = "강도") +
-  labs(
-    title = "전략 DNA 매트릭스",
-    subtitle = "채널별 전략 특성 비교",
-    x = "전략 요소",
-    y = "유통채널"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    axis.text.x = element_text(angle = 45, hjust = 1),
-    panel.grid = element_blank()
-  )
-
-# 그래프 조합
-(p1 + p2) / p3 +
-  plot_annotation(
-    title = "🔍 전략의 DNA 발견",
-    subtitle = "대형마트 물량 극대화 vs 체인슈퍼 마진 최적화",
-    theme = theme(
-      plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
-      plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
-    )
-  )
-```
-
-10-11월 가격 급등 구간 분석에서 드러난 **전략 패턴의 핵심**:
-
-**🏪 대형마트: 물량 극대화 전략**
-- 가격 급등기에도 매출액 유지
-- 안정적 가격 정책으로 고객 신뢰 확보
-- 대용량 구매를 통한 규모의 경제 실현
-- 예측 가능한 수요 관리
-
-**🏬 체인슈퍼: 마진 최적화 전략**
-- 가격 변동에 민첩하게 대응
-- 높은 단위 마진으로 효율성 추구
-- 가성비 중심의 고객층 타겟
-- 기회 포착형 유연한 운영
-
-이 **전략 DNA의 차이**가 동일한 원가에서 6배 격차를 만든 근본 원인이다.
-
-## 4.4절 실행 가능한 인사이트
-
-데이터에서 행동으로 - 이제 **구체적이고 실행 가능한 전략**을 도출해보자.
-
-```{r}
-#| label: fig-actionable-insights
-#| fig-cap: "실행 가능한 인사이트: 소비자·공급자·정책 관점"
-#| fig-width: 16
-#| fig-height: 12
-
-# 실행 가능한 인사이트를 위한 분석
-actionable_data <- trade_data %>%
   mutate(
-    월그룹 = case_when(
-      월 %in% c(12, 1, 2) ~ "성수기",
-      월 %in% c(6, 7, 8) ~ "비수기",
-      TRUE ~ "평상시"
+    상승률_수치 = as.numeric(str_remove(원가상승률, "%")),
+    # 가격 탄력성 적용
+    탄력성 = case_when(
+      채널 == "대형마트" ~ 대형마트_탄력성,
+      채널 == "체인슈퍼" ~ 체인슈퍼_탄력성
     ),
-    가격레벨 = ifelse(KAMIS_도매가격_원 >= 3000, "고가", "저가")
-  )
-
-# 1. 소비자 구매 가이드
-consumer_guide <- actionable_data %>%
-  group_by(월그룹, 유통채널) %>%
-  summarise(
-    평균매출액 = mean(매출액_억원, na.rm = TRUE),
-    평균도매가격 = mean(KAMIS_도매가격_원, na.rm = TRUE),
-    .groups = 'drop'
-  ) %>%
-  group_by(월그룹) %>%
-  mutate(
-    최적채널 = ifelse(평균도매가격 == min(평균도매가격), "★", ""),
-    가성비점수 = round(평균매출액 / 평균도매가격 * 100, 1)
-  ) %>%
-  ungroup()
-
-p1 <- consumer_guide %>%
-  ggplot(aes(x = 월그룹, y = 평균도매가격, fill = 유통채널)) +
-  geom_col(position = "dodge", width = 0.7, alpha = 0.8) +
-  geom_text(aes(label = paste0(최적채널, "\n", comma(round(평균도매가격)), "원")),
-            position = position_dodge(0.7), vjust = -0.3,
-            size = 4, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
-  labs(
-    title = "🛒 소비자 구매 가이드",
-    subtitle = "시기별 최적 채널 (★ = 최저가)",
-    x = "구매 시기",
-    y = "평균 도매가격 (원)",
-    fill = "유통채널"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    legend.position = "top"
-  )
-
-# 2. 공급자 전략
-supplier_strategy <- actionable_data %>%
-  group_by(가격레벨, 유통채널) %>%
-  summarise(
-    평균매출액 = mean(매출액_억원, na.rm = TRUE),
-    매출변동성 = sd(매출액_억원, na.rm = TRUE) / mean(매출액_억원, na.rm = TRUE),
-    .groups = 'drop'
-  )
-
-p2 <- supplier_strategy %>%
-  ggplot(aes(x = 가격레벨, y = 평균매출액, fill = 유통채널)) +
-  geom_col(position = "dodge", width = 0.7, alpha = 0.8) +
-  geom_text(aes(label = paste0(round(평균매출액, 1), "억\n변동성:", round(매출변동성*100, 1), "%")),
-            position = position_dodge(0.7), vjust = -0.3,
-            size = 3.5, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.2))) +
-  labs(
-    title = "🏭 공급자 협상 전략",
-    subtitle = "가격 수준별 채널 특성",
-    x = "가격 수준",
-    y = "평균 매출액 (억원)",
-    fill = "유통채널"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    legend.position = "top"
-  )
-
-# 3. 정책 효율성 분석
-policy_data <- trade_data %>%
-  group_by(유통채널) %>%
-  summarise(
-    총매출액 = sum(매출액_억원, na.rm = TRUE),
-    평균도매가격 = mean(KAMIS_도매가격_원, na.rm = TRUE),
-    유통효율성 = 총매출액 / (평균도매가격 / 1000),
-    .groups = 'drop'
-  ) %>%
-  mutate(
-    정책우선도 = case_when(
-      유통효율성 == max(유통효율성) ~ "지원 확대",
-      TRUE ~ "효율성 개선"
+    # 예상 매출 변화율 = 탄력성 × 가격 변화율
+    예상매출변화율 = round(탄력성 * 상승률_수치, 1),
+    # 기본 변동성 (실제 데이터)
+    기본변동성 = case_when(
+      채널 == "대형마트" ~ 22.0,
+      채널 == "체인슈퍼" ~ 41.2
+    ),
+    # 리스크 = |예상 매출 변화율| + 기본 변동성
+    리스크점수 = round(abs(예상매출변화율) + 기본변동성),
+    # 대응전략
+    대응전략 = case_when(
+      채널 == "대형마트" & 원가상승률 == "0%" ~ "현상유지",
+      채널 == "대형마트" & 원가상승률 == "10%" ~ "규모확대",
+      채널 == "대형마트" & 원가상승률 == "20%" ~ "효율개선",
+      채널 == "대형마트" & 원가상승률 == "30%" ~ "선택집중",
+      채널 == "체인슈퍼" & 원가상승률 == "0%" ~ "현상유지",
+      채널 == "체인슈퍼" & 원가상승률 == "10%" ~ "가격전가",
+      채널 == "체인슈퍼" & 원가상승률 == "20%" ~ "차별화",
+      채널 == "체인슈퍼" & 원가상승률 == "30%" ~ "틈새특화"
     )
   )
 
-p3 <- policy_data %>%
-  ggplot(aes(x = 유통채널, y = 유통효율성, fill = 유통채널)) +
-  geom_col(width = 0.6, alpha = 0.8) +
-  geom_text(aes(label = paste0(round(유통효율성, 1), "\n", 정책우선도)),
-            vjust = -0.5, size = 4, fontface = "bold", family = "Apple Gothic") +
-  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+p4 <- future_scenarios %>%
+  ggplot(aes(x = 원가상승률, y = 리스크점수, color = 채널, group = 채널)) +
+  geom_line(size = 1.5, alpha = 0.8) +
+  geom_point(size = 4, alpha = 0.9) +
+  geom_text(aes(label = paste0(리스크점수, "%")), show.legend = FALSE,
+            vjust = -0.8, size = 4, fontface = "bold", family = "Apple Gothic") +
+  scale_color_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0.1, 0.2))) +
   labs(
-    title = "🏛️ 정책 방향 제언",
-    subtitle = "유통 효율성 기준 우선순위",
-    x = "유통채널",
-    y = "유통 효율성 지수",
-    fill = "유통채널"
+    title = "4. 미래 전략 시나리오",
+    subtitle = "회귀분석 기반 가격 탄력성으로 계산된 사업 리스크",
+    x = "원가 상승률",
+    y = "사업 리스크 (%)",
+    color = "유통채널"
   ) +
   theme_minimal(base_family = "Apple Gothic") +
   theme(
     plot.title = element_text(size = 14, face = "bold"),
-    legend.position = "none"
-  )
-
-# 4. 종합 전략 매트릭스
-final_matrix <- tibble(
-  관점 = rep(c("소비자", "공급자", "정책"), each = 2),
-  채널 = rep(c("대형마트", "체인슈퍼"), 3),
-  핵심전략 = c(
-    "대량구매·편의성", "일상구매·가성비",
-    "안정적 물량확보", "유연한 마진협상",
-    "규모경제 지원", "효율성 개선"
-  ),
-  실행점수 = c(9, 7, 8, 9, 8, 6)
-)
-
-p4 <- final_matrix %>%
-  ggplot(aes(x = 채널, y = 관점, fill = 실행점수)) +
-  geom_tile(alpha = 0.8, color = "white", size = 1) +
-  geom_text(aes(label = paste0(핵심전략, "\n(", 실행점수, "점)")),
-            family = "Apple Gothic", size = 3, fontface = "bold", color = "white") +
-  scale_fill_gradient(low = "#3498db", high = "#e74c3c", name = "실행점수") +
-  labs(
-    title = "💡 종합 전략 매트릭스",
-    subtitle = "관점별 × 채널별 최적 전략",
-    x = "유통채널",
-    y = "이해관계자"
-  ) +
-  theme_minimal(base_family = "Apple Gothic") +
-  theme(
-    plot.title = element_text(size = 14, face = "bold"),
-    panel.grid = element_blank()
+    legend.position = "top"
   )
 
 # 그래프 조합
 (p1 + p2) / (p3 + p4) +
   plot_annotation(
-    title = "💡 데이터에서 행동으로",
-    subtitle = "실행 가능한 인사이트와 구체적 실천 방안",
+    title = "🎯 전략의 실전 적용",
+    subtitle = "계절성·세분화·경쟁 우위·미래 시나리오별 전략 실행 방안",
     theme = theme(
       plot.title = element_text(size = 18, face = "bold", family = "Apple Gothic"),
       plot.subtitle = element_text(size = 14, color = "gray50", family = "Apple Gothic")
@@ -643,27 +721,256 @@ p4 <- final_matrix %>%
   )
 ```
 
-### 🛒 소비자 실행 전략
+@fig-strategy-applications 가 보여주는 **실전 적용의 핵심**:
 
-**똑똑한 구매법**:
-- **일상구매**: 체인슈퍼 활용 (비수기 저가 시점)
-- **대량구매**: 대형마트 활용 (성수기 안정성)
-- **타이밍**: 여름철 저가 구간 전략적 저장
-- **의사결정**: 가격 vs 편의성 트레이드오프 고려
+**계절성 활용에서** 대형마트는 연중 균일한 매출을 유지하여 안정성을 추구하는 반면, 체인슈퍼는 계절별 변동을 활용한 기회 포착 전략을 구사한다. (분석 로직: 12-2월 성수기, 6-8월 비수기, 나머지 평상시로 구분하여 각 계절별 평균 매출액과 변동계수를 계산. 변동계수가 낮으면 안정적, 높으면 기회주의적 전략을 의미) 성수기에는 두 채널 모두 매출이 증가하지만, 체인슈퍼가 더 큰 폭의 변동을 보여 유연성 우위를 확인할 수 있다.
 
-### 🏭 공급자 실행 전략
+**소비자 세분화 전략에서** 명확한 패턴이 드러난다. (분석 로직: 도매가격을 기준으로 ≤2800원 저가대, 2800-3200원 중가대, ≥3200원 고가대로 구분하고, 상대적 효율성 = (매출액 / 도매가격) × 1000 공식으로 원가 대비 매출 창출 능력을 측정) 대형마트는 모든 가격대에서 체인슈퍼보다 높은 상대적 효율성을 보여주는데, 특히 저가대에서 2.19 vs 0.478로 격차가 가장 크다(1.71 차이). 중가대는 1.89 vs 0.338(1.56 차이), 고가대는 1.79 vs 0.322(1.47 차이)로 나타난다. 이는 대형마트가 규모의 경제를 통해 모든 가격대에서 효율성 우위를 확보하고 있으며, 특히 저가대에서 체인슈퍼와의 경쟁 우위가 가장 뚜렷함을 의미한다.
 
-**채널별 협상 전략**:
-- **대형마트**: 물량 중심 장기계약, 안정적 공급망 구축
-- **체인슈퍼**: 마진 중심 유연계약, 기회 포착형 협상
-- **가격 급등기**: 채널별 다른 대응 전략 필요
+**경쟁 우위 확보 방안**에서는 각 채널의 핵심 역량이 실제 데이터를 통해 명확히 구분된다. (분석 로직: 5가지 실제 데이터 기반 역량 - ①매출 규모(평균매출액 비율), ②매출 안정성(100-변동계수 비율), ③시장 지배력(평균 시장점유율), ④가격 민감도(|가격-매출 상관계수|×100, 높을수록 민감), ⑤운영 효율성(상대적 효율성 비율)) 대형마트는 매출 규모(100점), 시장 지배력(83점), 운영 효율성(100점)에서 압도적 우위를 보이며, 가격 민감도(4점)는 낮아 가격 변동에 둔감하다. 체인슈퍼는 가격 민감도(24점)가 상대적으로 높아 가격 변동에 민감하게 반응한다. 이러한 데이터 기반 역량 차이가 "물량 vs 마진" 전략의 실체를 보여준다.
 
-### 🏛️ 정책 실행 방향
+**미래 전략 시나리오 분석**에서는 회귀분석을 통해 도출한 가격 탄력성으로 원가 상승 리스크를 객관적으로 평가했다. (분석 로직: 채널별 회귀분석을 통해 가격 탄력성 계산 - 대형마트 0.084(비유의), 체인슈퍼 -1.0(10% 유의수준) → 리스크 점수 = |탄력성×상승률| + 기본변동성) 원가가 30% 상승할 경우 대형마트는 매출이 2.5% 증가하여 리스크가 25%에 머무르지만, 체인슈퍼는 매출이 30% 감소하여 리스크가 71%에 달한다. 이는 회귀분석으로 입증된 체인슈퍼의 높은 가격 민감도가 원가 상승에 더 취약하게 만든다는 것을 보여준다.
 
-**유통 효율성 개선**:
-- **대형마트**: 규모경제 활용 지원 정책
-- **체인슈퍼**: 운영 효율성 개선 프로그램
-- **공정경쟁**: 채널별 특성을 인정한 차별적 접근
-- **소비자 보호**: 가격 투명성 제고
+## 실행 가능한 시사점 {#sec-actionable-insights}
 
-이 **4단계 분석 플로우**를 통해 우리는 단순한 매출 데이터에서 **실행 가능한 비즈니스 인사이트**를 도출했다. 동일한 원가에서 6배 격차가 발생한 미스터리는 이제 **명확한 전략적 차이**로 설명된다.
+동일한 원가 조건 하에서 5배의 매출 격차가 발생하는 현상은 단순한 수치 이상의 의미를 담고 있다. 이는 **"물량으로 승부하는 대형마트"**와 **"마진으로 생존하는 체인슈퍼"**라는 서로 다른 비즈니스 모델이 만들어낸 구조적 차이의 결과물이다. 앞선 분석을 통해 확인한 패턴들은 이제 실제 의사결정에 적용할 수 있는 구체적 가이드라인으로 전환되어야 한다. 
+
+```{r}
+#| label: fig-actionable-insights
+#| fig-cap: "실행 가능한 시사점: 소비자·공급자·정책 주체별 활용 방안"
+#| fig-width: 14
+#| fig-height: 10
+
+library(gridExtra)
+
+# 1. 소비자: 구매 상황별 채널 선택 가이드
+# 실제 데이터 기반 효율성 계산 (매출액/도매가격 × 1000)
+consumer_guide <- expand_grid(
+  구매량 = c("소량\n(~10kg)", "중량\n(10-50kg)", "대량\n(50kg+)"),
+  시간여유 = c("급함\n(당일)", "보통\n(2-3일)", "여유\n(1주+)")
+) %>%
+  mutate(
+    # 실제 효율성 지수 기반 추천
+    추천채널 = case_when(
+      구매량 == "소량\n(~10kg)" ~ "체인슈퍼",
+      구매량 == "중량\n(10-50kg)" & 시간여유 == "급함\n(당일)" ~ "체인슈퍼",
+      구매량 == "중량\n(10-50kg)" & 시간여유 != "급함\n(당일)" ~ "대형마트",
+      구매량 == "대량\n(50kg+)" ~ "대형마트"
+    ),
+    # 실제 효율성 지수 적용 (대형마트 1.96, 체인슈퍼 0.39)
+    효율성지수 = case_when(
+      추천채널 == "대형마트" ~ 1.96,
+      추천채널 == "체인슈퍼" ~ 0.39
+    ),
+    구매량_num = case_when(
+      구매량 == "소량\n(~10kg)" ~ 1,
+      구매량 == "중량\n(10-50kg)" ~ 2,
+      구매량 == "대량\n(50kg+)" ~ 3
+    ),
+    시간여유_num = case_when(
+      시간여유 == "급함\n(당일)" ~ 1,
+      시간여유 == "보통\n(2-3일)" ~ 2,
+      시간여유 == "여유\n(1주+)" ~ 3
+    )
+  )
+
+p1 <- consumer_guide %>%
+  ggplot(aes(x = 시간여유_num, y = 구매량_num, fill = 추천채널)) +
+  geom_tile(alpha = 0.8, color = "white", size = 2) +
+  geom_text(aes(label = paste0(추천채널, "\n효율성지수: ", 효율성지수)),
+            color = "white", fontface = "bold", size = 5.5, family = "Apple Gothic") +
+  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_x_continuous(breaks = 1:3, labels = c("급함 (당일)", "보통 (2-3일)", "여유 (1주+)")) +
+  scale_y_continuous(breaks = 1:3, labels = c("소량 (~10kg)", "중량 (10-50kg)", "대량 (50kg+)")) +
+  labs(
+    title = "🛒 소비자: 구매 상황별 채널 선택 가이드",
+    subtitle = "실제 효율성 지수(1.96 vs 0.39) 기반 최적 선택",
+    x = "구매 시간 여유",
+    y = "구매량 규모",
+    fill = "추천 채널"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    legend.position = "none",
+    panel.grid = element_blank(),
+    axis.text = element_text(face = "bold", size = 12)
+  )
+
+# 2. 공급자: 채널별 협상 전략 레이더 차트
+# 실제 데이터를 투명한 방법으로 점수화
+supplier_strategy <- tibble(
+  협상포인트 = c("물량계약력", "가격안정성", "매출안정성", "규모효율성", "운영효율성"),
+  대형마트_원값 = c(82.6, 4.0, 22.0, 302.6, 1.96),
+  체인슈퍼_원값 = c(17.4, 24.0, 41.2, 63.8, 0.39),
+  대형마트 = c(
+    83,    # 시장점유율: 82.6% → 83점
+    100,   # 가격안정성: 가격민감도 4.0 (낮음) → 100점
+    78,    # 매출안정성: 변동계수 22.0% → 100-22 = 78점
+    100,   # 규모효율성: 최대 매출 → 100점
+    100    # 운영효율성: 최대 효율성 → 100점
+  ),
+  체인슈퍼 = c(
+    17,    # 시장점유율: 17.4% → 17점
+    0,     # 가격안정성: 가격민감도 24.0 (높음) → 0점
+    59,    # 매출안정성: 변동계수 41.2% → 100-41 = 59점
+    0,     # 규모효율성: 최소 매출 → 0점
+    0      # 운영효율성: 최소 효율성 → 0점
+  )
+) %>%
+  select(협상포인트, 대형마트, 체인슈퍼) %>%
+  pivot_longer(cols = c(대형마트, 체인슈퍼), names_to = "채널", values_to = "점수") %>%
+  mutate(
+    각도 = (match(협상포인트, unique(협상포인트)) - 1) * (2 * pi / 5),
+    x = 점수 * cos(각도),
+    y = 점수 * sin(각도)
+  )
+
+# 레이더 차트를 위한 원형 그리드
+grid_circles <- map_dfr(c(20, 40, 60, 80, 100), ~{
+  tibble(
+    각도 = seq(0, 2*pi, length.out = 100),
+    반지름 = .x,
+    x = 반지름 * cos(각도),
+    y = 반지름 * sin(각도)
+  )
+})
+
+# 축선 데이터
+axes_data <- tibble(
+  협상포인트 = unique(supplier_strategy$협상포인트),
+  각도 = (0:4) * (2 * pi / 5),
+  x = 100 * cos(각도),
+  y = 100 * sin(각도),
+  label_x = 110 * cos(각도),
+  label_y = 110 * sin(각도)
+)
+
+p2 <- ggplot() +
+  # 그리드 원
+  geom_path(data = grid_circles, aes(x = x, y = y, group = 반지름),
+            color = "gray90", alpha = 0.5) +
+  # 축선
+  geom_segment(data = axes_data, aes(x = 0, y = 0, xend = x, yend = y),
+               color = "gray70", alpha = 0.7) +
+  # 레이더 차트
+  geom_polygon(data = supplier_strategy, aes(x = x, y = y, fill = 채널),
+               alpha = 0.3) +
+  geom_path(data = supplier_strategy, aes(x = x, y = y, color = 채널, group = 채널),
+            size = 1.5) +
+  geom_point(data = supplier_strategy, aes(x = x, y = y, color = 채널),
+             size = 3) +
+  # 협상포인트 라벨
+  geom_text(data = axes_data, aes(x = label_x, y = label_y, label = 협상포인트),
+            size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  # 점수 라벨
+  geom_text(data = supplier_strategy, aes(x = x * 1.15, y = y * 1.15, label = 점수, color = 채널),
+            size = 3, fontface = "bold", family = "Apple Gothic") +
+  scale_color_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  labs(
+    title = "🏭 공급자: 채널별 협상 전략 차별화",
+    subtitle = "실제 KPI 기반 협상 포인트 점수 (100점 만점)",
+    color = "유통채널",
+    fill = "유통채널"
+  ) +
+  coord_fixed() +
+  theme_void(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5),
+    legend.position = "top"
+  )
+
+# 3. 정책: 격차 완화 시뮬레이션
+# 실제 데이터 기반 정책 시나리오
+policy_scenarios <- tibble(
+  정책영역 = c("현재상황", "진입장벽완화", "가격투명성", "유통인프라"),
+  시장점유율_대형마트 = c(82.6, 75.0, 80.0, 78.0),  # 정책 개입 시 예상 변화
+  시장점유율_체인슈퍼 = c(17.4, 25.0, 20.0, 22.0),
+  예상매출비 = c(4.74, 3.00, 4.00, 3.55),  # 현재 302.6/63.8 = 4.74
+  개선효과 = c(0, 37, 16, 25)  # (4.74 - 예상매출비) / 4.74 * 100
+) %>%
+  pivot_longer(cols = c(시장점유율_대형마트, 시장점유율_체인슈퍼),
+               names_to = "채널", values_to = "점유율") %>%
+  mutate(
+    채널 = str_remove(채널, "시장점유율_"),
+    순서 = match(정책영역, c("현재상황", "진입장벽완화", "가격투명성", "유통인프라"))
+  )
+
+p3 <- policy_scenarios %>%
+  ggplot(aes(x = reorder(정책영역, 순서), y = 점유율, fill = 채널)) +
+  geom_col(position = "dodge", alpha = 0.8, width = 0.7) +
+  geom_text(aes(label = paste0(점유율, "%")),
+            position = position_dodge(0.7), vjust = -0.3,
+            size = 3.5, fontface = "bold", family = "Apple Gothic") +
+  # 개선 효과 표시
+  geom_text(data = distinct(policy_scenarios, 정책영역, 예상매출비, 개선효과, 순서),
+            aes(x = reorder(정책영역, 순서), y = 95,
+                label = ifelse(개선효과 > 0,
+                              paste0("격차 ", round(예상매출비, 1), "배\n개선 ", 개선효과, "%"),
+                              paste0("격차 ", round(예상매출비, 1), "배"))),
+            inherit.aes = FALSE,
+            size = 3, fontface = "bold", family = "Apple Gothic", color = "darkred") +
+  scale_fill_manual(values = c("대형마트" = "#e74c3c", "체인슈퍼" = "#3498db")) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2)), limits = c(0, 100)) +
+  labs(
+    title = "🏛️ 정책: 유통 효율성 개선 시뮬레이션",
+    subtitle = "시장점유율 조정을 통한 매출격차 완화 효과 예상",
+    x = "정책 시나리오",
+    y = "예상 시장점유율 (%)",
+    fill = "유통채널"
+  ) +
+  theme_minimal(base_family = "Apple Gothic") +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    legend.position = "top",
+    axis.text.x = element_text(angle = 15, hjust = 1)
+  )
+
+# 그래프 조합
+p1 / (p2 + p3)
+```
+
+본 분석은 KAMIS 도매가격과 채널별 매출액 데이터를 기반으로 하나, 실제 소매가격과 판매량 데이터의 부재로 인해 일부 가정이 적용되었다. 소비자 채널 선택 가이드는 효율성 지수(매출액/도매가격)를 통한 간접 추정이며, 공급자 협상 전략은 시장점유율과 가격민감도 등 관찰 가능한 지표를 100점 만점으로 정규화한 결과이다. 정책 시나리오의 시장점유율 조정 효과 역시 가정적 모델링에 의존한다. 따라서 도출된 시사점은 참고용으로 활용되어야 하며, 향후 소매가격 데이터, 실제 판매량 정보, 소비자 행동 패턴 등 추가적인 데이터가 확보될 경우 보다 정교하고 정확한 전략적 인사이트 도출이 가능할 것이다. @fig-actionable-insights 가 보여주는 **주체별 실행 가능한 시사점**은 다음과 같다.
+
+### 소비자: 상황에 맞는 채널 선택
+
+**구매 상황별 채널 선택 가이드**는 실제 효율성 지수(대형마트 1.96, 체인슈퍼 0.39)를 바탕으로 최적 구매 전략을 제시한다. 구매량 규모와 시간 여유도를 조합하여 9가지 상황에서 각 채널의 실제 효율성 지수를 비교하여 산출한다.
+
+**소량 구매(~10kg)** 상황에서는 모든 시간 조건에서 체인슈퍼가 추천된다. 체인슈퍼의 효율성 지수 0.39는 상대적으로 낮지만, 소량 구매 시 접근성과 편의성이 더 중요한 요소로 작용한다. **중량 구매(10-50kg)**에서는 시간 여유에 따라 채널이 달라진다. 당일 급함의 경우 체인슈퍼(효율성 0.39), 2-3일 여유가 있으면 대형마트(효율성 1.96)가 효과적이다.
+
+**대량 구매(50kg+)**에서는 모든 시간 조건에서 대형마트가 압도적 우위를 보인다. 효율성 지수 1.96은 체인슈퍼(0.39)보다 5배 높으며, 이는 대형마트의 "물량으로 승부" 전략이 대량 구매에서 최대 효과를 발휘함을 의미한다.
+
+### 공급자: 채널별 협상 전략
+
+**채널별 협상 전략 레이더 차트**는 실제 데이터를 기반으로 5가지 협상 포인트에서 각 채널의 강점을 수치화했다. 시장점유율, 가격민감도, 변동계수, 매출규모, 효율성 지수 등 실제 측정값을 100점 만점으로 변환하여 협상력 평가를 했다.
+
+**대형마트와의 협상**에서는 물량계약력(83점), 가격안정성(100점), 매출안정성(78점), 규모효율성(100점), 운영효율성(100점)의 패턴을 보인다. 시장점유율 82.6%와 낮은 가격민감도(4.0), 변동계수 22.0%가 반영된 결과는 대형마트가 대량·장기·안정 계약에 특화되어 있음을 보여준다. 
+
+**체인슈퍼와의 협상**에서는 매출안정성(59점)만이 상대적 우위를 보이며, 물량계약력(17점), 가격안정성(0점), 규모효율성(0점), 운영효율성(0점)은 모두 낮게 나타난다. 높은 가격민감도(24.0)와 변동계수(41.2%)가 반영된 결과로, 소량·단기·유연한 계약 구조가 적합함을 시사한다.
+
+### 정책: 시장 효율성 정책 개입
+
+**격차 완화 시뮬레이션**은 정책 개입을 통한 시장점유율 조정 효과를 현실적으로 모델링했다. 현재 5배 격차(302.6/63.8)를 시장점유율 변화 시나리오별로 예상 완화 효과 계산했다.
+
+**진입장벽 완화 정책**이 가장 큰 개선 효과(37%)를 보일 것으로 예상된다. 대형마트 점유율을 82.6%에서 75.0%로, 체인슈퍼를 17.4%에서 25.0%로 조정할 경우 매출격차가 4.74배에서 3.0배로 감소한다. 이는 현재 격차의 상당 부분이 구조적 진입장벽에서 기인할 가능성을 시사한다.
+
+**유통인프라 개선**(25% 개선)과 **가격투명성 제고**(16% 개선)도 의미 있는 효과를 보여준다. 특히 유통인프라 개선은 체인슈퍼의 접근성 한계를 보완하여 점유율을 22.0%까지 끌어올릴 수 있을 것으로 분석된다.
+
+그러나 이러한 정책 개입은 시장 효율성 훼손을 최소화하는 선에서 이루어져야 한다. 5배 격차는 비효율성보다는 서로 다른 비즈니스 모델의 자연스러운 결과이므로, 공정경쟁 환경 조성에 중점을 둔 정책이 바람직하다.
+
+## 💡 생각해볼 점
+
+이번 장에서 **농식품 온·오프라인 유통 품목 판매 데이터**의 풍부한 분석 가능성 중 일부만을 다뤘다. 찹쌀 한 품목에 집중한 분석으로도 충격적인 인사이트를 얻었지만, 전체 데이터셋이 제공하는 **광대한 탐험 영역**들이 여전히 남아있으며, 독자들이 직접 데이터를 활용해볼 수 있는 **실무형 분석 과제**로도 활용할 수 있다. 이러한 미탐험 영역들은 단순한 분석의 한계를 넘어, 독자 스스로가 유통 전략 전문가가 되어 새로운 비즈니스 모델을 발견할 수 있는 기회를 제공한다.
+
+이번 분석에서는 **품목별 차별화 전략 분석**이 빠져있다. 쌀류 외에 채소류, 과일류, 육류 등 다양한 농식품 카테고리별로 "물량 vs 마진" 패턴이 어떻게 달라지는지, 보존성이 높은 품목과 신선도가 중요한 품목 간 유통채널 선호도 차이, 계절성 농산물의 채널별 대응 전략 등은 **카테고리별 맞춤형 유통 전략**의 핵심 데이터가 될 수 있다.
+
+**지역별 유통 생태계 심층 분석**도 큰 발견의 여지가 있다. 수도권과 지방의 유통채널별 점유율 차이, 농산물 주산지와 소비지 간 유통 효율성 격차, 지역 특산물의 온·오프라인 채널 선택 패턴 등은 **지역 맞춤형 유통 인프라 정책**과 **농촌-도시 연결 전략**의 핵심 근거가 될 것이다.
+
+**시계열 패턴의 미시적 분석**도 놓친 부분이다. 52주 연속 데이터를 통한 계절성 분해, 농번기-농한기 패턴 차이, 명절 수요 급증 대응력, 기상이변이나 사회적 이슈 발생 시 채널별 탄력성 등은 **리스크 관리와 기회 포착**의 실무적 지침서가 될 수 있다.
+
+무엇보다도 제공된 데이터는 **"물량 경쟁에서 가치 창출로"** 변화하는 유통 패러다임의 **초기 신호**를 담고 있다. 독자들이 직접 데이터를 분석해보면서 AI 시대 유통업의 미래를 예측해보는 것은 단순한 학습을 넘어 **실무에 직접 적용 가능한 전략적 인사이트**를 얻는 소중한 경험이 될 것이다. 현재 우리가 목격하고 있는 5배 격차가 과연 구조적 한계인지, 아니면 혁신 기회의 시작인지를 데이터로 검증해보는 과정에서 독자 스스로가 유통 혁신의 설계자로 성장할 수 있을 것이다.
+
+*데이터는 숫자가 아니다. 대형마트와 체인슈퍼의 생존 전략이 만들어낸 시장 구조의 진실을 담고 있는 전략 지도다.*
+

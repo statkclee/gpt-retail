@@ -64,9 +64,9 @@
     <!-- Sales Gap -->
     <rect x="15" y="80" width="170" height="60" fill="#ffebee" stroke="#e57373" rx="4"/>
     <text x="100" y="95" class="text" text-anchor="middle">매출액 격차</text>
-    <text x="100" y="115" class="large-number" text-anchor="middle">6배</text>
-    <text x="100" y="125" class="text" text-anchor="middle">대형마트 5.0억원</text>
-    <text x="100" y="138" class="text" text-anchor="middle">체인슈퍼 0.8억원</text>
+    <text x="100" y="115" class="large-number" text-anchor="middle">5배</text>
+    <text x="100" y="125" class="text" text-anchor="middle">대형마트 302.6억원</text>
+    <text x="100" y="138" class="text" text-anchor="middle">체인슈퍼 63.8억원</text>
 
     <!-- Time Series -->
     <rect x="15" y="150" width="170" height="40" fill="#fff" stroke="#dee2e6" rx="4"/>
@@ -133,7 +133,7 @@
     <!-- Comparison boxes -->
     <rect x="15" y="145" width="90" height="60" fill="#d1ecf1" stroke="#17a2b8" rx="4"/>
     <text x="60" y="160" class="text" text-anchor="middle">대형마트</text>
-    <text x="60" y="173" class="number" text-anchor="middle">5.0억원</text>
+    <text x="60" y="173" class="number" text-anchor="middle">302.6억원</text>
     <text x="60" y="186" class="text" text-anchor="middle">물량 중심</text>
     <text x="60" y="198" class="text" text-anchor="middle">안정성</text>
 
@@ -141,7 +141,7 @@
 
     <rect x="225" y="145" width="90" height="60" fill="#d4edda" stroke="#28a745" rx="4"/>
     <text x="270" y="160" class="text" text-anchor="middle">체인슈퍼</text>
-    <text x="270" y="173" class="number" text-anchor="middle">0.8억원</text>
+    <text x="270" y="173" class="number" text-anchor="middle">63.8억원</text>
     <text x="270" y="186" class="text" text-anchor="middle">마진 중심</text>
     <text x="270" y="198" class="text" text-anchor="middle">유연성</text>
   </g>
