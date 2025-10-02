@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 110 1400 530">
+  <defs>
+    <style><![CDATA[
+      .title { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 36px; font-weight: 900; fill: #212529; }
+      .subtitle { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #495057; }
+      .h1 { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 24px; font-weight: 800; fill: #212529; }
+      .h2 { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 20px; font-weight: 800; fill: #1a5490; }
+      .p { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #495057; }
+      .small { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #6c757d; }
+      .year { font-family: 'Noto Sans KR', system-ui, sans-serif; font-size: 18px; font-weight: 900; fill: #dc3545; }
+    ]]></style>
+
+    <!-- Arrow markers -->
+    <marker id="arrowRight" markerWidth="16" markerHeight="12" refX="4" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#28a745"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="800" fill="#ffffff"/>
+
+  <!-- Timeline -->
+  <g transform="translate(100,140)">
+    <!-- Stage 1: Simple Substitution -->
+    <g>
+      <rect x="0" y="0" width="380" height="470" rx="20" fill="#fff3cd" stroke="#ffc107" stroke-width="3"/>
+      <text x="190" y="40" text-anchor="middle" class="h1">1단계: 단순 대체</text>
+      <text x="190" y="70" text-anchor="middle" class="small">Simple Substitution</text>
+
+      <!-- Electrification -->
+      <g transform="translate(20,100)">
+        <rect x="0" y="0" width="340" height="160" rx="12" fill="#f8f9fa" stroke="#ced4da" stroke-width="2"/>
+        <text x="170" y="25" text-anchor="middle" class="h2">전기화 (1880-1900)</text>
+        <text x="20" y="50" class="p">• 증기기관 → 전기 다이나모 교체</text>
+        <text x="20" y="75" class="p">• 중앙집중식 시스템 유지</text>
+        <text x="20" y="100" class="p">• 기존 공장 레이아웃 변화 없음</text>
+        <text x="20" y="125" class="p">• 생산성 향상 거의 없음</text>
+        <text x="170" y="150" text-anchor="middle" class="year">약 20년</text>
+      </g>
+
+      <!-- AI -->
+      <g transform="translate(20,280)">
+        <rect x="0" y="0" width="340" height="160" rx="12" fill="#f8f9fa" stroke="#ced4da" stroke-width="2"/>
+        <text x="170" y="25" text-anchor="middle" class="h2">생성형 AI (2020-2025)</text>
+        <text x="20" y="50" class="p">• 기존 업무에 AI 도구 추가</text>
+        <text x="20" y="75" class="p">• 기존 워크플로우 대부분 유지</text>
+        <text x="20" y="100" class="p">• 조직 구조 변화 최소</text>
+        <text x="20" y="125" class="p">• 제한적 생산성 향상</text>
+        <text x="170" y="150" text-anchor="middle" class="year">현재 진행</text>
+      </g>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="380" y1="250" x2="420" y2="250" stroke="#28a745" stroke-width="4" marker-end="url(#arrowRight)"/>
+
+    <!-- Stage 2: Gradual Adaptation -->
+    <g transform="translate(440,0)">
+      <rect x="0" y="0" width="380" height="470" rx="20" fill="#d1e7fd" stroke="#2780e3" stroke-width="3"/>
+      <text x="190" y="40" text-anchor="middle" class="h1">2단계: 점진적 적응</text>
+      <text x="190" y="70" text-anchor="middle" class="small">Gradual Adaptation</text>
+
+      <!-- Electrification -->
+      <g transform="translate(20,100)">
+        <rect x="0" y="0" width="340" height="160" rx="12" fill="#f8f9fa" stroke="#ced4da" stroke-width="2"/>
+        <text x="170" y="25" text-anchor="middle" class="h2">전기화 (1900-1920)</text>
+        <text x="20" y="50" class="p">• 개별 전기모터 부분 도입</text>
+        <text x="20" y="75" class="p">• 점진적 공장 개선</text>
+        <text x="20" y="100" class="p">• 혼재된 시스템 운영</text>
+        <text x="20" y="125" class="p">• 복잡성 증가</text>
+        <text x="170" y="150" text-anchor="middle" class="year">약 10-20년</text>
+      </g>
+
+      <!-- AI -->
+      <g transform="translate(20,280)">
+        <rect x="0" y="0" width="340" height="160" rx="12" fill="#f8f9fa" stroke="#ced4da" stroke-width="2"/>
+        <text x="170" y="25" text-anchor="middle" class="h2">AI 적응 (2025-2030, 예상)</text>
+        <text x="20" y="50" class="p">• AI 전용 워크플로우 개발</text>
+        <text x="20" y="75" class="p">• 조직 구조 부분 개편</text>
+        <text x="20" y="100" class="p">• 기존-AI 시스템 혼재</text>
+        <text x="20" y="125" class="p">• 학습 비용 증가</text>
+        <text x="170" y="150" text-anchor="middle" class="year">예상 5년</text>
+      </g>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="820" y1="250" x2="860" y2="250" stroke="#28a745" stroke-width="4" marker-end="url(#arrowRight)"/>
+
+    <!-- Stage 3: Revolutionary Reconfiguration -->
+    <g transform="translate(880,0)">
+      <rect x="0" y="0" width="380" height="470" rx="20" fill="#d4edda" stroke="#28a745" stroke-width="3"/>
+      <text x="190" y="40" text-anchor="middle" class="h1">3단계: 혁신적 재구성</text>
+      <text x="190" y="70" text-anchor="middle" class="small">Revolutionary Reconfiguration</text>
+
+      <!-- Electrification -->
+      <g transform="translate(20,100)">
+        <rect x="0" y="0" width="340" height="160" rx="12" fill="#f8f9fa" stroke="#ced4da" stroke-width="2"/>
+        <text x="170" y="25" text-anchor="middle" class="h2">전기화 (1920년대)</text>
+        <text x="20" y="50" class="p">• 단위 구동 방식 전면 채택</text>
+        <text x="20" y="75" class="p">• 공장 레이아웃 완전 재설계</text>
+        <text x="20" y="100" class="p">• 작업 프로세스 혁신</text>
+        <text x="20" y="125" class="p">• 폭발적 생산성 향상</text>
+        <text x="170" y="150" text-anchor="middle" class="year">30-40년 후</text>
+      </g>
+
+      <!-- AI -->
+      <g transform="translate(20,280)">
+        <rect x="0" y="0" width="340" height="160" rx="12" fill="#f8f9fa" stroke="#ced4da" stroke-width="2"/>
+        <text x="170" y="25" text-anchor="middle" class="h2">AI 혁명 (2030-2040, 예상)</text>
+        <text x="20" y="50" class="p">• AI 네이티브 조직 구조</text>
+        <text x="20" y="75" class="p">• 업무 프로세스 완전 재구성</text>
+        <text x="20" y="100" class="p">• 인간-AI 협업 최적화</text>
+        <text x="20" y="125" class="p">• 업무·의사결정 패러다임 혁신</text>
+        <text x="170" y="150" text-anchor="middle" class="year">20년 후 예상</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

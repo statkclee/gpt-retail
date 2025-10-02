@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 70 2400 1080">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a5490"/>
+    </marker>
+    <style>
+      .title { font: 800 42px/1.2 'Noto Sans KR',system-ui,sans-serif; fill:#212529 }
+      .subtitle { font: 600 20px/1.4 'Noto Sans KR',system-ui,sans-serif; fill:#1a5490 }
+      .group { font: 700 22px/1.2 'Noto Sans KR',system-ui,sans-serif; fill:#495057 }
+      .tool { font: 800 28px/1.2 'Noto Sans KR',system-ui,sans-serif; fill:#212529 }
+      .desc { font: 18px/1.5 'Noto Sans KR',system-ui,sans-serif; fill:#495057 }
+      .chip-text { font: 800 19px/1.1 'Noto Sans KR',system-ui,sans-serif; fill:#212529 }
+      .chip-sub { font: 600 15px/1.1 'Noto Sans KR',system-ui,sans-serif; fill:#495057 }
+      .card { rx:16; stroke:#ced4da; stroke-width:2 }
+      .pill { rx:16; stroke:#495057; stroke-width:2 }
+      .ico { font: 900 22px/1 'Noto Sans KR',system-ui; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2400" height="1200" fill="#ffffff"/>
+
+  <!--
+    Grid: 4 columns × 3 rows (unit width 580)
+    Col X: 40, 620, 1200, 1780
+    Row Y: 180, 490, 800
+    Card: 520×160 at y=0; Pill: 520×88 at y=172; Vertical arrow from (260,160) → (260,172)
+  -->
+
+  <!-- ===== Row 1 ===== -->
+  <!-- 1. Word + Copilot -->
+  <g transform="translate(40,180)">
+    <text x="0" y="-30" class="group">문서 저작 · 노트</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Microsoft Word + Copilot</text>
+    <text x="25" y="90" class="desc">보고서 · 제안서 · 스타일 · 교정</text>
+    <text x="25" y="125" class="desc">참고문헌 · 표/도형</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#d1e7fd"/>
+    <text x="25" y="225" class="ico">✍️</text>
+    <text x="60" y="215" class="chip-text">AI 작성 · 요약 · 번역 · 톤 맞춤</text>
+    <text x="60" y="245" class="chip-sub">지시문 초안 · 자동 교정 · 하이라이트 추출</text>
+  </g>
+
+  <!-- 2. Notion + Q&A AI -->
+  <g transform="translate(620,180)">
+    <text x="0" y="-30" class="group">문서/위키 · 지식베이스</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Notion + Q&amp;A AI</text>
+    <text x="25" y="90" class="desc">문서/DB 통합 · 페이지 검색</text>
+    <text x="25" y="125" class="desc">템플릿 · 협업</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#d1e7fd"/>
+    <text x="25" y="225" class="ico">🔎</text>
+    <text x="60" y="215" class="chip-text">AI 질의응답 · 문맥 검색</text>
+    <text x="60" y="245" class="chip-sub">요약 · 키포인트 · 링크/태그 추천</text>
+  </g>
+
+  <!-- 3. Photoshop + GenFill -->
+  <g transform="translate(1200,180)">
+    <text x="0" y="-30" class="group">이미지 · 그래픽</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Adobe Photoshop + Generative Fill</text>
+    <text x="25" y="90" class="desc">레이어 · 마스크 · 합성 · 브러시</text>
+    <text x="25" y="125" class="desc">색보정 · RAW</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#e8d4f8"/>
+    <text x="25" y="225" class="ico">🖌️</text>
+    <text x="60" y="215" class="chip-text">AI 생성/지우개 · 배경/객체 확장</text>
+    <text x="60" y="245" class="chip-sub">프롬프트 합성 · 스타일 변환 · 업스케일</text>
+  </g>
+
+  <!-- 4. Premiere + Sensei -->
+  <g transform="translate(1780,180)">
+    <text x="0" y="-30" class="group">동영상 편집</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Adobe Premiere Pro + Sensei</text>
+    <text x="25" y="90" class="desc">컷 편집 · 타임라인 · 컬러</text>
+    <text x="25" y="125" class="desc">자막 · 이펙트</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#fdd5d5"/>
+    <text x="25" y="225" class="ico">🎬</text>
+    <text x="60" y="215" class="chip-text">AI 자동 컷 · 스피치→자막 · 요약</text>
+    <text x="60" y="245" class="chip-sub">장면 탐지 · 음성 클린업 · 재촬영 가이드</text>
+  </g>
+
+  <!-- ===== Row 2 ===== -->
+  <!-- 5. Audition / Logic Pro -->
+  <g transform="translate(40,515)">
+    <text x="0" y="-30" class="group">오디오 · 음향</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Adobe Audition / Logic Pro</text>
+    <text x="25" y="90" class="desc">파형 편집 · 믹싱 · 이펙트</text>
+    <text x="25" y="125" class="desc">노이즈 제거 · 리스토어</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#d4edda"/>
+    <text x="25" y="225" class="ico">🎙️</text>
+    <text x="60" y="215" class="chip-text">AI 음원 분리 · 정음 · TTS/클린업</text>
+    <text x="60" y="245" class="chip-sub">스피커 구분 · 브리딩 제거 · 룸톤</text>
+  </g>
+
+  <!-- 6. VS Code + Copilot -->
+  <g transform="translate(620,515)">
+    <text x="0" y="-30" class="group">코딩 · IDE</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">VS Code + GitHub Copilot</text>
+    <text x="25" y="90" class="desc">디버깅 · 확장 · Git · 터미널</text>
+    <text x="25" y="125" class="desc">다중 언어</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#d1e7fd"/>
+    <text x="25" y="225" class="ico">🧩</text>
+    <text x="60" y="215" class="chip-text">AI 자동완성 · 리팩토링 · 테스트</text>
+    <text x="60" y="245" class="chip-sub">주석→코드 · 코드→설명 · 스니펫</text>
+  </g>
+
+  <!-- 7. Cursor / JetBrains AI -->
+  <g transform="translate(1200,515)">
+    <text x="0" y="-30" class="group">AI IDE · 대안</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Cursor / JetBrains + AI Assistant</text>
+    <text x="25" y="90" class="desc">Inline Chat · Diff · 컨텍스트 인지</text>
+    <text x="25" y="125" class="desc">리뷰 · 마이그레이션</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#d1e7fd"/>
+    <text x="25" y="225" class="ico">🤖</text>
+    <text x="60" y="215" class="chip-text">에이전트 실행 · 파일트리 플로우</text>
+    <text x="60" y="245" class="chip-sub">리팩토링 계획 · 멀티파일 수정 · 테스트</text>
+  </g>
+
+  <!-- 8. Terminal / CI-CD -->
+  <g transform="translate(1780,515)">
+    <text x="0" y="-30" class="group">터미널 · 빌드 · 배포</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Shell / Git / CI·CD</text>
+    <text x="25" y="90" class="desc">스크립트 · 로그 · 패키징</text>
+    <text x="25" y="125" class="desc">모니터링</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#fff3cd"/>
+    <text x="25" y="225" class="ico">🧭</text>
+    <text x="60" y="215" class="chip-text">AI 명령 보조 · 빌드 실패 분석</text>
+    <text x="60" y="245" class="chip-sub">로그 요약 · 스크립트 생성 · 보안 점검</text>
+  </g>
+
+  <!-- ===== Row 3 ===== -->
+  <!-- 9. Unreal / Blender -->
+  <g transform="translate(40,850)">
+    <text x="0" y="-30" class="group">3D · 게임 · 실감</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Unreal Engine / Blender</text>
+    <text x="25" y="90" class="desc">머티리얼 · 리깅 · 애니메이션</text>
+    <text x="25" y="125" class="desc">시뮬레이션 · 라이트</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#ffe0b2"/>
+    <text x="25" y="225" class="ico">🎮</text>
+    <text x="60" y="215" class="chip-text">AI 에셋 생성 · 리타겟팅 · 보이스 NPC</text>
+    <text x="60" y="245" class="chip-sub">프롬프트 메시/텍스처 · 경로계획 · 대화</text>
+  </g>
+
+  <!-- 10. Browser / Research -->
+  <g transform="translate(620,850)">
+    <text x="0" y="-30" class="group">브라우저 · 리서치</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Perplexity / Arc / Chrome</text>
+    <text x="25" y="90" class="desc">탭 · 북마크 · 리딩 모드</text>
+    <text x="25" y="125" class="desc">하이라이트</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#d4edda"/>
+    <text x="25" y="225" class="ico">📚</text>
+    <text x="60" y="215" class="chip-text">AI 검색요약 · 출처 링크 · 맥락추적</text>
+    <text x="60" y="245" class="chip-sub">딥리서치 · 인용 생성 · 비교표</text>
+  </g>
+
+  <!-- 11. Quarto / Jupyter / RStudio -->
+  <g transform="translate(1200,850)">
+    <text x="0" y="-30" class="group">데이터 · 과학 문서</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="55" class="tool">Quarto / Jupyter / RStudio</text>
+    <text x="25" y="90" class="desc">노트북 · 리포트 · 대시보드</text>
+    <text x="25" y="125" class="desc">재현성 · 배포</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#d1e7fd"/>
+    <text x="25" y="225" class="ico">📈</text>
+    <text x="60" y="215" class="chip-text">AI 코드/그래프 제안 · 설명 생성</text>
+    <text x="60" y="245" class="chip-sub">EDA 가이드 · 수식/캡션 자동화</text>
+  </g>
+
+  <!-- 12. Excel / Google Sheets -->
+  <g transform="translate(1780,850)">
+    <text x="0" y="-30" class="group">스프레드시트 · BI</text>
+    <rect x="0" y="0" width="520" height="160" class="card" fill="#f8f9fa"/>
+    <text x="25" y="45" class="tool">엑셀 / 구글 Sheets + Copilot·Gemini</text>
+    <text x="25" y="90" class="desc">피벗 · 조건부 서식 · 함수</text>
+    <text x="25" y="125" class="desc">데이터 정리 · 차트</text>
+    <line x1="260" y1="160" x2="260" y2="172" stroke="#1a5490" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="0" y="172" width="520" height="88" class="pill" fill="#f8d7da"/>
+    <text x="25" y="225" class="ico">📊</text>
+    <text x="60" y="215" class="chip-text">AI 수식 제안 · 피벗/차트 자동화</text>
+    <text x="60" y="245" class="chip-sub">데이터 정제 · 이상치 탐지 · 설명/인사이트</text>
+  </g>
+
+</svg>

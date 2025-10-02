@@ -51,10 +51,10 @@ book:
     type: overlay
   chapters:
     - index.qmd
-    # - part: "**1부 기본지식**"
-    #   chapters:
-    #     - basic_gpt.qmd         # OK      
-    #     - basic.qmd             # OK
+    - part: "**1부 기본지식**"
+      chapters:
+        - basic_gpt.qmd         # OK      
+        - basic.qmd             # OK
     #     - basic_engineering.qmd # OK
     #     - basic_ide.qmd         # OK
     #     - basic_api.qmd         # OK
@@ -66,17 +66,17 @@ book:
     #     - coding_ide.qmd        # OK
     #     - coding_ellmer.qmd     # OK
     #     - coding_claude.qmd     # OK
-    - part: "**3부 사례 분석**"
-      chapters:
-        # - proj_penguin.qmd      # OK
-        # - proj_penguin_py.qmd   # OK
-        # - proj_market.qmd       # OK
-        # - proj_survey.qmd       # OK
-        # - proj_car.qmd          # OK
-        - proj_app.qmd
-        - proj_school.qmd
-        - proj_news.qmd
-        - proj_trade.qmd
+    # - part: "**3부 사례 분석**"
+    #   chapters:
+    #     # - proj_penguin.qmd      # OK
+    #     # - proj_penguin_py.qmd   # OK
+    #     # - proj_market.qmd       # OK
+    #     # - proj_survey.qmd       # OK
+    #     # - proj_car.qmd          # OK
+    #     - proj_app.qmd
+    #     - proj_school.qmd
+    #     - proj_news.qmd
+    #     - proj_trade.qmd
     - end.qmd
     - references.qmd
   page-footer:
