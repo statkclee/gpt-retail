@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 400">
+  <!-- White Background -->
+  <rect width="950" height="400" fill="white"/>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+
+  <!-- Top Flow - Search Quality Loop -->
+  <rect x="40" y="40" width="140" height="60" rx="8" fill="#4285f4" stroke="#333" stroke-width="2"/>
+  <text x="110" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">무료 검색</text>
+  <text x="110" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">서비스</text>
+
+  <rect x="220" y="40" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
+  <text x="290" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">대규모</text>
+  <text x="290" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">사용자 확보</text>
+
+  <rect x="400" y="40" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
+  <text x="470" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">검색 데이터</text>
+  <text x="470" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">축적</text>
+
+  <rect x="580" y="40" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
+  <text x="650" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">알고리즘</text>
+  <text x="650" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">개선</text>
+
+  <rect x="760" y="40" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
+  <text x="830" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">더 나은</text>
+  <text x="830" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">검색 결과</text>
+
+  <!-- Bottom Flow - Revenue Loop -->
+  <rect x="400" y="240" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
+  <text x="470" y="268" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">정밀한 광고</text>
+  <text x="470" y="286" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">타겟팅</text>
+
+  <rect x="580" y="240" width="140" height="60" rx="8" fill="#0f9d58" stroke="#333" stroke-width="2"/>
+  <text x="650" y="268" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">광고 수익</text>
+  <text x="650" y="286" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">증대</text>
+
+  <rect x="760" y="240" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
+  <text x="830" y="268" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">서비스 개선</text>
+  <text x="830" y="286" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">투자</text>
+
+  <!-- Arrows - Top Flow (Left to Right) -->
+  <path d="M 180 70 L 220 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 360 70 L 400 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 540 70 L 580 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 720 70 L 760 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Feedback arrow from "더 나은 검색 결과" back to "무료 검색 서비스" -->
+  <path d="M 830 40 L 920 40 L 920 70 L 920 330 L 20 330 L 20 70 L 40 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+
+  <!-- Connection from "검색 데이터 축적" to "정밀한 광고 타겟팅" -->
+  <path d="M 470 100 L 470 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Arrows - Bottom Flow (Left to Right) -->
+  <path d="M 540 270 L 580 270" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 720 270 L 760 270" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+
+  <!-- Labels -->
+  <text x="475" y="385" font-family="Noto Sans KR, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6368">
+    두 개의 선순환이 서로를 강화하며 생태계 구축
+  </text>
+
+  <!-- Legend -->
+  <rect x="20" y="160" width="12" height="12" fill="#4285f4"/>
+  <text x="37" y="170" font-family="Noto Sans KR, Arial, sans-serif" font-size="10" fill="#5f6368">핵심 시작점</text>
+
+  <rect x="110" y="160" width="12" height="12" fill="#0f9d58"/>
+  <text x="127" y="170" font-family="Noto Sans KR, Arial, sans-serif" font-size="10" fill="#5f6368">수익 창출</text>
+
+  <line x1="200" y1="166" x2="215" y2="166" stroke="#333" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="220" y="170" font-family="Noto Sans KR, Arial, sans-serif" font-size="10" fill="#5f6368">재투자 경로</text>
+</svg>

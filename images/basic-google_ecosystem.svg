@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 800 470" role="img" aria-labelledby="title desc">
+  <title id="title">구글의 검색 생태계 구축</title>
+
+  <!-- =========================== -->
+  <!-- 스타일 및 마커 정의          -->
+  <!-- =========================== -->
+  <defs>
+    <style type="text/css"><![CDATA[
+      .node rect {
+        rx: 10;
+        ry: 10;
+        fill: #f4f4f4;
+        stroke: #333;
+        stroke-width: 1.8px;
+      }
+      .node text {
+        font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        font-size: 14px;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        fill: #111;
+      }
+      .edge {
+        stroke: #555;
+        stroke-width: 1.8px;
+        fill: none;
+      }
+    ]]></style>
+
+    <!-- 화살표 마커 정의 -->
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4285f4"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f9d58"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- =========================== -->
+  <!-- 노드 위치 레이아웃           -->
+  <!-- 중앙 컬럼: x=330             -->
+  <!-- 우측 컬럼: x=600             -->
+  <!-- Y 좌표: 70, 160, 250, 340, 430 -->
+  <!-- =========================== -->
+
+  <!-- 중앙 컬럼: 검색 품질 개선 순환 -->
+  <g id="A" class="node" transform="translate(330,70)">
+    <rect x="-100" y="-24" width="200" height="48" fill="#4285f4"/>
+    <text x="0" y="0" fill="#fff">무료 검색 서비스</text>
+  </g>
+
+  <g id="B" class="node" transform="translate(330,160)">
+    <rect x="-110" y="-24" width="220" height="48"/>
+    <text x="0" y="0">대규모 사용자 확보</text>
+  </g>
+
+  <g id="C" class="node" transform="translate(330,250)">
+    <rect x="-100" y="-24" width="200" height="48"/>
+    <text x="0" y="0">검색 데이터 축적</text>
+  </g>
+
+  <g id="D" class="node" transform="translate(330,340)">
+    <rect x="-100" y="-24" width="200" height="48"/>
+    <text x="0" y="0">알고리즘 개선</text>
+  </g>
+
+  <g id="E" class="node" transform="translate(330,430)">
+    <rect x="-110" y="-24" width="220" height="48"/>
+    <text x="0" y="0">더 나은 검색 결과</text>
+  </g>
+
+  <!-- 우측 컬럼: 광고 수익 순환 -->
+  <g id="F" class="node" transform="translate(600,250)">
+    <rect x="-110" y="-24" width="220" height="48"/>
+    <text x="0" y="0">정밀한 광고 타겟팅</text>
+  </g>
+
+  <g id="G" class="node" transform="translate(600,340)">
+    <rect x="-110" y="-24" width="220" height="48" fill="#0f9d58"/>
+    <text x="0" y="0" fill="#fff">광고 수익 증대</text>
+  </g>
+
+  <g id="H" class="node" transform="translate(600,430)">
+    <rect x="-110" y="-24" width="220" height="48"/>
+    <text x="0" y="0">서비스 개선 투자</text>
+  </g>
+
+  <!-- =========================== -->
+  <!-- 화살표 연결 (중앙 컬럼)      -->
+  <!-- A → B → C → D → E           -->
+  <!-- =========================== -->
+  <path d="M330,94 L330,136" stroke="#4285f4" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M330,184 L330,226" stroke="#4285f4" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M330,274 L330,316" stroke="#4285f4" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M330,364 L330,406" stroke="#4285f4" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+
+  <!-- =========================== -->
+  <!-- 화살표 연결 (분기 및 우측)    -->
+  <!-- C → F → G → H               -->
+  <!-- =========================== -->
+  <path d="M430,250 C480,250 490,250 490,250" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow-gray)"/>
+  <path d="M600,274 L600,316" stroke="#0f9d58" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M600,364 L600,406" stroke="#0f9d58" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)"/>
+
+  <!-- =========================== -->
+  <!-- 피드백 순환 화살표 (점선)     -->
+  <!-- E → B: 검색 품질 개선 루프    -->
+  <!-- H → A: 수익 재투자 루프       -->
+  <!-- =========================== -->
+  <path d="M330,454 C330,500 140,500 140,300 C140,180 150,170 220,160" stroke="#4285f4" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M600,454 C720,540 820,110 360,110 L340,110" stroke="#0f9d58" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrow-green)"/>
+</svg>

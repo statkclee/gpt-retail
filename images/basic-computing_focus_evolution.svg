@@ -1,0 +1,385 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 65 1200 430">
+  <defs>
+    <style>
+      .era-title { font-size: 24px; font-weight: bold; }
+      .era-subtitle { font-size: 18px; }
+      .feature-text { font-size: 16px; }
+      .description-text { font-size: 14px; }
+      .year-text { font-size: 16px; font-weight: bold; }
+    </style>
+    
+    <!-- Era gradients -->
+    <linearGradient id="hardwareGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#64748b;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="softwareGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="networkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#ffffff"/>
+  
+  <!-- Era 1: Hardware-Centric -->
+  <g id="hardwareEra">
+    <rect x="80" y="100" width="240" height="285" fill="url(#hardwareGrad)" rx="15" filter="url(#shadow)"/>
+    <text x="200" y="135" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="white">
+      하드웨어 중심
+    </text>
+    <text x="200" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-subtitle" fill="rgba(255,255,255,0.8)">
+      Hardware-Centric
+    </text>
+    
+    <text x="200" y="180" text-anchor="middle" font-family="Arial, sans-serif" class="year-text" fill="white">
+      1960s - 1970s
+    </text>
+    
+    <!-- Hardware Circuit Board icon -->
+    <!-- PCB base -->
+    <rect x="160" y="200" width="80" height="50" fill="rgba(255,255,255,0.2)" rx="3"/>
+    
+    <!-- Circuit traces (horizontal) -->
+    <line x1="165" y1="210" x2="235" y2="210" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <line x1="165" y1="220" x2="235" y2="220" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <line x1="165" y1="230" x2="235" y2="230" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <line x1="165" y1="240" x2="235" y2="240" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    
+    <!-- Circuit traces (vertical) -->
+    <line x1="175" y1="205" x2="175" y2="245" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <line x1="190" y1="205" x2="190" y2="245" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <line x1="210" y1="205" x2="210" y2="245" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <line x1="225" y1="205" x2="225" y2="245" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    
+    <!-- Electronic components (chips) -->
+    <rect x="178" y="215" width="14" height="8" fill="rgba(255,255,255,0.6)" rx="1"/>
+    <rect x="198" y="215" width="14" height="8" fill="rgba(255,255,255,0.6)" rx="1"/>
+    <rect x="178" y="227" width="14" height="8" fill="rgba(255,255,255,0.6)" rx="1"/>
+    <rect x="198" y="227" width="14" height="8" fill="rgba(255,255,255,0.6)" rx="1"/>
+    
+    <!-- Connection points/pads -->
+    <circle cx="170" cy="215" r="1.5" fill="rgba(255,255,255,0.8)"/>
+    <circle cx="170" cy="225" r="1.5" fill="rgba(255,255,255,0.8)"/>
+    <circle cx="170" cy="235" r="1.5" fill="rgba(255,255,255,0.8)"/>
+    <circle cx="230" cy="215" r="1.5" fill="rgba(255,255,255,0.8)"/>
+    <circle cx="230" cy="225" r="1.5" fill="rgba(255,255,255,0.8)"/>
+    <circle cx="230" cy="235" r="1.5" fill="rgba(255,255,255,0.8)"/>
+    
+    <!-- Key Features -->
+    <text x="200" y="280" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 물리적 회로 설계
+    </text>
+    <text x="200" y="300" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 기계어 프로그래밍
+    </text>
+    <text x="200" y="320" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 하드웨어 의존성
+    </text>
+    <text x="200" y="340" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 전문가 중심
+    </text>
+    
+    <!-- Focus -->
+    <rect x="90" y="350" width="220" height="20" fill="rgba(255,255,255,0.1)" rx="10"/>
+    <text x="200" y="365" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="rgba(255,255,255,0.7)">
+      성능 = 하드웨어 성능
+    </text>
+  </g>
+  
+  <!-- Era 2: Software-Centric -->
+  <g id="softwareEra">
+    <rect x="360" y="100" width="240" height="285" fill="url(#softwareGrad)" rx="15" filter="url(#shadow)"/>
+    <text x="480" y="135" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="white">
+      소프트웨어 중심
+    </text>
+    <text x="480" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-subtitle" fill="rgba(255,255,255,0.8)">
+      Software-Centric
+    </text>
+    
+    <text x="480" y="180" text-anchor="middle" font-family="Arial, sans-serif" class="year-text" fill="white">
+      1980s - 1990s
+    </text>
+    
+    <!-- Software icon -->
+    <g transform="translate(-30, 0)">
+      <rect x="440" y="200" width="140" height="55" fill="rgba(255,255,255,0.2)" rx="3"/>
+      <text x="450" y="220" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.6)">
+        int main() {
+      </text>
+      <text x="450" y="235" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.6)">
+        printf("Hello");
+      </text>
+      <text x="450" y="248" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.6)">
+        return 0;
+      </text>
+    </g>
+    
+    <!-- Key Features -->
+    <text x="480" y="280" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 고급 언어 개발
+    </text>
+    <text x="480" y="300" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 운영체제 발전
+    </text>
+    <text x="480" y="320" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 소프트웨어 패키지
+    </text>
+    <text x="480" y="340" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 개발자 생태계
+    </text>
+    
+    <!-- Focus -->
+    <rect x="370" y="350" width="220" height="20" fill="rgba(255,255,255,0.1)" rx="10"/>
+    <text x="480" y="365" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="rgba(255,255,255,0.7)">
+      성능 = 알고리즘 + 구조
+    </text>
+  </g>
+  
+  <!-- Era 3: Network-Centric -->
+  <g id="networkEra">
+    <rect x="640" y="100" width="240" height="285" fill="url(#networkGrad)" rx="15" filter="url(#shadow)"/>
+    <text x="760" y="135" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="white">
+      네트워크 중심
+    </text>
+    <text x="760" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-subtitle" fill="rgba(255,255,255,0.8)">
+      Network-Centric
+    </text>
+    
+    <text x="760" y="180" text-anchor="middle" font-family="Arial, sans-serif" class="year-text" fill="white">
+      2000s - 2010s
+    </text>
+    
+    <!-- Network Cloud Computing icon -->
+    <g transform="translate(720, 185)">
+      <!-- Central Cloud -->
+      <path d="M 25 35 Q 20 25, 35 25 Q 45 20, 55 25 Q 65 25, 60 35 Q 65 45, 50 45 L 35 45 Q 20 45, 25 35 Z" 
+            fill="rgba(255,255,255,0.4)" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+      
+      <!-- API text inside cloud -->
+      <text x="42" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" font-weight="bold">
+        API
+      </text>
+      
+      <!-- Connected devices/nodes -->
+      <!-- Top left - Server -->
+      <rect x="15" y="10" width="12" height="8" fill="rgba(255,255,255,0.5)" rx="1"/>
+      <line x1="16" y1="12" x2="26" y2="12" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+      <line x1="16" y1="14" x2="26" y2="14" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+      <line x1="16" y1="16" x2="26" y2="16" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+      
+      <!-- Top right - Desktop -->
+      <rect x="55" y="10" width="12" height="8" fill="rgba(255,255,255,0.5)" rx="1"/>
+      <rect x="58" y="18" width="6" height="2" fill="rgba(255,255,255,0.4)"/>
+      
+      <!-- Bottom left - Mobile -->
+      <rect x="18" y="55" width="6" height="10" fill="rgba(255,255,255,0.5)" rx="2"/>
+      <circle cx="21" cy="62" r="1" fill="rgba(255,255,255,0.3)"/>
+      
+      <!-- Bottom right - Tablet -->
+      <rect x="56" y="55" width="10" height="8" fill="rgba(255,255,255,0.5)" rx="2"/>
+      <rect x="58" y="57" width="6" height="4" fill="rgba(255,255,255,0.2)"/>
+      
+      <!-- Connection lines to cloud -->
+      <line x1="27" y1="18" x2="35" y2="28" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="55" y1="18" x2="50" y2="28" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="24" y1="55" x2="35" y2="45" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="56" y1="59" x2="50" y2="45" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      
+      <!-- Data flow indicators -->
+      <circle cx="32" cy="23" r="1" fill="rgba(255,255,255,0.6)"/>
+      <circle cx="52" cy="23" r="1" fill="rgba(255,255,255,0.6)"/>
+      <circle cx="29" cy="50" r="1" fill="rgba(255,255,255,0.6)"/>
+      <circle cx="53" cy="50" r="1" fill="rgba(255,255,255,0.6)"/>
+    </g>
+    
+    <!-- Key Features -->
+    <text x="760" y="280" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 클라우드 컴퓨팅
+    </text>
+    <text x="760" y="300" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 웹 서비스/API
+    </text>
+    <text x="760" y="320" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 분산 처리
+    </text>
+    <text x="760" y="340" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 빅데이터
+    </text>
+    
+    <!-- Focus -->
+    <rect x="650" y="350" width="220" height="20" fill="rgba(255,255,255,0.1)" rx="10"/>
+    <text x="760" y="365" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="rgba(255,255,255,0.7)">
+      성능 = 네트워크 + 확장성
+    </text>
+  </g>
+  
+  <!-- Era 4: AI-Centric -->
+  <g id="aiEra">
+    <rect x="920" y="100" width="240" height="285" fill="url(#aiGrad)" rx="15" filter="url(#shadow)"/>
+    <text x="1040" y="135" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="white">
+      AI 중심
+    </text>
+    <text x="1040" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-subtitle" fill="rgba(255,255,255,0.8)">
+      AI-Centric
+    </text>
+    
+    <text x="1040" y="180" text-anchor="middle" font-family="Arial, sans-serif" class="year-text" fill="white">
+      2020s - 현재
+    </text>
+    
+    <!-- AI Neural Network icon -->
+    <g transform="translate(1000, 175)">
+      <!-- Input layer -->
+      <circle cx="15" cy="25" r="3" fill="rgba(255,255,255,0.8)"/>
+      <circle cx="15" cy="40" r="3" fill="rgba(255,255,255,0.8)"/>
+      <circle cx="15" cy="55" r="3" fill="rgba(255,255,255,0.8)"/>
+      
+      <!-- Hidden layer -->
+      <circle cx="40" cy="20" r="3" fill="rgba(255,255,255,0.8)"/>
+      <circle cx="40" cy="35" r="3" fill="rgba(255,255,255,0.8)"/>
+      <circle cx="40" cy="50" r="3" fill="rgba(255,255,255,0.8)"/>
+      <circle cx="40" cy="65" r="3" fill="rgba(255,255,255,0.8)"/>
+      
+      <!-- Output layer -->
+      <circle cx="65" cy="30" r="3" fill="rgba(255,255,255,0.8)"/>
+      <circle cx="65" cy="50" r="3" fill="rgba(255,255,255,0.8)"/>
+      
+      <!-- Connections from input to hidden -->
+      <line x1="18" y1="25" x2="37" y2="20" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="18" y1="25" x2="37" y2="35" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="18" y1="40" x2="37" y2="35" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="18" y1="40" x2="37" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="18" y1="55" x2="37" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="18" y1="55" x2="37" y2="65" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      
+      <!-- Connections from hidden to output -->
+      <line x1="43" y1="20" x2="62" y2="30" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="43" y1="35" x2="62" y2="30" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="43" y1="50" x2="62" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <line x1="43" y1="65" x2="62" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      
+      <!-- Labels -->
+      <text x="5" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">
+        Input
+      </text>
+      <text x="40" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">
+        Hidden
+      </text>
+      <text x="75" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">
+        Output
+      </text>
+    </g>
+    
+    <!-- Key Features -->
+    <text x="1040" y="280" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 대규모 언어모델
+    </text>
+    <text x="1040" y="300" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 자연어 인터페이스
+    </text>
+    <text x="1040" y="320" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 코드 자동생성
+    </text>
+    <text x="1040" y="340" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="white">
+      • 인간-AI 협업
+    </text>
+    
+    <!-- Focus -->
+    <rect x="930" y="350" width="220" height="20" fill="rgba(255,255,255,0.1)" rx="10"/>
+    <text x="1040" y="365" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="rgba(255,255,255,0.7)">
+      성능 = 지능 + 적응성
+    </text>
+  </g>
+  
+  <!-- Evolution arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <line x1="320" y1="240" x2="335" y2="240" stroke="#64748b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="240" x2="615" y2="240" stroke="#64748b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="880" y1="240" x2="895" y2="240" stroke="#64748b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Timeline -->
+  <g transform="translate(0,-40)">
+    <line x1="100" y1="450" x2="1140" y2="450" stroke="#e2e8f0" stroke-width="2"/>
+    <circle cx="200" cy="450" r="6" fill="#64748b"/>
+    <circle cx="480" cy="450" r="6" fill="#2563eb"/>
+    <circle cx="760" cy="450" r="6" fill="#7c3aed"/>
+    <circle cx="1040" cy="450" r="6" fill="#dc2626"/>
+  </g>
+  
+  <!-- Individual era summary boxes -->
+  <!-- Hardware Era Box -->
+  <g transform="translate(80, 430)">
+    <rect x="0" y="0" width="240" height="45" fill="rgba(100, 116, 139, 0.1)" stroke="#64748b" stroke-width="2" rx="8"/>
+    <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#64748b" font-weight="bold">
+      하드웨어 중심
+    </text>
+    <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#475569">
+      기계에 맞춘 프로그래밍
+    </text>
+  </g>
+  
+  <!-- Software Era Box -->
+    <g transform="translate(360, 430)">
+      <rect x="0" y="0" width="240" height="45" fill="rgba(37, 99, 235, 0.1)" stroke="#2563eb" stroke-width="2" rx="8"/>
+      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#2563eb" font-weight="bold">
+        소프트웨어 중심
+      </text>
+      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#1d4ed8">
+        논리와 구조 중심 설계
+      </text>
+    </g>
+    
+    <!-- Network Era Box -->
+    <g transform="translate(640, 430)">
+      <rect x="0" y="0" width="240" height="45" fill="rgba(124, 58, 237, 0.1)" stroke="#7c3aed" stroke-width="2" rx="8"/>
+      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#7c3aed" font-weight="bold">
+        네트워크 중심
+      </text>
+      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#6d28d9">
+        연결과 확장성 우선
+      </text>
+    </g>
+    
+    <!-- AI Era Box -->
+    <g transform="translate(920, 430)">
+      <rect x="0" y="0" width="240" height="45" fill="rgba(220, 38, 38, 0.1)" stroke="#dc2626" stroke-width="2" rx="8"/>
+      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#dc2626" font-weight="bold">
+        AI 중심
+      </text>
+      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#b91c1c">
+        의도 기반 자동화
+      </text>
+    </g>
+
+</svg>
