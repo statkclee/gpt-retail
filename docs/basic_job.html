@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -205,7 +225,6 @@ ga('send', {
   <li><a href="#ai-시대-직업-비교" id="toc-ai-시대-직업-비교" class="nav-link" data-scroll-target="#ai-시대-직업-비교"><span class="header-section-number">3.6</span> AI 시대 직업 비교</a></li>
   <li><a href="#공통-트렌드와-필수-역량" id="toc-공통-트렌드와-필수-역량" class="nav-link" data-scroll-target="#공통-트렌드와-필수-역량"><span class="header-section-number">3.7</span> 공통 트렌드와 필수 역량</a></li>
   <li><a href="#직업의-미래-전문화와-협업" id="toc-직업의-미래-전문화와-협업" class="nav-link" data-scroll-target="#직업의-미래-전문화와-협업"><span class="header-section-number">3.8</span> 직업의 미래, 전문화와 협업</a></li>
-  <li><a href="#참고문헌" id="toc-참고문헌" class="nav-link" data-scroll-target="#참고문헌">참고문헌</a></li>
   </ul>
 </nav>
     </div>
@@ -245,7 +264,7 @@ ga('send', {
 </figure>
 </div>
 <p><a href="#fig-labor-division" class="quarto-xref">그림&nbsp;<span>3.1</span></a> 은 1750년 이전부터 2035년까지 6개 시대의 인간-기계 노동 분업 변화를 보여준다. 전통 수공업 시대에는 인간이 대부분의 노동(약 95%)을 담당했고 도구(망치, 도르래, 바퀴)는 보조적 역할에 그쳤다. 산업혁명(1760-1840)은 첫 전환점으로, 증기기관과 방적기가 등장하며 기계 비중이 크게 증가했고 인간은 <strong>노동자에서 조작자로</strong> 역할이 변화했다. 대량생산 시대(1900-1970)는 포드 조립라인과 전기모터로 인간과 기계가 균형을 이뤘다. 자동화 시대(1970-2010)는 CNC 기계와 산업용 로봇으로 기계가 대부분을 담당하며 인간은 <strong>프로그래밍과 감독</strong>으로 진화했다. 현재 AI 시대(2010-2025)는 AI가 많은 작업을 담당하지만, 인간의 역할은 <strong>전략, 창의성, 윤리적 판단</strong>이라는 가장 고차원적 영역으로 이동했다.</p>
-<p>2025-2035년 예상되는 <strong>Physical AI 시대</strong>는 <a href="#fig-labor-division" class="quarto-xref">그림&nbsp;<span>3.1</span></a> 이 보여주는 가장 혁신적인 단계다. 디지털 AI가 물리적 세계로 확장되며 휴머노이드 로봇과 자율 생산 시스템이 등장할 것으로 전망된다. Morgan Stanley는 2035년까지 휴머노이드 로봇 시장이 2,500억 달러 규모로 성장할 것으로 예측하며, Goldman Sachs는 2026년 5-10만 대 출하가 2035년에는 연간 수백만 대로 증가할 것으로 전망한다. 핵심은 “<strong>협업(Collaboration)</strong>”이라는 새로운 범주 등장이다. McKinsey와 Deloitte 연구에 따르면, 인간과 AI가 협력할 때 가장 큰 성과 향상이 나타나며, 미래 일의 본질이 협력에 있음을 시사한다. 각 시대마다 핵심 기술도 진화했다. 증기동력은 물리적 힘을, 전기는 속도와 정밀성을, 컴퓨터는 정보 처리를, AI는 인지적 보강을, Physical AI는 물리적 자율성을 실현했다. 인간 역할은 노동자 → 조작자 → 감독자 → <strong>협력자</strong>로, 역량은 근력 → 기술 → 지식 → <strong>창의성</strong> 중심으로 진화했다. 기술 발전은 인간을 대체하는 것이 아니라, <strong>인간을 더 창의적이고 전략적인 역할로 해방시키는 과정</strong>이다.</p>
+<p>2025-2035년 예상되는 <strong>Physical AI 시대</strong>는 <a href="#fig-labor-division" class="quarto-xref">그림&nbsp;<span>3.1</span></a> 이 보여주는 가장 혁신적인 단계다. 디지털 AI가 물리적 세계로 확장되며 휴머노이드 로봇과 자율 생산 시스템이 등장할 것으로 전망된다. Morgan Stanley는 2035년까지 휴머노이드 로봇 시장이 2,500억 달러 규모로 성장할 것으로 예측하며 <span class="citation" data-cites="morganstanley2025humanoid">(<a href="references.html#ref-morganstanley2025humanoid" role="doc-biblioref">Morgan Stanley, 2025</a>)</span>, Goldman Sachs는 2026년 5-10만 대 출하가 2035년에는 연간 수백만 대로 증가할 것으로 전망한다 <span class="citation" data-cites="goldmansachs2025ai">(<a href="references.html#ref-goldmansachs2025ai" role="doc-biblioref">Goldman Sachs, 2025</a>)</span>. 핵심은 “<strong>협업(Collaboration)</strong>”이라는 새로운 범주 등장이다. McKinsey와 Deloitte 연구에 따르면, 인간과 AI가 협력할 때 가장 큰 성과 향상이 나타나며, 미래 일의 본질이 협력에 있음을 시사한다 <span class="citation" data-cites="mckinsey2023automation deloitte2023collaboration hbr2018collaborative">(<a href="references.html#ref-deloitte2023collaboration" role="doc-biblioref">Deloitte Insights, 2023</a>; <a href="references.html#ref-mckinsey2023automation" role="doc-biblioref">McKinsey &amp; Company, 2023</a>; <a href="references.html#ref-hbr2018collaborative" role="doc-biblioref">Wilson &amp; Daugherty, 2018</a>)</span>. 각 시대마다 핵심 기술도 진화했다. 증기동력은 물리적 힘을, 전기는 속도와 정밀성을, 컴퓨터는 정보 처리를, AI는 인지적 보강을, Physical AI는 물리적 자율성을 실현했다. 인간 역할은 노동자 → 조작자 → 감독자 → <strong>협력자</strong>로, 역량은 근력 → 기술 → 지식 → <strong>창의성</strong> 중심으로 진화했다. 기술 발전은 인간을 대체하는 것이 아니라, <strong>인간을 더 창의적이고 전략적인 역할로 해방시키는 과정</strong>이다.</p>
 </section>
 <section id="산업별-일자리-변화" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="산업별-일자리-변화"><span class="header-section-number">3.2</span> 산업별 일자리 변화</h2>
@@ -260,10 +279,10 @@ ga('send', {
 </figcaption>
 </figure>
 </div>
-<p><a href="#fig-employment-sector" class="quarto-xref">그림&nbsp;<span>3.2</span></a> 는 1750년 이전부터 2035년까지 6개 시대의 산업별 고용 구조 변화를 보여준다. 전통 수공업 시대에는 농업이 압도적 다수를 차지했고, 제조업과 서비스업은 소수에 그쳤다. 영국의 경우 1850년에도 농업 고용이 22%였던 점을 감안하면, 그 이전 시대에는 훨씬 높았을 것으로 추정된다. 인간은 주로 농사를 짓고, 소수만 수공예품을 만들거나 시장에서 물건을 팔았다. 산업혁명(1760-1840)은 첫 전환점으로 농업 비중이 감소하며 제조업이 급증했다. 증기기관과 방적기로 공장이 등장하고, 농촌 인구가 도시로 이동했다.</p>
-<p>대량생산 시대(1900-1970)는 제조업이 정점을 찍었다. 미국의 경우 제2차 세계대전 중 제조업 고용이 38%까지 상승했고, 1950년대 초에도 31-32%를 유지했다. 미국 농업 고용은 1900년 40%에서 지속 감소했다. 자동화 시대(1970-2010)는 극적인 전환을 보여준다. 미국 제조업 고용은 1970년 30%에서 2010년 10%로 급감했고, 반대로 서비스업이 급증했다. OECD 국가들은 2000년대 중반 서비스업 고용이 70%를 넘어섰다. CNC 기계와 산업용 로봇이 농업과 제조업을 자동화하며, 인간은 판매, 물류, 행정 등 서비스 분야로 이동했다.</p>
-<p>현재 AI 시대(2010-2025)는 <a href="#fig-employment-sector" class="quarto-xref">그림&nbsp;<span>3.2</span></a> 가 보여주는 중요한 변곡점이다. 미국의 경우 2022년 농업 1.6%, 제조업 19.3%, 서비스업 79.1%로 집계되었다. 특히 <strong>지식 집약적 산업이 빠르게 성장</strong>했다. 미국 STEM 직업은 2010년 6.5%에서 2024년 10%로 증가했고, 영국 창의 산업은 GDP의 5.6%(2021년)를 차지한다. IT 개발자, 데이터 과학자, 디자이너, 금융 전문가 등 고부가가치 지식 노동자가 새로운 주역이 되었다. 과거에 없던 완전히 새로운 산업 범주다.</p>
-<p>2025-2035년 Physical AI 시대는 더욱 혁신적인 구조를 예고한다. Oxford Economics는 2035년까지 로봇과 AI로 인해 2천만 개 일자리가 사라질 것으로 예측하지만, UAE 투자부는 같은 기간 9,700만 개 신규 일자리가 생길 것으로 전망한다. 기존 산업이 지속 축소되는 대신, 지식/창의 산업이 성장하고, <strong>인간중심 산업(Human-Centric)이 신규 등장</strong>할 것으로 예상된다. 인간중심 산업은 돌봄, 교육, 예술, 윤리 등 AI가 대체하기 어려운 인간 고유 영역이다. 전문가들은 교사, 간호사, 사회복지사, 심리상담사, 돌봄 전문가 등이 AI 시대에도 안정적일 것으로 전망하며, AI 윤리 전문가, 로봇 심리학자, 경험 디자이너 같은 새로운 직업도 등장할 것으로 예측한다.</p>
+<p><a href="#fig-employment-sector" class="quarto-xref">그림&nbsp;<span>3.2</span></a> 는 1750년 이전부터 2035년까지 6개 시대의 산업별 고용 구조 변화를 보여준다. 전통 수공업 시대에는 농업이 압도적 다수를 차지했고, 제조업과 서비스업은 소수에 그쳤다. 영국의 경우 1850년에도 농업 고용이 22%였던 점을 감안하면, 그 이전 시대에는 훨씬 높았을 것으로 추정된다 <span class="citation" data-cites="ons2019employment">(<a href="references.html#ref-ons2019employment" role="doc-biblioref">UK Office for National Statistics, 2019</a>)</span>. 인간은 주로 농사를 짓고, 소수만 수공예품을 만들거나 시장에서 물건을 팔았다. 산업혁명(1760-1840)은 첫 전환점으로 농업 비중이 감소하며 제조업이 급증했다. 증기기관과 방적기로 공장이 등장하고, 농촌 인구가 도시로 이동했다.</p>
+<p>대량생산 시대(1900-1970)는 제조업이 정점을 찍었다. 미국의 경우 제2차 세계대전 중 제조업 고용이 38%까지 상승했고, 1950년대 초에도 31-32%를 유지했다 <span class="citation" data-cites="bls2020manufacturing">(<a href="references.html#ref-bls2020manufacturing" role="doc-biblioref">US Bureau of Labor Statistics, 2020</a>)</span>. 미국 농업 고용은 1900년 40%에서 지속 감소했다 <span class="citation" data-cites="gilderlehrman2024farming">(<a href="references.html#ref-gilderlehrman2024farming" role="doc-biblioref">Gilder Lehrman Institute of American History, 2024</a>)</span>. 자동화 시대(1970-2010)는 극적인 전환을 보여준다. 미국 제조업 고용은 1970년 30%에서 2010년 10%로 급감했고, 반대로 서비스업이 급증했다 <span class="citation" data-cites="bls2020manufacturing">(<a href="references.html#ref-bls2020manufacturing" role="doc-biblioref">US Bureau of Labor Statistics, 2020</a>)</span>. OECD 국가들은 2000년대 중반 서비스업 고용이 70%를 넘어섰다 <span class="citation" data-cites="oecd2005services">(<a href="references.html#ref-oecd2005services" role="doc-biblioref">OECD, 2005</a>)</span>. CNC 기계와 산업용 로봇이 농업과 제조업을 자동화하며, 인간은 판매, 물류, 행정 등 서비스 분야로 이동했다.</p>
+<p>현재 AI 시대(2010-2025)는 <a href="#fig-employment-sector" class="quarto-xref">그림&nbsp;<span>3.2</span></a> 가 보여주는 중요한 변곡점이다. 미국의 경우 2022년 농업 1.6%, 제조업 19.3%, 서비스업 79.1%로 집계되었다 <span class="citation" data-cites="statista2022employment">(<a href="references.html#ref-statista2022employment" role="doc-biblioref">Statista, 2022</a>)</span>. 특히 <strong>지식 집약적 산업이 빠르게 성장</strong>했다. 미국 STEM 직업은 2010년 6.5%에서 2024년 10%로 증가했고 <span class="citation" data-cites="census2025ai">(<a href="references.html#ref-census2025ai" role="doc-biblioref">US Census Bureau, 2025</a>)</span>, 영국 창의 산업은 GDP의 5.6%(2021년)를 차지한다. IT 개발자, 데이터 과학자, 디자이너, 금융 전문가 등 고부가가치 지식 노동자가 새로운 주역이 되었다. 과거에 없던 완전히 새로운 산업 범주다.</p>
+<p>2025-2035년 Physical AI 시대는 더욱 혁신적인 구조를 예고한다. Oxford Economics는 2035년까지 로봇과 AI로 인해 2천만 개 일자리가 사라질 것으로 예측하지만 <span class="citation" data-cites="oxfordeconomics2019robots">(<a href="references.html#ref-oxfordeconomics2019robots" role="doc-biblioref">Oxford Economics, 2019</a>)</span>, UAE 투자부는 같은 기간 9,700만 개 신규 일자리가 생길 것으로 전망한다. 기존 산업이 지속 축소되는 대신, 지식/창의 산업이 성장하고, <strong>인간중심 산업(Human-Centric)이 신규 등장</strong>할 것으로 예상된다 <span class="citation" data-cites="imf2024ai">(<a href="references.html#ref-imf2024ai" role="doc-biblioref">International Monetary Fund, 2024</a>)</span>. 인간중심 산업은 돌봄, 교육, 예술, 윤리 등 AI가 대체하기 어려운 인간 고유 영역이다. 전문가들은 교사, 간호사, 사회복지사, 심리상담사, 돌봄 전문가 등이 AI 시대에도 안정적일 것으로 전망하며 <span class="citation" data-cites="wef2025human">(<a href="references.html#ref-wef2025human" role="doc-biblioref">World Economic Forum, 2025</a>)</span>, AI 윤리 전문가, 로봇 심리학자, 경험 디자이너 같은 새로운 직업도 등장할 것으로 예측한다.</p>
 <p><a href="#fig-employment-sector" class="quarto-xref">그림&nbsp;<span>3.2</span></a> 가 보여주는 역사적 패턴은 명확하다. <strong>농업</strong>: 압도적 다수에서 1.6%로 급감 (기계화). <strong>제조업</strong>: 1940년대 38% 정점 후 2022년 19.3%로 감소 (자동화). <strong>서비스업</strong>: 2000년대 중반 OECD 70% 정점 후 완만한 감소 (디지털화). <strong>지식/창의 산업</strong>: STEM 10% 등 지속 성장 (AI 시대 새로운 성장 동력). <strong>인간중심 산업</strong>: 교육·돌봄·예술·윤리 등 인간 고유 영역 (미래 신흥 분야). 역사적 교훈은 명확하다. <strong>기술은 일자리를 파괴하지 않고 변화시킨다. 인간은 항상 더 창의적이고 의미 있는 일로 이동한다.</strong></p>
 </section>
 <section id="ai-데이터-일자리" class="level2" data-number="3.3">
@@ -291,23 +310,23 @@ ga('send', {
 </figcaption>
 <div aria-describedby="tbl-job-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="txxathxslg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#txxathxslg table {
+<div id="olyicjouwg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#olyicjouwg table {
   font-family: 'Apple Gothic', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#txxathxslg thead, #txxathxslg tbody, #txxathxslg tfoot, #txxathxslg tr, #txxathxslg td, #txxathxslg th {
+#olyicjouwg thead, #olyicjouwg tbody, #olyicjouwg tfoot, #olyicjouwg tr, #olyicjouwg td, #olyicjouwg th {
   border-style: none;
 }
 
-#txxathxslg p {
+#olyicjouwg p {
   margin: 0;
   padding: 0;
 }
 
-#txxathxslg .gt_table {
+#olyicjouwg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -333,12 +352,12 @@ ga('send', {
   border-left-color: #D3D3D3;
 }
 
-#txxathxslg .gt_caption {
+#olyicjouwg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#txxathxslg .gt_title {
+#olyicjouwg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -350,7 +369,7 @@ ga('send', {
   border-bottom-width: 0;
 }
 
-#txxathxslg .gt_subtitle {
+#olyicjouwg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -362,7 +381,7 @@ ga('send', {
   border-top-width: 0;
 }
 
-#txxathxslg .gt_heading {
+#olyicjouwg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -374,13 +393,13 @@ ga('send', {
   border-right-color: #D3D3D3;
 }
 
-#txxathxslg .gt_bottom_border {
+#olyicjouwg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#txxathxslg .gt_col_headings {
+#olyicjouwg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -395,7 +414,7 @@ ga('send', {
   border-right-color: #D3D3D3;
 }
 
-#txxathxslg .gt_col_heading {
+#olyicjouwg .gt_col_heading {
   color: #333333;
   background-color: #F8F9FA;
   font-size: 14px;
@@ -415,7 +434,7 @@ ga('send', {
   overflow-x: hidden;
 }
 
-#txxathxslg .gt_column_spanner_outer {
+#olyicjouwg .gt_column_spanner_outer {
   color: #333333;
   background-color: #F8F9FA;
   font-size: 14px;
@@ -427,15 +446,15 @@ ga('send', {
   padding-right: 4px;
 }
 
-#txxathxslg .gt_column_spanner_outer:first-child {
+#olyicjouwg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#txxathxslg .gt_column_spanner_outer:last-child {
+#olyicjouwg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#txxathxslg .gt_column_spanner {
+#olyicjouwg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #DEE2E6;
@@ -447,11 +466,11 @@ ga('send', {
   width: 100%;
 }
 
-#txxathxslg .gt_spanner_row {
+#olyicjouwg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#txxathxslg .gt_group_heading {
+#olyicjouwg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -477,7 +496,7 @@ ga('send', {
   text-align: left;
 }
 
-#txxathxslg .gt_empty_group_heading {
+#olyicjouwg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -492,15 +511,15 @@ ga('send', {
   vertical-align: middle;
 }
 
-#txxathxslg .gt_from_md > :first-child {
+#olyicjouwg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#txxathxslg .gt_from_md > :last-child {
+#olyicjouwg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#txxathxslg .gt_row {
+#olyicjouwg .gt_row {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 5px;
@@ -519,7 +538,7 @@ ga('send', {
   overflow-x: hidden;
 }
 
-#txxathxslg .gt_stub {
+#olyicjouwg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -532,7 +551,7 @@ ga('send', {
   padding-right: 5px;
 }
 
-#txxathxslg .gt_stub_row_group {
+#olyicjouwg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -546,15 +565,15 @@ ga('send', {
   vertical-align: top;
 }
 
-#txxathxslg .gt_row_group_first td {
+#olyicjouwg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#txxathxslg .gt_row_group_first th {
+#olyicjouwg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#txxathxslg .gt_summary_row {
+#olyicjouwg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -564,16 +583,16 @@ ga('send', {
   padding-right: 5px;
 }
 
-#txxathxslg .gt_first_summary_row {
+#olyicjouwg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#txxathxslg .gt_first_summary_row.thick {
+#olyicjouwg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#txxathxslg .gt_last_summary_row {
+#olyicjouwg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -583,7 +602,7 @@ ga('send', {
   border-bottom-color: #D3D3D3;
 }
 
-#txxathxslg .gt_grand_summary_row {
+#olyicjouwg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -593,7 +612,7 @@ ga('send', {
   padding-right: 5px;
 }
 
-#txxathxslg .gt_first_grand_summary_row {
+#olyicjouwg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -603,7 +622,7 @@ ga('send', {
   border-top-color: #D3D3D3;
 }
 
-#txxathxslg .gt_last_grand_summary_row_top {
+#olyicjouwg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -613,11 +632,11 @@ ga('send', {
   border-bottom-color: #D3D3D3;
 }
 
-#txxathxslg .gt_striped {
+#olyicjouwg .gt_striped {
   background-color: #F8F9FA;
 }
 
-#txxathxslg .gt_table_body {
+#olyicjouwg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -626,7 +645,7 @@ ga('send', {
   border-bottom-color: #D3D3D3;
 }
 
-#txxathxslg .gt_footnotes {
+#olyicjouwg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -640,7 +659,7 @@ ga('send', {
   border-right-color: #D3D3D3;
 }
 
-#txxathxslg .gt_footnote {
+#olyicjouwg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -649,7 +668,7 @@ ga('send', {
   padding-right: 5px;
 }
 
-#txxathxslg .gt_sourcenotes {
+#olyicjouwg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -663,7 +682,7 @@ ga('send', {
   border-right-color: #D3D3D3;
 }
 
-#txxathxslg .gt_sourcenote {
+#olyicjouwg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -671,72 +690,72 @@ ga('send', {
   padding-right: 5px;
 }
 
-#txxathxslg .gt_left {
+#olyicjouwg .gt_left {
   text-align: left;
 }
 
-#txxathxslg .gt_center {
+#olyicjouwg .gt_center {
   text-align: center;
 }
 
-#txxathxslg .gt_right {
+#olyicjouwg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#txxathxslg .gt_font_normal {
+#olyicjouwg .gt_font_normal {
   font-weight: normal;
 }
 
-#txxathxslg .gt_font_bold {
+#olyicjouwg .gt_font_bold {
   font-weight: bold;
 }
 
-#txxathxslg .gt_font_italic {
+#olyicjouwg .gt_font_italic {
   font-style: italic;
 }
 
-#txxathxslg .gt_super {
+#olyicjouwg .gt_super {
   font-size: 65%;
 }
 
-#txxathxslg .gt_footnote_marks {
+#olyicjouwg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#txxathxslg .gt_asterisk {
+#olyicjouwg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#txxathxslg .gt_indent_1 {
+#olyicjouwg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#txxathxslg .gt_indent_2 {
+#olyicjouwg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#txxathxslg .gt_indent_3 {
+#olyicjouwg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#txxathxslg .gt_indent_4 {
+#olyicjouwg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#txxathxslg .gt_indent_5 {
+#olyicjouwg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#txxathxslg .katex-display {
+#olyicjouwg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#txxathxslg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#olyicjouwg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -857,23 +876,23 @@ ga('send', {
 </figcaption>
 <div aria-describedby="tbl-ai-jobs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="fxganzxexd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fxganzxexd table {
+<div id="jbamxqdyop" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jbamxqdyop table {
   font-family: 'Apple Gothic', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fxganzxexd thead, #fxganzxexd tbody, #fxganzxexd tfoot, #fxganzxexd tr, #fxganzxexd td, #fxganzxexd th {
+#jbamxqdyop thead, #jbamxqdyop tbody, #jbamxqdyop tfoot, #jbamxqdyop tr, #jbamxqdyop td, #jbamxqdyop th {
   border-style: none;
 }
 
-#fxganzxexd p {
+#jbamxqdyop p {
   margin: 0;
   padding: 0;
 }
 
-#fxganzxexd .gt_table {
+#jbamxqdyop .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -899,12 +918,12 @@ ga('send', {
   border-left-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_caption {
+#jbamxqdyop .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fxganzxexd .gt_title {
+#jbamxqdyop .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -916,7 +935,7 @@ ga('send', {
   border-bottom-width: 0;
 }
 
-#fxganzxexd .gt_subtitle {
+#jbamxqdyop .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -928,7 +947,7 @@ ga('send', {
   border-top-width: 0;
 }
 
-#fxganzxexd .gt_heading {
+#jbamxqdyop .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -940,13 +959,13 @@ ga('send', {
   border-right-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_bottom_border {
+#jbamxqdyop .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_col_headings {
+#jbamxqdyop .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -961,7 +980,7 @@ ga('send', {
   border-right-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_col_heading {
+#jbamxqdyop .gt_col_heading {
   color: #FFFFFF;
   background-color: #2780E3;
   font-size: 13px;
@@ -981,7 +1000,7 @@ ga('send', {
   overflow-x: hidden;
 }
 
-#fxganzxexd .gt_column_spanner_outer {
+#jbamxqdyop .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #2780E3;
   font-size: 13px;
@@ -993,15 +1012,15 @@ ga('send', {
   padding-right: 4px;
 }
 
-#fxganzxexd .gt_column_spanner_outer:first-child {
+#jbamxqdyop .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fxganzxexd .gt_column_spanner_outer:last-child {
+#jbamxqdyop .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fxganzxexd .gt_column_spanner {
+#jbamxqdyop .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1013,11 +1032,11 @@ ga('send', {
   width: 100%;
 }
 
-#fxganzxexd .gt_spanner_row {
+#jbamxqdyop .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fxganzxexd .gt_group_heading {
+#jbamxqdyop .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1043,7 +1062,7 @@ ga('send', {
   text-align: left;
 }
 
-#fxganzxexd .gt_empty_group_heading {
+#jbamxqdyop .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1058,15 +1077,15 @@ ga('send', {
   vertical-align: middle;
 }
 
-#fxganzxexd .gt_from_md > :first-child {
+#jbamxqdyop .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fxganzxexd .gt_from_md > :last-child {
+#jbamxqdyop .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fxganzxexd .gt_row {
+#jbamxqdyop .gt_row {
   padding-top: 9px;
   padding-bottom: 9px;
   padding-left: 5px;
@@ -1085,7 +1104,7 @@ ga('send', {
   overflow-x: hidden;
 }
 
-#fxganzxexd .gt_stub {
+#jbamxqdyop .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1098,7 +1117,7 @@ ga('send', {
   padding-right: 5px;
 }
 
-#fxganzxexd .gt_stub_row_group {
+#jbamxqdyop .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1112,15 +1131,15 @@ ga('send', {
   vertical-align: top;
 }
 
-#fxganzxexd .gt_row_group_first td {
+#jbamxqdyop .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fxganzxexd .gt_row_group_first th {
+#jbamxqdyop .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fxganzxexd .gt_summary_row {
+#jbamxqdyop .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1130,16 +1149,16 @@ ga('send', {
   padding-right: 5px;
 }
 
-#fxganzxexd .gt_first_summary_row {
+#jbamxqdyop .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_first_summary_row.thick {
+#jbamxqdyop .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fxganzxexd .gt_last_summary_row {
+#jbamxqdyop .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1149,7 +1168,7 @@ ga('send', {
   border-bottom-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_grand_summary_row {
+#jbamxqdyop .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1159,7 +1178,7 @@ ga('send', {
   padding-right: 5px;
 }
 
-#fxganzxexd .gt_first_grand_summary_row {
+#jbamxqdyop .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1169,7 +1188,7 @@ ga('send', {
   border-top-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_last_grand_summary_row_top {
+#jbamxqdyop .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1179,11 +1198,11 @@ ga('send', {
   border-bottom-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_striped {
+#jbamxqdyop .gt_striped {
   background-color: #F8F9FA;
 }
 
-#fxganzxexd .gt_table_body {
+#jbamxqdyop .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1192,7 +1211,7 @@ ga('send', {
   border-bottom-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_footnotes {
+#jbamxqdyop .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1206,7 +1225,7 @@ ga('send', {
   border-right-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_footnote {
+#jbamxqdyop .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1215,7 +1234,7 @@ ga('send', {
   padding-right: 5px;
 }
 
-#fxganzxexd .gt_sourcenotes {
+#jbamxqdyop .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1229,7 +1248,7 @@ ga('send', {
   border-right-color: #D3D3D3;
 }
 
-#fxganzxexd .gt_sourcenote {
+#jbamxqdyop .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1237,72 +1256,72 @@ ga('send', {
   padding-right: 5px;
 }
 
-#fxganzxexd .gt_left {
+#jbamxqdyop .gt_left {
   text-align: left;
 }
 
-#fxganzxexd .gt_center {
+#jbamxqdyop .gt_center {
   text-align: center;
 }
 
-#fxganzxexd .gt_right {
+#jbamxqdyop .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fxganzxexd .gt_font_normal {
+#jbamxqdyop .gt_font_normal {
   font-weight: normal;
 }
 
-#fxganzxexd .gt_font_bold {
+#jbamxqdyop .gt_font_bold {
   font-weight: bold;
 }
 
-#fxganzxexd .gt_font_italic {
+#jbamxqdyop .gt_font_italic {
   font-style: italic;
 }
 
-#fxganzxexd .gt_super {
+#jbamxqdyop .gt_super {
   font-size: 65%;
 }
 
-#fxganzxexd .gt_footnote_marks {
+#jbamxqdyop .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fxganzxexd .gt_asterisk {
+#jbamxqdyop .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fxganzxexd .gt_indent_1 {
+#jbamxqdyop .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fxganzxexd .gt_indent_2 {
+#jbamxqdyop .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fxganzxexd .gt_indent_3 {
+#jbamxqdyop .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fxganzxexd .gt_indent_4 {
+#jbamxqdyop .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fxganzxexd .gt_indent_5 {
+#jbamxqdyop .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fxganzxexd .katex-display {
+#jbamxqdyop .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fxganzxexd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jbamxqdyop div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1411,37 +1430,52 @@ ga('send', {
 <p>이 장에서 확인한 핵심은 명확하다. AI 시대의 데이터 직업은 과거처럼 단일 명칭으로 수렴하지 않으며, <strong>“AI”가 접두사로 붙은 다양한 전문 역할</strong>이 공존하는 방향으로 진화하고 있다. 통계학자 → 데이터 분석가 → 데이터 과학자로 이어지던 선형적 진화는 끝났고, 이제는 무엇을 하느냐에 따라 AI 엔지니어, 프롬프트 엔지니어, 애널리틱스 엔지니어, AI 에이전트 개발자로 분화된다.</p>
 <p>역사는 중요한 교훈을 준다. 1900년대 초 전기 엔지니어가 등장했을 때, 기계 엔지니어가 사라진 것이 아니라 두 역할이 협업하며 새로운 산업을 만들었다. AI 시대도 마찬가지다. 전통적인 데이터 과학자가 사라지는 것이 아니라, <strong>AI 도구를 활용하는 방식으로 역할이 재정의</strong>되고 있다. 중요한 것은 직업 명칭이 아니라 AI와 협업하여 가치를 창출하는 능력이다. 데이터 분석, 모델 개발, 시스템 구축 중 무엇을 하든, AI를 효과적으로 활용하는 사람이 경쟁력을 가진다.</p>
 <p>현재 우리는 AI 도구를 “보조 수단”으로 쓰는 단계에서 “AI와 협업하는 파트너”로 진화하는 전환점에 서 있다. 2024년 80%가 이미 AI를 일상 워크플로우에 통합했다면, 2025년에는 이것이 기본 요건이 될 것이다. 중요한 것은 특정 직업명을 선택하는 것이 아니라, <strong>지속적으로 학습하고 AI 도구를 적극 활용하는 자세</strong>다. 다음 장부터는 이론을 넘어, 실제로 AI와 함께 데이터 분석을 수행하고 코드를 작성하며 인사이트를 도출하는 실전 기술을 다룬다.</p>
-</section>
-<section id="참고문헌" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="참고문헌">참고문헌</h2>
-<p><strong>역사적 고용 데이터:</strong></p>
-<ul>
-<li>UK Office for National Statistics (2019). “Long-term trends in UK employment: 1861 to 2018”. Economic Review, April 2019.</li>
-<li>US Bureau of Labor Statistics. “Forty years of falling manufacturing employment”. Beyond the Numbers, Vol. 9.</li>
-<li>Gilder Lehrman Institute of American History. “Statistics: Trends in American Farming”.</li>
-<li>Statista (2022). “United States - distribution of the workforce across economic sectors 2022”.</li>
-</ul>
-<p><strong>AI 시대 고용 전망:</strong></p>
-<ul>
-<li>International Monetary Fund (2024). “AI Will Transform the Global Economy. Let’s Make Sure It Benefits Humanity”.</li>
-<li>Morgan Stanley (2025). “Humanoid Robot Market Expected to Reach $5 Trillion by 2050”.</li>
-<li>Goldman Sachs (2025). “What to expect from AI in 2025: hybrid workers, robotics, expert models”.</li>
-<li>Oxford Economics. “How robots change the world: automation’s impact on productivity and labour”.</li>
-</ul>
-<p><strong>지식 산업 및 창의 경제:</strong></p>
-<ul>
-<li>US Census Bureau (2025). “How AI and Other Technology Impacted Businesses and Workers”.</li>
-<li>World Economic Forum (2025). “Why human-centric strategies are vital in the AI era”.</li>
-<li>OECD (2005). “Enhancing the Performance of the Services Sector”.</li>
-</ul>
-<p><strong>인간-기계 협업:</strong></p>
-<ul>
-<li>McKinsey &amp; Company. “Five lessons from history on AI, automation, and employment”.</li>
-<li>Deloitte Insights. “Human-machine collaboration and the future of work”.</li>
-<li>Harvard Business Review (2018). “Collaborative Intelligence: Humans and AI Are Joining Forces”.</li>
-</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-deloitte2023collaboration" class="csl-entry" role="listitem">
+Deloitte Insights. (2023). Human-machine collaboration and the future of work. <em>Deloitte Insights</em>. <a href="https://www2.deloitte.com/us/en/insights/focus/technology-and-the-future-of-work/human-and-machine-collaboration.html">https://www2.deloitte.com/us/en/insights/focus/technology-and-the-future-of-work/human-and-machine-collaboration.html</a>
+</div>
+<div id="ref-gilderlehrman2024farming" class="csl-entry" role="listitem">
+Gilder Lehrman Institute of American History. (2024). <em>Statistics: Trends in American Farming</em>. <a href="https://www.gilderlehrman.org/history-resources/teacher-resources/statistics-trends-american-farming">https://www.gilderlehrman.org/history-resources/teacher-resources/statistics-trends-american-farming</a>
+</div>
+<div id="ref-goldmansachs2025ai" class="csl-entry" role="listitem">
+Goldman Sachs. (2025). <em>What to expect from AI in 2025: hybrid workers, robotics, expert models</em>. <a href="https://www.goldmansachs.com/insights/articles/what-to-expect-from-ai-in-2025-hybrid-workers-robotics-expert-models">https://www.goldmansachs.com/insights/articles/what-to-expect-from-ai-in-2025-hybrid-workers-robotics-expert-models</a>
+</div>
+<div id="ref-imf2024ai" class="csl-entry" role="listitem">
+International Monetary Fund. (2024). AI Will Transform the Global Economy. Let’s Make Sure It Benefits Humanity. <em>IMF Blog</em>. <a href="https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity">https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity</a>
+</div>
+<div id="ref-mckinsey2023automation" class="csl-entry" role="listitem">
+McKinsey &amp; Company. (2023). Five lessons from history on AI, automation, and employment. <em>McKinsey Insights</em>. <a href="https://www.mckinsey.com/featured-insights/future-of-work/five-lessons-from-history-on-ai-automation-and-employment">https://www.mckinsey.com/featured-insights/future-of-work/five-lessons-from-history-on-ai-automation-and-employment</a>
+</div>
+<div id="ref-morganstanley2025humanoid" class="csl-entry" role="listitem">
+Morgan Stanley. (2025). <em>Humanoid Robot Market Expected to Reach $5 Trillion by 2050</em>. <a href="https://www.morganstanley.com/insights/articles/humanoid-robot-market-5-trillion-by-2050">https://www.morganstanley.com/insights/articles/humanoid-robot-market-5-trillion-by-2050</a>
+</div>
+<div id="ref-oecd2005services" class="csl-entry" role="listitem">
+OECD. (2005). <em>Enhancing the Performance of the Services Sector</em>. <a href="https://www.oecd.org/en/publications/enhancing-the-performance-of-the-services-sector_9789264010307-en.html">https://www.oecd.org/en/publications/enhancing-the-performance-of-the-services-sector_9789264010307-en.html</a>
+</div>
+<div id="ref-oxfordeconomics2019robots" class="csl-entry" role="listitem">
+Oxford Economics. (2019). <em>How robots change the world: automation’s impact on productivity and labour</em>. <a href="https://www.oxfordeconomics.com/resource/how-robots-change-the-world/">https://www.oxfordeconomics.com/resource/how-robots-change-the-world/</a>
+</div>
+<div id="ref-statista2022employment" class="csl-entry" role="listitem">
+Statista. (2022). <em>United States - distribution of the workforce across economic sectors 2022</em>. <a href="https://www.statista.com/statistics/270072/distribution-of-the-workforce-across-economic-sectors-in-the-united-states/">https://www.statista.com/statistics/270072/distribution-of-the-workforce-across-economic-sectors-in-the-united-states/</a>
+</div>
+<div id="ref-ons2019employment" class="csl-entry" role="listitem">
+UK Office for National Statistics. (2019). <em>Long-term trends in UK employment: 1861 to 2018</em>. Economic Review. <a href="https://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/compendium/economicreview/april2019/longtermtrendsinukemployment1861to2018">https://www.ons.gov.uk/economy/nationalaccounts/uksectoraccounts/compendium/economicreview/april2019/longtermtrendsinukemployment1861to2018</a>
+</div>
+<div id="ref-bls2020manufacturing" class="csl-entry" role="listitem">
+US Bureau of Labor Statistics. (2020). <em>Forty years of falling manufacturing employment</em>. Beyond the Numbers, Vol. 9. <a href="https://www.bls.gov/opub/btn/volume-9/forty-years-of-falling-manufacturing-employment.htm">https://www.bls.gov/opub/btn/volume-9/forty-years-of-falling-manufacturing-employment.htm</a>
+</div>
+<div id="ref-census2025ai" class="csl-entry" role="listitem">
+US Census Bureau. (2025). <em>How AI and Other Technology Impacted Businesses and Workers</em>. <a href="https://www.census.gov/library/stories/2025/09/technology-impact.html">https://www.census.gov/library/stories/2025/09/technology-impact.html</a>
+</div>
+<div id="ref-hbr2018collaborative" class="csl-entry" role="listitem">
+Wilson, H. J., &amp; Daugherty, P. R. (2018). Collaborative Intelligence: Humans and AI Are Joining Forces. <em>Harvard Business Review</em>. <a href="https://hbr.org/2018/07/collaborative-intelligence-humans-and-ai-are-joining-forces">https://hbr.org/2018/07/collaborative-intelligence-humans-and-ai-are-joining-forces</a>
+</div>
+<div id="ref-wef2025human" class="csl-entry" role="listitem">
+World Economic Forum. (2025). Why human-centric strategies are vital in the AI era. <em>WEF Stories</em>. <a href="https://www.weforum.org/stories/2025/01/leading-with-purpose-why-human-centric-strategies-are-vital-in-the-ai-era/">https://www.weforum.org/stories/2025/01/leading-with-purpose-why-human-centric-strategies-are-vital-in-the-ai-era/</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
