@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 180 1400 320">
+  <defs>
+    <style><![CDATA[
+      .title { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 42px; font-weight: 900; fill: #f8fafc; }
+      .subtitle { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 24px; font-weight: 600; fill: #cbd5e1; }
+      .h1 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 28px; font-weight: 800; fill: #ffffff; }
+      .h2 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 22px; font-weight: 800; fill: #f1f5f9; }
+      .p { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #e5e7eb; }
+      .small { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 16px; font-weight: 900; fill: #000000; }
+      .year { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 18px; font-weight: 900; fill:rgb(247, 255, 7); }
+      .quote { font-family: Georgia, serif; font-size: 20px; font-weight: 600; fill: #ffc107; font-style: italic; }
+    ]]></style>
+
+
+    <!-- Stage gradients -->
+    <linearGradient id="gradGeneral" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#495057"/>
+      <stop offset="100%" stop-color="#212529"/>
+    </linearGradient>
+
+    <linearGradient id="gradTransition" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dc3545"/>
+      <stop offset="100%" stop-color="#ffc107"/>
+    </linearGradient>
+
+    <linearGradient id="gradSpecialized" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#28a745"/>
+      <stop offset="100%" stop-color="#1a5490"/>
+    </linearGradient>
+
+    <!-- Effects -->
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#ffc107" flood-opacity="0.4"/></filter>
+
+    <!-- Arrow markers -->
+    <marker id="arrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#28a745"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#ffffff"/>
+
+  <!-- Evolution stages -->
+  <g transform="translate(100,210)">
+    <!-- Stage 1: General Purpose -->
+    <g>
+      <rect x="0" y="0" width="330" height="250" rx="20" fill="url(#gradGeneral)" filter="url(#shadow)" opacity="0.9" stroke="#212529" stroke-width="2"/>
+      <text x="150" y="35" text-anchor="middle" class="h1" fill="#ffffff">1단계: 범용 기술</text>
+      <text x="150" y="60" text-anchor="middle" class="small" fill="#f8f9fa">General-Purpose Technology</text>
+      <text x="150" y="90" text-anchor="middle" class="year" fill="#ffc107">1700년대 초</text>
+      
+      <!-- Steam engine icon -->
+      <text x="150" y="140" text-anchor="middle" style="font-size: 52px;">⚙️</text>
+      
+      <g transform="translate(30,160)">
+        <text x="0" y="0" class="h2" fill="#ffffff">특징:</text>
+        <text x="0" y="30" class="p" fill="#f8f9fa">• 단순한 증기기관</text>
+        <text x="0" y="50" class="p" fill="#f8f9fa">• 범용 부품들</text>
+        <text x="0" y="70" class="p" fill="#f8f9fa">• 수공업 기반</text>
+        <text x="150" y="30" class="p" fill="#f8f9fa">• 낮은 효율성</text>
+        <text x="150" y="50" class="p" fill="#f8f9fa">• 제한된 규모</text>
+      </g>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="340" y1="150" x2="420" y2="150" stroke="#28a745" stroke-width="4" marker-end="url(#arrow)"/>
+    <text x="340" y="120" text-anchor="left" class="small" fill="#28a745" font-weight="bold">전문화 시작</text>
+
+    <!-- Stage 2: Emerging Specialization -->
+    <g transform="translate(430,0)">
+      <rect x="0" y="0" width="330" height="250" rx="20" fill="url(#gradTransition)" filter="url(#shadow)" opacity="0.9" stroke="#212529" stroke-width="2"/>
+      <text x="160" y="35" text-anchor="middle" class="h1" fill="#ffffff">2단계: 전문화 시작</text>
+      <text x="160" y="60" text-anchor="middle" class="small" fill="#f8f9fa">Emerging Specialization</text>
+      <text x="160" y="90" text-anchor="middle" class="year" fill="#ffc107">1800년대 중반</text>
+
+      <!-- Multiple gears icon -->
+      <text x="175" y="140" text-anchor="middle" style="font-size: 52px;">⚙️🔧</text>
+
+      <g transform="translate(30,160)">
+        <text x="0" y="0" class="h2" fill="#ffffff">특징:</text>
+        <text x="0" y="30" class="p" fill="#f8f9fa">• 분업화 시작</text>
+        <text x="0" y="50" class="p" fill="#f8f9fa">• 전문 도구 개발</text>
+        <text x="0" y="70" class="p" fill="#f8f9fa">• 숙련공 등장</text>
+        <text x="150" y="30" class="p" fill="#f8f9fa">• 부품 표준화</text>
+        <text x="150" y="50" class="p" fill="#f8f9fa">• 효율성 향상</text>
+      </g>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="780" y1="150" x2="850" y2="150" stroke="#28a745" stroke-width="4" marker-end="url(#arrow)"/>
+    <text x="810" y="120" text-anchor="middle" class="small" fill="#28a745" font-weight="bold">완전 통합</text>
+
+    <!-- Stage 3: Full Integration -->
+    <g transform="translate(860,0)">
+      <rect x="0" y="0" width="330" height="250" rx="20" fill="url(#gradSpecialized)" filter="url(#shadow)" opacity="0.9" stroke="#212529" stroke-width="2"/>
+      <text x="175" y="35" text-anchor="middle" class="h1" fill="#ffffff">3단계: 완전한 통합</text>
+      <text x="175" y="60" text-anchor="middle" class="small" fill="#f8f9fa">Full Integration</text>
+      <text x="175" y="90" text-anchor="middle" class="year" fill="#ffc107">1900년대 초</text>
+
+      <!-- Assembly line icon -->
+      <text x="175" y="140" text-anchor="middle" style="font-size: 52px;">🏭</text>
+
+      <g transform="translate(30,160)">
+        <text x="0" y="0" class="h2" fill="#f8f9fa">특징:</text>
+        <text x="0" y="30" class="p" fill="#ffffff">• 조립 라인 시스템</text>
+        <text x="0" y="50" class="p" fill="#ffffff">• 고도로 전문화된 작업</text>
+        <text x="0" y="70" class="p" fill="#ffffff">• 범용+전문의 조화</text>
+        <text x="150" y="30" class="p" fill="#ffffff">• 대량 생산 체제</text>
+        <text x="150" y="50" class="p" fill="#ffffff">• 폭발적 생산성</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

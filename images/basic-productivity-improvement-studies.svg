@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 1400 600">
+  <defs>
+    <style><![CDATA[
+      .title { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 36px; font-weight: 900; fill: #f8fafc; }
+      .subtitle { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 20px; font-weight: 600; fill: #cbd5e1; }
+      .h1 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 22px; font-weight: 800; fill: #000000; }
+      .h2 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 18px; font-weight: 800; fill: #f1f5f9; }
+      .p { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 14px; font-weight: 600; fill: #000000; }
+      .small { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 12px; font-weight: 700; fill:rgb(27, 49, 75); }
+      .metric { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 18px; font-weight: 900; fill: #28a745; }
+    ]]></style>
+
+    <!-- Study gradients -->
+    <linearGradient id="gradWriting" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2780e3"/>
+      <stop offset="100%" stop-color="#1a5490"/>
+    </linearGradient>
+
+    <linearGradient id="gradCoding" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#28a745"/>
+      <stop offset="100%" stop-color="#1a5490"/>
+    </linearGradient>
+
+    <linearGradient id="gradCreative" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5fa3f0"/>
+      <stop offset="100%" stop-color="#2780e3"/>
+    </linearGradient>
+
+    <linearGradient id="gradSupport" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffc107"/>
+      <stop offset="100%" stop-color="#dc3545"/>
+    </linearGradient>
+
+    <linearGradient id="gradMckinsey" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17a2b8"/>
+      <stop offset="100%" stop-color="#1a5490"/>
+    </linearGradient>
+
+    <!-- Effects -->
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="800" fill="url(#bg)"/>
+
+  <!-- Studies grid (2 rows x 3 columns) -->
+  <g transform="translate(100,120)">
+    <!-- Row 1 -->
+    <!-- Study 1: Writing (Noy & Zhang) -->
+    <g>
+      <rect x="0" y="0" width="380" height="240" rx="15" fill="url(#gradWriting)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="190" y="35" text-anchor="middle" class="h1">글쓰기 작업</text>
+      <text x="190" y="58" text-anchor="middle" class="small">Writing (Noy &amp; Zhang, 2023)</text>
+
+      <g transform="translate(30,85)" class="p">
+        <text x="0" y="0" class="metric">시간 40% 단축</text>
+        <text x="0" y="25">품질 18% 향상</text>
+        <text x="0" y="50">• 표본: 453명</text>
+        <text x="0" y="70">• ChatGPT 활용</text>
+        <text x="0" y="90">• 숙련도 낮은 작업자</text>
+        <text x="0" y="110">  더 큰 효과</text>
+      </g>
+
+      <!-- Progress bar -->
+      <g transform="translate(220,185)">
+        <rect x="0" y="0" width="100" height="20" rx="7" fill="#ffffff"/>
+        <rect x="0" y="0" width="40" height="20" rx="7" fill="#5fa3f0"/>
+        <text x="50" y="12" class="small">40%</text>
+      </g>
+    </g>
+
+    <!-- Study 2: Software Development (Peng et al.) -->
+    <g transform="translate(410,0)">
+      <rect x="0" y="0" width="380" height="240" rx="15" fill="url(#gradCoding)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="190" y="35" text-anchor="middle" class="h1">소프트웨어 개발</text>
+      <text x="190" y="58" text-anchor="middle" class="small">Software (Peng et al., 2023)</text>
+
+      <g transform="translate(30,85)" class="p">
+        <text x="0" y="0" class="metric">55.8% 향상</text>
+        <text x="0" y="25">(95% CI: 21-89%)</text>
+        <text x="0" y="50">• 표본: 95명</text>
+        <text x="0" y="70">• GitHub Copilot</text>
+        <text x="0" y="90">• 전문 개발자 대상</text>
+        <text x="0" y="110">  작업 완료 속도</text>
+      </g>
+
+      <!-- Progress bar -->
+      <g transform="translate(220,185)">
+        <rect x="0" y="0" width="100" height="20" rx="7" fill="#ffffff"/>
+        <rect x="0" y="0" width="56" height="20" rx="7" fill="#28a745"/>
+        <text x="60" y="12" class="small">56%</text>
+      </g>
+    </g>
+
+    <!-- Study 3: Creative Writing (Doshi et al.) -->
+    <g transform="translate(820,0)">
+      <rect x="0" y="0" width="380" height="240" rx="15" fill="url(#gradCreative)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="190" y="35" text-anchor="middle" class="h1">창의성 증대</text>
+      <text x="190" y="58" text-anchor="middle" class="small">Creativity (Doshi et al., 2024)</text>
+
+      <g transform="translate(30,85)" class="p">
+        <text x="0" y="0" class="metric">품질 26.6% 향상</text>
+        <text x="0" y="25">지루함 15.2% 감소</text>
+        <text x="0" y="50">• 표본: 300명</text>
+        <text x="0" y="70">• Science Advances</text>
+        <text x="0" y="90">• 덜 창의적 작가에게</text>
+        <text x="0" y="110">  더 큰 효과</text>
+      </g>
+
+      <!-- Progress bar -->
+      <g transform="translate(220,185)">
+        <rect x="0" y="0" width="100" height="20" rx="7" fill="#ffffff"/>
+        <rect x="0" y="0" width="27" height="20" rx="7" fill="#5fa3f0"/>
+        <text x="40" y="12" class="small">27%</text>
+      </g>
+    </g>
+
+    <!-- Row 2 -->
+    <!-- Study 4: Consulting (Dell'Acqua et al.) -->
+    <g transform="translate(0,280)">
+      <rect x="0" y="0" width="380" height="240" rx="15" fill="url(#gradSupport)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="190" y="35" text-anchor="middle" class="h1">컨설팅</text>
+      <text x="190" y="58" text-anchor="middle" class="small">Consulting (Dell'Acqua et al., 2023)</text>
+
+      <g transform="translate(30,85)" class="p">
+        <text x="0" y="0" class="metric">속도 25% 향상</text>
+        <text x="0" y="25">품질 40% 향상</text>
+        <text x="0" y="50">• 표본: 758명 BCG</text>
+        <text x="0" y="70">• GPT-4 활용</text>
+        <text x="0" y="90">• Jagged Frontier</text>
+        <text x="0" y="110">  개념 제시</text>
+      </g>
+
+      <!-- Progress bar -->
+      <g transform="translate(220,185)">
+        <rect x="0" y="0" width="100" height="20" rx="7" fill="#ffffff"/>
+        <rect x="0" y="0" width="25" height="20" rx="7" fill="#ffc107"/>
+        <text x="40" y="12" class="small">25%</text>
+      </g>
+    </g>
+
+    <!-- Study 5: Customer Support (Brynjolfsson et al.) -->
+    <g transform="translate(410,280)">
+      <rect x="0" y="0" width="380" height="240" rx="15" fill="url(#gradMckinsey)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="190" y="35" text-anchor="middle" class="h1">고객 지원</text>
+      <text x="190" y="58" text-anchor="middle" class="small">Support (Brynjolfsson et al., 2023)</text>
+
+      <g transform="translate(30,85)" class="p">
+        <text x="0" y="0" class="metric">14% 향상</text>
+        <text x="0" y="25">초보자 34% 향상</text>
+        <text x="0" y="50">• 표본: 5,179명</text>
+        <text x="0" y="70">• NBER Working Paper</text>
+        <text x="0" y="90">• 숙련도 격차 해소</text>
+        <text x="0" y="110">• 품질 향상</text>
+      </g>
+
+      <!-- Progress bar -->
+      <g transform="translate(220,185)">
+        <rect x="0" y="0" width="100" height="20" rx="7" fill="#ffffff"/>
+        <rect x="0" y="0" width="34" height="20" rx="7" fill="#17a2b8"/>
+        <text x="55" y="12" class="small">34%</text>
+      </g>
+    </g>
+
+    <!-- Study 6: McKinsey (Ellingrud et al.) -->
+    <g transform="translate(820,280)">
+      <rect x="0" y="0" width="380" height="240" rx="15" fill="url(#gradWriting)" filter="url(#shadow)" opacity="0.5"/>
+      <text x="190" y="35" text-anchor="middle" class="h1">생산성 전망</text>
+      <text x="190" y="58" text-anchor="middle" class="small">Forecast (Ellingrud et al., 2023)</text>
+
+      <g transform="translate(30,85)" class="p">
+        <text x="0" y="0" class="metric">연 0.5-0.9%p</text>
+        <text x="0" y="25">생산성 증가</text>
+        <text x="0" y="50">• McKinsey Global</text>
+        <text x="0" y="70">  Institute</text>
+        <text x="0" y="90">• 2030년까지 전망</text>
+        <text x="0" y="110">• 미국 노동 생산성</text>
+      </g>
+
+      <!-- Progress bar (yearly) -->
+      <g transform="translate(220,185)">
+        <rect x="0" y="0" width="100" height="20" rx="7" fill="#ffffff"/>
+        <rect x="0" y="0" width="9" height="20" rx="7" fill="#2780e3"/>
+        <text x="40" y="12" class="small">0.9%p</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

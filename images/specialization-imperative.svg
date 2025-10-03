@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900">
+  <defs>
+    <style><![CDATA[
+      .title { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 42px; font-weight: 900; fill: #f8fafc; }
+      .subtitle { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 24px; font-weight: 600; fill: #cbd5e1; }
+      .h1 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 28px; font-weight: 800; fill: #ffffff; }
+      .h2 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 22px; font-weight: 800; fill: #f1f5f9; }
+      .p { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #e5e7eb; }
+      .small { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #cbd5e1; }
+      .year { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 18px; font-weight: 900; fill: #fbbf24; }
+      .quote { font-family: Georgia, serif; font-size: 20px; font-weight: 600; fill: #fbbf24; font-style: italic; }
+    ]]></style>
+
+    <!-- Background -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <!-- Stage gradients -->
+    <linearGradient id="gradGeneral" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6b7280"/>
+      <stop offset="100%" stop-color="#4b5563"/>
+    </linearGradient>
+
+    <linearGradient id="gradTransition" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+
+    <linearGradient id="gradSpecialized" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <!-- Effects -->
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#fbbf24" flood-opacity="0.4"/></filter>
+
+    <!-- Arrow markers -->
+    <marker id="arrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#34d399"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bg)"/>
+
+  <!-- Header -->
+  <text x="500" y="60" text-anchor="middle" class="title">전문화 필수 요건</text>
+  <text x="850" y="60" text-anchor="middle" class="subtitle">The Specialization Imperative</text>
+
+  <!-- Core principle -->
+  <g transform="translate(700,110)">
+    <rect x="-500" y="-25" width="1000" height="90" rx="15" fill="#1f2937" opacity="0.8" filter="url(#shadow)"/>
+    <text x="0" y="0" text-anchor="middle" class="quote">"일정 규모를 넘어 복잡한 시스템이 성숙하려면"</text>
+    <text x="0" y="25" text-anchor="middle" class="quote">범용 부품/노동력과 고도로 전문화된 부품/노동력의 결합이 필수"</text>
+    <text x="0" y="50" text-anchor="middle" class="small">Beyond a certain scale, complex systems require combining general-purpose and highly specialized components</text>
+  </g>
+
+  <!-- Evolution stages -->
+  <g transform="translate(100,210)">
+    <!-- Stage 1: General Purpose -->
+    <g>
+      <rect x="0" y="0" width="350" height="300" rx="20" fill="url(#gradGeneral)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="175" y="35" text-anchor="middle" class="h1">1단계: 범용 기술</text>
+      <text x="175" y="65" text-anchor="middle" class="small">General-Purpose Technology</text>
+      <text x="175" y="90" text-anchor="middle" class="year">1700년대 초</text>
+      
+      <!-- Steam engine icon -->
+      <text x="175" y="140" text-anchor="middle" style="font-size: 48px;">⚙️</text>
+      
+      <g transform="translate(30,160)">
+        <text x="0" y="0" class="h2" fill="#e5e7eb">특징:</text>
+        <text x="0" y="30" class="p">• 단순한 증기기관</text>
+        <text x="0" y="50" class="p">• 범용 부품들</text>
+        <text x="0" y="70" class="p">• 수공업 기반</text>
+        <text x="0" y="90" class="p">• 낮은 효율성</text>
+        <text x="0" y="110" class="p">• 제한된 규모</text>
+      </g>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="360" y1="150" x2="420" y2="150" stroke="#34d399" stroke-width="6" marker-end="url(#arrow)"/>
+    <text x="390" y="110" text-anchor="middle" class="small" fill="#34d399">전문화 시작</text>
+
+    <!-- Stage 2: Emerging Specialization -->
+    <g transform="translate(430,0)">
+      <rect x="0" y="0" width="350" height="300" rx="20" fill="url(#gradTransition)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="175" y="35" text-anchor="middle" class="h1">2단계: 전문화 시작</text>
+      <text x="175" y="65" text-anchor="middle" class="small">Emerging Specialization</text>
+      <text x="175" y="90" text-anchor="middle" class="year">1800년대 중반</text>
+      
+      <!-- Multiple gears icon -->
+      <text x="175" y="140" text-anchor="middle" style="font-size: 48px;">⚙️🔧</text>
+      
+      <g transform="translate(30,160)">
+        <text x="0" y="0" class="h2" fill="#000">특징:</text>
+        <text x="0" y="30" class="p" fill="#000">• 분업화 시작</text>
+        <text x="0" y="50" class="p" fill="#000">• 전문 도구 개발</text>
+        <text x="0" y="70" class="p" fill="#000">• 숙련공 등장</text>
+        <text x="0" y="90" class="p" fill="#000">• 부품 표준화</text>
+        <text x="0" y="110" class="p" fill="#000">• 효율성 향상</text>
+      </g>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="790" y1="150" x2="850" y2="150" stroke="#34d399" stroke-width="6" marker-end="url(#arrow)"/>
+    <text x="820" y="120" text-anchor="middle" class="small" fill="#34d399">완전 통합</text>
+
+    <!-- Stage 3: Full Integration -->
+    <g transform="translate(860,0)">
+      <rect x="0" y="0" width="350" height="300" rx="20" fill="url(#gradSpecialized)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="175" y="35" text-anchor="middle" class="h1">3단계: 완전한 통합</text>
+      <text x="175" y="65" text-anchor="middle" class="small">Full Integration</text>
+      <text x="175" y="90" text-anchor="middle" class="year">1900년대 초</text>
+      
+      <!-- Assembly line icon -->
+      <text x="175" y="140" text-anchor="middle" style="font-size: 48px;">🏭</text>
+      
+      <g transform="translate(30,160)">
+        <text x="0" y="0" class="h2" fill="#000">특징:</text>
+        <text x="0" y="30" class="p" fill="#000">• 조립 라인 시스템</text>
+        <text x="0" y="50" class="p" fill="#000">• 고도로 전문화된 작업</text>
+        <text x="0" y="70" class="p" fill="#000">• 범용+전문의 조화</text>
+        <text x="0" y="90" class="p" fill="#000">• 대량 생산 체제</text>
+        <text x="0" y="110" class="p" fill="#000">• 폭발적 생산성</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Why specialization is necessary -->
+  <g transform="translate(100,550)">
+    <rect x="0" y="0" width="1200" height="300" rx="20" fill="#1f2937" opacity="0.8" filter="url(#shadow)"/>
+    <text x="600" y="35" text-anchor="middle" class="h1" fill="#fbbf24">전문화가 필수 이유</text>
+    
+    <g transform="translate(50,60)">
+      <!-- Column 1: Complexity Management -->
+      <g transform="translate(0,20)">
+        <text x="0" y="0" class="h2" fill="#3b82f6">🧩 복잡성 관리</text>
+        <text x="0" y="30" class="p">• 시스템 규모 확장 시</text>
+        <text x="0" y="50" class="h4" fill="#3b82f6" font-weight="bold"> 복잡도 기하급수적 증가</text>
+        <text x="0" y="70" class="p">• 전문화로 복잡성 분할</text>
+        <text x="0" y="90" class="p">• 개별 모듈 최적화</text>
+        <text x="0" y="110" class="p">• 시스템 안정성 확보</text>
+      </g>
+
+      <!-- Column 2: Efficiency Gains -->
+      <g transform="translate(300,20)">
+        <text x="0" y="0" class="h2" fill="#f59e0b">⚡ 효율성 증대</text>
+        <text x="0" y="30" class="p">• 숙련도 집중으로</text>
+        <text x="0" y="50" class="h4" fill="#3b82f6" font-weight="bold">작업 속도 극대화</text>
+        <text x="0" y="70" class="p">• 전문 도구 개발</text>
+        <text x="0" y="90" class="p">• 품질 표준 통일</text>
+        <text x="0" y="110" class="p">• 낭비 최소화</text>
+      </g>
+
+      <!-- Column 3: Innovation Potential -->
+      <g transform="translate(600,20)">
+        <text x="0" y="0" class="h2" fill="#10b981">🚀 혁신 가능성</text>
+        <text x="0" y="30" class="p">• 전문 지식 축적으로</text>
+        <text x="0" y="50" class="h4" fill="#3b82f6" font-weight="bold">새로운 기술 창조</text>
+        <text x="0" y="70" class="p">• 분야별 깊이 있는 개선</text>
+        <text x="0" y="90" class="p">• 기술 간 조합 가능</text>
+        <text x="0" y="110" class="p">• 지속적 발전 동력</text>
+      </g>
+
+      <!-- Column 4: Scale Economics -->
+      <g transform="translate(900,20)">
+        <text x="0" y="0" class="h2" fill="#8b5cf6">📈 규모의 경제</text>
+        <text x="0" y="30" class="p">• 대량 생산으로</text>
+        <text x="0" y="50" class="h4" fill="#3b82f6" font-weight="bold">단위 비용 절감</text>
+        <text x="0" y="70" class="p">• 투자 회수 가능</text>
+        <text x="0" y="90" class="p">• 경쟁 우위 확보</text>
+        <text x="0" y="110" class="p">• 시장 확장 가능</text>
+      </g>
+    </g>
+
+    <!-- Bottom key insight -->
+    <g transform="translate(50,230)">
+      <rect x="0" y="0" width="1100" height="40" rx="10" fill="#065f46" opacity="0.8"/>
+      <text x="550" y="27" text-anchor="middle" class="p" fill="#6ee7b7">핵심: 범용 기반 위에 전문화가 쌓일 때 진정한 시스템 성숙이 이루어진다</text>
+    </g>
+  </g>
+</svg>

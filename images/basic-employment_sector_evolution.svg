@@ -14,28 +14,28 @@
     
     <!-- Sector gradients -->
     <linearGradient id="agricultureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.9" />
-      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#28a745;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#1a5490;stop-opacity:1" />
     </linearGradient>
-    
+
     <linearGradient id="manufacturingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.9" />
-      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#2780e3;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#1a5490;stop-opacity:1" />
     </linearGradient>
-    
+
     <linearGradient id="serviceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.9" />
-      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ffc107;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#dc3545;stop-opacity:1" />
     </linearGradient>
-    
+
     <linearGradient id="knowledgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.9" />
-      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#5fa3f0;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#2780e3;stop-opacity:1" />
     </linearGradient>
-    
+
     <linearGradient id="humanCentricGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.9" />
-      <stop offset="100%" style="stop-color:#db2777;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#17a2b8;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#1a5490;stop-opacity:1" />
     </linearGradient>
     
     <!-- Shadow filter -->
@@ -56,29 +56,29 @@
     <circle cx="200" cy="120" r="6" fill="#8b4513"/>
     <text x="200" y="110" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="#1e293b">전통 수공업</text>
     <text x="200" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-years" fill="#6b7280">~1750</text>
-    
+
     <!-- Industrial Revolution -->
-    <circle cx="400" cy="120" r="6" fill="#dc2626"/>
+    <circle cx="400" cy="120" r="6" fill="#dc3545"/>
     <text x="400" y="110" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="#1e293b">산업혁명</text>
     <text x="400" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-years" fill="#6b7280">1760-1840</text>
-    
+
     <!-- Mass Production -->
-    <circle cx="600" cy="120" r="6" fill="#7c3aed"/>
+    <circle cx="600" cy="120" r="6" fill="#5fa3f0"/>
     <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="#1e293b">대량생산</text>
     <text x="600" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-years" fill="#6b7280">1900-1970</text>
-    
+
     <!-- Automation -->
-    <circle cx="800" cy="120" r="6" fill="#059669"/>
+    <circle cx="800" cy="120" r="6" fill="#28a745"/>
     <text x="800" y="110" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="#1e293b">자동화</text>
     <text x="800" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-years" fill="#6b7280">1970-2010</text>
-    
+
     <!-- AI Era -->
-    <circle cx="1000" cy="120" r="6" fill="#ea580c"/>
+    <circle cx="1000" cy="120" r="6" fill="#ffc107"/>
     <text x="1000" y="110" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="#1e293b">AI 시대</text>
     <text x="1000" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-years" fill="#6b7280">2010-2025</text>
-    
+
     <!-- Physical AI -->
-    <circle cx="1200" cy="120" r="6" fill="#6366f1"/>
+    <circle cx="1200" cy="120" r="6" fill="#17a2b8"/>
     <text x="1200" y="110" text-anchor="middle" font-family="Arial, sans-serif" class="era-title" fill="#1e293b">Physical AI</text>
     <text x="1200" y="155" text-anchor="middle" font-family="Arial, sans-serif" class="era-years" fill="#6b7280">2025-2035</text>
   </g>
@@ -196,31 +196,31 @@
 
     <!-- Agriculture -->
     <rect x="0" y="25" width="20" height="15" fill="url(#agricultureGrad)"/>
-    <text x="30" y="37" font-family="Arial, sans-serif" class="sector-label" fill="#059669">
+    <text x="30" y="37" font-family="Arial, sans-serif" class="sector-label" fill="#28a745">
       🌾 농업 - 농업, 어업, 임업
     </text>
 
     <!-- Manufacturing -->
     <rect x="0" y="55" width="20" height="15" fill="url(#manufacturingGrad)"/>
-    <text x="30" y="67" font-family="Arial, sans-serif" class="sector-label" fill="#1d4ed8">
+    <text x="30" y="67" font-family="Arial, sans-serif" class="sector-label" fill="#2780e3">
       🏭 제조업 - 공장, 건설, 광업
     </text>
 
     <!-- Service -->
     <rect x="0" y="85" width="20" height="15" fill="url(#serviceGrad)"/>
-    <text x="30" y="97" font-family="Arial, sans-serif" class="sector-label" fill="#d97706">
+    <text x="30" y="97" font-family="Arial, sans-serif" class="sector-label" fill="#ffc107">
       🏪 서비스업 - 판매, 물류, 행정
     </text>
 
     <!-- Knowledge/Creative -->
     <rect x="0" y="115" width="20" height="15" fill="url(#knowledgeGrad)"/>
-    <text x="30" y="127" font-family="Arial, sans-serif" class="sector-label" fill="#7c3aed">
+    <text x="30" y="127" font-family="Arial, sans-serif" class="sector-label" fill="#5fa3f0">
       💡 지식/창의 - IT, 연구, 디자인, 금융
     </text>
 
     <!-- Human-Centric -->
     <rect x="0" y="145" width="20" height="15" fill="url(#humanCentricGrad)"/>
-    <text x="30" y="157" font-family="Arial, sans-serif" class="sector-label" fill="#db2777">
+    <text x="30" y="157" font-family="Arial, sans-serif" class="sector-label" fill="#17a2b8">
       💖 인간중심 - 돌봄, 교육, 예술, 윤리
     </text>
   </g>
@@ -230,32 +230,32 @@
     <rect x="0" y="0" width="1150" height="110" fill="#1e293b" opacity="0.05" rx="10"/>
     
     <g transform="translate(50, 50)">
-      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#10b981">농업 혁명</text>
-      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#374151">85% → 1%</text>
+      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#28a745">농업 혁명</text>
+      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#212529">85% → 1%</text>
       <text x="0" y="40" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">기계화로 대부분 자동화</text>
     </g>
-    
+
     <g transform="translate(250, 50)">
-      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#3b82f6">제조업 혁명</text>
-      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#374151">10% → 40% → 10%</text>
+      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#2780e3">제조업 혁명</text>
+      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#212529">10% → 40% → 10%</text>
       <text x="0" y="40" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">산업화 정점 후 자동화</text>
     </g>
-    
+
     <g transform="translate(450, 50)">
-      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#f59e0b">서비스업 급증</text>
-      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#374151">5% → 70% → 40%</text>
+      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#ffc107">서비스업 급증</text>
+      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#212529">5% → 70% → 40%</text>
       <text x="0" y="40" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">디지털화로 점진적 감소</text>
     </g>
-    
+
     <g transform="translate(650, 50)">
-      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#8b5cf6">지식/창의 산업</text>
-      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#374151">0% → 23% → 35%</text>
+      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#5fa3f0">지식/창의 산업</text>
+      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#212529">0% → 23% → 35%</text>
       <text x="0" y="40" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">AI 시대 새로운 성장 동력</text>
     </g>
-    
+
     <g transform="translate(900, 50)">
-      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#ec4899">인간중심 산업</text>
-      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#374151">0% → 14% → ?</text>
+      <text x="0" y="-15" font-family="Arial, sans-serif" class="insight-title" fill="#17a2b8">인간중심 산업</text>
+      <text x="0" y="20" font-family="Arial, sans-serif" class="insight-text" fill="#212529">0% → 14% → ?</text>
       <text x="0" y="40" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">Physical AI 시대 신흥 분야</text>
     </g>
   </g>

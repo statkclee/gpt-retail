@@ -15,20 +15,20 @@
     
     <!-- Human work gradient (blue) -->
     <linearGradient id="humanGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#2780e3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a5490;stop-opacity:1" />
     </linearGradient>
-    
+
     <!-- Machine work gradient (orange/red) -->
     <linearGradient id="machineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#ffc107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc3545;stop-opacity:1" />
     </linearGradient>
-    
+
     <!-- Collaboration gradient (green) -->
     <linearGradient id="collabGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#28a745;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1a5490;stop-opacity:1" />
     </linearGradient>
     
     <!-- Timeline gradient -->
@@ -88,7 +88,7 @@
   <!-- Era 2: Industrial Revolution (1760-1840) -->
   <g id="era2" transform="translate(400, 120)">
     <!-- Era marker -->
-    <circle cx="0" cy="30" r="15" fill="#dc2626" filter="url(#shadow)"/>
+    <circle cx="0" cy="30" r="15" fill="#dc3545" filter="url(#shadow)"/>
     <text x="0" y="36" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">⚙️</text>
     
     <!-- Era title -->
@@ -124,7 +124,7 @@
   <!-- Era 3: Mass Production (1900-1970) -->
   <g id="era3" transform="translate(650, 120)">
     <!-- Era marker -->
-    <circle cx="0" cy="30" r="15" fill="#7c3aed" filter="url(#shadow)"/>
+    <circle cx="0" cy="30" r="15" fill="#5fa3f0" filter="url(#shadow)"/>
     <text x="0" y="36" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">🏭</text>
     
     <!-- Era title -->
@@ -160,7 +160,7 @@
   <!-- Era 4: Automation (1970-2010) -->
   <g id="era4" transform="translate(900, 120)">
     <!-- Era marker -->
-    <circle cx="0" cy="30" r="15" fill="#059669" filter="url(#shadow)"/>
+    <circle cx="0" cy="30" r="15" fill="#28a745" filter="url(#shadow)"/>
     <text x="0" y="36" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">🤖</text>
     
     <!-- Era title -->
@@ -196,7 +196,7 @@
   <!-- Era 5: AI Era (2010-2025) -->
   <g id="era5" transform="translate(1150, 120)">
     <!-- Era marker -->
-    <circle cx="0" cy="30" r="15" fill="#ea580c" filter="url(#shadow)"/>
+    <circle cx="0" cy="30" r="15" fill="#ffc107" filter="url(#shadow)"/>
     <text x="0" y="36" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">🧠</text>
     
     <!-- Era title -->
@@ -232,7 +232,7 @@
   <!-- Era 6: Physical AI (2025-2035) -->
   <g id="era6" transform="translate(1400, 120)">
     <!-- Era marker -->
-    <circle cx="0" cy="30" r="15" fill="#6366f1" filter="url(#shadow)"/>
+    <circle cx="0" cy="30" r="15" fill="#17a2b8" filter="url(#shadow)"/>
     <text x="0" y="36" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">🦾</text>
     
     <!-- Era title -->
@@ -261,13 +261,13 @@
     </text>
     
     <!-- Labels -->
-    <text x="-85" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#3b82f6">
+    <text x="-85" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#2780e3">
       감독
     </text>
-    <text x="-35" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#10b981">
+    <text x="-35" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#28a745">
       협업
     </text>
-    <text x="50" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#dc2626">
+    <text x="50" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#dc3545">
       자율
     </text>
     
@@ -286,35 +286,35 @@
     
     <g transform="translate(150, 600)">
       <circle cx="0" cy="0" r="8" fill="#8b4513"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
+      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#212529">
         <tspan font-weight="bold">증기동력:</tspan> 물리적 힘의 확장
       </text>
     </g>
-    
+
     <g transform="translate(450, 600)">
-      <circle cx="0" cy="0" r="8" fill="#dc2626"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
+      <circle cx="0" cy="0" r="8" fill="#dc3545"/>
+      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#212529">
         <tspan font-weight="bold">전기:</tspan> 속도와 정밀성
       </text>
     </g>
-    
+
     <g transform="translate(700, 600)">
-      <circle cx="0" cy="0" r="8" fill="#7c3aed"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
+      <circle cx="0" cy="0" r="8" fill="#5fa3f0"/>
+      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#212529">
         <tspan font-weight="bold">컴퓨터:</tspan> 정보 처리 능력
       </text>
     </g>
-    
+
     <g transform="translate(950, 600)">
-      <circle cx="0" cy="0" r="8" fill="#ea580c"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
+      <circle cx="0" cy="0" r="8" fill="#ffc107"/>
+      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#212529">
         <tspan font-weight="bold">AI:</tspan> 인지적 보강
       </text>
     </g>
-    
+
     <g transform="translate(1150, 600)">
-      <circle cx="0" cy="0" r="8" fill="#6366f1"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
+      <circle cx="0" cy="0" r="8" fill="#17a2b8"/>
+      <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#212529">
         <tspan font-weight="bold">Physical AI:</tspan> 물리적 자율성
       </text>
     </g>

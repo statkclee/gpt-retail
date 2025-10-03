@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="70 120 1250 350">
+  <defs>
+    <style><![CDATA[
+      .title { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 40px; font-weight: 900; fill: #f8fafc; }
+      .subtitle { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 22px; font-weight: 600; fill: #cbd5e1; }
+      .h1 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 26px; font-weight: 800; fill: #ffffff; }
+      .h2 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 20px; font-weight: 800; fill: #000000; }
+      .p { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #000000; }
+      .small { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 14px; font-weight: 700; fill: #000000; }
+      .year { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 18px; font-weight: 900; fill: #fbbf24; }
+      .phase-title { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 24px; font-weight: 800; fill: #000000; }
+      .barrier-text { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 14px; font-weight: 600; fill: #f87171; }
+    ]]></style>
+
+    <!-- Phase gradients -->
+    <linearGradient id="gradPhase1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#28a745"/>
+      <stop offset="100%" stop-color="#1a5490"/>
+    </linearGradient>
+
+    <linearGradient id="gradPhase2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2780e3"/>
+      <stop offset="100%" stop-color="#1a5490"/>
+    </linearGradient>
+
+    <linearGradient id="gradPhase3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5fa3f0"/>
+      <stop offset="100%" stop-color="#2780e3"/>
+    </linearGradient>
+
+    <!-- Effects -->
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/></filter>
+    <filter id="glow"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#ffc107" flood-opacity="0.4"/></filter>
+
+    <!-- Arrow markers -->
+    <marker id="arrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bg)"/>
+
+  <!-- Timeline -->
+  <g transform="translate(100,140)">
+    <!-- Timeline line -->
+    <line x1="-10" y1="50" x2="1200" y2="50" stroke="#64748b" stroke-width="4"/>
+    
+    <!-- Phase 1: Computing Power (1999-2016) -->
+    <g>
+      <rect x="0" y="80" width="380" height="220" rx="15" fill="url(#gradPhase1)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="180" y="110" text-anchor="middle" class="phase-title" fill="#000">1단계: 컴퓨팅 파워 (1999-2016)</text>
+      <text x="180" y="135" text-anchor="middle" class="small" fill="#000">Computing Power - 17년</text>
+      
+      <!-- GPU icon -->
+      <text x="180" y="180" text-anchor="middle" style="font-size: 40px;">🖥️</text>
+      
+      <g transform="translate(20,200)">
+        <text x="0" y="0" class="h2" fill="#f8f9fa">주요 발명:</text>
+        <text x="0" y="25" class="p" fill="#ffffff">• 1999: GeForce 256 (첫 GPU)</text>
+        <text x="0" y="45" class="p" fill="#ffffff">• 2006: CUDA 플랫폼</text>
+        <text x="0" y="65" class="p" fill="#ffffff">• 2012: 딥러닝 혁명</text>
+      </g>
+      
+      <!-- Timeline marker -->
+      <circle cx="200" cy="50" r="8" fill="#28a745"/>
+      <text x="200" y="30" text-anchor="middle" class="year">1999</text>
+    </g>
+
+    <!-- Phase 2: AI Factory (2016-Present) -->
+    <g transform="translate(400,0)">
+      <rect x="0" y="80" width="380" height="220" rx="15" fill="url(#gradPhase2)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="180" y="110" text-anchor="middle" class="phase-title" fill="#ffffff">2단계: AI 팩토리 (2016-현재)</text>
+      <text x="180" y="135" text-anchor="middle" class="small" fill="#f8f9fa">AI Factory - 전문화 진행중</text>
+
+      <!-- AI Factory icon -->
+      <text x="180" y="180" text-anchor="middle" style="font-size: 40px;">🏭🤖</text>
+
+      <g transform="translate(20,200)">
+        <text x="0" y="0" class="h2" fill="#f8f9fa">진행 상황:</text>
+        <text x="0" y="25" class="p" fill="#ffffff">• 2016: DGX-1 첫 AI 팩토리</text>
+        <text x="0" y="45" class="p" fill="#ffffff">• 2022: ChatGPT 범용 AI</text>
+        <text x="0" y="65" class="p" fill="#ffffff">• 2025: 전문화 가속화</text>
+      </g>
+
+      <!-- Timeline marker -->
+      <circle cx="0" cy="50" r="8" fill="#2780e3"/>
+      <text x="0" y="30" text-anchor="middle" class="year">2016</text>
+    </g>
+
+    <!-- Phase 3: Future Completion (Unknown) -->
+    <g transform="translate(800,0)">
+      <rect x="0" y="80" width="380" height="220" rx="15" fill="url(#gradPhase3)" filter="url(#shadow)" opacity="0.5"/>
+      <text x="180" y="110" text-anchor="middle" class="phase-title" fill="#ffffff">3단계: 완성 시점 (미지수)</text>
+      <text x="180" y="135" text-anchor="middle" class="small" fill="#f8f9fa">Completion - When?</text>
+
+      <!-- Question mark icon -->
+      <text x="180" y="180" text-anchor="middle" style="font-size: 40px;">❓</text>
+
+      <g transform="translate(20,200)">
+        <text x="0" y="0" class="h2" fill="#f8f9fa">예상 단계:</text>
+        <text x="0" y="25" class="p" fill="#ffffff">• AGI 달성</text>
+        <text x="0" y="45" class="p" fill="#ffffff">• 완전한 전문화</text>
+        <text x="0" y="65" class="p" fill="#ffffff">• 인지 조립라인 완성</text>
+      </g>
+
+      <!-- Future timeline marker -->
+      <circle cx="200" cy="50" r="8" fill="#5fa3f0" opacity="0.5"/>
+      <text x="200" y="30" text-anchor="middle" class="year">20??</text>
+    </g>
+
+    <!-- Current position marker -->
+    <circle cx="600" cy="50" r="15" fill="#ffc107" filter="url(#glow)"/>
+    <text x="600" y="10" text-anchor="middle" class="h2" fill="#000000">현재 위치</text>
+    <text x="600" y="30" text-anchor="middle" class="small" fill="#ffc107">2025</text>
+  </g>
+
+</svg>
