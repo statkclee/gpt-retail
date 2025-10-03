@@ -1,14 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1550 300">
   <defs>
     <style>
       .title-text { font-size: 32px; font-weight: bold; }
       .subtitle-text { font-size: 18px; }
-      .era-title { font-size: 20px; font-weight: bold; }
+      .era-title { font-size: 24px; font-weight: bold; }
       .era-years { font-size: 14px; }
       .percentage-text { font-size: 16px; font-weight: bold; }
-      .example-text { font-size: 13px; }
+      .example-text { font-size: 15px; }
+      .label-text { font-size: 18px; }
       .insight-title { font-size: 18px; font-weight: bold; }
-      .insight-text { font-size: 14px; }
+      .insight-text { font-size: 18px; }
       .future-text { font-size: 16px; font-weight: bold; }
     </style>
     
@@ -45,16 +46,6 @@
   <!-- Background -->
   <rect width="1800" height="1200" fill="#f8fafc"/>
   
-  <!-- Title Section -->
-  <g id="title-section">
-    <text x="800" y="50" text-anchor="middle" font-family="Arial, sans-serif" class="title-text" fill="#1e293b">
-      인간과 기계의 노동 분업 역사
-    </text>
-    <text x="800" y="80" text-anchor="middle" font-family="Arial, sans-serif" class="subtitle-text" fill="#64748b">
-      Historical Evolution of Human-Machine Labor Division
-    </text>
-  </g>
-  
   <!-- Timeline Base -->
   <line x1="100" y1="150" x2="1650" y2="150" stroke="url(#timelineGradient)" stroke-width="4"/>
   
@@ -81,8 +72,8 @@
     <text x="-50" y="120" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">
       95% 인간
     </text>
-    <text x="95" y="120" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">
-      5%
+    <text x="125" y="140" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="black">
+      5% 기계
     </text>
     
     <!-- Examples -->
@@ -117,7 +108,7 @@
     <text x="-30" y="120" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">
       70% 인간
     </text>
-    <text x="70" y="120" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">
+    <text x="90" y="120" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="black">
       30% 기계
     </text>
     
@@ -270,13 +261,13 @@
     </text>
     
     <!-- Labels -->
-    <text x="-85" y="140" text-anchor="middle" font-family="Arial, sans-serif" class="example-text" fill="#3b82f6">
+    <text x="-85" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#3b82f6">
       감독
     </text>
-    <text x="-35" y="140" text-anchor="middle" font-family="Arial, sans-serif" class="example-text" fill="#10b981">
+    <text x="-35" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#10b981">
       협업
     </text>
-    <text x="50" y="140" text-anchor="middle" font-family="Arial, sans-serif" class="example-text" fill="#dc2626">
+    <text x="50" y="150" text-anchor="middle" font-family="Arial, sans-serif" class="label-text" fill="#dc2626">
       자율
     </text>
     
@@ -289,148 +280,45 @@
     </text>
   </g>
   
-  <!-- Evolution Analysis Section -->
-  <g id="evolution-analysis">
-    <rect x="100" y="350" width="1600" height="180" rx="20" fill="#1e293b" opacity="0.05" stroke="#e5e7eb"/>
-    
-    <text x="800" y="385" text-anchor="middle" font-family="Arial, sans-serif" class="insight-title" fill="#1e293b">
-      노동 분업의 진화 패턴
-    </text>
-    
-    <!-- Human role evolution -->
-    <g transform="translate(200, 410)">
-      <text x="0" y="0" font-family="Arial, sans-serif" class="insight-title" fill="#3b82f6">
-        인간의 역할 변화
-      </text>
-      <text x="0" y="25" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
-        노동자 (Laborer) → 조작자 (Operator) → 감독자 (Supervisor) → 협력자 (Collaborator)
-      </text>
-      
-      <text x="0" y="55" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">
-        • 물리적 노동 → 기계 조작 → 시스템 관리 → 창의적 문제해결
-      </text>
-      <text x="0" y="75" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">
-        • 근력 중심 → 기술 중심 → 지식 중심 → 창의성 중심
-      </text>
-      <text x="0" y="95" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">
-        • 반복 작업 → 숙련 작업 → 인지 작업 → 전략적 사고
-      </text>
-    </g>
-    
-    <!-- Machine role evolution -->
-    <g transform="translate(900, 410)">
-      <text x="0" y="0" font-family="Arial, sans-serif" class="insight-title" fill="#dc2626">
-        기계의 역할 변화
-      </text>
-      <text x="0" y="25" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
-        도구 → 기계 → 자동화 → AI → Physical AI
-      </text>
-      
-      <text x="0" y="55" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">
-        • 힘의 확장 → 동력 제공 → 정밀 작업 → 인지 보조 → 물리적 자율성
-      </text>
-      <text x="0" y="75" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">
-        • 수동 도구 → 동력 기계 → 프로그래밍 → 학습 능력 → 체화된 AI
-      </text>
-      <text x="0" y="95" font-family="Arial, sans-serif" class="insight-text" fill="#6b7280">
-        • 단순 보조 → 생산력 증대 → 품질 향상 → 의사결정 → 물리적 수행
-      </text>
-    </g>
-  </g>
-  
   <!-- Key Transitions Section -->
-  <g id="key-transitions">
-    <rect x="100" y="570" width="1600" height="140" rx="20" fill="url(#collabGradient)" opacity="0.1"/>
+  <g id="key-transitions" transform="translate(0, -250)">
+    <rect x="100" y="570" width="1300" height="60" rx="20" fill="url(#collabGradient)" opacity="0.1"/>
     
-    <text x="800" y="605" text-anchor="middle" font-family="Arial, sans-serif" class="insight-title" fill="#059669">
-      주요 기술 전환점
-    </text>
-    
-    <g transform="translate(150, 625)">
+    <g transform="translate(150, 600)">
       <circle cx="0" cy="0" r="8" fill="#8b4513"/>
       <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
         <tspan font-weight="bold">증기동력:</tspan> 물리적 힘의 확장
       </text>
     </g>
     
-    <g transform="translate(450, 625)">
+    <g transform="translate(450, 600)">
       <circle cx="0" cy="0" r="8" fill="#dc2626"/>
       <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
         <tspan font-weight="bold">전기:</tspan> 속도와 정밀성
       </text>
     </g>
     
-    <g transform="translate(700, 625)">
+    <g transform="translate(700, 600)">
       <circle cx="0" cy="0" r="8" fill="#7c3aed"/>
       <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
         <tspan font-weight="bold">컴퓨터:</tspan> 정보 처리 능력
       </text>
     </g>
     
-    <g transform="translate(950, 625)">
+    <g transform="translate(950, 600)">
       <circle cx="0" cy="0" r="8" fill="#ea580c"/>
       <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
         <tspan font-weight="bold">AI:</tspan> 인지적 보강
       </text>
     </g>
     
-    <g transform="translate(1250, 625)">
+    <g transform="translate(1150, 600)">
       <circle cx="0" cy="0" r="8" fill="#6366f1"/>
       <text x="20" y="5" font-family="Arial, sans-serif" class="insight-text" fill="#374151">
         <tspan font-weight="bold">Physical AI:</tspan> 물리적 자율성
       </text>
     </g>
-    
-    <text x="900" y="670" text-anchor="middle" font-family="Arial, sans-serif" class="insight-text" fill="#059669">
-      각 전환점마다 인간은 더 높은 차원의 작업으로 이동하며, 기계는 더 복잡한 역할을 담당
-    </text>
-    <text x="900" y="690" text-anchor="middle" font-family="Arial, sans-serif" class="insight-text" fill="#6366f1">
-      Physical AI는 디지털에서 물리적 세계로의 AI 확장을 의미
-    </text>
   </g>
   
   
-  <!-- Future Projection (moved below timeline) -->
-  <g id="future-projection">
-    <rect x="400" y="750" width="1000" height="120" rx="15" fill="url(#collabGradient)" opacity="0.8" stroke="#10b981" stroke-width="2" stroke-dasharray="5,5"/>
-    
-    <text x="900" y="780" text-anchor="middle" font-family="Arial, sans-serif" class="future-text" fill="white">
-      미래 전망 (2040+): Human-AI-Robot 공생 시대
-    </text>
-    
-    <!-- Future division bar -->
-    <rect x="600" y="800" width="600" height="30" fill="#e5e7eb" rx="15" stroke="#d1d5db"/>
-    <rect x="600" y="800" width="120" height="30" fill="url(#humanGradient)" rx="15"/>
-    <rect x="720" y="800" width="240" height="30" fill="url(#collabGradient)" rx="15"/>
-    <rect x="960" y="800" width="240" height="30" fill="url(#machineGradient)" rx="15"/>
-    
-    <text x="660" y="820" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">
-      20% 창의성
-    </text>
-    <text x="840" y="820" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">
-      40% 협력
-    </text>
-    <text x="1080" y="820" text-anchor="middle" font-family="Arial, sans-serif" class="percentage-text" fill="white">
-      40% 자율실행
-    </text>
-    
-    <text x="900" y="855" text-anchor="middle" font-family="Arial, sans-serif" class="insight-text" fill="white">
-      인간: 비전수립 • 로봇: 물리적 실행 • AI: 데이터 분석 • 협력: 윤리적 의사결정
-    </text>
-  </g>
-  
-  <!-- Bottom Summary -->
-  <g id="summary">
-    <rect x="200" y="900" width="1400" height="80" rx="15" fill="#1e293b" opacity="0.9"/>
-    
-    <text x="900" y="930" text-anchor="middle" font-family="Arial, sans-serif" class="insight-title" fill="#fbbf24">
-      핵심 통찰: 인간과 기계의 상호 보완적 진화
-    </text>
-    <text x="900" y="955" text-anchor="middle" font-family="Arial, sans-serif" class="insight-text" fill="white">
-      기술 발전은 인간을 대체하는 것이 아니라, 인간을 더 창의적이고 전략적인 역할로 해방시키는 과정
-    </text>
-    <text x="900" y="975" text-anchor="middle" font-family="Arial, sans-serif" class="insight-text" fill="#d1d5db">
-      Physical AI era bridges digital intelligence with physical world, enabling true human-machine symbiosis
-    </text>
-  </g>
 </svg>
