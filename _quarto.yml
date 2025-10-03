@@ -51,14 +51,15 @@ book:
     type: overlay
   chapters:
     - index.qmd
-    - part: "**1부 기본지식**"
+    - part: "**1부 인공지능**"
       chapters:
-        - basic_gpt.qmd         # OK      
+        - basic_gpt.qmd         # OK
         - basic.qmd             # OK
+        - basic_job.qmd         # OK
     #     - basic_engineering.qmd # OK
     #     - basic_ide.qmd         # OK
     #     - basic_api.qmd         # OK
-    # - part: "**2부 AI 코딩**"
+    # - part: "**2부 AI 데이터 과학**"
     #   chapters:
     #     - coding_prompt.qmd     # OK
     #     - coding_context.qmd    # OK

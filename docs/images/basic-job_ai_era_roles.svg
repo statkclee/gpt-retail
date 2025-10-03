@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800">
+  <defs>
+    <style>
+      /* 브랜드 색상 기반 스타일 */
+      .center-circle { fill: #2780e3; stroke: #1a5490; stroke-width: 4; }
+      .center-text { font-family: "Noto Sans KR", sans-serif; font-size: 36px; font-weight: bold; text-anchor: middle; fill: #ffffff; }
+      .center-subtext { font-family: "Noto Sans KR", sans-serif; font-size: 14px; text-anchor: middle; fill: #f8f9fa; }
+
+      .role-box { fill: #f8f9fa; stroke-width: 3; }
+      .role-title { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #212529; }
+      .role-subtitle { font-family: "Noto Sans KR", sans-serif; font-size: 12px; text-anchor: middle; fill: #495057; }
+      .role-detail { font-family: "Noto Sans KR", sans-serif; font-size: 10px; text-anchor: start; fill: #6c757d; }
+
+      .connector { stroke: #dee2e6; stroke-width: 3; fill: none; }
+      .connector-dot { fill: #2780e3; }
+
+      /* 역할별 색상 */
+      .role1 { stroke: #2780e3; }
+      .role2 { stroke: #28a745; }
+      .role3 { stroke: #ffc107; }
+      .role4 { stroke: #17a2b8; }
+      .role5 { stroke: #dc3545; }
+    </style>
+  </defs>
+
+  <!-- 제목 -->
+  <text x="500" y="40" style="font-family: 'Noto Sans KR', sans-serif; font-size: 26px; font-weight: bold; text-anchor: middle; fill: #212529;">
+    AI 시대 5대 핵심 데이터 직업
+  </text>
+  <text x="500" y="65" style="font-family: 'Noto Sans KR', sans-serif; font-size: 14px; text-anchor: middle; fill: #6c757d;">
+    AI를 중심으로 형성된 전문 역할과 관계 (2024-2025)
+  </text>
+
+  <!-- 중심 원: AI -->
+  <circle cx="500" cy="400" r="80" class="center-circle"/>
+  <text x="500" y="390" class="center-text">AI</text>
+  <text x="500" y="410" class="center-subtext">Artificial</text>
+  <text x="500" y="430" class="center-subtext">Intelligence</text>
+
+  <!-- 연결선 -->
+  <line x1="420" y1="400" x2="200" y2="200" class="connector"/>
+  <line x1="580" y1="400" x2="800" y2="200" class="connector"/>
+  <line x1="420" y1="470" x2="200" y2="650" class="connector"/>
+  <line x1="580" y1="470" x2="800" y2="650" class="connector"/>
+  <line x1="500" y1="320" x2="500" y2="150" class="connector"/>
+
+  <!-- 연결점 -->
+  <circle cx="420" cy="400" r="6" class="connector-dot"/>
+  <circle cx="580" cy="400" r="6" class="connector-dot"/>
+  <circle cx="420" cy="470" r="6" class="connector-dot"/>
+  <circle cx="580" cy="470" r="6" class="connector-dot"/>
+  <circle cx="500" cy="320" r="6" class="connector-dot"/>
+
+  <!-- 1. AI 엔지니어 (상단) -->
+  <g transform="translate(350, 90)">
+    <rect width="300" height="140" rx="12" class="role-box role1"/>
+    <text x="150" y="25" class="role-title">AI 엔지니어</text>
+    <text x="150" y="45" class="role-subtitle">AI Engineer</text>
+
+    <text x="20" y="70" class="role-detail">• 2025년 가장 빠르게 성장</text>
+    <text x="20" y="85" class="role-detail">• ML 모델 개발 + 프로덕션 배포</text>
+    <text x="20" y="100" class="role-detail">• Python, PyTorch, MLOps, K8s</text>
+    <text x="20" y="115" class="role-detail">💰 $120K-$250K</text>
+    <rect x="200" y="104" width="80" height="18" rx="4" fill="#e8f4fd"/>
+    <text x="240" y="117" style="font-family: 'Noto Sans KR', sans-serif; font-size: 10px; font-weight: bold; text-anchor: middle; fill: #1a5490;">매우 높음</text>
+  </g>
+
+  <!-- 2. AI 데이터 과학자 (좌상) -->
+  <g transform="translate(50, 140)">
+    <rect width="260" height="140" rx="12" class="role-box role2"/>
+    <text x="130" y="25" class="role-title">AI 데이터 과학자</text>
+    <text x="130" y="45" class="role-subtitle">AI Data Scientist</text>
+
+    <text x="15" y="70" class="role-detail">• 36% 성장 (2023-2033)</text>
+    <text x="15" y="85" class="role-detail">• 데이터 분석 + AI 특화</text>
+    <text x="15" y="100" class="role-detail">• Python/R, ML, NLP, LLM</text>
+    <text x="15" y="115" class="role-detail">💰 $100K-$180K</text>
+    <rect x="160" y="104" width="80" height="18" rx="4" fill="#d4edda"/>
+    <text x="200" y="117" style="font-family: 'Noto Sans KR', sans-serif; font-size: 10px; font-weight: bold; text-anchor: middle; fill: #1a7a33;">높음</text>
+  </g>
+
+  <!-- 3. 프롬프트 엔지니어 (우상) -->
+  <g transform="translate(690, 140)">
+    <rect width="260" height="140" rx="12" class="role-box role3"/>
+    <text x="130" y="25" class="role-title">프롬프트 엔지니어</text>
+    <text x="130" y="45" class="role-subtitle">Prompt Engineer</text>
+
+    <text x="15" y="70" class="role-detail">• 연평균 33% 성장 (CAGR)</text>
+    <text x="15" y="85" class="role-detail">• LLM 상호작용 최적화</text>
+    <text x="15" y="100" class="role-detail">• ChatGPT, Claude, GPT-4</text>
+    <text x="15" y="115" class="role-detail">💰 $150K-$335K</text>
+    <rect x="160" y="104" width="80" height="18" rx="4" fill="#fef3c7"/>
+    <text x="200" y="117" style="font-family: 'Noto Sans KR', sans-serif; font-size: 10px; font-weight: bold; text-anchor: middle; fill: #e0a800;">최고연봉</text>
+  </g>
+
+  <!-- 4. 애널리틱스 엔지니어 (좌하) -->
+  <g transform="translate(50, 590)">
+    <rect width="260" height="140" rx="12" class="role-box role4"/>
+    <text x="130" y="25" class="role-title">애널리틱스 엔지니어</text>
+    <text x="130" y="45" class="role-subtitle">Analytics Engineer</text>
+
+    <text x="15" y="70" class="role-detail">• 80% 이미 AI 활용 (2024)</text>
+    <text x="15" y="85" class="role-detail">• SQL/dbt 데이터 변환</text>
+    <text x="15" y="100" class="role-detail">• dbt, Airflow, SQL</text>
+    <text x="15" y="115" class="role-detail">💰 $90K-$150K</text>
+    <rect x="160" y="104" width="80" height="18" rx="4" fill="#dbeafe"/>
+    <text x="200" y="117" style="font-family: 'Noto Sans KR', sans-serif; font-size: 10px; font-weight: bold; text-anchor: middle; fill: #1a5490;">높음</text>
+  </g>
+
+  <!-- 5. AI 에이전트 개발자 (우하) -->
+  <g transform="translate(690, 590)">
+    <rect width="260" height="140" rx="12" class="role-box role5"/>
+    <text x="130" y="25" class="role-title">AI 에이전트 개발자</text>
+    <text x="130" y="45" class="role-subtitle">AI Agent Developer</text>
+
+    <text x="15" y="70" class="role-detail">• 2025년 신흥 직업</text>
+    <text x="15" y="85" class="role-detail">• 자율 AI 시스템 구축</text>
+    <text x="15" y="100" class="role-detail">• LangGraph, CrewAI, AutoGPT</text>
+    <text x="15" y="115" class="role-detail">💰 $130K-$220K</text>
+    <rect x="160" y="104" width="80" height="18" rx="4" fill="#fee2e2"/>
+    <text x="200" y="117" style="font-family: 'Noto Sans KR', sans-serif; font-size: 10px; font-weight: bold; text-anchor: middle; fill: #b91c1c;">신흥</text>
+  </g>
+
+  <!-- 하단 인사이트 -->
+  <g transform="translate(0, 755)">
+    <rect x="50" y="0" width="900" height="40" rx="8" fill="#f8f9fa" stroke="#2780e3" stroke-width="2"/>
+    <text x="500" y="25" style="font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; fill: #1a5490;">
+      💡 5대 역할 공통점: Python 필수 | AI 도구 활용 | 클라우드 플랫폼 경험 | 지속적 학습
+    </text>
+  </g>
+</svg>
