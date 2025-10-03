@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 370">
+  <defs>
+    <style>
+      .misuse-root { fill: #dc3545; stroke: #333; stroke-width: 3; }
+      .misuse-category { fill: #f8f9fa; stroke: #333; stroke-width: 2; }
+      .misuse-detail { fill: white; stroke: #333; stroke-width: 2; }
+      .misuse-text { font-family: 'Noto Sans KR', sans-serif; font-size: 16px; fill: #212529; text-anchor: middle; font-weight: 500; }
+      .misuse-text-small { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; fill: #212529; text-anchor: middle; }
+      .misuse-line { stroke: #2780e3; stroke-width: 2; fill: none; }
+      .misuse-arrow { stroke: #2780e3; stroke-width: 1.5; fill: none; marker-end: url(#arrow-misuse); }
+    </style>
+    <marker id="arrow-misuse" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2780e3" />
+    </marker>
+  </defs>
+
+  <!-- Root Node: AI 오남용 -->
+  <rect x="400" y="20" width="200" height="60" rx="10" class="misuse-root"/>
+  <text x="500" y="55" class="misuse-text" style="fill: white; font-weight: bold;">AI 오남용</text>
+
+  <!-- Category boxes -->
+  <rect x="50" y="160" width="200" height="60" rx="8" class="misuse-category"/>
+  <text x="150" y="195" class="misuse-text">정보 조작</text>
+
+  <rect x="270" y="160" width="200" height="60" rx="8" class="misuse-category"/>
+  <text x="370" y="195" class="misuse-text">사기 및 범죄</text>
+
+  <rect x="490" y="160" width="200" height="60" rx="8" class="misuse-category"/>
+  <text x="590" y="195" class="misuse-text">개인정보 침해</text>
+
+  <rect x="710" y="160" width="200" height="60" rx="8" class="misuse-category"/>
+  <text x="810" y="195" class="misuse-text">학술 부정직</text>
+
+  <!-- Root -> Categories (end at category top-center) -->
+  <path d="M 500 80 L 150 160" class="misuse-arrow"/>
+  <path d="M 500 80 L 370 160" class="misuse-arrow"/>
+  <path d="M 500 80 L 590 160" class="misuse-arrow"/>
+  <path d="M 500 80 L 810 160" class="misuse-arrow"/>
+
+  <!-- Detail Nodes (uniform width 110, height 50) -->
+  <!-- x positions: 10, 130, 250, 370, 490, 610, 730, 850 -->
+  <!-- centers:     65, 185, 305, 425, 545, 665, 785, 905 -->
+  <!-- y top = 300 -->
+
+  <!-- Category 1 details -->
+  <rect x="10"  y="300" width="110" height="50" rx="6" class="misuse-detail"/>
+  <text x="65"  y="330" class="misuse-text-small">허위정보/딥페이크</text>
+
+  <rect x="130" y="300" width="110" height="50" rx="6" class="misuse-detail"/>
+  <text x="185" y="330" class="misuse-text-small">여론 조작</text>
+
+  <!-- Category 2 details -->
+  <rect x="250" y="300" width="110" height="50" rx="6" class="misuse-detail"/>
+  <text x="305" y="330" class="misuse-text-small">피싱/스캠</text>
+
+  <rect x="370" y="300" width="110" height="50" rx="6" class="misuse-detail"/>
+  <text x="425" y="330" class="misuse-text-small">신원 도용</text>
+
+  <!-- Category 3 details -->
+  <rect x="490" y="300" width="110" height="50" rx="6" class="misuse-detail"/>
+  <text x="545" y="330" class="misuse-text-small">데이터 수집</text>
+
+  <rect x="610" y="300" width="110" height="50" rx="6" class="misuse-detail"/>
+  <text x="665" y="330" class="misuse-text-small">프라이버시 침해</text>
+
+  <!-- Category 4 details -->
+  <rect x="730" y="300" width="110" height="50" rx="6" class="misuse-detail"/>
+  <text x="785" y="330" class="misuse-text-small">AI 표절</text>
+
+  <rect x="850" y="300" width="110" height="50" rx="6" class="misuse-detail"/>
+  <text x="905" y="330" class="misuse-text-small">부정 과제물</text>
+
+  <!-- Categories -> Details (end at detail top-center: y=300) -->
+  <!-- Category 1 (center x=150) to 65 and 185 -->
+  <path d="M 150 220 L 150 260 L 65 260 L 65 300" class="misuse-arrow"/>
+  <path d="M 150 220 L 150 260 L 185 260 L 185 300" class="misuse-arrow"/>
+
+  <!-- Category 2 (center x=370) to 305 and 425 -->
+  <path d="M 370 220 L 370 260 L 305 260 L 305 300" class="misuse-arrow"/>
+  <path d="M 370 220 L 370 260 L 425 260 L 425 300" class="misuse-arrow"/>
+
+  <!-- Category 3 (center x=590) to 545 and 665 -->
+  <path d="M 590 220 L 590 260 L 545 260 L 545 300" class="misuse-arrow"/>
+  <path d="M 590 220 L 590 260 L 665 260 L 665 300" class="misuse-arrow"/>
+
+  <!-- Category 4 (center x=810) to 785 and 905 -->
+  <path d="M 810 220 L 810 260 L 785 260 L 785 300" class="misuse-arrow"/>
+  <path d="M 810 220 L 810 260 L 905 260 L 905 300" class="misuse-arrow"/>
+</svg>

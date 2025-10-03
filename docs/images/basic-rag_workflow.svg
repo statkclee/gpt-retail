@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 1000 340">
+  <defs>
+    <style>
+      /* 브랜드 색상 적용 (_brand.yml 기반) */
+      .rag-title { font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 700; fill: #212529; }
+      .rag-text { font-family: 'Noto Sans KR', sans-serif; font-size: 11px; fill: #212529; }
+      .rag-label { font-family: 'Noto Sans KR', sans-serif; font-size: 10px; fill: #495057; }
+      .rag-box { stroke: #495057; stroke-width: 2; }
+      .rag-arrow { stroke: #6c757d; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      /* 브랜드 색상: primary=#2780e3, success=#28a745, info=#17a2b8, warning=#ffc107 */
+      .rag-user { fill: #e9ecef; } /* gray-200 */
+      .rag-retrieval { fill: #fff3cd; } /* warning 계열 - 검색 강조 */
+      .rag-generation { fill: #d1ecf1; } /* info 계열 - 생성 강조 */
+      .rag-output { fill: #d4edda; } /* success 계열 - 결과 */
+      .rag-step1 { fill: #ffc107; } /* warning - 검색 단계 강조 */
+      .rag-step2 { fill: #17a2b8; } /* info - 생성 단계 강조 */
+      .rag-result { fill: #28a745; } /* success - 최종 결과 */
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#6c757d" />
+    </marker>
+  </defs>
+
+  <!-- User Section -->
+  <rect x="50" y="150" width="150" height="100" rx="8" class="rag-box rag-user"/>
+  <text x="125" y="175" class="rag-title" text-anchor="middle">사용자</text>
+  <text x="125" y="200" class="rag-text" text-anchor="middle">질문:</text>
+  <text x="125" y="218" class="rag-text" text-anchor="middle">2024년 AI 시장</text>
+  <text x="125" y="236" class="rag-text" text-anchor="middle">규모는?</text>
+
+  <!-- Arrow: User to Retrieval -->
+  <path d="M 200 200 L 250 200" class="rag-arrow"/>
+
+  <!-- Retrieval Section -->
+  <rect x="250" y="50" width="220" height="300" rx="8" class="rag-box rag-retrieval"/>
+  <text x="360" y="75" class="rag-title" text-anchor="middle">1. 검색 단계 (Retrieval)</text>
+
+  <!-- Step 1: Vector DB Search -->
+  <rect x="270" y="95" width="180" height="40" rx="6" class="rag-box rag-step1"/>
+  <text x="360" y="120" class="rag-text" text-anchor="middle" font-weight="600">벡터 DB 검색</text>
+
+  <!-- Arrow within Retrieval -->
+  <path d="M 360 135 L 360 160" class="rag-arrow"/>
+
+  <!-- Step 2: Extract Documents -->
+  <g transform="translate(0, 10)">
+    <rect x="270" y="150" width="180" height="40" rx="6" class="rag-box" fill="#fff9e6"/>
+    <text x="360" y="175" class="rag-text" text-anchor="middle">관련 문서 추출</text>
+  </g>
+
+  <!-- Arrow within Retrieval -->
+  <path d="M 360 200 L 360 225" class="rag-arrow"/>
+
+  <!-- Documents -->
+  <g transform="translate(0, 20)">
+    <rect x="270" y="205" width="180" height="100" rx="6" class="rag-box" fill="#ffffff"/>
+    <text x="360" y="225" class="rag-label" text-anchor="middle">📄 문서1: AI 시장 보고서</text>
+    <text x="360" y="245" class="rag-label" text-anchor="middle">📊 문서2: 시장 통계</text>
+    <text x="360" y="265" class="rag-label" text-anchor="middle">📈 문서3: 업계 분석</text>
+    <text x="360" y="285" class="rag-label" text-anchor="middle" font-style="italic">+ 더 많은 관련 문서</text>
+  </g>
+
+  <!-- Arrow: Retrieval to Generation -->
+  <path d="M 470 200 L 520 200" class="rag-arrow"/>
+
+  <!-- Generation Section -->
+  <rect x="520" y="100" width="220" height="200" rx="8" class="rag-box rag-generation"/>
+  <text x="630" y="125" class="rag-title" text-anchor="middle">2. 생성 단계 (Generation)</text>
+
+  <!-- LLM Processing -->
+  <rect x="540" y="145" width="180" height="60" rx="6" class="rag-box rag-step2"/>
+  <text x="630" y="165" class="rag-text" text-anchor="middle" font-weight="600">LLM에 전달:</text>
+  <text x="630" y="183" class="rag-text" text-anchor="middle">질문 + 검색된 문서</text>
+
+  <!-- Arrow within Generation -->
+  <path d="M 630 205 L 630 240" class="rag-arrow"/>
+
+  <!-- Answer Generation -->
+  <g transform="translate(0, 20)">
+    <rect x="540" y="220" width="180" height="50" rx="6" class="rag-box" fill="#e0f7fa"/>
+    <text x="630" y="240" class="rag-text" text-anchor="middle">답변 생성:</text>
+    <text x="630" y="258" class="rag-text" text-anchor="middle">출처 기반 정확한 응답</text>
+  </g>
+
+  <!-- Arrow: Generation to Output -->
+  <path d="M 740 200 L 790 200" class="rag-arrow"/>
+
+  <!-- Output Section -->
+  <rect x="790" y="100" width="180" height="200" rx="8" class="rag-box rag-output"/>
+  <text x="880" y="125" class="rag-title" text-anchor="middle">최종 응답</text>
+
+  <rect x="810" y="145" width="140" height="130" rx="6" class="rag-box rag-result"/>
+  <text x="880" y="165" class="rag-text" text-anchor="middle" font-size="10px">2024년 AI 시장 규모는</text>
+  <text x="880" y="183" class="rag-text" text-anchor="middle" font-size="10px" font-weight="700">약 1840억 달러로</text>
+  <text x="880" y="201" class="rag-text" text-anchor="middle" font-size="10px" font-weight="700">추정됩니다.</text>
+  <text x="880" y="225" class="rag-label" text-anchor="middle" font-size="9px">━━━━━━━━━━</text>
+  <text x="880" y="243" class="rag-label" text-anchor="middle" font-size="9px">📚 출처:</text>
+  <text x="880" y="259" class="rag-label" text-anchor="middle" font-size="9px">[문서1, 문서2, 문서3]</text>
+
+</svg>

@@ -1,76 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 400">
-  <!-- White Background -->
-  <rect width="950" height="400" fill="white"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 800 470" role="img" aria-labelledby="title desc">
+  <title id="title">구글의 검색 생태계 구축</title>
 
+  <!-- =========================== -->
+  <!-- 스타일 및 마커 정의          -->
+  <!-- =========================== -->
   <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    <style type="text/css"><![CDATA[
+      .node rect {
+        rx: 10;
+        ry: 10;
+        fill: #f4f4f4;
+        stroke: #333;
+        stroke-width: 1.8px;
+      }
+      .node text {
+        font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        font-size: 14px;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        fill: #111;
+      }
+      .edge {
+        stroke: #555;
+        stroke-width: 1.8px;
+        fill: none;
+      }
+    ]]></style>
+
+    <!-- 화살표 마커 정의 -->
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4285f4"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f9d58"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
     </marker>
   </defs>
 
-  <!-- Top Flow - Search Quality Loop -->
-  <rect x="40" y="40" width="140" height="60" rx="8" fill="#4285f4" stroke="#333" stroke-width="2"/>
-  <text x="110" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">무료 검색</text>
-  <text x="110" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">서비스</text>
+  <!-- =========================== -->
+  <!-- 노드 위치 레이아웃           -->
+  <!-- 중앙 컬럼: x=330             -->
+  <!-- 우측 컬럼: x=600             -->
+  <!-- Y 좌표: 70, 160, 250, 340, 430 -->
+  <!-- =========================== -->
 
-  <rect x="220" y="40" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
-  <text x="290" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">대규모</text>
-  <text x="290" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">사용자 확보</text>
+  <!-- 중앙 컬럼: 검색 품질 개선 순환 -->
+  <g id="A" class="node" transform="translate(330,70)">
+    <rect x="-100" y="-24" width="200" height="48" fill="#4285f4"/>
+    <text x="0" y="0" fill="#fff">무료 검색 서비스</text>
+  </g>
 
-  <rect x="400" y="40" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
-  <text x="470" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">검색 데이터</text>
-  <text x="470" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">축적</text>
+  <g id="B" class="node" transform="translate(330,160)">
+    <rect x="-110" y="-24" width="220" height="48"/>
+    <text x="0" y="0">대규모 사용자 확보</text>
+  </g>
 
-  <rect x="580" y="40" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
-  <text x="650" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">알고리즘</text>
-  <text x="650" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">개선</text>
+  <g id="C" class="node" transform="translate(330,250)">
+    <rect x="-100" y="-24" width="200" height="48"/>
+    <text x="0" y="0">검색 데이터 축적</text>
+  </g>
 
-  <rect x="760" y="40" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
-  <text x="830" y="68" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">더 나은</text>
-  <text x="830" y="86" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">검색 결과</text>
+  <g id="D" class="node" transform="translate(330,340)">
+    <rect x="-100" y="-24" width="200" height="48"/>
+    <text x="0" y="0">알고리즘 개선</text>
+  </g>
 
-  <!-- Bottom Flow - Revenue Loop -->
-  <rect x="400" y="240" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
-  <text x="470" y="268" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">정밀한 광고</text>
-  <text x="470" y="286" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">타겟팅</text>
+  <g id="E" class="node" transform="translate(330,430)">
+    <rect x="-110" y="-24" width="220" height="48"/>
+    <text x="0" y="0">더 나은 검색 결과</text>
+  </g>
 
-  <rect x="580" y="240" width="140" height="60" rx="8" fill="#0f9d58" stroke="#333" stroke-width="2"/>
-  <text x="650" y="268" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">광고 수익</text>
-  <text x="650" y="286" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">증대</text>
+  <!-- 우측 컬럼: 광고 수익 순환 -->
+  <g id="F" class="node" transform="translate(600,250)">
+    <rect x="-110" y="-24" width="220" height="48"/>
+    <text x="0" y="0">정밀한 광고 타겟팅</text>
+  </g>
 
-  <rect x="760" y="240" width="140" height="60" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="2"/>
-  <text x="830" y="268" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">서비스 개선</text>
-  <text x="830" y="286" font-family="Noto Sans KR, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#202124">투자</text>
+  <g id="G" class="node" transform="translate(600,340)">
+    <rect x="-110" y="-24" width="220" height="48" fill="#0f9d58"/>
+    <text x="0" y="0" fill="#fff">광고 수익 증대</text>
+  </g>
 
-  <!-- Arrows - Top Flow (Left to Right) -->
-  <path d="M 180 70 L 220 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 360 70 L 400 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 540 70 L 580 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 720 70 L 760 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <g id="H" class="node" transform="translate(600,430)">
+    <rect x="-110" y="-24" width="220" height="48"/>
+    <text x="0" y="0">서비스 개선 투자</text>
+  </g>
 
-  <!-- Feedback arrow from "더 나은 검색 결과" back to "무료 검색 서비스" -->
-  <path d="M 830 40 L 920 40 L 920 70 L 920 330 L 20 330 L 20 70 L 40 70" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  <!-- =========================== -->
+  <!-- 화살표 연결 (중앙 컬럼)      -->
+  <!-- A → B → C → D → E           -->
+  <!-- =========================== -->
+  <path d="M330,94 L330,136" stroke="#4285f4" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M330,184 L330,226" stroke="#4285f4" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M330,274 L330,316" stroke="#4285f4" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M330,364 L330,406" stroke="#4285f4" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
 
-  <!-- Connection from "검색 데이터 축적" to "정밀한 광고 타겟팅" -->
-  <path d="M 470 100 L 470 240" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- =========================== -->
+  <!-- 화살표 연결 (분기 및 우측)    -->
+  <!-- C → F → G → H               -->
+  <!-- =========================== -->
+  <path d="M430,250 C480,250 490,250 490,250" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow-gray)"/>
+  <path d="M600,274 L600,316" stroke="#0f9d58" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M600,364 L600,406" stroke="#0f9d58" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)"/>
 
-  <!-- Arrows - Bottom Flow (Left to Right) -->
-  <path d="M 540 270 L 580 270" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 720 270 L 760 270" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-
-
-  <!-- Labels -->
-  <text x="475" y="385" font-family="Noto Sans KR, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6368">
-    두 개의 선순환이 서로를 강화하며 생태계 구축
-  </text>
-
-  <!-- Legend -->
-  <rect x="20" y="160" width="12" height="12" fill="#4285f4"/>
-  <text x="37" y="170" font-family="Noto Sans KR, Arial, sans-serif" font-size="10" fill="#5f6368">핵심 시작점</text>
-
-  <rect x="110" y="160" width="12" height="12" fill="#0f9d58"/>
-  <text x="127" y="170" font-family="Noto Sans KR, Arial, sans-serif" font-size="10" fill="#5f6368">수익 창출</text>
-
-  <line x1="200" y1="166" x2="215" y2="166" stroke="#333" stroke-width="2" stroke-dasharray="3,3"/>
-  <text x="220" y="170" font-family="Noto Sans KR, Arial, sans-serif" font-size="10" fill="#5f6368">재투자 경로</text>
+  <!-- =========================== -->
+  <!-- 피드백 순환 화살표 (점선)     -->
+  <!-- E → B: 검색 품질 개선 루프    -->
+  <!-- H → A: 수익 재투자 루프       -->
+  <!-- =========================== -->
+  <path d="M330,454 C330,500 140,500 140,300 C140,180 150,170 220,160" stroke="#4285f4" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M600,454 C720,540 820,110 360,110 L340,110" stroke="#0f9d58" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrow-green)"/>
 </svg>

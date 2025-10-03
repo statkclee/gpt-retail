@@ -8,25 +8,25 @@
       .year-text { font-size: 16px; font-weight: bold; }
     </style>
     
-    <!-- Era gradients -->
+    <!-- Era gradients - Brand Colors -->
     <linearGradient id="hardwareGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#64748b;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#6c757d;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#495057;stop-opacity:1" />
     </linearGradient>
-    
+
     <linearGradient id="softwareGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#2780e3;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1a5490;stop-opacity:1" />
     </linearGradient>
-    
+
     <linearGradient id="networkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#28a745;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1e7e34;stop-opacity:1" />
     </linearGradient>
-    
+
     <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#17a2b8;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#117a8b;stop-opacity:1" />
     </linearGradient>
     
     <!-- Shadow filter -->
@@ -320,64 +320,64 @@
   <!-- Evolution arrows -->
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c757d"/>
     </marker>
   </defs>
-  
-  <line x1="320" y1="240" x2="335" y2="240" stroke="#64748b" stroke-width="3" marker-end="url(#arrowhead)"/>
-  <line x1="600" y1="240" x2="615" y2="240" stroke="#64748b" stroke-width="3" marker-end="url(#arrowhead)"/>
-  <line x1="880" y1="240" x2="895" y2="240" stroke="#64748b" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <line x1="320" y1="240" x2="335" y2="240" stroke="#6c757d" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="240" x2="615" y2="240" stroke="#6c757d" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="880" y1="240" x2="895" y2="240" stroke="#6c757d" stroke-width="3" marker-end="url(#arrowhead)"/>
   
   <!-- Timeline -->
   <g transform="translate(0,-40)">
     <line x1="100" y1="450" x2="1140" y2="450" stroke="#e2e8f0" stroke-width="2"/>
-    <circle cx="200" cy="450" r="6" fill="#64748b"/>
-    <circle cx="480" cy="450" r="6" fill="#2563eb"/>
-    <circle cx="760" cy="450" r="6" fill="#7c3aed"/>
-    <circle cx="1040" cy="450" r="6" fill="#dc2626"/>
+    <circle cx="200" cy="450" r="6" fill="#6c757d"/>
+    <circle cx="480" cy="450" r="6" fill="#2780e3"/>
+    <circle cx="760" cy="450" r="6" fill="#28a745"/>
+    <circle cx="1040" cy="450" r="6" fill="#17a2b8"/>
   </g>
   
   <!-- Individual era summary boxes -->
   <!-- Hardware Era Box -->
   <g transform="translate(80, 430)">
-    <rect x="0" y="0" width="240" height="45" fill="rgba(100, 116, 139, 0.1)" stroke="#64748b" stroke-width="2" rx="8"/>
-    <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#64748b" font-weight="bold">
+    <rect x="0" y="0" width="240" height="45" fill="rgba(108, 117, 125, 0.1)" stroke="#6c757d" stroke-width="2" rx="8"/>
+    <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#6c757d" font-weight="bold">
       하드웨어 중심
     </text>
-    <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#475569">
+    <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#495057">
       기계에 맞춘 프로그래밍
     </text>
   </g>
-  
+
   <!-- Software Era Box -->
     <g transform="translate(360, 430)">
-      <rect x="0" y="0" width="240" height="45" fill="rgba(37, 99, 235, 0.1)" stroke="#2563eb" stroke-width="2" rx="8"/>
-      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#2563eb" font-weight="bold">
+      <rect x="0" y="0" width="240" height="45" fill="rgba(39, 128, 227, 0.1)" stroke="#2780e3" stroke-width="2" rx="8"/>
+      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#2780e3" font-weight="bold">
         소프트웨어 중심
       </text>
-      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#1d4ed8">
+      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#1a5490">
         논리와 구조 중심 설계
       </text>
     </g>
-    
+
     <!-- Network Era Box -->
     <g transform="translate(640, 430)">
-      <rect x="0" y="0" width="240" height="45" fill="rgba(124, 58, 237, 0.1)" stroke="#7c3aed" stroke-width="2" rx="8"/>
-      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#7c3aed" font-weight="bold">
+      <rect x="0" y="0" width="240" height="45" fill="rgba(40, 167, 69, 0.1)" stroke="#28a745" stroke-width="2" rx="8"/>
+      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#28a745" font-weight="bold">
         네트워크 중심
       </text>
-      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#6d28d9">
+      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#1e7e34">
         연결과 확장성 우선
       </text>
     </g>
-    
+
     <!-- AI Era Box -->
     <g transform="translate(920, 430)">
-      <rect x="0" y="0" width="240" height="45" fill="rgba(220, 38, 38, 0.1)" stroke="#dc2626" stroke-width="2" rx="8"/>
-      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#dc2626" font-weight="bold">
+      <rect x="0" y="0" width="240" height="45" fill="rgba(23, 162, 184, 0.1)" stroke="#17a2b8" stroke-width="2" rx="8"/>
+      <text x="120" y="18" text-anchor="middle" font-family="Arial, sans-serif" class="feature-text" fill="#17a2b8" font-weight="bold">
         AI 중심
       </text>
-      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#b91c1c">
+      <text x="120" y="35" text-anchor="middle" font-family="Arial, sans-serif" class="description-text" fill="#117a8b">
         의도 기반 자동화
       </text>
     </g>

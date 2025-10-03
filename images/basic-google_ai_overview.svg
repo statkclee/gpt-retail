@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 1000 330">
+  <defs>
+    <style>
+      /* 브랜드 색상 적용 (_brand.yml 기반) */
+      .aio-title { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 700; fill: #212529; text-anchor: middle; }
+      .aio-label { font-family: 'Noto Sans KR', sans-serif; font-size: 11px; fill: #495057; text-anchor: middle; }
+      .aio-value { font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 700; fill: #2780e3; text-anchor: middle; }
+      .aio-desc { font-family: 'Noto Sans KR', sans-serif; font-size: 12px; fill: #6c757d; text-anchor: middle; }
+      .aio-box { stroke: #495057; stroke-width: 2; }
+      /* 브랜드 색상 */
+      .aio-info { fill: #d1ecf1; } /* info cyan */
+      .aio-warning { fill: #fff3cd; } /* warning yellow */
+      .aio-success { fill: #d4edda; } /* success green */
+      .aio-danger { fill: #f8d7da; } /* danger red */
+      .aio-primary { fill: #e3f2fd; } /* primary blue */
+    </style>
+  </defs>
+
+  <!-- 4 Search Types Layout -->
+
+  <!-- 1. Informational (정보성) -->
+  <rect x="50" y="80" width="200" height="180" rx="8" class="aio-box aio-warning"/>
+  <text x="150" y="105" class="aio-title">정보성 검색</text>
+  <text x="150" y="122" class="aio-desc">(Informational)</text>
+
+  <text x="150" y="155" class="aio-value" font-size="32px">45.9%</text>
+  <text x="150" y="178" class="aio-label" font-weight="600">AI 오버뷰 출현율</text>
+
+  <rect x="70" y="195" width="160" height="50" rx="4" fill="#ffffff" stroke="#ffc107" stroke-width="1"/>
+  <text x="150" y="212" class="aio-desc" font-size="9.5px">전체 검색 50% 차지</text>
+  <text x="150" y="227" class="aio-desc" font-size="9.5px">🔍 예: "AI란 무엇인가"</text>
+  <text x="150" y="240" class="aio-desc" font-size="9.5px">"통계 분석 방법"</text>
+
+  <!-- 2. Commercial (상업성) -->
+  <rect x="280" y="80" width="200" height="180" rx="8" class="aio-box aio-info"/>
+  <text x="380" y="105" class="aio-title">상업성 검색</text>
+  <text x="380" y="122" class="aio-desc">(Commercial)</text>
+
+  <text x="380" y="155" class="aio-value" font-size="32px">17.8%</text>
+  <text x="380" y="178" class="aio-label" font-weight="600">AI 오버뷰 출현율</text>
+
+  <rect x="300" y="195" width="160" height="50" rx="4" fill="#ffffff" stroke="#17a2b8" stroke-width="1"/>
+  <text x="380" y="212" class="aio-desc" font-size="9.5px">전체 검색 14.8% 차지</text>
+  <text x="380" y="227" class="aio-desc" font-size="9.5px">💼 예: "최고 CRM 도구"</text>
+  <text x="380" y="240" class="aio-desc" font-size="9.5px">"데이터 분석 소프트웨어 비교"</text>
+
+  <!-- 3. Navigational (탐색성) -->
+  <rect x="510" y="80" width="200" height="180" rx="8" class="aio-box aio-success"/>
+  <text x="610" y="105" class="aio-title">탐색성 검색</text>
+  <text x="610" y="122" class="aio-desc">(Navigational)</text>
+
+  <text x="610" y="155" class="aio-value" font-size="32px">1.5%</text>
+  <text x="610" y="178" class="aio-label" font-weight="600">AI 오버뷰 출현율</text>
+
+  <rect x="530" y="195" width="160" height="50" rx="4" fill="#ffffff" stroke="#28a745" stroke-width="1"/>
+  <text x="610" y="212" class="aio-desc" font-size="9.5px">전체 검색 34.6% 차지</text>
+  <text x="610" y="227" class="aio-desc" font-size="9.5px">🎯 예: "Facebook 로그인"</text>
+  <text x="610" y="240" class="aio-desc" font-size="9.5px">"HubSpot 가격"</text>
+
+  <!-- 4. Transactional (거래성) -->
+  <rect x="740" y="80" width="200" height="180" rx="8" class="aio-box aio-danger"/>
+  <text x="840" y="105" class="aio-title">거래성 검색</text>
+  <text x="840" y="122" class="aio-desc">(Transactional)</text>
+
+  <text x="840" y="155" class="aio-value" font-size="32px">6.1%</text>
+  <text x="840" y="178" class="aio-label" font-weight="600">AI 오버뷰 출현율</text>
+
+  <rect x="760" y="195" width="160" height="50" rx="4" fill="#ffffff" stroke="#dc3545" stroke-width="1"/>
+  <text x="840" y="212" class="aio-desc" font-size="9.5px">전체 검색 8% 차지</text>
+  <text x="840" y="227" class="aio-desc" font-size="9.5px">🛒 예: "CRM 소프트웨어 구매"</text>
+  <text x="840" y="240" class="aio-desc" font-size="9.5px">"통계 패키지 주문"</text>
+
+
+  <g transform="translate(0, -120)">
+    <!-- Bottom Stats -->
+    <rect x="50" y="400" width="430" height="80" rx="6" class="aio-box aio-primary"/>
+    <text x="265" y="425" class="aio-title" font-size="12px">구글 일일 검색량 증가</text>
+    <text x="265" y="450" class="aio-value" font-size="24px">85억 → 137억</text>
+    <text x="265" y="470" class="aio-desc">연간 5조 건 이상 (AI 기능으로 검색 증가)</text>
+
+    <rect x="510" y="400" width="430" height="80" rx="6" class="aio-box aio-info"/>
+    <text x="725" y="425" class="aio-title" font-size="12px">질문 기반 검색 급증</text>
+    <text x="725" y="450" class="aio-value" font-size="24px">38% → 87%</text>
+    <text x="725" y="470" class="aio-desc">8개월간 (ChatGPT 이후 사용자 행동 변화)</text>
+  </g>
+
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260">
+  <defs>
+    <style>
+      .attn-box { fill: white; stroke: #333; stroke-width: 2; }
+      .attn-word { fill: #e3f2fd; stroke: #333; stroke-width: 2; }
+      .attn-calc { fill: #ffd700; stroke: #333; stroke-width: 2; }
+      .attn-output { fill: #90ee90; stroke: #333; stroke-width: 2; }
+      .attn-text { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; fill: #212529; text-anchor: middle; }
+      .attn-text-small { font-family: 'Noto Sans KR', sans-serif; font-size: 12px; fill: #212529; text-anchor: middle; }
+      .attn-title { font-family: 'Noto Sans KR', sans-serif; font-size: 16px; font-weight: bold; fill: #495057; text-anchor: middle; }
+      .attn-line { stroke: #2780e3; stroke-width: 2; fill: none; opacity: 0.6; }
+      .attn-arrow { stroke: #2780e3; stroke-width: 1.5; fill: none; marker-end: url(#arrow-attn); }
+    </style>
+    <marker id="arrow-attn" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2780e3" />
+    </marker>
+  </defs>
+
+  <!-- Input Section -->
+  <text x="100" y="30" class="attn-title">입력 문장</text>
+
+  <rect x="30" y="50" width="100" height="50" rx="8" class="attn-word"/>
+  <text x="80" y="80" class="attn-text">은행에서</text>
+
+  <rect x="30" y="120" width="100" height="50" rx="8" class="attn-word"/>
+  <text x="80" y="150" class="attn-text">돈을</text>
+
+  <rect x="30" y="190" width="100" height="50" rx="8" class="attn-word"/>
+  <text x="80" y="220" class="attn-text">찾았다</text>
+
+  <!-- Attention Calculation Section -->
+  <text x="400" y="30" class="attn-title">Attention 계산</text>
+
+  <rect x="300" y="50" width="200" height="50" rx="8" class="attn-calc"/>
+  <text x="400" y="72" class="attn-text-small">은행 ↔ 돈</text>
+  <text x="400" y="88" class="attn-text-small" style="font-weight: bold;">강한 연관</text>
+
+  <rect x="300" y="120" width="200" height="50" rx="8" class="attn-calc"/>
+  <text x="400" y="142" class="attn-text-small">은행 ↔ 찾았다</text>
+  <text x="400" y="158" class="attn-text-small" style="font-weight: bold;">강한 연관</text>
+
+  <rect x="300" y="190" width="200" height="50" rx="8" class="attn-calc"/>
+  <text x="400" y="212" class="attn-text-small">돈 ↔ 찾았다</text>
+  <text x="400" y="228" class="attn-text-small" style="font-weight: bold;">강한 연관</text>
+
+  <!-- Output Section -->
+  <text x="720" y="30" class="attn-title">문맥 이해</text>
+
+  <rect x="620" y="100" width="200" height="70" rx="8" class="attn-output"/>
+  <text x="720" y="130" class="attn-text">은행 = 금융기관</text>
+  <text x="720" y="155" class="attn-text" style="font-weight: bold;">확률 95%</text>
+
+  <!-- Connection Lines: Input to Attention -->
+  <path d="M 130 75 Q 200 75, 300 75" class="attn-line"/>
+  <path d="M 130 75 Q 200 100, 300 145" class="attn-line"/>
+
+  <path d="M 130 145 Q 200 120, 300 75" class="attn-line"/>
+  <path d="M 130 145 Q 200 180, 300 215" class="attn-line"/>
+
+  <path d="M 130 215 Q 200 180, 300 145" class="attn-line"/>
+  <path d="M 130 215 Q 200 215, 300 215" class="attn-line"/>
+
+  <!-- Connection Lines: Attention to Output -->
+  <path d="M 500 75 L 620 130" class="attn-arrow"/>
+  <path d="M 500 145 L 620 135" class="attn-arrow"/>
+</svg>

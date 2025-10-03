@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 850 100">
+  <defs>
+    <style>
+      .token-box { fill: white; stroke: #333; stroke-width: 2; }
+      .token-process { fill: #ffd700; stroke: #333; stroke-width: 2; }
+      .token-text { font-family: 'Noto Sans KR', sans-serif; font-size: 16px; fill: #212529; text-anchor: middle; }
+      .token-arrow { stroke: #495057; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#495057" />
+    </marker>
+  </defs>
+
+  <!-- Input Text Box -->
+  <rect x="20" y="75" width="140" height="50" rx="8" class="token-box"/>
+  <text x="90" y="105" class="token-text">안녕하세요 챗GPT</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 160 100 L 190 100" class="token-arrow"/>
+
+  <!-- Tokenization Process Box -->
+  <rect x="190" y="75" width="100" height="50" rx="8" class="token-process"/>
+  <text x="240" y="105" class="token-text" style="font-weight: bold;">토큰화</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 290 100 L 320 100" class="token-arrow"/>
+
+  <!-- Token List Box -->
+  <rect x="320" y="75" width="180" height="50" rx="8" class="token-box"/>
+  <text x="410" y="105" class="token-text">[안녕, 하세요, 챗, GPT]</text>
+
+  <!-- Arrow 3 -->
+  <path d="M 500 100 L 530 100" class="token-arrow"/>
+
+  <!-- Number Conversion Process Box -->
+  <rect x="530" y="75" width="120" height="50" rx="8" class="token-process"/>
+  <text x="590" y="105" class="token-text" style="font-weight: bold;">숫자로 변환</text>
+
+  <!-- Arrow 4 -->
+  <path d="M 650 100 L 680 100" class="token-arrow"/>
+
+  <!-- Number Output Box -->
+  <rect x="680" y="75" width="160" height="50" rx="8" class="token-box"/>
+  <text x="760" y="105" class="token-text" style="font-size: 13px;">[1234, 5678, 9012, 3456]</text>
+</svg>

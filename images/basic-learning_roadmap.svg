@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 60 900 240">
+  <defs>
+    <style>
+      /* 브랜드 색상 적용 (_brand.yml 기반) */
+      .roadmap-title { font-family: 'Noto Sans KR', sans-serif; font-size: 16px; font-weight: 700; fill: #212529; }
+      .roadmap-subtitle { font-family: 'Noto Sans KR', sans-serif; font-size: 11px; fill: #6c757d; }
+      .roadmap-box { stroke: #495057; stroke-width: 2; }
+      .roadmap-text { font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 600; fill: #212529; text-anchor: middle; }
+      .roadmap-desc { font-family: 'Noto Sans KR', sans-serif; font-size: 10px; fill: #495057; text-anchor: middle; }
+      .roadmap-arrow { stroke: #6c757d; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      /* 브랜드 색상 매핑: primary=#2780e3, success=#28a745, info=#17a2b8, warning=#ffc107 */
+      .roadmap-primary { fill: #e3f2fd; } /* primary blue 계열 */
+      .roadmap-success { fill: #e8f5e9; } /* success green 계열 */
+      .roadmap-info { fill: #e0f7fa; } /* info cyan 계열 */
+      .roadmap-warning { fill: #fff9e6; } /* warning yellow 계열 */
+      .roadmap-light { fill: #f8f9fa; } /* gray-100 */
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#6c757d" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="25" class="roadmap-title" text-anchor="middle">데이터 과학자를 위한 AI 학습 로드맵</text>
+  <text x="450" y="42" class="roadmap-subtitle" text-anchor="middle">Big Picture First: 경험 → 역사 → 기술 → 실무 → 윤리</text>
+
+  <!-- Step 1: 검색 혁명 (경험) - info cyan -->
+  <rect x="50" y="80" width="140" height="90" rx="8" class="roadmap-box roadmap-info"/>
+  <text x="120" y="110" class="roadmap-text">1. AI가 바꾼 검색</text>
+  <text x="120" y="128" class="roadmap-desc">야후→구글→ChatGPT</text>
+  <text x="120" y="143" class="roadmap-desc" font-style="italic">경험적 변화</text>
+  <text x="120" y="158" class="roadmap-desc" font-weight="700" fill="#17a2b8">What: 무엇이 변했나?</text>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 190 125 L 230 125" class="roadmap-arrow"/>
+
+  <!-- Step 2: AI 모델 진화 (역사) - success green -->
+  <rect x="230" y="80" width="140" height="90" rx="8" class="roadmap-box roadmap-success"/>
+  <text x="300" y="110" class="roadmap-text">2. AI 모델 진화</text>
+  <text x="300" y="128" class="roadmap-desc">컴퓨팅·SW·개발 초점</text>
+  <text x="300" y="143" class="roadmap-desc" font-style="italic">역사적 맥락</text>
+  <text x="300" y="158" class="roadmap-desc" font-weight="700" fill="#28a745">Why: 어떻게 도달했나?</text>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M 370 125 L 410 125" class="roadmap-arrow"/>
+
+  <!-- Step 3: 작동 원리 (기술) - primary blue -->
+  <rect x="410" y="80" width="140" height="90" rx="8" class="roadmap-box roadmap-primary"/>
+  <text x="480" y="110" class="roadmap-text">3. AI 작동 원리</text>
+  <text x="480" y="128" class="roadmap-desc">토큰·Transformer</text>
+  <text x="480" y="143" class="roadmap-desc" font-style="italic">기술적 이해</text>
+  <text x="480" y="158" class="roadmap-desc" font-weight="700" fill="#2780e3">How: 어떻게 작동하나?</text>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M 550 125 L 590 125" class="roadmap-arrow"/>
+
+  <!-- Step 4: 통계/데이터과학 (실무) - primary blue -->
+  <rect x="590" y="80" width="140" height="90" rx="8" class="roadmap-box roadmap-primary"/>
+  <text x="660" y="105" class="roadmap-text">4. 통계·데이터과학</text>
+  <text x="660" y="123" class="roadmap-desc">워크플로우 자동화</text>
+  <text x="660" y="138" class="roadmap-desc">코드 생성 지원</text>
+  <text x="660" y="153" class="roadmap-desc" font-style="italic">실무 적용</text>
+  <text x="660" y="165" class="roadmap-desc" font-weight="700" fill="#2780e3">Practice: 어떻게 활용?</text>
+
+  <!-- Arrow 4 to 5 -->
+  <path d="M 660 170 L 660 200" class="roadmap-arrow"/>
+
+  <!-- Step 5: 윤리 (책임) - warning yellow -->
+  <rect x="590" y="200" width="140" height="90" rx="8" class="roadmap-box roadmap-warning"/>
+  <text x="660" y="230" class="roadmap-text">5. 윤리와 책임</text>
+  <text x="660" y="248" class="roadmap-desc">오남용 방지</text>
+  <text x="660" y="263" class="roadmap-desc">책임있는 사용</text>
+  <text x="660" y="278" class="roadmap-desc" font-weight="700" fill="#ffc107">Responsibility: 어떤 책임?</text>
+
+  <!-- Bottom note - warning color -->
+  <rect x="50" y="210" width="500" height="70" rx="6" fill="#fff9c4" stroke="#ffc107" stroke-width="1.5" opacity="0.9"/>
+  <text x="300" y="232" class="roadmap-text" fill="#856404" font-size="12px">⚠️ 핵심 원칙</text>
+  <text x="300" y="250" class="roadmap-desc" font-size="10.5px">AI 초기 단계 - 전문 지식 + AI 도구 조화가 핵심</text>
+  <text x="300" y="267" class="roadmap-desc" font-size="10.5px">자동화 가능성 ≠ 전문가 불필요 | 검증·해석·판단은 데이터 과학자 몫</text>
+</svg>
