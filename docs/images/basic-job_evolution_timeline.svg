@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 1400 530">
   <defs>
     <style>
       /* 브랜드 색상 기반 스타일 */
       .era-box { fill: #f8f9fa; stroke: #2780e3; stroke-width: 3px; }
-      .era-title { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #212529; }
-      .era-year { font-family: "Noto Sans KR", sans-serif; font-size: 14px; text-anchor: middle; fill: #6c757d; }
-      .era-job { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #2780e3; }
-      .era-detail { font-family: "Noto Sans KR", sans-serif; font-size: 12px; text-anchor: middle; fill: #495057; }
+      .era-title { font-family: "Noto Sans KR", sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; fill: #212529; }
+      .era-year { font-family: "Noto Sans KR", sans-serif; font-size: 24px; text-anchor: middle; fill: #6c757d; }
+      .era-job { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #2780e3; }
+      .era-detail { font-family: "Noto Sans KR", sans-serif; font-size: 16px; text-anchor: middle; fill: #495057; }
       .timeline-line { stroke: #dee2e6; stroke-width: 4; }
       .timeline-dot { fill: #2780e3; stroke: #1a5490; stroke-width: 2; }
       .arrow { stroke: #6c757d; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
@@ -24,11 +24,6 @@
     </marker>
   </defs>
 
-  <!-- 제목 -->
-  <text x="700" y="35" style="font-family: 'Noto Sans KR', sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; fill: #212529;">
-    데이터 직업 60년 진화 타임라인 (1960-2025)
-  </text>
-
   <!-- 타임라인 라인 -->
   <line x1="100" y1="100" x2="1300" y2="100" class="timeline-line"/>
 
@@ -36,7 +31,7 @@
   <g transform="translate(100, 150)">
     <rect width="250" height="400" rx="10" class="era-box era1"/>
     <circle cx="125" cy="-50" r="10" class="timeline-dot"/>
-    <text x="125" y="-25" class="era-year">1960-1980</text>
+    <text x="125" y="-65" class="era-year">1960-1980</text>
 
     <text x="125" y="30" class="era-title">통계학자 시대</text>
     <text x="125" y="60" class="era-job">Statistician</text>
@@ -55,7 +50,7 @@
     <text x="125" y="305" class="era-detail">제약회사</text>
 
     <rect x="20" y="330" width="210" height="50" rx="8" fill="#e9ecef" stroke="#6c757d" stroke-width="1"/>
-    <text x="125" y="355" style="font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; fill: #495057;">
+    <text x="125" y="355" style="font-family: 'Noto Sans KR', sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #495057;">
       메인프레임 시대
     </text>
     <text x="125" y="372" style="font-family: 'Noto Sans KR', sans-serif; font-size: 11px; text-anchor: middle; fill: #6c757d;">
@@ -70,7 +65,7 @@
   <g transform="translate(420, 150)">
     <rect width="250" height="400" rx="10" class="era-box era2"/>
     <circle cx="125" cy="-50" r="10" class="timeline-dot"/>
-    <text x="125" y="-25" class="era-year">1990-2000</text>
+    <text x="125" y="-65" class="era-year">1990-2000</text>
 
     <text x="125" y="30" class="era-title">데이터 분석가 시대</text>
     <text x="125" y="60" class="era-job">Data Analyst</text>
@@ -89,11 +84,11 @@
     <text x="125" y="305" class="era-detail">마케팅</text>
 
     <rect x="20" y="330" width="210" height="50" rx="8" fill="#dbeafe" stroke="#2780e3" stroke-width="1"/>
-    <text x="125" y="355" style="font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; fill: #1a5490;">
-      PC & 인터넷 시대
+    <text x="125" y="355" style="font-family: 'Noto Sans KR', sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #1a5490;">
+      PC &amp; 인터넷 시대
     </text>
     <text x="125" y="372" style="font-family: 'Noto Sans KR', sans-serif; font-size: 11px; text-anchor: middle; fill: #6c757d;">
-      개인화 & 연결
+      개인화 &amp; 연결
     </text>
   </g>
 
@@ -104,7 +99,7 @@
   <g transform="translate(740, 150)">
     <rect width="250" height="400" rx="10" class="era-box era3"/>
     <circle cx="125" cy="-50" r="10" class="timeline-dot"/>
-    <text x="125" y="-25" class="era-year">2010</text>
+    <text x="125" y="-65" class="era-year">2010</text>
 
     <text x="125" y="30" class="era-title">데이터 과학자 시대</text>
     <text x="125" y="60" class="era-job">Data Scientist</text>
@@ -123,8 +118,8 @@
     <text x="125" y="305" class="era-detail">전 산업</text>
 
     <rect x="20" y="330" width="210" height="50" rx="8" fill="#d1fae5" stroke="#28a745" stroke-width="1"/>
-    <text x="125" y="355" style="font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; fill: #1a7a33;">
-      빅데이터 & ML 시대
+    <text x="125" y="355" style="font-family: 'Noto Sans KR', sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #1a7a33;">
+      빅데이터 &amp; ML 시대
     </text>
     <text x="125" y="372" style="font-family: 'Noto Sans KR', sans-serif; font-size: 11px; text-anchor: middle; fill: #6c757d;">
       예측 모델링
@@ -138,7 +133,7 @@
   <g transform="translate(1060, 150)">
     <rect width="250" height="400" rx="10" class="era-box era4"/>
     <circle cx="125" cy="-50" r="10" class="timeline-dot"/>
-    <text x="125" y="-25" class="era-year">2020-2025</text>
+    <text x="125" y="-65" class="era-year">2020-2025</text>
 
     <text x="125" y="30" class="era-title">AI 시대 전문화</text>
     <text x="125" y="60" class="era-job">다층화</text>
@@ -155,8 +150,8 @@
     <text x="125" y="270" class="era-detail">Claude, LangChain</text>
 
     <rect x="20" y="300" width="210" height="80" rx="8" fill="#fef3c7" stroke="#ffc107" stroke-width="2"/>
-    <text x="125" y="325" style="font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; fill: #e0a800;">
-      LLM & 생성형 AI 시대
+    <text x="125" y="325" style="font-family: 'Noto Sans KR', sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #e0a800;">
+      LLM &amp; 생성형 AI 시대
     </text>
     <text x="125" y="342" style="font-family: 'Noto Sans KR', sans-serif; font-size: 11px; text-anchor: middle; fill: #6c757d;">
       대화형 인터페이스
@@ -169,10 +164,4 @@
     </text>
   </g>
 
-  <!-- 하단 인사이트 박스 -->
-  <g transform="translate(100, 565)">
-    <text x="600" y="0" style="font-family: 'Noto Sans KR', sans-serif; font-size: 14px; text-anchor: middle; fill: #6c757d;">
-      💡 AI 시대는 단일 직업명으로 수렴하지 않고, "AI" 접두사를 가진 전문 역할로 분화
-    </text>
-  </g>
 </svg>
