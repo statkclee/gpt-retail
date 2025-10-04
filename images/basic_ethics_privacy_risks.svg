@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="750" viewBox="0 0 1400 750">
+  <defs>
+    <style>
+      /* 노드 스타일 (흑백 인쇄 최적화) */
+      .node-main { fill: #1a5490; stroke: #000; stroke-width: 3px; }
+      .node-secondary { fill: #e8f4fd; stroke: #333; stroke-width: 3px; }
+      .node-process { fill: #b3d9f2; stroke: #333; stroke-width: 2px; }
+      .node-success { fill: #d4edda; stroke: #28a745; stroke-width: 3px; }
+      .node-warning { fill: #fff3cd; stroke: #ffc107; stroke-width: 3px; }
+      .node-danger { fill: #f8d7da; stroke: #dc3545; stroke-width: 3px; }
+
+      /* 텍스트 스타일 */
+      .text-main { font-family: "Noto Sans KR", sans-serif; font-size: 14px; text-anchor: middle; fill: #000; }
+      .text-main-light { font-family: "Noto Sans KR", sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; fill: #fff; }
+      .text-small { font-family: "Noto Sans KR", sans-serif; font-size: 12px; text-anchor: middle; fill: #000; }
+      .text-tiny { font-family: "Noto Sans KR", sans-serif; font-size: 10px; text-anchor: middle; fill: #000; }
+      .text-title { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: 700; text-anchor: middle; fill: #1a5490; }
+
+      /* 연결선 */
+      .edge { stroke: #333; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+      .edge-danger { stroke: #dc3545; stroke-width: 3px; fill: none; marker-end: url(#arrowhead-danger); }
+    </style>
+
+    <!-- 화살표 마커 -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+    <marker id="arrowhead-danger" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#dc3545" />
+    </marker>
+  </defs>
+
+  <!-- Section 1: 3가지 위험 지점 타임라인 -->
+  <text class="text-title" x="350" y="30">AI 개인정보 보호 3가지 위험 지점</text>
+
+  <!-- Timeline -->
+  <line x1="100" y1="100" x2="650" y2="100" stroke="#333" stroke-width="3"/>
+
+  <!-- 위험 1: 학습 데이터 포함 -->
+  <circle cx="150" cy="100" r="15" fill="#dc3545" stroke="#000" stroke-width="2"/>
+  <text class="text-small" x="150" y="75">과거</text>
+
+  <rect class="node-danger" x="50" y="130" width="200" height="110" rx="5"/>
+  <text class="text-main" x="150" y="155">1. 학습 데이터 포함</text>
+  <text class="text-small" x="150" y="173">ChatGPT는 2021년 9월</text>
+  <text class="text-small" x="150" y="188">이전 인터넷 데이터 학습</text>
+  <text class="text-small" x="150" y="203">공개 게시물, SNS,</text>
+  <text class="text-small" x="150" y="218">블로그 포함</text>
+  <text class="text-small" x="150" y="233">→ AI 답변에 등장 가능</text>
+
+  <!-- 위험 2: 프롬프트 저장 -->
+  <circle cx="400" cy="100" r="15" fill="#dc3545" stroke="#000" stroke-width="2"/>
+  <text class="text-small" x="400" y="75">현재</text>
+
+  <rect class="node-danger" x="300" y="130" width="200" height="110" rx="5"/>
+  <text class="text-main" x="400" y="155">2. 프롬프트 저장</text>
+  <text class="text-small" x="400" y="173">모든 대화 서버 저장</text>
+  <text class="text-small" x="400" y="188">품질 개선 목적 활용</text>
+  <text class="text-small" x="400" y="203">옵트아웃 가능하나</text>
+  <text class="text-small" x="400" y="218">기본값은 저장</text>
+  <text class="text-small" x="400" y="233">→ 민감 정보 유출 위험</text>
+
+  <!-- 위험 3: 모델 역공학 -->
+  <circle cx="600" cy="100" r="15" fill="#dc3545" stroke="#000" stroke-width="2"/>
+  <text class="text-small" x="600" y="75">미래</text>
+
+  <rect class="node-danger" x="520" y="130" width="200" height="110" rx="5"/>
+  <text class="text-main" x="620" y="155">3. 모델 역공학</text>
+  <text class="text-small" x="620" y="173">특정 프롬프트로</text>
+  <text class="text-small" x="620" y="188">학습 데이터 복원 가능</text>
+  <text class="text-small" x="620" y="203">GPT-3서 이메일,</text>
+  <text class="text-small" x="620" y="218">전화번호 추출 성공</text>
+  <text class="text-small" x="620" y="233">비용: 단 $200</text>
+
+  <!-- Section 2: 실제 사례 -->
+  <text class="text-title" x="350" y="290">실제 프라이버시 침해 사례</text>
+
+  <!-- 삼성전자 -->
+  <rect class="node-warning" x="50" y="320" width="200" height="110" rx="5"/>
+  <text class="text-main" x="150" y="345">삼성전자 (2023)</text>
+  <text class="text-tiny" x="150" y="363">직원이 반도체 설비</text>
+  <text class="text-tiny" x="150" y="376">측정 데이터 입력</text>
+  <text class="text-tiny" x="150" y="389">회의록 요약 요청</text>
+  <text class="text-tiny" x="150" y="402">→ OpenAI 서버 저장</text>
+  <text class="text-tiny" x="150" y="415">→ ChatGPT 사용 제한</text>
+  <text class="text-tiny" x="150" y="428">Apple, JP Morgan도</text>
+
+  <!-- GPT-3 데이터 추출 -->
+  <rect class="node-warning" x="270" y="320" width="200" height="110" rx="5"/>
+  <text class="text-main" x="370" y="345">GPT-3 추출 연구 (2023)</text>
+  <text class="text-tiny" x="370" y="363">$200 비용으로</text>
+  <text class="text-tiny" x="370" y="376">수천 개 개인정보 추출</text>
+  <text class="text-tiny" x="370" y="389">이메일 주소</text>
+  <text class="text-tiny" x="370" y="402">전화번호</text>
+  <text class="text-tiny" x="370" y="415">신용카드 번호</text>
+  <text class="text-tiny" x="370" y="428">→ 모델 역공학 위험</text>
+
+  <!-- 유통 고객 데이터 -->
+  <rect class="node-warning" x="490" y="320" width="200" height="110" rx="5"/>
+  <text class="text-main" x="590" y="345">유통 고객 데이터</text>
+  <text class="text-tiny" x="590" y="363">구매 이력</text>
+  <text class="text-tiny" x="590" y="376">결제 정보</text>
+  <text class="text-tiny" x="590" y="389">배송 주소</text>
+  <text class="text-tiny" x="590" y="402">→ 가명 처리 필수</text>
+  <text class="text-tiny" x="590" y="415">→ 익명화 후 분석</text>
+  <text class="text-tiny" x="590" y="428">→ 명시적 동의</text>
+
+  <!-- Section 3: 규제 프레임워크 비교 -->
+  <text class="text-title" x="1050" y="30">주요 규제 프레임워크 비교</text>
+
+  <!-- GDPR -->
+  <rect class="node-secondary" x="800" y="60" width="200" height="110" rx="5"/>
+  <text class="text-main" x="900" y="85">GDPR (2018, 유럽)</text>
+  <text class="text-tiny" x="900" y="103">잊힐 권리</text>
+  <text class="text-tiny" x="900" y="116">AI 결정 설명 요구권</text>
+  <text class="text-tiny" x="900" y="129">위반 시 최대</text>
+  <text class="text-tiny" x="900" y="142">2천만€ 또는</text>
+  <text class="text-tiny" x="900" y="155">연매출 4% 벌금</text>
+  <text class="text-tiny" x="900" y="168">강도: ★★★★★</text>
+
+  <!-- CCPA -->
+  <rect class="node-secondary" x="1020" y="60" width="200" height="110" rx="5"/>
+  <text class="text-main" x="1120" y="85">CCPA (2020, 미국)</text>
+  <text class="text-tiny" x="1120" y="103">정보 열람 권리</text>
+  <text class="text-tiny" x="1120" y="116">판매 중지 요청권</text>
+  <text class="text-tiny" x="1120" y="129">차별 금지</text>
+  <text class="text-tiny" x="1120" y="142">캘리포니아주</text>
+  <text class="text-tiny" x="1120" y="155">소비자 보호</text>
+  <text class="text-tiny" x="1120" y="168">강도: ★★★☆☆</text>
+
+  <!-- AI Act -->
+  <rect class="node-secondary" x="1240" y="60" width="200" height="110" rx="5"/>
+  <text class="text-main" x="1340" y="85">AI Act (2024, 유럽)</text>
+  <text class="text-tiny" x="1340" y="103">고위험 AI</text>
+  <text class="text-tiny" x="1340" y="116">사전 평가 의무</text>
+  <text class="text-tiny" x="1340" y="129">학습 데이터</text>
+  <text class="text-tiny" x="1340" y="142">출처 공개 필수</text>
+  <text class="text-tiny" x="1340" y="155">투명성, 설명가능성</text>
+  <text class="text-tiny" x="1340" y="168">강도: ★★★★★</text>
+
+  <!-- 한국 -->
+  <rect class="node-secondary" x="800" y="190" width="200" height="110" rx="5"/>
+  <text class="text-main" x="900" y="215">한국 (2023, 개정)</text>
+  <text class="text-tiny" x="900" y="233">가명 정보 활용</text>
+  <text class="text-tiny" x="900" y="246">범위 확대</text>
+  <text class="text-tiny" x="900" y="259">AI 학습 목적</text>
+  <text class="text-tiny" x="900" y="272">데이터 가이드라인</text>
+  <text class="text-tiny" x="900" y="285">자동 결정 설명권</text>
+  <text class="text-tiny" x="900" y="298">강도: ★★★☆☆</text>
+
+  <!-- 비교표 -->
+  <rect class="node-main" x="1020" y="190" width="420" height="110" rx="5"/>
+  <text class="text-main-light" x="1230" y="215">핵심 차이점</text>
+  <text class="text-small" style="fill: #fff;" x="1230" y="233">GDPR/AI Act: 강력한 규제, 높은 벌금</text>
+  <text class="text-small" style="fill: #fff;" x="1230" y="248">CCPA: 소비자 선택권 중심</text>
+  <text class="text-small" style="fill: #fff;" x="1230" y="263">한국: 가명 정보 활용 확대</text>
+  <text class="text-small" style="fill: #fff;" x="1230" y="278">공통: 투명성, 설명가능성,</text>
+  <text class="text-small" style="fill: #fff;" x="1230" y="293">사용자 권리 강화</text>
+
+  <!-- Section 4: 실무 권장사항 -->
+  <text class="text-title" x="1050" y="350">실무 권장사항 6원칙</text>
+
+  <!-- 원칙들 -->
+  <rect class="node-process" x="800" y="380" width="190" height="60" rx="5"/>
+  <text class="text-main" x="895" y="400">1. 데이터 최소화</text>
+  <text class="text-small" x="895" y="418">필요 최소한만</text>
+  <text class="text-small" x="895" y="433">수집</text>
+
+  <rect class="node-process" x="1010" y="380" width="190" height="60" rx="5"/>
+  <text class="text-main" x="1105" y="400">2. 익명화/가명화</text>
+  <text class="text-small" x="1105" y="418">개인 식별</text>
+  <text class="text-small" x="1105" y="433">불가능하게 변환</text>
+
+  <rect class="node-process" x="1220" y="380" width="190" height="60" rx="5"/>
+  <text class="text-main" x="1315" y="400">3. 접근 제어</text>
+  <text class="text-small" x="1315" y="418">역할 기반</text>
+  <text class="text-small" x="1315" y="433">권한 관리 (RBAC)</text>
+
+  <rect class="node-process" x="800" y="460" width="190" height="60" rx="5"/>
+  <text class="text-main" x="895" y="480">4. 암호화</text>
+  <text class="text-small" x="895" y="498">저장 및 전송 시</text>
+  <text class="text-small" x="895" y="513">암호화</text>
+
+  <rect class="node-process" x="1010" y="460" width="190" height="60" rx="5"/>
+  <text class="text-main" x="1105" y="480">5. 정기 감사</text>
+  <text class="text-small" x="1105" y="498">개인정보 처리</text>
+  <text class="text-small" x="1105" y="513">내역 점검</text>
+
+  <rect class="node-process" x="1220" y="460" width="190" height="60" rx="5"/>
+  <text class="text-main" x="1315" y="480">6. 사용자 동의</text>
+  <text class="text-small" x="1315" y="498">AI 활용 목적</text>
+  <text class="text-small" x="1315" y="513">명확히 고지</text>
+
+  <!-- Bottom summary -->
+  <rect class="node-main" x="50" y="580" width="1350" height="120" rx="5"/>
+  <text class="text-main-light" x="725" y="615">AI가 편리할수록 민감 정보 유출 위험도 커진다</text>
+  <text class="text-main-light" x="725" y="640">3가지 위험 지점: 학습 데이터 포함 → 프롬프트 저장 → 모델 역공학</text>
+  <text class="text-main-light" x="725" y="665">대응: 데이터 최소화 + 익명화 + 암호화 + 접근 제어 + 정기 감사 + 사용자 동의</text>
+  <text class="text-main-light" x="725" y="690">규제 준수: GDPR, CCPA, AI Act, 한국 개인정보보호법</text>
+
+  <!-- Divider lines -->
+  <line x1="0" y1="270" x2="750" y2="270" stroke="#dee2e6" stroke-width="2"/>
+  <line x1="0" y1="460" x2="1400" y2="460" stroke="#dee2e6" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="0" y1="550" x2="1400" y2="550" stroke="#dee2e6" stroke-width="2"/>
+  <line x1="750" y1="20" x2="750" y2="550" stroke="#dee2e6" stroke-width="2"/>
+</svg>

@@ -53,31 +53,33 @@ book:
     - index.qmd
     - part: "**1부 인공지능**"
       chapters:
-        - basic_gpt.qmd         # OK
-        - basic.qmd             # OK
-        - basic_job.qmd         # OK
+        - basic_gpt.qmd         # 범용기술
+        - basic.qmd             # AI 기초
+        - basic_job.qmd         # 일자리
+        - basic_ethics.qmd      # AI 윤리
+    - part: "**2부 AI 데이터 과학**"
+      chapters:
+        - ds_data.qmd        # OK
     #     - basic_engineering.qmd # OK
     #     - basic_ide.qmd         # OK
     #     - basic_api.qmd         # OK
-    # - part: "**2부 AI 데이터 과학**"
-    #   chapters:
     #     - coding_prompt.qmd     # OK
     #     - coding_context.qmd    # OK
     #     - coding_openai.qmd     # OK        
     #     - coding_ide.qmd        # OK
     #     - coding_ellmer.qmd     # OK
     #     - coding_claude.qmd     # OK
-    # - part: "**3부 사례 분석**"
-    #   chapters:
-    #     # - proj_penguin.qmd      # OK
-    #     # - proj_penguin_py.qmd   # OK
-    #     # - proj_market.qmd       # OK
-    #     # - proj_survey.qmd       # OK
-    #     # - proj_car.qmd          # OK
-    #     - proj_app.qmd
-    #     - proj_school.qmd
-    #     - proj_news.qmd
-    #     - proj_trade.qmd
+    - part: "**3부 사례 분석**"
+      chapters:
+        # - proj_penguin.qmd      # OK
+        # - proj_penguin_py.qmd   # OK
+        # - proj_market.qmd       # OK
+        # - proj_survey.qmd       # OK
+        # - proj_car.qmd          # OK
+        - proj_app.qmd
+        - proj_school.qmd
+        - proj_news.qmd
+        - proj_trade.qmd
     - end.qmd
     - references.qmd
   page-footer:

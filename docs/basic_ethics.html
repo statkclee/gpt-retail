@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-KR" xml:lang="ko-KR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.16">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; AI 윤리 – AI가 밝혀낸 유통 고수요 데이터의 진실</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./basic_future.html" rel="next">
+<link href="./basic_job.html" rel="prev">
+<link href="./assets/android-chrome-192x192.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0fe41346b718ff62733f5cc60e32bfbd.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "일치 없음",
+    "search-matching-documents-text": "일치된 문서",
+    "search-copy-link-title": "검색 링크 복사",
+    "search-hide-matches-text": "추가 검색 결과 숨기기",
+    "search-more-match-text": "추가 검색결과",
+    "search-more-matches-text": "추가 검색결과",
+    "search-clear-button-title": "제거",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "취소",
+    "search-submit-button-title": "검색",
+    "search-label": "검색"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-229551680-1', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+
+
+<link rel="stylesheet" href="assets/quarto.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basic_gpt.html"><strong>1부 인공지능</strong></a></li><li class="breadcrumb-item"><a href="./basic_ethics.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">AI 윤리</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI가 밝혀낸 유통 고수요 데이터의 진실</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="리더 모드 전환">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">서문</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>1부 인공지능</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_gpt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">범용기술</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI 기초</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">일자리</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_ethics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">AI 윤리</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_future.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">AI 시대 준비</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./end.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">맺음말</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고문헌</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">목차</h2>
+   
+  <ul>
+  <li><a href="#ai-환각과-신뢰성" id="toc-ai-환각과-신뢰성" class="nav-link active" data-scroll-target="#ai-환각과-신뢰성"><span class="header-section-number">4.1</span> AI 환각과 신뢰성</a>
+  <ul class="collapse">
+  <li><a href="#환각이란-무엇인가" id="toc-환각이란-무엇인가" class="nav-link" data-scroll-target="#환각이란-무엇인가"><span class="header-section-number">4.1.1</span> 환각이란 무엇인가</a></li>
+  <li><a href="#팩트체크의-중요성" id="toc-팩트체크의-중요성" class="nav-link" data-scroll-target="#팩트체크의-중요성"><span class="header-section-number">4.1.2</span> 팩트체크의 중요성</a></li>
+  <li><a href="#데이터-분석에서의-환각" id="toc-데이터-분석에서의-환각" class="nav-link" data-scroll-target="#데이터-분석에서의-환각"><span class="header-section-number">4.1.3</span> 데이터 분석에서의 환각</a></li>
+  </ul></li>
+  <li><a href="#ai-편향과-공정성" id="toc-ai-편향과-공정성" class="nav-link" data-scroll-target="#ai-편향과-공정성"><span class="header-section-number">4.2</span> AI 편향과 공정성</a>
+  <ul class="collapse">
+  <li><a href="#편향의-근원" id="toc-편향의-근원" class="nav-link" data-scroll-target="#편향의-근원"><span class="header-section-number">4.2.1</span> 편향의 근원</a></li>
+  <li><a href="#실제-편향-사례" id="toc-실제-편향-사례" class="nav-link" data-scroll-target="#실제-편향-사례"><span class="header-section-number">4.2.2</span> 실제 편향 사례</a></li>
+  <li><a href="#공정성을-위한-원칙" id="toc-공정성을-위한-원칙" class="nav-link" data-scroll-target="#공정성을-위한-원칙"><span class="header-section-number">4.2.3</span> 공정성을 위한 원칙</a></li>
+  </ul></li>
+  <li><a href="#데이터-프라이버시" id="toc-데이터-프라이버시" class="nav-link" data-scroll-target="#데이터-프라이버시"><span class="header-section-number">4.3</span> 데이터 프라이버시</a>
+  <ul class="collapse">
+  <li><a href="#개인정보-보호의-딜레마" id="toc-개인정보-보호의-딜레마" class="nav-link" data-scroll-target="#개인정보-보호의-딜레마"><span class="header-section-number">4.3.1</span> 개인정보 보호의 딜레마</a></li>
+  <li><a href="#주요-규제-프레임워크" id="toc-주요-규제-프레임워크" class="nav-link" data-scroll-target="#주요-규제-프레임워크"><span class="header-section-number">4.3.2</span> 주요 규제 프레임워크</a></li>
+  <li><a href="#유통-데이터-활용-시-주의사항" id="toc-유통-데이터-활용-시-주의사항" class="nav-link" data-scroll-target="#유통-데이터-활용-시-주의사항"><span class="header-section-number">4.3.3</span> 유통 데이터 활용 시 주의사항</a></li>
+  </ul></li>
+  <li><a href="#프롬프트-윤리" id="toc-프롬프트-윤리" class="nav-link" data-scroll-target="#프롬프트-윤리"><span class="header-section-number">4.4</span> 프롬프트 윤리</a>
+  <ul class="collapse">
+  <li><a href="#저작권-이슈" id="toc-저작권-이슈" class="nav-link" data-scroll-target="#저작권-이슈"><span class="header-section-number">4.4.1</span> 저작권 이슈</a></li>
+  <li><a href="#악용-방지" id="toc-악용-방지" class="nav-link" data-scroll-target="#악용-방지"><span class="header-section-number">4.4.2</span> 악용 방지</a></li>
+  </ul></li>
+  <li><a href="#ai-시대-윤리적-원칙" id="toc-ai-시대-윤리적-원칙" class="nav-link" data-scroll-target="#ai-시대-윤리적-원칙"><span class="header-section-number">4.5</span> AI 시대 윤리적 원칙</a>
+  <ul class="collapse">
+  <li><a href="#투명성-설명가능성-책임성" id="toc-투명성-설명가능성-책임성" class="nav-link" data-scroll-target="#투명성-설명가능성-책임성"><span class="header-section-number">4.5.1</span> 투명성, 설명가능성, 책임성</a></li>
+  <li><a href="#인간-중심-ai-설계" id="toc-인간-중심-ai-설계" class="nav-link" data-scroll-target="#인간-중심-ai-설계"><span class="header-section-number">4.5.2</span> 인간 중심 AI 설계</a></li>
+  <li><a href="#윤리적-딜레마-사례-연구" id="toc-윤리적-딜레마-사례-연구" class="nav-link" data-scroll-target="#윤리적-딜레마-사례-연구"><span class="header-section-number">4.5.3</span> 윤리적 딜레마 사례 연구</a></li>
+  </ul></li>
+  <li><a href="#ai-윤리-가이드라인-프레임워크" id="toc-ai-윤리-가이드라인-프레임워크" class="nav-link" data-scroll-target="#ai-윤리-가이드라인-프레임워크"><span class="header-section-number">4.6</span> AI 윤리 가이드라인 프레임워크</a>
+  <ul class="collapse">
+  <li><a href="#주요-국제-가이드라인" id="toc-주요-국제-가이드라인" class="nav-link" data-scroll-target="#주요-국제-가이드라인"><span class="header-section-number">4.6.1</span> 주요 국제 가이드라인</a></li>
+  <li><a href="#책임-있는-ai-사용을-위한-체크리스트" id="toc-책임-있는-ai-사용을-위한-체크리스트" class="nav-link" data-scroll-target="#책임-있는-ai-사용을-위한-체크리스트"><span class="header-section-number">4.6.2</span> 책임 있는 AI 사용을 위한 체크리스트</a></li>
+  </ul></li>
+  <li><a href="#책임-있는-ai-사용의-필수-요소" id="toc-책임-있는-ai-사용의-필수-요소" class="nav-link" data-scroll-target="#책임-있는-ai-사용의-필수-요소"><span class="header-section-number">4.7</span> 책임 있는 AI 사용의 필수 요소</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basic_gpt.html"><strong>1부 인공지능</strong></a></li><li class="breadcrumb-item"><a href="./basic_ethics.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">AI 윤리</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">AI 윤리</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>AI는 강력한 도구다. 하지만 강력한 만큼 책임도 크다. 생성형 AI가 사실이 아닌 정보를 그럴듯하게 만들어내기도 하고, 학습 데이터의 편향이 그대로 결과에 반영되기도 하며, 개인정보가 의도치 않게 노출될 위험도 있다. AI 시대를 살아가는 우리는 AI를 효과적으로 활용하는 것만큼, <strong>책임 있게 사용하는 방법</strong>을 아는 것이 중요하다. 이 장에서는 AI 환각과 신뢰성, 편향과 공정성, 데이터 프라이버시, 프롬프트 윤리, 그리고 AI 시대의 윤리적 원칙을 차례로 살펴본다.</p>
+<section id="ai-환각과-신뢰성" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="ai-환각과-신뢰성"><span class="header-section-number">4.1</span> AI 환각과 신뢰성</h2>
+<p>AI는 “그럴듯함”을 생성하지 “진실”을 찾지 않는다. 대규모 언어 모델(LLM)은 학습한 패턴을 바탕으로 통계적으로 그럴듯한 문장을 만들 뿐, 사실 여부를 검증하지 않는다. 그 결과 존재하지 않는 논문, 가짜 통계, 허구의 사건을 매우 자연스럽게 생성할 수 있다. 이것이 바로 AI <strong>환각(Hallucination)</strong>이다.</p>
+<div id="fig-hallucination" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hallucination-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/basic_ethics_hallucination_mechanism.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="그림&nbsp;4.1: AI 환각 발생 메커니즘과 팩트체크 프로세스"><img src="images/basic_ethics_hallucination_mechanism.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hallucination-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;4.1: AI 환각 발생 메커니즘과 팩트체크 프로세스
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-hallucination" class="quarto-xref">그림&nbsp;<span>4.1</span></a> 은 AI 환각의 전체 구조를 보여준다. 왼쪽 상단은 LLM 작동 원리를 나타낸다. 사용자 질문이 들어오면 LLM은 “진실 탐색”이 아닌 “통계적 예측”을 수행한다. “사실인가?”가 아니라 “그럴듯한가?”를 기준으로 답변을 생성하는 것이다. 중앙은 환각이 자주 발생하는 4가지 상황을 보여준다. 최신 정보 요구(학습 데이터 마감일 이후), 구체적 수치 요청(특정 날짜, 통계), 희소한 주제(학습 데이터에 적게 포함), 모호한 질문(여러 해석 가능)이다. 오른쪽은 팩트체크 4단계 프로세스다. 출처 확인(DOI, URL 검증) → 교차 검증(여러 AI 모델, 전문 DB 대조) → 비판적 사고(반대 증거 검토) → RAG 활용(출처 명시 답변 우선)을 거쳐 검증된 정보를 얻는다. 하단은 실제 사례를 보여준다.</p>
+<section id="환각이란-무엇인가" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="환각이란-무엇인가"><span class="header-section-number">4.1.1</span> 환각이란 무엇인가</h3>
+<p>2023년 5월, 미국 뉴욕의 변호사 스티븐 슈워츠(Steven Schwartz)는 법정에 제출한 서류에서 존재하지 않는 판례 6건을 인용했다. ChatGPT가 생성한 가짜 판례였다. 그는 “ChatGPT가 실제 판례라고 확인해줬다”고 해명했지만, 법원은 5천 달러 벌금을 부과했다<span class="citation" data-cites="nytimes2023lawyer">(<a href="references.html#ref-nytimes2023lawyer" role="doc-biblioref"><strong>nytimes2023lawyer?</strong></a>)</span>. 더 심각한 것은, 슈워츠가 ChatGPT에 “이 판례들이 실제로 존재하냐”고 재차 확인했을 때 AI가 “예, 모두 실제 판례입니다”라고 답했다는 점이다. 이것이 바로 AI <strong>환각(Hallucination)</strong>의 위험성이다.</p>
+<p>환각은 AI가 사실이 아닌 정보를 그럴듯하게 생성하는 현상이다. 대규모 언어 모델(LLM)은 학습한 패턴을 바탕으로 “그럴듯한 다음 단어”를 예측하는 방식으로 작동한다. “진실”을 찾는 것이 아니라 “통계적으로 그럴듯한 문장”을 만드는 것이다. 따라서 존재하지 않는 논문, 가짜 통계, 허구의 사건을 매우 자연스럽게 생성할 수 있다.</p>
+<p>OpenAI의 2024년 연구에 따르면, GPT-4도 특정 질문 유형에서 15-20% 정도의 환각률을 보인다<span class="citation" data-cites="openai2024gpt4">(<a href="references.html#ref-openai2024gpt4" role="doc-biblioref">OpenAI, 2024</a>)</span>. 특히 다음 상황에서 환각이 자주 발생한다:</p>
+<ul>
+<li><strong>최신 정보 요구</strong>: 학습 데이터 마감일 이후의 정보</li>
+<li><strong>구체적 수치 요청</strong>: 특정 날짜, 통계, 인용구</li>
+<li><strong>희소한 주제</strong>: 학습 데이터에 적게 포함된 전문 분야</li>
+<li><strong>모호한 질문</strong>: 여러 해석이 가능한 애매한 요청</li>
+</ul>
+</section>
+<section id="팩트체크의-중요성" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="팩트체크의-중요성"><span class="header-section-number">4.1.2</span> 팩트체크의 중요성</h3>
+<p>2024년 스탠포드 대학 연구는 대학생 500명을 대상으로 AI 생성 정보의 신뢰도를 조사했다<span class="citation" data-cites="stanford2024factcheck">(<a href="references.html#ref-stanford2024factcheck" role="doc-biblioref"><strong>stanford2024factcheck?</strong></a>)</span>. 결과는 충격적이었다. 학생의 68%가 “AI가 제공한 통계를 확인 없이 리포트에 사용했다”고 답했고, 그 중 42%가 실제로 잘못된 정보였다. ChatGPT가 제시한 출처를 확인한 학생은 23%에 불과했다.</p>
+<p>AI 출력을 검증하는 핵심 원칙은 다음과 같다:</p>
+<p><strong>1. 출처 확인</strong> - AI가 제시한 논문, 통계, 뉴스를 직접 검색 - DOI, URL, 출판사 등을 확인 - Google Scholar, PubMed로 학술 논문 검증</p>
+<p><strong>2. 교차 검증</strong> - 여러 AI 모델에 같은 질문 (ChatGPT, Claude, Perplexity) - 전문 데이터베이스와 대조 (통계청, 공공 데이터 포털) - 도메인 전문가에게 확인</p>
+<p><strong>3. 비판적 사고</strong> - “이 정보가 너무 완벽하지 않은가?” - “왜 이런 결론이 나왔는가?” - “반대 증거는 없는가?”</p>
+<p><strong>4. RAG 활용</strong> - Perplexity, Bing Chat 같은 RAG 기반 도구 사용 - 출처가 명시된 답변 우선 활용 - 원본 문서로 직접 이동하여 맥락 확인</p>
+</section>
+<section id="데이터-분석에서의-환각" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="데이터-분석에서의-환각"><span class="header-section-number">4.1.3</span> 데이터 분석에서의 환각</h3>
+<p>데이터 과학자에게 환각은 특히 위험하다. 2024년 MIT 연구는 ChatGPT에게 “Python으로 시계열 분석 코드 작성”을 요청했을 때, 25%의 경우 존재하지 않는 라이브러리 함수를 사용했다고 보고했다<span class="citation" data-cites="mit2024codehallucination">(<a href="references.html#ref-mit2024codehallucination" role="doc-biblioref"><strong>mit2024codehallucination?</strong></a>)</span>. <code>statsmodels.tsa.arima.fit_missing()</code>처럼 실제로는 없는 함수를 자신있게 제시한 것이다.</p>
+<p><strong>권장 실무 원칙:</strong></p>
+<ul>
+<li><strong>코드 검증</strong>: AI 생성 코드를 항상 테스트 환경에서 실행</li>
+<li><strong>문서 확인</strong>: 공식 문서에서 함수와 파라미터 재확인</li>
+<li><strong>데이터 검증</strong>: AI가 제시한 통계를 원본 데이터로 재계산</li>
+<li><strong>해석 검증</strong>: AI의 분석 해석을 도메인 지식과 대조</li>
+</ul>
+<p>AI는 강력한 보조 도구지만, <strong>최종 판단과 책임은 분석가에게</strong> 있다.</p>
+</section>
+</section>
+<section id="ai-편향과-공정성" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="ai-편향과-공정성"><span class="header-section-number">4.2</span> AI 편향과 공정성</h2>
+<p>AI 편향은 데이터, 알고리즘, 사용자라는 세 가지 경로를 통해 시스템에 누적된다. 2019년 Amazon이 10년간 개발한 AI 채용 시스템을 폐기한 이유가 바로 이러한 편향 때문이었다. 과거 채용 데이터(대부분 남성 기술직)로 학습한 AI는 “여성”이라는 단어가 포함된 이력서를 낮게 평가했다<span class="citation" data-cites="reuters2018amazon">(<a href="references.html#ref-reuters2018amazon" role="doc-biblioref"><strong>reuters2018amazon?</strong></a>)</span>. 편향은 단순한 기술 문제가 아니라 사회적 불평등을 재생산하는 구조적 문제다.</p>
+<div id="fig-bias" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/basic_ethics_bias_sources.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="그림&nbsp;4.2: AI 편향의 3가지 발생 경로와 완화 기법"><img src="images/basic_ethics_bias_sources.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;4.2: AI 편향의 3가지 발생 경로와 완화 기법
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-bias" class="quarto-xref">그림&nbsp;<span>4.2</span></a> 는 AI 편향의 전체 메커니즘을 보여준다. 상단은 3가지 편향 발생 경로다. 데이터 편향(학습 데이터가 특정 그룹 과소/과대 대표, 역사적 차별 반영), 알고리즘 편향(모델 설계 자체가 특정 결과 선호, 최적화 목표 편향), 사용자 편향(프롬프트 편견, 결과 해석 편향)이 AI 시스템으로 수렴되어 누적된다. 중앙은 산업별 실제 사례다. 금융(Apple Card 성차별, COMPAS 알고리즘 인종 편향), 의료(피부암 진단 AI 흑인 환자 정확도 낮음), 채용(Amazon AI “여성” 단어 낮게 평가), 유통(가격 차별, 저소득층 저품질 옵션 집중)이다. 오른쪽은 편향 완화 3단계 접근을 보여준다. 전처리(민감 속성 제거, 데이터 재가중치) → 학습 중(공정성 제약 추가) → 후처리(결과 조정, 격차 해소)를 거쳐 공정한 AI를 만든다. 하단은 공정성 측정 지표(Demographic Parity, Equalized Odds, Calibration)와 인간 검토 체계(Human-in-the-Loop, 정기 감사)를 보여준다.</p>
+<section id="편향의-근원" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="편향의-근원"><span class="header-section-number">4.2.1</span> 편향의 근원</h3>
+<p>AI 편향은 세 가지 경로로 발생한다:</p>
+<p><strong>1. 데이터 편향</strong> - 학습 데이터가 특정 그룹을 과소/과대 대표 - 역사적 차별이 데이터에 반영 (채용, 대출, 의료) - 예: 의료 AI가 백인 환자 데이터로만 학습</p>
+<p><strong>2. 알고리즘 편향</strong> - 모델 설계 자체가 특정 결과 선호 - 최적화 목표가 공정성을 고려하지 않음 - 예: 광고 알고리즘이 고소득층에만 표시</p>
+<p><strong>3. 사용자 편향</strong> - 프롬프트 작성자의 편견이 반영 - 결과 해석 과정에서 확증 편향 - 예: “유능한 CEO의 특징”이라는 질문 자체가 편향 유발</p>
+</section>
+<section id="실제-편향-사례" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="실제-편향-사례"><span class="header-section-number">4.2.2</span> 실제 편향 사례</h3>
+<p><strong>금융: 대출 심사</strong> - 2021년 Apple Card 성차별 논란: 같은 신용점수여도 여성에게 낮은 한도<span class="citation" data-cites="dhh2019applecard">(<a href="references.html#ref-dhh2019applecard" role="doc-biblioref"><strong>dhh2019applecard?</strong></a>)</span> - 2016년 ProPublica 조사: COMPAS 알고리즘이 흑인 피고인을 백인보다 2배 높은 재범 위험으로 잘못 분류<span class="citation" data-cites="propublica2016compas">(<a href="references.html#ref-propublica2016compas" role="doc-biblioref"><strong>propublica2016compas?</strong></a>)</span> - FICO 점수 예측 모델이 소수 인종에게 불리 - 우편번호 기반 리스크 평가가 지역 차별 초래</p>
+<p><strong>의료: 진단 시스템</strong> - MIT 2020년 연구: 피부암 진단 AI가 흑인 환자에서 정확도 낮음<span class="citation" data-cites="mit2020skinbias">(<a href="references.html#ref-mit2020skinbias" role="doc-biblioref"><strong>mit2020skinbias?</strong></a>)</span> - 학습 데이터 대부분이 백인 피부 이미지 - 2019년 연구: 의료 비용 예측 AI가 흑인 환자를 과소평가하여 필요한 치료 접근 기회 박탈 - 결과: 조기 진단 기회 불평등 및 건강 격차 심화</p>
+<p><strong>채용: 이력서 스크리닝</strong> - 이름, 학력, 경력 패턴에서 성별/인종 추론 - “전통적” 경력 경로 선호 → 경력 단절자 불리 - 특정 대학 출신 과대 평가</p>
+<p><strong>유통: 개인화 추천</strong> - 가격 차별: 같은 상품을 다른 가격으로 표시 - 고소득 지역에 프리미엄 상품만 추천 - 저소득층에 저품질 옵션 집중 노출</p>
+</section>
+<section id="공정성을-위한-원칙" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="공정성을-위한-원칙"><span class="header-section-number">4.2.3</span> 공정성을 위한 원칙</h3>
+<p><strong>1. 데이터 다양성 확보</strong> - 다양한 인구통계학적 그룹 포함 - 소수 집단 과소 표집 보정 - 데이터 수집 과정의 투명성</p>
+<p><strong>2. 공정성 지표 측정</strong> - 그룹별 정확도 비교 (Demographic Parity) - 거짓 양성률/거짓 음성률 균등 (Equalized Odds) - 예측 공정성 (Calibration)</p>
+<p><strong>3. 편향 완화 기법</strong> - 전처리: 민감 속성 제거 또는 재가중치 - 학습 중: 공정성 제약 조건 추가 - 후처리: 결과 조정을 통한 격차 해소</p>
+<p><strong>4. 인간 검토와 책임</strong> - 고위험 결정(채용, 대출, 의료)에 인간 최종 승인 - 편향 모니터링 대시보드 운영 - 정기적인 공정성 감사</p>
+<p>데이터 과학자는 <strong>기술적 정확도</strong>뿐 아니라 <strong>사회적 공정성</strong>도 책임져야 한다.</p>
+</section>
+</section>
+<section id="데이터-프라이버시" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="데이터-프라이버시"><span class="header-section-number">4.3</span> 데이터 프라이버시</h2>
+<p>AI가 편리할수록 민감 정보 유출 위험도 커진다. 2023년 삼성전자는 직원들의 ChatGPT 사용을 제한했다. 한 직원이 반도체 설비 측정 데이터를 입력했고, 다른 직원은 회의록을 요약 요청했다. 이 모든 정보는 OpenAI 서버에 저장되어 모델 학습에 사용될 수 있었다<span class="citation" data-cites="bloomberg2023samsung">(<a href="references.html#ref-bloomberg2023samsung" role="doc-biblioref"><strong>bloomberg2023samsung?</strong></a>)</span>. Apple, JP Morgan, 아마존도 유사한 조치를 취했다. 개인정보 보호는 AI 시대 가장 중요한 윤리적 과제 중 하나다.</p>
+<div id="fig-privacy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-privacy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/basic_ethics_privacy_risks.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="그림&nbsp;4.3: AI 개인정보 보호 3가지 위험 지점과 대응 전략"><img src="images/basic_ethics_privacy_risks.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-privacy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;4.3: AI 개인정보 보호 3가지 위험 지점과 대응 전략
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-privacy" class="quarto-xref">그림&nbsp;<span>4.3</span></a> 는 AI 프라이버시 위험의 전체 지형을 보여준다. 상단 타임라인은 3가지 위험 지점을 시간 순서로 나타낸다. 과거(학습 데이터 포함): ChatGPT는 2021년 9월 이전 인터넷 데이터로 학습, 공개 게시물/SNS/블로그가 AI 답변에 등장 가능. 현재(프롬프트 저장): 모든 대화가 서버 저장, 품질 개선 목적 활용, 옵트아웃 가능하나 기본값은 저장. 미래(모델 역공학): 특정 프롬프트로 학습 데이터 복원, GPT-3에서 이메일/전화번호 추출 성공(비용 $200). 중앙은 실제 사례(삼성전자 사용 제한, GPT-3 데이터 추출 연구, 유통 고객 데이터)를 보여준다. 오른쪽은 규제 프레임워크 비교다. GDPR(2018, 유럽, 강도 ★★★★★), CCPA(2020, 미국, 강도 ★★★☆☆), AI Act(2024, 유럽, 강도 ★★★★★), 한국 개인정보보호법(2023, 강도 ★★★☆☆)의 핵심 차이를 보여준다. 하단은 실무 권장사항 6원칙(데이터 최소화, 익명화/가명화, 접근 제어, 암호화, 정기 감사, 사용자 동의)을 제시한다.</p>
+<section id="개인정보-보호의-딜레마" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="개인정보-보호의-딜레마"><span class="header-section-number">4.3.1</span> 개인정보 보호의 딜레마</h3>
+<p>AI와 개인정보 보호의 핵심 이슈는 세 가지다:</p>
+<p><strong>1. 학습 데이터 포함</strong> - ChatGPT는 2021년 9월까지의 인터넷 데이터로 학습 - 공개 게시물, SNS, 블로그 등 포함 - 본인이 과거에 올린 정보가 AI 답변에 등장 가능</p>
+<p><strong>2. 프롬프트 저장</strong> - 사용자가 입력한 모든 대화가 서버에 저장 - OpenAI, Anthropic 등은 품질 개선 목적으로 활용 - 옵트아웃 가능하나 기본값은 저장</p>
+<p><strong>3. 모델 역공학</strong> - 특정 프롬프트로 학습 데이터 복원 가능성 - 2023년 연구: GPT-3에서 이메일 주소, 전화번호 추출<span class="citation" data-cites="carlini2023extracting">(<a href="references.html#ref-carlini2023extracting" role="doc-biblioref"><strong>carlini2023extracting?</strong></a>)</span> - 연구자들이 단 $200 비용으로 수천 개의 개인정보 추출 성공</p>
+</section>
+<section id="주요-규제-프레임워크" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="주요-규제-프레임워크"><span class="header-section-number">4.3.2</span> 주요 규제 프레임워크</h3>
+<p><strong>GDPR (유럽 개인정보보호법, 2018년)</strong> - “잊힐 권리”: 개인 데이터 삭제 요구 가능 - AI 자동 결정에 대한 설명 요구권 - 위반 시 최대 2천만 유로 또는 연매출 4% 벌금</p>
+<p><strong>CCPA (캘리포니아 소비자 프라이버시법, 2020년)</strong> - 수집된 개인정보 열람 권리 - 판매 중지 요청 권리 - 차별 금지 (정보 제공 거부 시 서비스 거부 불가)</p>
+<p><strong>AI Act (유럽 AI 규제법, 2024년)</strong> - 고위험 AI 시스템 사전 평가 의무 - 생성형 AI는 학습 데이터 출처 공개 필수 - 투명성과 설명가능성 요구</p>
+<p><strong>한국 개인정보보호법 (개정, 2023년)</strong> - 가명 정보 활용 범위 확대 - AI 학습 목적 데이터 활용 가이드라인 - 자동화된 결정에 대한 설명 요구권</p>
+</section>
+<section id="유통-데이터-활용-시-주의사항" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="유통-데이터-활용-시-주의사항"><span class="header-section-number">4.3.3</span> 유통 데이터 활용 시 주의사항</h3>
+<p>유통업에서 AI를 활용할 때 특히 조심해야 할 개인정보:</p>
+<p><strong>고객 데이터</strong> - 구매 이력, 결제 정보, 배송 주소 - 추천 시스템 학습 시 개인 식별 정보 제거 (De-identification) - 가명 처리 후 통계 분석</p>
+<p><strong>직원 데이터</strong> - 근태, 성과, 급여 정보 - HR AI 시스템 도입 시 동의 절차 필수 - 평가 알고리즘의 투명성 확보</p>
+<p><strong>협력사 데이터</strong> - 거래 내역, 계약 조건 - 제3자 데이터 공유 시 명시적 동의 - 계약서에 AI 활용 조항 포함</p>
+<p><strong>실무 권장사항:</strong></p>
+<ol type="1">
+<li><strong>데이터 최소화</strong>: 필요한 최소한의 정보만 수집</li>
+<li><strong>익명화/가명화</strong>: 개인 식별 불가능하게 변환</li>
+<li><strong>접근 제어</strong>: 역할 기반 권한 관리 (RBAC)</li>
+<li><strong>암호화</strong>: 저장 및 전송 시 암호화</li>
+<li><strong>정기 감사</strong>: 개인정보 처리 내역 점검</li>
+<li><strong>사용자 동의</strong>: AI 활용 목적 명확히 고지</li>
+</ol>
+</section>
+</section>
+<section id="프롬프트-윤리" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="프롬프트-윤리"><span class="header-section-number">4.4</span> 프롬프트 윤리</h2>
+<section id="저작권-이슈" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="저작권-이슈"><span class="header-section-number">4.4.1</span> 저작권 이슈</h3>
+<p>2023년 1월, Getty Images는 Stability AI를 저작권 침해로 고소했다. Stable Diffusion이 Getty의 워터마크가 있는 수백만 장의 이미지로 무단 학습했다는 이유였다<span class="citation" data-cites="getty2023lawsuit">(<a href="references.html#ref-getty2023lawsuit" role="doc-biblioref"><strong>getty2023lawsuit?</strong></a>)</span>. 2024년 현재도 소송이 진행 중이며, AI 생성물의 저작권은 여전히 법적 회색지대다.</p>
+<p><strong>핵심 쟁점:</strong></p>
+<p><strong>1. 학습 데이터 저작권</strong> - AI가 저작물로 학습하는 것이 “공정 이용”인가? - OpenAI: “변형적 사용”이라 주장 - 작가/예술가: “대규모 도용”이라 반박</p>
+<p><strong>2. 생성물 저작권</strong> - AI가 만든 콘텐츠의 저작권은 누구에게? - 미국 저작권청(USCO): “인간의 창작성 없으면 저작권 인정 안 됨”<span class="citation" data-cites="usco2023ai">(<a href="references.html#ref-usco2023ai" role="doc-biblioref"><strong>usco2023ai?</strong></a>)</span> - 프롬프트 작성자? AI 회사? 아무도 없음?</p>
+<p><strong>3. 표절과 유사성</strong> - AI가 학습한 특정 작품과 유사한 결과 생성 시? - Midjourney가 특정 화가 스타일 모방 논란 - “Greg Rutkowski 스타일로”라는 프롬프트가 화가 본인 작품보다 많이 검색</p>
+<p><strong>실무 가이드라인:</strong></p>
+<ul>
+<li><strong>출처 명시</strong>: AI 생성물 사용 시 명확히 표시</li>
+<li><strong>상업적 사용 주의</strong>: 라이선스 확인 (일부 AI 도구는 상업 이용 제한)</li>
+<li><strong>원작자 존중</strong>: 특정 작가 스타일 모방 최소화</li>
+<li><strong>인간 기여도</strong>: AI 출력을 그대로 사용하지 말고 편집/검토</li>
+</ul>
+</section>
+<section id="악용-방지" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="악용-방지"><span class="header-section-number">4.4.2</span> 악용 방지</h3>
+<p><strong>딥페이크와 허위정보</strong></p>
+<p>2024년 미국 대선 기간, AI 생성 가짜 음성으로 후보자 발언을 조작한 영상이 확산됐다. 2024년 1월에는 조 바이든 대통령의 가짜 음성이 뉴햄프셔 주 유권자들에게 “투표하지 말라”는 로보콜로 전달되었다. 2023년 한국에서도 AI 음성으로 만든 보이스피싱 피해가 급증했다<span class="citation" data-cites="kisa2023deepfake">(<a href="references.html#ref-kisa2023deepfake" role="doc-biblioref"><strong>kisa2023deepfake?</strong></a>)</span>. 2022년 홍콩에서는 딥페이크 영상통화로 CEO를 사칭한 사기범이 3,500만 달러를 탈취했다.</p>
+<p><strong>악용 사례:</strong> - 정치인 가짜 영상/음성 - 유명인 얼굴 합성 (딥페이크 포르노) - 보이스피싱 (가족 목소리 모방) - 가짜 뉴스 대량 생성</p>
+<p><strong>AI 기업의 대응:</strong> - OpenAI: 유해 프롬프트 차단 (폭력, 불법, 성적 콘텐츠) - Anthropic: Constitutional AI로 안전성 강화 - 워터마크: AI 생성물에 메타데이터 삽입 - Google DeepMind: SynthID 워터마크 기술로 AI 생성 이미지 및 오디오 식별</p>
+<p><strong>개인의 책임:</strong> - <strong>비판적 소비</strong>: AI 생성 가능성 항상 염두 - <strong>출처 확인</strong>: 뉴스, 통계의 1차 출처 검증 - <strong>악용 거부</strong>: 허위정보 생성 프롬프트 자제</p>
+<p><strong>책임 있는 프롬프트 작성</strong></p>
+<p>다음과 같은 프롬프트는 피해야 한다:</p>
+<p>❌ “유명인 X의 스캔들 기사 작성해줘” ❌ “Y 경쟁사를 비난하는 가짜 리뷰 100개 만들어줘” ❌ “Z의 목소리로 거짓말하는 음성 생성해줘”</p>
+<p>대신 이렇게 사용한다:</p>
+<p>✅ “우리 제품의 정직한 리뷰 작성 가이드라인 만들어줘” ✅ “경쟁 분석 시 객관적으로 비교하는 방법 알려줘” ✅ “AI 생성 콘텐츠를 명확히 표시하는 방법은?”</p>
+</section>
+</section>
+<section id="ai-시대-윤리적-원칙" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="ai-시대-윤리적-원칙"><span class="header-section-number">4.5</span> AI 시대 윤리적 원칙</h2>
+<p>AI는 인간을 위한 도구다. 투명성, 설명가능성, 책임성이라는 세 가지 핵심 원칙이 순환하며 강화될 때, AI는 비로소 신뢰할 수 있는 시스템이 된다. 2018년 COMPAS 재범 예측 시스템이 흑인 피고인을 백인보다 높은 재범 위험으로 판정했지만, 알고리즘이 블랙박스라 이유를 알 수 없었다<span class="citation" data-cites="propublica2016compas">(<a href="references.html#ref-propublica2016compas" role="doc-biblioref"><strong>propublica2016compas?</strong></a>)</span>. 이 사건은 AI 윤리 원칙의 필요성을 일깨웠다.</p>
+<div id="fig-framework" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-framework-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/basic_ethics_responsible_ai_framework.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="그림&nbsp;4.4: 책임 있는 AI 프레임워크와 실무 적용"><img src="images/basic_ethics_responsible_ai_framework.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-framework-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;4.4: 책임 있는 AI 프레임워크와 실무 적용
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-framework" class="quarto-xref">그림&nbsp;<span>4.4</span></a> 는 책임 있는 AI의 전체 체계를 보여준다. 왼쪽 상단은 핵심 3원칙 순환 구조다. 투명성(무엇을 하는지 알 권리, 데이터 출처 공개) → 설명가능성(왜 그런 결정인지 설명, SHAP/LIME 활용) → 책임성(누가 책임질지 명확히, Human-in-the-Loop) → 다시 투명성으로 이어지는 순환이 책임 있는 AI를 만든다. 중앙은 AI 생애주기 단계별 체크포인트다. 개발 단계(학습 데이터 출처/편향 확인, 공정성 테스트, 개인정보 보호, 설명가능성 도구), 배포 단계(AI 사용 사실 고지, 인간 최종 결정, 오류 대응 절차, 피드백 수집), 운영 단계(정기 모니터링, 불만 처리, 윤리 이슈 대응, 이해관계자 소통)를 보여준다. 오른쪽 상단은 주요 국제 가이드라인(IEEE Ethically Aligned, OECD AI 원칙, EU AI 윤리)을 비교한다. 중앙은 데이터 분석 실무 적용 방법(AI 제안+분석가 판단, 다양한 모델 비교, 이상치 인간 검토, 결과 해석 공유, 지속적 모니터링, 윤리 위원회)을 제시하고, 하단은 윤리적 의사결정 사례(자율주행 트롤리 딜레마, 채용 AI 공정성 vs 정확성, 개인화 추천 필터 버블)를 보여준다.</p>
+<section id="투명성-설명가능성-책임성" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="투명성-설명가능성-책임성"><span class="header-section-number">4.5.1</span> 투명성, 설명가능성, 책임성</h3>
+<p><strong>투명성(Transparency)</strong> - AI 시스템이 무엇을 하는지 사용자가 알 권리 - 어떤 데이터로 학습했는지 공개 - 어떤 목적으로 사용되는지 명시</p>
+<p><strong>예시:</strong> - “이 채용 AI는 지난 5년간 채용된 직원 이력서 3만 건으로 학습했습니다” - “고객 추천 시스템은 구매 이력과 검색 기록을 사용합니다”</p>
+<p><strong>설명가능성(Explainability)</strong> - AI가 <strong>왜</strong> 그런 결정을 내렸는지 설명 - SHAP, LIME 같은 해석 도구 활용 - 비전문가도 이해할 수 있는 설명</p>
+<p><strong>예시:</strong> - “대출 거절 이유: 신용 점수(40%), 부채 비율(35%), 고용 안정성(25%)” - “이 제품 추천 이유: 과거 유사 상품 구매 3회, 검색 이력 5회”</p>
+<p><strong>책임성(Accountability)</strong> - AI 오류 발생 시 <strong>누가</strong> 책임질지 명확히 - 인간 감독자 지정 (Human-in-the-Loop) - 피해 발생 시 구제 절차</p>
+<p><strong>예시:</strong> - “AI 추천이지만 최종 결정은 담당자 김철수가 승인합니다” - “AI 오류로 인한 피해는 고객센터 02-1234-5678로 신고 가능합니다”</p>
+</section>
+<section id="인간-중심-ai-설계" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="인간-중심-ai-설계"><span class="header-section-number">4.5.2</span> 인간 중심 AI 설계</h3>
+<p>AI는 인간을 대체하는 것이 아니라, <strong>인간을 보조하고 역량을 강화</strong>하는 도구여야 한다. 이것이 “Human-Centered AI”의 핵심이다.</p>
+<p><strong>설계 원칙:</strong></p>
+<p><strong>1. 인간이 통제권 유지</strong> - AI는 제안, 인간이 최종 결정 - “자동화”보다 “증강(Augmentation)” - 언제든 개입/중단 가능</p>
+<p><strong>2. 다양성 존중</strong> - 한 가지 “최적해”가 아닌 여러 선택지 제시 - 문화적 차이, 개인 선호 반영 - 소수자 배제하지 않는 포용적 설계</p>
+<p><strong>3. 신뢰 구축</strong> - 일관성 있는 성능 - 오류 인정하고 개선 - 사용자 피드백 적극 수용</p>
+<p><strong>4. 부작용 최소화</strong> - AI 도입으로 인한 일자리 변화 대비 - 교육/재교육 프로그램 제공 - 사회적 약자 보호 장치</p>
+<p><strong>데이터 분석에서의 적용:</strong></p>
+<ul>
+<li><strong>AI 제안 + 분석가 판단</strong>: AI가 패턴 제시 → 분석가가 도메인 지식으로 검증</li>
+<li><strong>다양한 모델 비교</strong>: 단일 알고리즘 의존 말고 앙상블</li>
+<li><strong>이상치 인간 검토</strong>: 자동 제거 말고 분석가가 확인</li>
+<li><strong>결과 해석 공유</strong>: 이해관계자가 납득할 수 있는 스토리텔링</li>
+</ul>
+</section>
+<section id="윤리적-딜레마-사례-연구" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="윤리적-딜레마-사례-연구"><span class="header-section-number">4.5.3</span> 윤리적 딜레마 사례 연구</h3>
+<p>AI 윤리는 이론이 아니라 실제 의사결정이다. 자율주행차는 승객과 보행자 중 누구를 보호할 것인가? 채용 AI는 정확도와 공정성 중 무엇을 우선할 것인가? 개인화 추천은 단기 매출과 장기 다양성 중 어디에 무게를 둘 것인가? 이러한 딜레마는 단일 정답이 없으며, 투명한 원칙 공개와 이해관계자 참여가 필수다.</p>
+<div id="fig-dilemma" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dilemma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/basic_ethics_dilemma_cases.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="그림&nbsp;4.5: AI 윤리적 딜레마 의사결정 트리"><img src="images/basic_ethics_dilemma_cases.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dilemma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;4.5: AI 윤리적 딜레마 의사결정 트리
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-dilemma" class="quarto-xref">그림&nbsp;<span>4.5</span></a> 는 3가지 대표적 윤리 딜레마의 의사결정 구조를 보여준다. 왼쪽은 자율주행 트롤리 딜레마다. 피할 수 없는 사고 발생 시 승객 우선/보행자 우선/젊은이 우선 중 선택해야 한다. MIT Moral Machine은 233개국 4천만 명을 조사했고, 문화권마다 다른 선호를 발견했다(서양은 젊은이 우선, 동양은 법규 준수 우선). 교훈은 단일 정답 없음, 투명한 원칙 공개와 사회적 합의 필요다. 중앙은 채용 AI 공정성 vs 정확성 딜레마다. 정확도 높지만 여성 합격률 10% 낮은 상황에서 정확도 우선(성과 예측력, but 성별 차별) 또는 공정성 우선(성별 격차 해소, but 정확도 하락) 중 선택해야 한다. 교훈은 트레이드오프 인정, 우선순위 명확히+이해관계자 협의다. 오른쪽은 개인화 추천 필터 버블 딜레마다. 매출 20% 증가했지만 다양성 감소 시 단기 매출 극대화(전환율 최적화, but 장기 성장 제한) 또는 장기 다양성 확보(탐색 요소 추가, but 단기 매출 감소) 또는 균형 접근(80% 개인화 + 20% 탐색, 지속 가능 성장) 중 선택한다. 교훈은 Exploration vs Exploitation 균형이다. 하단은 공통 의사결정 프레임워크 6단계(이해관계자 식별 → 가치 충돌 분석 → 대안 평가 → 투명한 결정 → 지속 모니터링 → 피드백 반영)와 핵심 교훈 3가지(단일 정답 없음, 트레이드오프 인정, 투명성과 참여)를 제시한다.</p>
+<p><strong>사례 1: 자율주행차의 트롤리 딜레마</strong></p>
+<p>자율주행차가 피할 수 없는 사고 상황에서 누구를 우선 보호할 것인가? MIT의 Moral Machine 프로젝트는 전 세계 233개국, 4천만 명에게 물었다<span class="citation" data-cites="awad2018moral">(<a href="references.html#ref-awad2018moral" role="doc-biblioref"><strong>awad2018moral?</strong></a>)</span>. 결과는 문화권마다 달랐다. 서양은 “젊은이 우선”, 동양은 “법규 준수 우선”을 선택하는 경향이 높았다. 또한 대부분의 문화권에서 인간을 동물보다, 젊은이를 노인보다 우선시했지만, 그 정도는 문화에 따라 크게 달랐다.</p>
+<p><strong>교훈</strong>: 단일 정답 없음. 투명하게 원칙 공개하고 사회적 합의 필요.</p>
+<p><strong>사례 2: 채용 AI의 공정성 vs.&nbsp;정확성</strong></p>
+<p>어느 회사가 채용 AI를 개발했다. 정확도는 높지만 여성 합격률이 남성보다 10% 낮았다. 공정성을 높이려 보정하니 정확도가 떨어졌다. 어느 쪽을 선택할 것인가?</p>
+<p><strong>교훈</strong>: 공정성과 성능은 트레이드오프. 우선순위를 명확히 하고 이해관계자와 협의.</p>
+<p><strong>사례 3: 개인화 추천의 필터 버블</strong></p>
+<p>유통 플랫폼이 AI로 개인화 추천을 강화하자 매출이 20% 증가했다. 하지만 고객들이 같은 상품만 반복 구매하고, 새로운 카테고리는 탐색하지 않는 “필터 버블” 현상이 나타났다.</p>
+<p><strong>교훈</strong>: 단기 성과와 장기 다양성 균형. 추천에 “탐색(Exploration)” 요소 포함.</p>
+</section>
+</section>
+<section id="ai-윤리-가이드라인-프레임워크" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="ai-윤리-가이드라인-프레임워크"><span class="header-section-number">4.6</span> AI 윤리 가이드라인 프레임워크</h2>
+<section id="주요-국제-가이드라인" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="주요-국제-가이드라인"><span class="header-section-number">4.6.1</span> 주요 국제 가이드라인</h3>
+<p><strong>IEEE의 Ethically Aligned Design</strong> - 인간 권리 존중 (Human Rights) - 웰빙 우선 (Well-being) - 데이터 에이전시 (Data Agency) - 효과성 (Effectiveness) - 투명성 (Transparency)</p>
+<p><strong>OECD AI 원칙 (2019)</strong> - 포용적 성장과 지속 가능한 발전 - 인간 중심 가치와 공정성 - 투명성과 설명가능성 - 견고성, 보안, 안전성 - 책임성</p>
+<p><strong>유럽연합 AI 윤리 가이드라인</strong> - 인간 에이전시와 감독 - 기술적 견고성과 안전성 - 프라이버시와 데이터 거버넌스 - 투명성 - 다양성, 비차별, 공정성 - 사회적 및 환경적 웰빙 - 책임성</p>
+</section>
+<section id="책임-있는-ai-사용을-위한-체크리스트" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="책임-있는-ai-사용을-위한-체크리스트"><span class="header-section-number">4.6.2</span> 책임 있는 AI 사용을 위한 체크리스트</h3>
+<p>AI를 업무에 활용하기 전, 다음을 점검하라:</p>
+<p><strong>개발 단계</strong> - [ ] 학습 데이터의 출처와 편향 확인했는가? - [ ] 다양한 그룹에서 공정성 테스트했는가? - [ ] 개인정보 보호 원칙을 준수했는가? - [ ] 설명가능성 도구를 적용했는가?</p>
+<p><strong>배포 단계</strong> - [ ] 사용자에게 AI 사용 사실을 고지했는가? - [ ] 인간 검토자가 최종 결정을 내리는가? - [ ] 오류 발생 시 대응 절차가 있는가? - [ ] 피드백 수집 메커니즘이 있는가?</p>
+<p><strong>운영 단계</strong> - [ ] 정기적으로 성능과 공정성을 모니터링하는가? - [ ] 사용자 불만을 신속히 처리하는가? - [ ] 새로운 윤리 이슈에 대응할 준비가 되어 있는가? - [ ] 이해관계자와 지속적으로 소통하는가?</p>
+</section>
+</section>
+<section id="책임-있는-ai-사용의-필수-요소" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="책임-있는-ai-사용의-필수-요소"><span class="header-section-number">4.7</span> 책임 있는 AI 사용의 필수 요소</h2>
+<p>이 장에서 확인한 핵심은 명확하다. AI는 강력한 도구지만, 그 힘에는 책임이 따른다. 환각은 GPT-4도 15-20% 발생하므로 팩트체크가 필수다. 편향은 데이터, 알고리즘, 사용자라는 세 경로를 통해 시스템에 누적되므로 전처리, 학습 중 제약, 후처리 조정과 인간 검토가 필요하다. 개인정보는 학습 데이터 포함, 프롬프트 저장, 모델 역공학이라는 세 지점에서 위험에 노출되므로 데이터 최소화, 익명화, 암호화, 접근 제어가 기본이다. 프롬프트는 윤리적으로 작성해야 하며, 저작권과 악용 가능성을 항상 염두에 둬야 한다.</p>
+<p>역사는 중요한 교훈을 준다. 산업혁명이 물리적 생산을 자동화하며 새로운 윤리 문제(노동 착취, 환경 파괴)를 야기했듯, 인지혁명도 AI 윤리라는 새로운 과제를 제기한다. 하지만 차이가 있다. 산업혁명은 규제가 뒤따랐지만, AI 시대는 GDPR(2018), OECD AI 원칙(2019), EU AI Act(2024)처럼 기술과 규제가 동시에 진화하고 있다. 무엇보다 중요한 것은 <strong>AI는 인간을 위한 도구</strong>라는 점이다. 투명성, 설명가능성, 책임성이라는 세 원칙이 순환하며 강화될 때, 인간이 통제권을 유지하고, 다양성을 존중하며, 신뢰를 구축하는 AI가 가능하다. 윤리적 딜레마(트롤리 문제, 공정성 vs 정확성, 필터 버블)는 단일 정답이 없지만, 투명한 원칙 공개와 이해관계자 참여를 통해 사회적 합의를 도출할 수 있다.</p>
+<p>현재 우리는 AI 윤리의 초기 단계에 있다. 2023년 삼성전자가 ChatGPT 사용을 제한했고, 2024년 스탠포드 연구는 대학생 68%가 AI 통계를 확인 없이 사용한다고 보고했다. 윤리는 “나중에 생각할 문제”가 아니라, AI 프로젝트 시작부터 끝까지 함께 가야 할 핵심 원칙이다. 개발 단계(데이터 출처/편향 확인), 배포 단계(인간 최종 결정), 운영 단계(정기 모니터링)에서 체크리스트를 적용하고, 데이터 분석가는 기술적 정확도뿐 아니라 사회적 공정성도 책임져야 한다. 다음 장에서는 1부를 마무리하며, AI 시대를 어떻게 준비하고 평생 학습할 것인지, 2부 실습으로 어떻게 나아갈 것인지를 다룬다.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-openai2024gpt4" class="csl-entry" role="listitem">
+OpenAI. (2024). GPT-4 Technical Report. <em>arXiv preprint arXiv:2303.08774</em>. <a href="https://arxiv.org/abs/2303.08774">https://arxiv.org/abs/2303.08774</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "복사완료!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "복사완료!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./basic_job.html" class="pagination-link" aria-label="일자리">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">일자리</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./basic_future.html" class="pagination-link" aria-label="AI 시대 준비">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">AI 시대 준비</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-book"></i> <a href="https://quarto.org/">Quarto</a>로 제작<br> <i class="bi bi-palette"></i> <a href="https://r2bit.com/">R2bit</a> 디자인</p>
+</div>
+</div>   
+    <div class="nav-footer-center">
+<div style="text-align: center;">
+<p><img src="assets/favicon-32x32.png" alt="Logo" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> <strong>챗GPT AI</strong> | AI와 함께하는 데이터 과학 여행<br> <span style="font-size: 0.9em;">© 2025 <a href="mailto:admin@r2bit.com">한국 R 사용자회</a> | 이광춘 저</span></p>
+</div>
+</div>
+    <div class="nav-footer-right">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-github"></i> <a href="https://github.com/bit2r/gpt-ai">소스 코드</a><br> <i class="bi bi-bug"></i> <a href="https://github.com/bit2r/gpt-ai/issues">이슈 리포트</a></p>
+</div>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
