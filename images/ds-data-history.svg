@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 150 1400 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* 텍스트 스타일 */
+      .text-era-title { font-family: "Noto Sans KR", sans-serif; font-size: 22px; font-weight: bold; text-anchor: middle; }
+      .text-era-period { font-family: "Noto Sans KR", sans-serif; font-size: 16px; text-anchor: middle; }
+      .text-year { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: bold; }
+      .text-milestone { font-family: "Noto Sans KR", sans-serif; font-size: 15px; }
+      .text-description { font-family: "Noto Sans KR", sans-serif; font-size: 14px; fill: #6c757d; }
+      .text-characteristic-title { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .text-characteristic { font-family: "Noto Sans KR", sans-serif; font-size: 14px; fill: #212529; }
+    </style>
+
+    <!-- Era gradients - 프로젝트 색상 팔레트 적용 -->
+    <linearGradient id="era1Gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f4fd"/>
+      <stop offset="100%" stop-color="#b3d9f2"/>
+    </linearGradient>
+
+    <linearGradient id="era2Gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4edda"/>
+      <stop offset="100%" stop-color="#a8ddb5"/>
+    </linearGradient>
+
+    <linearGradient id="era3Gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff4e6"/>
+      <stop offset="100%" stop-color="#ffe0b2"/>
+    </linearGradient>
+
+    <linearGradient id="era4Gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fce4ec"/>
+      <stop offset="100%" stop-color="#f8bbd0"/>
+    </linearGradient>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto">
+      <polygon points="0 0, 12 4.5, 0 9" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="980" fill="#ffffff"/>
+
+  <!-- Era 1: Pre-Digital (3000 BCE - 1950s) -->
+  <g transform="translate(100, 180)">
+    <rect width="280" height="520" fill="url(#era1Gradient)" stroke="#1a5490" stroke-width="3" rx="10"/>
+    <text x="140" y="35" class="text-era-title" fill="#1a5490">디지털 이전 시대</text>
+    <text x="140" y="58" class="text-era-period" fill="#1a5490">기원전 3000년 - 1950년대</text>
+
+    <!-- Timeline points -->
+    <circle cx="30" cy="95" r="9" fill="#1a5490"/>
+    <text x="50" y="100" class="text-year" fill="#1a5490">기원전 3000년</text>
+    <text x="50" y="118" class="text-milestone" fill="#212529">점토판 (쐐기문자)</text>
+    <text x="50" y="135" class="text-description">최초의 기록 체계</text>
+
+    <circle cx="30" cy="170" r="9" fill="#1a5490"/>
+    <text x="50" y="175" class="text-year" fill="#1a5490">기원전 2000년</text>
+    <text x="50" y="193" class="text-milestone" fill="#212529">파피루스 두루마리</text>
+    <text x="50" y="210" class="text-description">휴대 가능한 저장 매체</text>
+
+    <circle cx="30" cy="245" r="9" fill="#1a5490"/>
+    <text x="50" y="250" class="text-year" fill="#1a5490">105년</text>
+    <text x="50" y="268" class="text-milestone" fill="#212529">종이 (한나라 채륜)</text>
+    <text x="50" y="285" class="text-description">종이 제조법 확립</text>
+
+    <circle cx="30" cy="320" r="9" fill="#1a5490"/>
+    <text x="50" y="325" class="text-year" fill="#1a5490">1450년</text>
+    <text x="50" y="343" class="text-milestone" fill="#212529">인쇄술</text>
+    <text x="50" y="360" class="text-description">대규모 데이터 복제</text>
+
+    <circle cx="30" cy="395" r="9" fill="#1a5490"/>
+    <text x="50" y="400" class="text-year" fill="#1a5490">1890년</text>
+    <text x="50" y="418" class="text-milestone" fill="#212529">홀러리스 천공카드</text>
+    <text x="50" y="435" class="text-description">기계 판독 가능 데이터</text>
+
+    <circle cx="30" cy="470" r="9" fill="#1a5490"/>
+    <text x="50" y="475" class="text-year" fill="#1a5490">1951년</text>
+    <text x="50" y="493" class="text-milestone" fill="#212529">자기 테이프 (UNIVAC I)</text>
+    <text x="50" y="510" class="text-description">자기 테이프 저장장치 도입</text>
+
+    <!-- Key Characteristics Box -->
+    <g transform="translate(0, -30)">
+      <rect x="15" y="560" width="250" height="120" fill="white" stroke="#2780e3" stroke-width="2" rx="5"/>
+      <text x="140" y="585" class="text-characteristic-title" fill="#1a5490">주요 특성</text>
+      <text x="25" y="607" class="text-characteristic">• 물리적 매체</text>
+      <text x="25" y="627" class="text-characteristic">• 수작업 처리</text>
+      <text x="25" y="647" class="text-characteristic">• 제한적 접근성</text>
+      <text x="25" y="667" class="text-characteristic">• 순차 저장</text>
+    </g>
+  </g>
+
+  <!-- Era 2: Early Digital (1960s - 1990s) -->
+  <g transform="translate(400, 180)">
+    <rect width="280" height="520" fill="url(#era2Gradient)" stroke="#28a745" stroke-width="3" rx="10"/>
+    <text x="140" y="35" class="text-era-title" fill="#1e7e34">초기 디지털 시대</text>
+    <text x="140" y="58" class="text-era-period" fill="#1e7e34">1960년대 - 1990년대</text>
+
+    <!-- Timeline points -->
+    <circle cx="30" cy="95" r="9" fill="#1e7e34"/>
+    <text x="50" y="100" class="text-year" fill="#1e7e34">1956년</text>
+    <text x="50" y="118" class="text-milestone" fill="#212529">하드 디스크 (IBM)</text>
+    <text x="50" y="135" class="text-description">5MB 용량</text>
+
+    <circle cx="30" cy="170" r="9" fill="#1e7e34"/>
+    <text x="50" y="175" class="text-year" fill="#1e7e34">1960년대</text>
+    <text x="50" y="193" class="text-milestone" fill="#212529">CODASYL 데이터베이스</text>
+    <text x="50" y="210" class="text-description">네트워크 및 계층형</text>
+
+    <circle cx="30" cy="245" r="9" fill="#1e7e34"/>
+    <text x="50" y="250" class="text-year" fill="#1e7e34">1970년</text>
+    <text x="50" y="268" class="text-milestone" fill="#212529">관계형 모델 (Codd)</text>
+    <text x="50" y="285" class="text-description">SQL 데이터베이스</text>
+
+    <circle cx="30" cy="320" r="9" fill="#1e7e34"/>
+    <text x="50" y="325" class="text-year" fill="#1e7e34">1979년</text>
+    <text x="50" y="343" class="text-milestone" fill="#212529">Oracle 데이터베이스</text>
+    <text x="50" y="360" class="text-description">상용 RDBMS</text>
+
+    <circle cx="30" cy="395" r="9" fill="#1e7e34"/>
+    <text x="50" y="400" class="text-year" fill="#1e7e34">1980년대</text>
+    <text x="50" y="418" class="text-milestone" fill="#212529">데이터 웨어하우징</text>
+    <text x="50" y="435" class="text-description">OLAP, 스타 스키마</text>
+
+    <circle cx="30" cy="470" r="9" fill="#1e7e34"/>
+    <text x="50" y="475" class="text-year" fill="#1e7e34">1990년대</text>
+    <text x="50" y="493" class="text-milestone" fill="#212529">엔터프라이즈 시스템</text>
+    <text x="50" y="510" class="text-description">ERP, CRM, BI 도구</text>
+
+    <!-- Key Characteristics Box -->
+    <g transform="translate(0, -30)">
+      <rect x="15" y="560" width="250" height="120" fill="white" stroke="#28a745" stroke-width="2" rx="5"/>
+      <text x="140" y="585" class="text-characteristic-title" fill="#1e7e34">주요 특성</text>
+      <text x="25" y="607" class="text-characteristic">• 정형 데이터 (RDBMS)</text>
+      <text x="25" y="627" class="text-characteristic">• ACID 트랜잭션</text>
+      <text x="25" y="647" class="text-characteristic">• 중앙 집중식 시스템</text>
+      <text x="25" y="667" class="text-characteristic">• 배치 처리</text>
+    </g>
+  </g>
+
+  <!-- Era 3: Big Data (2000s - 2010s) -->
+  <g transform="translate(700, 180)">
+    <rect width="280" height="520" fill="url(#era3Gradient)" stroke="#ffc107" stroke-width="3" rx="10"/>
+    <text x="140" y="35" class="text-era-title" fill="#f57c00">빅데이터 시대</text>
+    <text x="140" y="58" class="text-era-period" fill="#f57c00">2000년대 - 2010년대</text>
+
+    <!-- Timeline points -->
+    <circle cx="30" cy="95" r="9" fill="#f57c00"/>
+    <text x="50" y="100" class="text-year" fill="#f57c00">2003년</text>
+    <text x="50" y="118" class="text-milestone" fill="#212529">Google File System</text>
+    <text x="50" y="135" class="text-description">분산 저장</text>
+
+    <circle cx="30" cy="170" r="9" fill="#f57c00"/>
+    <text x="50" y="175" class="text-year" fill="#f57c00">2004년</text>
+    <text x="50" y="193" class="text-milestone" fill="#212529">MapReduce</text>
+    <text x="50" y="210" class="text-description">병렬 처리</text>
+
+    <circle cx="30" cy="245" r="9" fill="#f57c00"/>
+    <text x="50" y="250" class="text-year" fill="#f57c00">2006년</text>
+    <text x="50" y="268" class="text-milestone" fill="#212529">Hadoop</text>
+    <text x="50" y="285" class="text-description">오픈소스 빅데이터</text>
+
+    <circle cx="30" cy="320" r="9" fill="#f57c00"/>
+    <text x="50" y="325" class="text-year" fill="#f57c00">2009년</text>
+    <text x="50" y="343" class="text-milestone" fill="#212529">NoSQL 운동</text>
+    <text x="50" y="360" class="text-description">MongoDB, Cassandra</text>
+
+    <circle cx="30" cy="395" r="9" fill="#f57c00"/>
+    <text x="50" y="400" class="text-year" fill="#f57c00">2012년</text>
+    <text x="50" y="418" class="text-milestone" fill="#212529">클라우드 데이터 플랫폼</text>
+    <text x="50" y="435" class="text-description">AWS Redshift, BigQuery</text>
+
+    <circle cx="30" cy="470" r="9" fill="#f57c00"/>
+    <text x="50" y="475" class="text-year" fill="#f57c00">2014년</text>
+    <text x="50" y="493" class="text-milestone" fill="#212529">Apache Spark</text>
+    <text x="50" y="510" class="text-description">인메모리 처리</text>
+
+    <!-- Key Characteristics Box -->
+    <g transform="translate(0, -30)">
+      <rect x="15" y="560" width="250" height="120" fill="white" stroke="#ffc107" stroke-width="2" rx="5"/>
+      <text x="140" y="585" class="text-characteristic-title" fill="#f57c00">주요 특성</text>
+      <text x="25" y="607" class="text-characteristic">• 3V: 규모, 속도, 다양성</text>
+      <text x="25" y="627" class="text-characteristic">• 분산 컴퓨팅</text>
+      <text x="25" y="647" class="text-characteristic">• Schema-on-read</text>
+      <text x="25" y="667" class="text-characteristic">• 실시간 스트리밍</text>
+    </g>
+  </g>
+
+  <!-- Era 4: AI & Intelligence (2020s+) -->
+  <g transform="translate(1000, 180)">
+    <rect width="280" height="520" fill="url(#era4Gradient)" stroke="#dc3545" stroke-width="3" rx="10"/>
+    <text x="140" y="35" class="text-era-title" fill="#c82333">AI 지능 시대</text>
+    <text x="140" y="58" class="text-era-period" fill="#c82333">2020년대 - 현재</text>
+
+    <!-- Timeline points -->
+    <circle cx="30" cy="95" r="9" fill="#c82333"/>
+    <text x="50" y="100" class="text-year" fill="#c82333">2017년</text>
+    <text x="50" y="118" class="text-milestone" fill="#212529">트랜스포머 아키텍처</text>
+    <text x="50" y="135" class="text-description">LLM의 기반</text>
+
+    <circle cx="30" cy="170" r="9" fill="#c82333"/>
+    <text x="50" y="175" class="text-year" fill="#c82333">2020년</text>
+    <text x="50" y="193" class="text-milestone" fill="#212529">GPT-3 출시</text>
+    <text x="50" y="210" class="text-description">대규모 언어 모델</text>
+
+    <circle cx="30" cy="245" r="9" fill="#c82333"/>
+    <text x="50" y="250" class="text-year" fill="#c82333">2019년</text>
+    <text x="50" y="268" class="text-milestone" fill="#212529">벡터 데이터베이스</text>
+    <text x="50" y="285" class="text-description">Weaviate 오픈소스, Pinecone 설립</text>
+
+    <circle cx="30" cy="320" r="9" fill="#c82333"/>
+    <text x="50" y="325" class="text-year" fill="#c82333">2022년</text>
+    <text x="50" y="343" class="text-milestone" fill="#212529">ChatGPT 혁명</text>
+    <text x="50" y="360" class="text-description">대화형 AI</text>
+
+    <circle cx="30" cy="395" r="9" fill="#c82333"/>
+    <text x="50" y="400" class="text-year" fill="#c82333">2023년</text>
+    <text x="50" y="418" class="text-milestone" fill="#212529">멀티모달 AI</text>
+    <text x="50" y="435" class="text-description">GPT-4, Gemini, Claude</text>
+
+    <circle cx="30" cy="470" r="9" fill="#c82333"/>
+    <text x="50" y="475" class="text-year" fill="#c82333">2024-25년</text>
+    <text x="50" y="493" class="text-milestone" fill="#212529">에이전틱 AI</text>
+    <text x="50" y="510" class="text-description">자율 시스템</text>
+
+    <!-- Key Characteristics Box -->
+    <g transform="translate(0, -30)">
+      <rect x="15" y="560" width="250" height="120" fill="white" stroke="#dc3545" stroke-width="2" rx="5"/>
+      <text x="140" y="585" class="text-characteristic-title" fill="#c82333">주요 특성</text>
+      <text x="25" y="607" class="text-characteristic">• 비정형 데이터 처리</text>
+      <text x="25" y="627" class="text-characteristic">• 의미론적 이해</text>
+      <text x="25" y="647" class="text-characteristic">• 실시간 지능</text>
+      <text x="25" y="667" class="text-characteristic">• 자기학습 시스템</text>
+    </g>
+  </g>
+
+</svg>

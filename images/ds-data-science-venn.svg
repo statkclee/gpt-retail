@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .circle-stats { fill: #b3d9f2; fill-opacity: 0.6; stroke: #1a5490; stroke-width: 3; }
+      .circle-cs { fill: #d4edda; fill-opacity: 0.6; stroke: #28a745; stroke-width: 3; }
+      .circle-domain { fill: #e8f4fd; fill-opacity: 0.6; stroke: #17a2b8; stroke-width: 3; }
+      .text-main { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: 700; text-anchor: middle; fill: #212529; }
+      .text-label { font-family: "Noto Sans KR", sans-serif; font-size: 14px; text-anchor: middle; fill: #000; }
+      .text-small { font-family: "Noto Sans KR", sans-serif; font-size: 12px; text-anchor: middle; fill: #333; }
+      .text-center { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: 700; text-anchor: middle; fill: #1a5490; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" class="text-main">데이터 과학의 세 가지 핵심 영역</text>
+
+  <!-- Three circles forming Venn diagram -->
+  <!-- Top circle: Statistics & Math -->
+  <circle cx="400" cy="200" r="140" class="circle-stats"/>
+
+  <!-- Bottom left circle: Computer Science -->
+  <circle cx="300" cy="350" r="140" class="circle-cs"/>
+
+  <!-- Bottom right circle: Domain Expertise -->
+  <circle cx="500" cy="350" r="140" class="circle-domain"/>
+
+  <!-- Labels for each circle -->
+  <text x="400" y="100" class="text-label">통계 및 수학 지식</text>
+  <text x="400" y="120" class="text-small">(Statistics &amp; Math)</text>
+
+  <text x="180" y="420" class="text-label">컴퓨터 과학</text>
+  <text x="180" y="440" class="text-small">(Computer Science)</text>
+
+  <text x="620" y="420" class="text-label">도메인 전문성</text>
+  <text x="620" y="440" class="text-small">(Domain Expertise)</text>
+
+  <!-- Intersection labels -->
+  <!-- Stats + CS -->
+  <text x="320" y="240" class="text-small">머신러닝</text>
+
+  <!-- Stats + Domain -->
+  <text x="480" y="240" class="text-small">전통 연구</text>
+
+  <!-- CS + Domain -->
+  <text x="400" y="410" class="text-small">위험 지대</text>
+
+  <!-- Center: Data Science -->
+  <text x="400" y="285" class="text-center">데이터</text>
+  <text x="400" y="305" class="text-center">과학</text>
+
+  <!-- Annotations for each circle -->
+  <!-- Statistics -->
+  <text x="400" y="170" class="text-small">확률, 통계적 추론</text>
+  <text x="400" y="185" class="text-small">실험 설계</text>
+
+  <!-- Computer Science -->
+  <text x="240" y="355" class="text-small">프로그래밍</text>
+  <text x="240" y="370" class="text-small">알고리즘, 데이터베이스</text>
+
+  <!-- Domain Expertise -->
+  <text x="560" y="355" class="text-small">비즈니스 이해</text>
+  <text x="560" y="370" class="text-small">문제 정의</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 500)">
+    <text x="0" y="0" class="text-small" style="text-anchor: start;">Drew Conway (2010) 데이터 과학 벤 다이어그램</text>
+    <text x="0" y="20" class="text-small" style="text-anchor: start;">세 영역의 교차점에 진정한 데이터 과학이 존재</text>
+  </g>
+
+</svg>
