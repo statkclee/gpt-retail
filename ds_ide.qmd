@@ -2,59 +2,7 @@
 
 데이터 과학 분야에서 통합 개발 환경(IDE\index{IDE})의 선택은 생산성과 학습 효율성에 직접적인 영향을 미치는 중요한 결정이다. 1990년대 분리된 통계 소프트웨어 시대부터 현재의 AI 네이티브 IDE까지, 데이터 과학 도구들은 사용자의 요구와 기술 발전에 따라 지속적으로 진화해왔다. 본 장에서는 이러한 진화 과정을 역사적 관점에서 분석하고, 현재 진행 중인 IDE 전쟁의 양상을 살펴본 후, 차세대 AI 네이티브 IDE인 Positron\index{Positron}의 설계 철학과 실전 활용법을 다룬다.
 
-```{mermaid}
-%%| label: fig-ide-evolution-timeline
-%%| fig-cap: "데이터 과학 IDE 진화 타임라인"
-%%| fig-width: 7.5
-%%| fig-align: center
-timeline
-    title 데이터 과학 IDE 진화 역사
-    
-    section 분리된 생태계 시대
-        1968 : SPSS 출시
-             : GUI 기반 통계 패키지\index{패키지}
-        1976 : SAS 출시
-             : 엔터프라이즈 통계 시스템
-        1995 : R 언어 등장
-             : 오픈소스 통계 환경
-             : 명령줄 인터페이스만 제공
-        2000s : Eclipse, Visual Studio
-              : 전통적 소프트웨어 IDE
-              : 정보계/운영계 완전 분리
-    
-    section 통합 IDE 등장
-        2010 : RStudio\index{RStudio} 개발 시작
-             : J.J. Allaire 프로젝트 착수
-        2011 : RStudio Beta (v0.92)
-             : 4분할 인터페이스 혁신
-             : IPython Notebook 시작
-             : 노트북 패러다임 도입
-        2014 : Jupyter 프로젝트 독립
-             : 다중 언어 커널 지원
-        2015 : VS Code 출시
-             : Microsoft 오픈소스 에디터
-    
-    section AI 시대 전환
-        2017 : VS Code Python 확장 급성장
-             : 데이터 과학 영역 진출
-        2019 : VS Code Jupyter 확장
-             : 노트북 통합 지원
-        2021 : GitHub Copilot 프리뷰
-             : AI 코딩 어시스턴트 시대 개막
-        2022 : Copilot 정식 출시
-             : AI 지원 코딩 표준화
-    
-    section AI 네이티브 시대
-        2023 : Cursor 출시
-             : VS Code 포크 + AI 네이티브
-             : 자연어 코드 생성
-        2024 : Positron 공개 베타
-             : 차세대 데이터 과학 IDE
-             : Windsurf 출시
-             : Cascade AI 협업 시스템
-        2025 : AI IDE 경쟁 심화
-             : 패러다임 전환 가속화
-```
+![데이터 과학 IDE 진화 타임라인](images/ide-evolution-timeline.svg){#fig-ide-evolution-timeline fig-align="center"}
 
 ## IDE 진화 역사 {#sec-ide-evolution}
 

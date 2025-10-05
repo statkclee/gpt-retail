@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1600 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* 텍스트 스타일 */
+      .text-era-title { font-family: "Noto Sans KR", sans-serif; font-size: 22px; font-weight: bold; text-anchor: middle; fill: #212529; }
+      .text-era-period { font-family: "Noto Sans KR", sans-serif; font-size: 14px; text-anchor: middle; fill: #6c757d; }
+      .text-year { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: bold; fill: #1a5490; }
+      .text-event { font-family: "Noto Sans KR", sans-serif; font-size: 15px; fill: #212529; }
+      .text-desc { font-family: "Noto Sans KR", sans-serif; font-size: 14px; fill: #6c757d; }
+      .text-main-title { font-family: "Noto Sans KR", sans-serif; font-size: 26px; font-weight: bold; text-anchor: middle; fill: #1a5490; }
+    </style>
+
+    <!-- Era gradients (책 색상 팔레트) -->
+    <linearGradient id="era1Gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f4fd"/>
+      <stop offset="100%" stop-color="#b3d9f2"/>
+    </linearGradient>
+
+    <linearGradient id="era2Gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4edda"/>
+      <stop offset="100%" stop-color="#a8ddb5"/>
+    </linearGradient>
+
+    <linearGradient id="era3Gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff4e6"/>
+      <stop offset="100%" stop-color="#ffe0b2"/>
+    </linearGradient>
+
+    <linearGradient id="era4Gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d1ecf1"/>
+      <stop offset="100%" stop-color="#b3e5f0"/>
+    </linearGradient>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#6c757d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="800" fill="#ffffff"/>
+
+  <!-- Main title -->
+  <text x="800" y="40" class="text-main-title">데이터 과학 IDE 진화 역사</text>
+
+  <!-- Era 1: 분리된 생태계 시대 (1968-2000s) -->
+  <g transform="translate(50, 80)">
+    <rect width="350" height="660" fill="url(#era1Gradient)" stroke="#1a5490" stroke-width="3" rx="10"/>
+    <text x="175" y="35" class="text-era-title">분리된 생태계 시대</text>
+    <text x="175" y="58" class="text-era-period">1968 - 2000s</text>
+
+    <!-- 1968: SPSS -->
+    <circle cx="30" cy="110" r="8" fill="#1a5490"/>
+    <text x="50" y="115" class="text-year">1968</text>
+    <text x="50" y="135" class="text-event">SPSS 출시</text>
+    <text x="50" y="153" class="text-desc">GUI 기반 통계 패키지</text>
+
+    <!-- 1976: SAS -->
+    <circle cx="30" cy="200" r="8" fill="#1a5490"/>
+    <text x="50" y="205" class="text-year">1976</text>
+    <text x="50" y="225" class="text-event">SAS 출시</text>
+    <text x="50" y="243" class="text-desc">엔터프라이즈 통계 시스템</text>
+
+    <!-- 1995: R -->
+    <circle cx="30" cy="290" r="8" fill="#1a5490"/>
+    <text x="50" y="295" class="text-year">1995</text>
+    <text x="50" y="315" class="text-event">R 언어 등장</text>
+    <text x="50" y="333" class="text-desc">오픈소스 통계 환경</text>
+    <text x="50" y="351" class="text-desc">명령줄 인터페이스만 제공</text>
+
+    <!-- 2000s: Eclipse, VS -->
+    <circle cx="30" cy="410" r="8" fill="#1a5490"/>
+    <text x="50" y="415" class="text-year">2000s</text>
+    <text x="50" y="435" class="text-event">Eclipse, Visual Studio</text>
+    <text x="50" y="453" class="text-desc">전통적 소프트웨어 IDE</text>
+    <text x="50" y="471" class="text-desc">정보계/운영계 완전 분리</text>
+
+    <!-- Timeline line -->
+    <line x1="30" y1="118" x2="30" y2="410" stroke="#1a5490" stroke-width="2"/>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 410 410 L 450 410" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Era 2: 통합 IDE 등장 (2010-2015) -->
+  <g transform="translate(450, 80)">
+    <rect width="350" height="660" fill="url(#era2Gradient)" stroke="#28a745" stroke-width="3" rx="10"/>
+    <text x="175" y="35" class="text-era-title">통합 IDE 등장</text>
+    <text x="175" y="58" class="text-era-period">2010 - 2015</text>
+
+    <!-- 2010: RStudio 개발 시작 -->
+    <circle cx="30" cy="110" r="8" fill="#28a745"/>
+    <text x="50" y="115" class="text-year">2010</text>
+    <text x="50" y="135" class="text-event">RStudio 개발 시작</text>
+    <text x="50" y="153" class="text-desc">J.J. Allaire 프로젝트 착수</text>
+
+    <!-- 2011: RStudio Beta -->
+    <circle cx="30" cy="200" r="8" fill="#28a745"/>
+    <text x="50" y="205" class="text-year">2011</text>
+    <text x="50" y="225" class="text-event">RStudio Beta (v0.92)</text>
+    <text x="50" y="243" class="text-desc">4분할 인터페이스 혁신</text>
+    <text x="50" y="261" class="text-desc">IPython Notebook 시작</text>
+    <text x="50" y="279" class="text-desc">노트북 패러다임 도입</text>
+
+    <!-- 2014: Jupyter -->
+    <circle cx="30" cy="340" r="8" fill="#28a745"/>
+    <text x="50" y="345" class="text-year">2014</text>
+    <text x="50" y="365" class="text-event">Jupyter 프로젝트 독립</text>
+    <text x="50" y="383" class="text-desc">다중 언어 커널 지원</text>
+
+    <!-- 2015: VS Code -->
+    <circle cx="30" cy="450" r="8" fill="#28a745"/>
+    <text x="50" y="455" class="text-year">2015</text>
+    <text x="50" y="475" class="text-event">VS Code 출시</text>
+    <text x="50" y="493" class="text-desc">Microsoft 오픈소스 에디터</text>
+
+    <!-- Timeline line -->
+    <line x1="30" y1="118" x2="30" y2="450" stroke="#28a745" stroke-width="2"/>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M 810 410 L 850 410" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Era 3: AI 시대 전환 (2017-2022) -->
+  <g transform="translate(850, 80)">
+    <rect width="350" height="660" fill="url(#era3Gradient)" stroke="#ffc107" stroke-width="3" rx="10"/>
+    <text x="175" y="35" class="text-era-title">AI 시대 전환</text>
+    <text x="175" y="58" class="text-era-period">2017 - 2022</text>
+
+    <!-- 2017: VS Code Python -->
+    <circle cx="30" cy="110" r="8" fill="#e0a800"/>
+    <text x="50" y="115" class="text-year">2017</text>
+    <text x="50" y="135" class="text-event">VS Code Python 확장 급성장</text>
+    <text x="50" y="153" class="text-desc">데이터 과학 영역 진출</text>
+
+    <!-- 2019: Jupyter 확장 -->
+    <circle cx="30" cy="220" r="8" fill="#e0a800"/>
+    <text x="50" y="225" class="text-year">2019</text>
+    <text x="50" y="245" class="text-event">VS Code Jupyter 확장</text>
+    <text x="50" y="263" class="text-desc">노트북 통합 지원</text>
+
+    <!-- 2021: Copilot 프리뷰 -->
+    <circle cx="30" cy="320" r="8" fill="#e0a800"/>
+    <text x="50" y="325" class="text-year">2021</text>
+    <text x="50" y="345" class="text-event">GitHub Copilot 프리뷰</text>
+    <text x="50" y="363" class="text-desc">AI 코딩 어시스턴트 시대 개막</text>
+
+    <!-- 2022: Copilot 정식 -->
+    <circle cx="30" cy="430" r="8" fill="#e0a800"/>
+    <text x="50" y="435" class="text-year">2022</text>
+    <text x="50" y="455" class="text-event">Copilot 정식 출시</text>
+    <text x="50" y="473" class="text-desc">AI 지원 코딩 표준화</text>
+
+    <!-- Timeline line -->
+    <line x1="30" y1="118" x2="30" y2="430" stroke="#e0a800" stroke-width="2"/>
+  </g>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M 1210 410 L 1250 410" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Era 4: AI 네이티브 시대 (2023-2025) -->
+  <g transform="translate(1250, 80)">
+    <rect width="350" height="660" fill="url(#era4Gradient)" stroke="#17a2b8" stroke-width="3" rx="10"/>
+    <text x="175" y="35" class="text-era-title">AI 네이티브 시대</text>
+    <text x="175" y="58" class="text-era-period">2023 - 2025</text>
+
+    <!-- 2023: Cursor -->
+    <circle cx="30" cy="110" r="8" fill="#17a2b8"/>
+    <text x="50" y="115" class="text-year">2023</text>
+    <text x="50" y="135" class="text-event">Cursor 출시</text>
+    <text x="50" y="153" class="text-desc">VS Code 포크 + AI 네이티브</text>
+    <text x="50" y="171" class="text-desc">자연어 코드 생성</text>
+
+    <!-- 2024: Positron & Windsurf -->
+    <circle cx="30" cy="240" r="8" fill="#17a2b8"/>
+    <text x="50" y="245" class="text-year">2024</text>
+    <text x="50" y="265" class="text-event">Positron 공개 베타</text>
+    <text x="50" y="283" class="text-desc">차세대 데이터 과학 IDE</text>
+    <text x="50" y="315" class="text-event">Windsurf 출시</text>
+    <text x="50" y="333" class="text-desc">Cascade AI 협업 시스템</text>
+
+    <!-- 2025: 경쟁 심화 -->
+    <circle cx="30" cy="400" r="8" fill="#17a2b8"/>
+    <text x="50" y="405" class="text-year">2025</text>
+    <text x="50" y="425" class="text-event">AI IDE 경쟁 심화</text>
+    <text x="50" y="443" class="text-desc">패러다임 전환 가속화</text>
+
+    <!-- Timeline line -->
+    <line x1="30" y1="118" x2="30" y2="400" stroke="#17a2b8" stroke-width="2"/>
+  </g>
+</svg>
