@@ -59,16 +59,15 @@ book:
         - basic_ethics.qmd      # AI 윤리
     - part: "**2부 AI 데이터 과학**"
       chapters:
-        - ds_data.qmd        # OK
-    #     - basic_engineering.qmd # OK
-    #     - basic_ide.qmd         # OK
-    #     - basic_api.qmd         # OK
-    #     - coding_prompt.qmd     # OK
-    #     - coding_context.qmd    # OK
-    #     - coding_openai.qmd     # OK        
-    #     - coding_ide.qmd        # OK
-    #     - coding_ellmer.qmd     # OK
-    #     - coding_claude.qmd     # OK
+        - ds_data.qmd             # 데이터
+    #     - basic_engineering.qmd #
+        - ds_ide.qmd              # IDE 
+    #     - coding_prompt.qmd     # 
+    #     - coding_context.qmd    # 
+    #     - coding_openai.qmd     #         
+    #     - basic_api.qmd         # 
+    #     - ds_ellmer.qmd         # 
+    #     - coding_claude.qmd     # 
     - part: "**3부 사례 분석**"
       chapters:
         # - proj_penguin.qmd      # OK
