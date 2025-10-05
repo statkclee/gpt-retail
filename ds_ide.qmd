@@ -54,6 +54,8 @@ timeline
              : Cascade AI 협업 시스템
         2025 : AI IDE 경쟁 심화
              : 패러다임 전환 가속화
+```
+
 ## IDE 진화 역사 {#sec-ide-evolution}
 
 ### 분리된 생태계 시대 {#sec-separated-ecosystem} 
