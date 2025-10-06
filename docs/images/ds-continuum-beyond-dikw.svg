@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 50 1400 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .font-base {
+        font-family: "Noto Sans KR", Arial, sans-serif;
+        font-size: 18px;
+      }
+
+      .text-center-main {
+        font-size: 28px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #FFFFFF;
+      }
+
+      .text-center-sub {
+        font-size: 18px;
+        text-anchor: middle;
+        fill: #E0E0E0;
+      }
+
+      .text-layer-title {
+        font-size: 28px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .text-layer-item {
+        font-size: 18px;
+        text-anchor: middle;
+        fill: #A0A0A0;
+      }
+
+      .text-transform {
+        font-size: 16px;
+        text-anchor: middle;
+      }
+
+      .text-feedback {
+        font-size: 24px;
+        text-anchor: middle;
+        fill: #A0A0A0;
+      }
+
+      .text-panel-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #FFFFFF;
+      }
+
+      .text-panel-section {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .text-panel-item {
+        font-size: 16px;
+        fill: #A0A0A0;
+      }
+
+      .text-collab {
+        font-size: 18px;
+        text-anchor: middle;
+        fill: #4FACFE;
+      }
+    </style>
+
+    <!-- Gradient definitions -->
+    <linearGradient id="aiGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667EEA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764BA2;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="aiGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F093FB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5576C;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="aiGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4FACFE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00F2FE;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Arrow markers -->
+    <marker id="arrowAI" markerWidth="15" markerHeight="12" refX="14" refY="6" orient="auto">
+      <polygon points="0 0, 15 6, 0 12" fill="#00D2FF" opacity="0.8"/>
+    </marker>
+
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bgGrad)"/>
+
+  <!-- Central AI Core -->
+  <circle cx="700" cy="450" r="180" fill="url(#aiGrad1)" opacity="0.3" filter="url(#glow)"/>
+  <circle cx="700" cy="450" r="140" fill="url(#aiGrad1)" opacity="0.5"/>
+  <circle cx="700" cy="450" r="100" fill="url(#aiGrad1)"/>
+
+  <text x="700" y="440" class="font-base text-center-main">기초</text>
+  <text x="700" y="470" class="font-base text-center-main">모델</text>
+  <text x="700" y="495" class="font-base text-center-sub">(LLM, 멀티모달 AI)</text>
+
+  <g transform="translate(0, -40)">
+  <!-- Layer 1: Raw Signals (replacing Data) -->
+    <g id="signals">
+      <rect x="100" y="150" width="250" height="120" rx="15" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+      <text x="225" y="185" class="font-base text-layer-title" fill="#00D2FF">원시 신호</text>
+      <text x="225" y="210" class="font-base text-layer-item">• 비구조화 텍스트, 이미지, 오디오</text>
+      <text x="225" y="230" class="font-base text-layer-item">• 실시간 스트림</text>
+      <text x="225" y="250" class="font-base text-layer-item">• 멀티모달 입력</text>
+    </g>
+
+    <!-- Layer 2: Embeddings (replacing Information) -->
+    <g id="embeddings">
+      <rect x="450" y="150" width="250" height="120" rx="15" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+      <text x="575" y="185" class="font-base text-layer-title" fill="#FF6B6B">임베딩</text>
+      <text x="575" y="210" class="font-base text-layer-item">• 벡터 표현</text>
+      <text x="575" y="230" class="font-base text-layer-item">• 의미 인코딩</text>
+      <text x="575" y="250" class="font-base text-layer-item">• 맥락 보존</text>
+    </g>
+
+    <!-- Layer 3: Context (new layer) -->
+    <g id="context">
+      <rect x="800" y="150" width="250" height="120" rx="15" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+      <text x="925" y="185" class="font-base text-layer-title" fill="#FFD93D">맥락</text>
+      <text x="925" y="210" class="font-base text-layer-item">• 프롬프트 엔지니어링</text>
+      <text x="925" y="230" class="font-base text-layer-item">• Few-shot 학습</text>
+      <text x="925" y="250" class="font-base text-layer-item">• 도메인 지식</text>
+    </g>
+
+    <!-- Layer 4: Intelligence (replacing Knowledge) -->
+    <g id="intelligence">
+      <rect x="1100" y="150" width="250" height="120" rx="15" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+      <text x="1225" y="185" class="font-base text-layer-title" fill="#6BCF7F">지능</text>
+      <text x="1225" y="210" class="font-base text-layer-item">• 추론 체인</text>
+      <text x="1225" y="230" class="font-base text-layer-item">• 패턴 합성</text>
+      <text x="1225" y="250" class="font-base text-layer-item">• 창의적 생성</text>
+    </g>
+
+    <!-- Transformation Processes -->
+    <g id="transformations">
+      <!-- Signals to Embeddings -->
+      <path d="M 350 210 L 450 210" stroke="#00D2FF" stroke-width="2" opacity="0.7" marker-end="url(#arrowAI)"/>
+      <text x="400" y="190" class="font-base text-transform" fill="#00D2FF" font-size="18px">인코딩</text>
+
+      <!-- Embeddings to Context -->
+      <path d="M 700 210 L 800 210" stroke="#FF6B6B" stroke-width="2" opacity="0.7" marker-end="url(#arrowAI)"/>
+      <text x="750" y="190" class="font-base text-transform" fill="#FF6B6B">증강</text>
+
+      <!-- Context to Intelligence -->
+      <path d="M 1050 210 L 1100 210" stroke="#FFD93D" stroke-width="2" opacity="0.7" marker-end="url(#arrowAI)"/>
+      <text x="1075" y="190" class="font-base text-transform" fill="#FFD93D">생성</text>
+    </g>
+
+  </g>
+
+  <!-- Connections to Central Core -->
+  <g id="connections" opacity="0.6">
+    <path d="M 225 270 Q 400 350 600 400" stroke="#00D2FF" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+    <path d="M 575 270 Q 600 350 650 400" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+    <path d="M 925 270 Q 850 350 750 400" stroke="#FFD93D" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+    <path d="M 1225 270 Q 1000 350 800 400" stroke="#6BCF7F" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+  </g>
+
+  <!-- Feedback Loop -->
+  <text x="700" y="620" class="font-base text-feedback">지속적 피드백 및 강화</text>
+
+  <!-- Side Panels -->
+  <!-- Left: Key Technologies -->
+  <g id="tech-panel">
+    <rect x="50" y="350" width="200" height="280" rx="10" fill="#1F2937" opacity="0.9"/>
+    <text x="150" y="380" class="font-base text-panel-title">핵심 기술</text>
+
+    <text x="70" y="410" class="font-base text-panel-section" fill="#00D2FF">벡터 데이터베이스</text>
+    <text x="70" y="430" class="font-base text-panel-item">• Pinecone, Weaviate</text>
+
+    <text x="70" y="460" class="font-base text-panel-section" fill="#FF6B6B">LLM 프레임워크</text>
+    <text x="70" y="480" class="font-base text-panel-item">• LangChain, LlamaIndex</text>
+
+    <text x="70" y="510" class="font-base text-panel-section" fill="#FFD93D">오케스트레이션</text>
+    <text x="70" y="530" class="font-base text-panel-item">• AutoGen, CrewAI</text>
+
+    <text x="70" y="560" class="font-base text-panel-section" fill="#6BCF7F">관측성</text>
+    <text x="70" y="580" class="font-base text-panel-item">• Weights &amp; Biases</text>
+    <text x="70" y="600" class="font-base text-panel-item">• LangSmith</text>
+  </g>
+
+  <!-- Right: Paradigm Shifts -->
+  <g id="paradigm-panel">
+    <rect x="1150" y="350" width="200" height="280" rx="10" fill="#1F2937" opacity="0.9"/>
+    <text x="1250" y="380" class="font-base text-panel-title">패러다임 전환</text>
+
+    <text x="1170" y="410" class="font-base text-panel-section" fill="#00D2FF">저장에서</text>
+    <text x="1170" y="430" class="font-base text-panel-item">→ 생성으로</text>
+
+    <text x="1170" y="460" class="font-base text-panel-section" fill="#FF6B6B">쿼리에서</text>
+    <text x="1170" y="480" class="font-base text-panel-item">→ 대화로</text>
+
+    <text x="1170" y="510" class="font-base text-panel-section" fill="#FFD93D">규칙에서</text>
+    <text x="1170" y="530" class="font-base text-panel-item">→ 패턴으로</text>
+
+    <text x="1170" y="560" class="font-base text-panel-section" fill="#6BCF7F">정적에서</text>
+    <text x="1170" y="580" class="font-base text-panel-item">→ 적응적으로</text>
+  </g>
+
+  <!-- Human-AI Collaboration Ring -->
+  <circle cx="700" cy="450" r="250" fill="none" stroke="url(#aiGrad3)" stroke-width="2" stroke-dasharray="10,5" opacity="0.5"/>
+  <text x="900" y="680" class="font-base text-collab" transform="rotate(40 750 150)">인간-AI 협업</text>
+</svg>

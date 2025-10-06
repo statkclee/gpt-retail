@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 115 1550 350" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .font-base {
+        font-family: "Noto Sans KR", Arial, sans-serif;
+      }
+
+      .text-header-title {
+        font-size: 28px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #FFFFFF;
+      }
+
+      .text-header-subtitle {
+        font-size: 16px;
+        text-anchor: middle;
+        fill: #FFFFFF;
+        opacity: 0.9;
+      }
+
+      .text-stage-main {
+        font-size: 26px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #FFFFFF;
+      }
+
+      .text-stage-sub {
+        font-size: 16px;
+        text-anchor: middle;
+        fill: #FFFFFF;
+        opacity: 0.9;
+      }
+
+      .text-detail-title {
+        font-size: 20px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .text-detail-item {
+        font-size: 16px;
+        fill: #333;
+      }
+
+      .text-detail-time {
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      .text-timeline-title {
+        font-size: 18px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #4A5568;
+      }
+
+      .text-timeline-sub {
+        font-size: 18px;
+        text-anchor: middle;
+        fill: #718096;
+      }
+    </style>
+
+    <!-- Stage-specific gradients matching the original -->
+    <linearGradient id="acquireGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8A5A5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C67676;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="integrateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A5D6D1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7AB5B0;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="surfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7FB3D3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5A9BC4;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="reportGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A5568;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D3748;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="storytellGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ED8936;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C05621;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="decideGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E53E3E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C53030;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#38A169;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2F855A;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7FB3D3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A5D6D1;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Arrow markers -->
+    <marker id="flowArrow" markerWidth="15" markerHeight="12" refX="14" refY="6" orient="auto">
+      <polygon points="0,0 15,6 0,12" fill="#4A5568"/>
+    </marker>
+
+    <marker id="feedbackArrow" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <polygon points="0,0 12,5 0,10" fill="#E53E3E" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1550" height="600" fill="#F7FAFC"/>
+
+  <!-- Main Continuum Flow -->
+  <g id="continuum-stages" transform="translate(50, 140)">
+    <!-- Stage 1: Acquire -->
+    <rect x="0" y="0" width="180" height="80" fill="url(#acquireGrad)" rx="12" filter="url(#shadow)"/>
+    <text x="90" y="45" class="font-base text-stage-main">획득</text>
+    <text x="90" y="65" class="font-base text-stage-sub">데이터 수집</text>
+
+    <!-- Arrow -->
+    <path d="M 180 40 L 210 40" stroke="#4A5568" stroke-width="1" marker-end="url(#flowArrow)"/>
+
+    <!-- Stage 2: Integrate -->
+    <rect x="210" y="0" width="180" height="80" fill="url(#integrateGrad)" rx="12" filter="url(#shadow)"/>
+    <text x="300" y="45" class="font-base text-stage-main">통합</text>
+    <text x="300" y="65" class="font-base text-stage-sub">데이터 결합</text>
+
+    <!-- Arrow -->
+    <path d="M 390 40 L 420 40" stroke="#4A5568" stroke-width="1" marker-end="url(#flowArrow)"/>
+
+    <!-- Stage 3: Surface -->
+    <rect x="420" y="0" width="180" height="80" fill="url(#surfaceGrad)" rx="12" filter="url(#shadow)"/>
+    <text x="510" y="45" class="font-base text-stage-main">노출</text>
+    <text x="510" y="65" class="font-base text-stage-sub">데이터 공개</text>
+
+    <!-- Arrow -->
+    <path d="M 600 40 L 630 40" stroke="#4A5568" stroke-width="1" marker-end="url(#flowArrow)"/>
+
+    <!-- Stage 4: Report -->
+    <rect x="630" y="0" width="180" height="80" fill="url(#reportGrad)" rx="12" filter="url(#shadow)"/>
+    <text x="720" y="45" class="font-base text-stage-main">보고</text>
+    <text x="720" y="65" class="font-base text-stage-sub">문서화</text>
+
+    <!-- Arrow -->
+    <path d="M 810 40 L 840 40" stroke="#4A5568" stroke-width="1" marker-end="url(#flowArrow)"/>
+
+    <!-- Stage 5: Storytell -->
+    <rect x="840" y="0" width="180" height="80" fill="url(#storytellGrad)" rx="12" filter="url(#shadow)"/>
+    <text x="930" y="45" class="font-base text-stage-main">스토리텔링</text>
+    <text x="930" y="65" class="font-base text-stage-sub">내러티브 구축</text>
+
+    <!-- Arrow -->
+    <path d="M 1020 40 L 1050 40" stroke="#4A5568" stroke-width="1" marker-end="url(#flowArrow)"/>
+
+    <!-- Stage 6: Decide -->
+    <rect x="1050" y="0" width="180" height="80" fill="url(#decideGrad)" rx="12" filter="url(#shadow)"/>
+    <text x="1140" y="45" class="font-base text-stage-main">결정</text>
+    <text x="1140" y="65" class="font-base text-stage-sub">선택 수행</text>
+
+    <!-- Arrow -->
+    <path d="M 1230 40 L 1260 40" stroke="#4A5568" stroke-width="1" marker-end="url(#flowArrow)"/>
+
+    <!-- Stage 7: Take Action -->
+    <rect x="1260" y="0" width="180" height="80" fill="url(#actionGrad)" rx="12" filter="url(#shadow)"/>
+    <text x="1350" y="40" class="font-base text-stage-main">실행</text>
+    <text x="1350" y="65" class="font-base text-stage-sub">구현</text>
+
+  </g>
+
+  <!-- Detailed Stage Descriptions -->
+  <g id="stage-details" transform="translate(50, 260)">
+    <!-- Acquire Details -->
+    <rect x="0" y="0" width="180" height="180" fill="#FFFFFF" stroke="#E8A5A5" stroke-width="2" rx="8"/>
+    <text x="90" y="25" class="font-base text-detail-title" fill="#C67676">획득</text>
+    <text x="15" y="50" class="font-base text-detail-item">• 데이터베이스 쿼리</text>
+    <text x="15" y="70" class="font-base text-detail-item">• API 연결</text>
+    <text x="15" y="90" class="font-base text-detail-item">• 파일 가져오기</text>
+    <text x="15" y="110" class="font-base text-detail-item">• 설문조사 수집</text>
+    <text x="15" y="130" class="font-base text-detail-item">• 수동 입력</text>
+    <text x="15" y="160" class="font-base text-detail-time" fill="#C67676">소요 시간: 며칠~몇 주</text>
+
+    <!-- Integrate Details -->
+    <rect x="210" y="0" width="180" height="180" fill="#FFFFFF" stroke="#A5D6D1" stroke-width="2" rx="8"/>
+    <text x="300" y="25" class="font-base text-detail-title" fill="#7AB5B0">통합</text>
+    <text x="225" y="50" class="font-base text-detail-item">• 데이터 클리닝</text>
+    <text x="225" y="70" class="font-base text-detail-item">• ETL 프로세스</text>
+    <text x="225" y="90" class="font-base text-detail-item">• 스키마 매핑</text>
+    <text x="225" y="110" class="font-base text-detail-item">• 품질 검증</text>
+    <text x="225" y="130" class="font-base text-detail-item">• 중복 제거</text>
+    <text x="225" y="160" class="font-base text-detail-time" fill="#7AB5B0">소요 시간: 며칠~몇 주</text>
+
+    <!-- Surface Details -->
+    <rect x="420" y="0" width="180" height="180" fill="#FFFFFF" stroke="#7FB3D3" stroke-width="2" rx="8"/>
+    <text x="510" y="25" class="font-base text-detail-title" fill="#5A9BC4">노출</text>
+    <text x="435" y="50" class="font-base text-detail-item">• 대시보드 생성</text>
+    <text x="435" y="70" class="font-base text-detail-item">• 쿼리 인터페이스</text>
+    <text x="435" y="90" class="font-base text-detail-item">• 데이터 탐색</text>
+    <text x="435" y="110" class="font-base text-detail-item">• 시각화 도구</text>
+    <text x="435" y="130" class="font-base text-detail-item">• 접근 제어</text>
+    <text x="435" y="160" class="font-base text-detail-time" fill="#5A9BC4">소요 시간: 몇 시간~며칠</text>
+
+    <!-- Report Details -->
+    <rect x="630" y="0" width="180" height="180" fill="#FFFFFF" stroke="#4A5568" stroke-width="2" rx="8"/>
+    <text x="720" y="25" class="font-base text-detail-title" fill="#2D3748">보고</text>
+    <text x="645" y="50" class="font-base text-detail-item">• 통계 분석</text>
+    <text x="645" y="70" class="font-base text-detail-item">• 트렌드 식별</text>
+    <text x="645" y="90" class="font-base text-detail-item">• KPI 계산</text>
+    <text x="645" y="110" class="font-base text-detail-item">• 성과 지표</text>
+    <text x="645" y="130" class="font-base text-detail-item">• 비교 분석</text>
+    <text x="645" y="160" class="font-base text-detail-time" fill="#2D3748">소요 시간: 몇 시간~며칠</text>
+
+    <!-- Storytell Details -->
+    <rect x="840" y="0" width="180" height="180" fill="#FFFFFF" stroke="#ED8936" stroke-width="2" rx="8"/>
+    <text x="930" y="25" class="font-base text-detail-title" fill="#C05621">스토리텔링</text>
+    <text x="855" y="50" class="font-base text-detail-item">• 맥락 구축</text>
+    <text x="855" y="70" class="font-base text-detail-item">• 인사이트 종합</text>
+    <text x="855" y="90" class="font-base text-detail-item">• 프레젠테이션 디자인</text>
+    <text x="855" y="110" class="font-base text-detail-item">• 내러티브 구조</text>
+    <text x="855" y="130" class="font-base text-detail-item">• 권고사항 프레이밍</text>
+    <text x="855" y="160" class="font-base text-detail-time" fill="#C05621">소요 시간: 몇 시간~며칠</text>
+
+    <!-- Decide Details -->
+    <rect x="1050" y="0" width="180" height="180" fill="#FFFFFF" stroke="#E53E3E" stroke-width="2" rx="8"/>
+    <text x="1140" y="25" class="font-base text-detail-title" fill="#C53030">결정</text>
+    <text x="1065" y="50" class="font-base text-detail-item">• 옵션 평가</text>
+    <text x="1065" y="70" class="font-base text-detail-item">• 위험 평가</text>
+    <text x="1065" y="90" class="font-base text-detail-item">• 이해관계자 의견</text>
+    <text x="1065" y="110" class="font-base text-detail-item">• 비용편익 분석</text>
+    <text x="1065" y="130" class="font-base text-detail-item">• 최종 선택</text>
+    <text x="1065" y="160" class="font-base text-detail-time" fill="#C53030">소요 시간: 며칠~몇 주</text>
+
+    <!-- Take Action Details -->
+    <rect x="1260" y="0" width="180" height="180" fill="#FFFFFF" stroke="#38A169" stroke-width="2" rx="8"/>
+    <text x="1350" y="25" class="font-base text-detail-title" fill="#2F855A">실행</text>
+    <text x="1275" y="50" class="font-base text-detail-item">• 자원 배분</text>
+    <text x="1275" y="70" class="font-base text-detail-item">• 프로세스 변경</text>
+    <text x="1275" y="90" class="font-base text-detail-item">• 시스템 업데이트</text>
+    <text x="1275" y="110" class="font-base text-detail-item">• 팀 조율</text>
+    <text x="1275" y="130" class="font-base text-detail-item">• 결과 모니터링</text>
+    <text x="1275" y="160" class="font-base text-detail-time" fill="#2F855A">소요 시간: 며칠~몇 개월</text>
+  </g>
+
+</svg>

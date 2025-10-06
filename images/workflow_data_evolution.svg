@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 20 1400 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Timeline at top -->
+  <rect x="50" y="30" width="1300" height="100" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="700" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">Timeline of Data Methodology Evolution</text>
+
+  <!-- Timeline markers -->
+  <line x1="150" y1="75" x2="1250" y2="75" stroke="#6c757d" stroke-width="3"/>
+
+  <!-- 1996 KDD & CRISP-DM -->
+  <circle cx="250" cy="75" r="5" fill="#1976d2"/>
+  <text x="250" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">1996</text>
+  <text x="250" y="105" text-anchor="middle" font-size="10" fill="#666">KDD, CRISP-DM</text>
+
+  <!-- Late 1990s SEMMA -->
+  <circle cx="350" cy="75" r="5" fill="#1976d2"/>
+  <text x="350" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Late 1990s</text>
+  <text x="350" y="105" text-anchor="middle" font-size="10" fill="#666">SEMMA (SAS)</text>
+
+  <!-- 2010 OSEMN -->
+  <circle cx="650" cy="75" r="5" fill="#388e3c"/>
+  <text x="650" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">2010</text>
+  <text x="650" y="105" text-anchor="middle" font-size="10" fill="#666">OSEMN</text>
+
+  <!-- 2014 Tidyverse -->
+  <circle cx="850" cy="75" r="5" fill="#388e3c"/>
+  <text x="850" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">2014</text>
+  <text x="850" y="105" text-anchor="middle" font-size="10" fill="#666">Tidyverse (RStudio)</text>
+
+  <!-- 2018 MLOps -->
+  <circle cx="1050" cy="75" r="5" fill="#f57c00"/>
+  <text x="1050" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">2018+</text>
+  <text x="1050" y="105" text-anchor="middle" font-size="10" fill="#666">MLOps/DataOps</text>
+
+  <!-- 1st Generation (1990s) -->
+  <rect x="50" y="150" width="400" height="200" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="10"/>
+  <text x="250" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1976d2">Generation 1 (1990s)</text>
+
+  <!-- CRISP-DM Reference Box -->
+  <rect x="70" y="190" width="180" height="60" fill="white" stroke="#1976d2" stroke-width="1" rx="5" stroke-dasharray="5,5"/>
+  <text x="160" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="#1976d2">CRISP-DM Process</text>
+  <text x="160" y="230" text-anchor="middle" font-size="10" fill="#666">@images/crisp_dm_modern.svg</text>
+  <text x="160" y="245" text-anchor="middle" font-size="10" fill="#1976d2">Six iterative stages</text>
+
+  <!-- SEMMA Box -->
+  <rect x="260" y="190" width="170" height="60" fill="#bbdefb" stroke="#1976d2" stroke-width="1" rx="5"/>
+  <text x="345" y="210" text-anchor="middle" font-size="12" font-weight="bold" fill="#0d47a1">SEMMA (SAS)</text>
+  <text x="345" y="225" text-anchor="middle" font-size="10" fill="#1565c0">Sample → Explore → Modify</text>
+  <text x="345" y="240" text-anchor="middle" font-size="10" fill="#1565c0">→ Model → Assess</text>
+
+  <!-- KDD Box -->
+  <rect x="70" y="260" width="360" height="40" fill="#bbdefb" stroke="#1976d2" stroke-width="1" rx="5"/>
+  <text x="250" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#0d47a1">KDD: Selection → Preprocessing → </text>
+  <text x="250" y="295" text-anchor="middle" font-size="12" font-weight="bold" fill="#0d47a1">Transformation → Data Mining → Interpretation</text>
+
+  <!-- Tools & Characteristics -->
+  <text x="70" y="325" font-size="12" font-weight="bold" fill="#1976d2">Traits: business-led, analytical, GUI-driven tools</text>
+  <text x="70" y="340" font-size="12" fill="#666">Tools: SAS Enterprise Miner, SPSS Modeler, traditional BI suites</text>
+
+  <!-- 2nd Generation (2000-2010s) -->
+  <rect x="480" y="150" width="420" height="200" fill="#e8f5e8" stroke="#388e3c" stroke-width="2" rx="10"/>
+  <text x="690" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#388e3c">Generation 2 (2000s-2010s)</text>
+
+  <!-- OSEMN Reference Box -->
+  <rect x="500" y="190" width="180" height="60" fill="white" stroke="#388e3c" stroke-width="1" rx="5" stroke-dasharray="5,5"/>
+  <text x="590" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="#388e3c">OSEMN Process</text>
+  <text x="590" y="230" text-anchor="middle" font-size="10" fill="#666">@images/osemn.svg</text>
+  <text x="590" y="245" text-anchor="middle" font-size="10" fill="#388e3c">Linear "Awesome" mnemonic</text>
+
+  <!-- Tidyverse Box -->
+  <rect x="690" y="190" width="190" height="60" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" rx="5"/>
+  <text x="785" y="210" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b5e20">Tidyverse (RStudio)</text>
+  <text x="785" y="225" text-anchor="middle" font-size="10" fill="#2e7d32">Import → Tidy → Transform</text>
+  <text x="785" y="240" text-anchor="middle" font-size="10" fill="#2e7d32">↔ Visualise ↔ Model → Communicate</text>
+
+  <!-- Workflow Description -->
+  <rect x="500" y="260" width="380" height="40" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" rx="5"/>
+  <text x="690" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b5e20">Code-first, pragmatic approach, iterative workflow</text>
+
+  <!-- Tools & Characteristics -->
+  <text x="500" y="325" font-size="12" font-weight="bold" fill="#388e3c">Traits: data science-first, open source, code-based</text>
+  <text x="500" y="340" font-size="12" fill="#666">Tools: Python, R, Jupyter, RStudio, open source libraries</text>
+
+  <!-- 3rd Generation (2014+) -->
+  <rect x="930" y="150" width="420" height="200" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="10"/>
+  <text x="1140" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f57c00">Generation 3 (2014 onward)</text>
+
+  <!-- MLOps/DataOps Reference Box -->
+  <rect x="950" y="190" width="200" height="60" fill="white" stroke="#f57c00" stroke-width="1" rx="5" stroke-dasharray="5,5"/>
+  <text x="1050" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="#f57c00">MLOps/DataOps</text>
+  <text x="1050" y="230" text-anchor="middle" font-size="10" fill="#666">@images/mlops_dataops.svg</text>
+  <text x="1050" y="245" text-anchor="middle" font-size="10" fill="#f57c00">CI/CD pipeline</text>
+
+  <!-- Modern Workflow Box -->
+  <rect x="1160" y="190" width="170" height="60" fill="#ffcc80" stroke="#f57c00" stroke-width="1" rx="5"/>
+  <text x="1245" y="210" text-anchor="middle" font-size="12" font-weight="bold" fill="#e65100">Modern workflow</text>
+  <text x="1245" y="225" text-anchor="middle" font-size="10" fill="#bf360c">Automation, monitoring</text>
+  <text x="1245" y="240" text-anchor="middle" font-size="10" fill="#bf360c">Scalability, operational integration</text>
+
+  <!-- Advanced Features -->
+  <rect x="950" y="260" width="380" height="40" fill="#ffcc80" stroke="#f57c00" stroke-width="1" rx="5"/>
+  <text x="1140" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#e65100">Infrastructure as Code, containerization, cloud native</text>
+
+  <!-- Tools & Characteristics -->
+  <text x="950" y="325" font-size="12" font-weight="bold" fill="#f57c00">Traits: operations-led, automated, DevOps-aligned</text>
+  <text x="950" y="340" font-size="12" fill="#666">Tools: Docker, Kubernetes, Git, cloud platforms, MLOps tooling</text>
+
+  <!-- Comparison table at bottom -->
+  <rect x="50" y="380" width="1300" height="350" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="10"/>
+  <!-- Generation summary columns -->
+  <g transform="translate(70, 400)">
+    <rect width="400" height="300" fill="#eaf3ff" stroke="#1976d2" stroke-width="2" rx="14"/>
+    <rect width="400" height="64" fill="#1976d2" rx="14"/>
+    <text x="200" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Generation 1 (1990s)</text>
+    <text x="200" y="54" text-anchor="middle" font-size="12" fill="#d6e6ff">Traditional data mining</text>
+
+    <text x="24" y="96" font-size="13" font-weight="bold" fill="#0d47a1">Core methodologies</text>
+    <text x="24" y="116" font-size="12" fill="#0d47a1">CRISP-DM, SEMMA, KDD</text>
+    <line x1="24" y1="136" x2="376" y2="136" stroke="#c5d9f7" stroke-width="1"/>
+
+    <text x="24" y="156" font-size="13" font-weight="bold" fill="#0d47a1">Approach</text>
+    <text x="24" y="176" font-size="12" fill="#0d47a1">Business-centric, cyclical process</text>
+    <line x1="24" y1="196" x2="376" y2="196" stroke="#c5d9f7" stroke-width="1"/>
+
+    <text x="24" y="216" font-size="13" font-weight="bold" fill="#0d47a1">Key tools</text>
+    <text x="24" y="236" font-size="12" fill="#0d47a1">SAS Enterprise Miner, SPSS Modeler</text>
+    <line x1="24" y1="256" x2="376" y2="256" stroke="#c5d9f7" stroke-width="1"/>
+
+    <text x="24" y="276" font-size="13" font-weight="bold" fill="#0d47a1">Key strengths</text>
+    <text x="24" y="296" font-size="12" fill="#0d47a1">Standardized phases, GUI-led, risk managed</text>
+  </g>
+
+  <g transform="translate(480, 400)">
+    <rect width="420" height="300" fill="#edf8ef" stroke="#388e3c" stroke-width="2" rx="14"/>
+    <rect width="420" height="64" fill="#388e3c" rx="14"/>
+    <text x="210" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Generation 2 (2000s-2010s)</text>
+    <text x="210" y="54" text-anchor="middle" font-size="12" fill="#d7f2dc">Code-driven data science</text>
+
+    <text x="28" y="96" font-size="13" font-weight="bold" fill="#1b5e20">Core methodologies</text>
+    <text x="28" y="116" font-size="12" fill="#1b5e20">OSEMN, Tidyverse workflow</text>
+    <line x1="28" y1="136" x2="392" y2="136" stroke="#c6e6cf" stroke-width="1"/>
+
+    <text x="28" y="156" font-size="13" font-weight="bold" fill="#1b5e20">Approach</text>
+    <text x="28" y="176" font-size="12" fill="#1b5e20">Pragmatic, code-first, repeatable experiments</text>
+    <line x1="28" y1="196" x2="392" y2="196" stroke="#c6e6cf" stroke-width="1"/>
+
+    <text x="28" y="216" font-size="13" font-weight="bold" fill="#1b5e20">Key tools</text>
+    <text x="28" y="236" font-size="12" fill="#1b5e20">Python, R, Jupyter, Git, open source ecosystem</text>
+    <line x1="28" y1="256" x2="392" y2="256" stroke="#c6e6cf" stroke-width="1"/>
+
+    <text x="28" y="276" font-size="13" font-weight="bold" fill="#1b5e20">Key strengths</text>
+    <text x="28" y="296" font-size="12" fill="#1b5e20">Flexibility, collaboration, reproducible analytics</text>
+  </g>
+
+  <g transform="translate(910, 400)">
+    <rect width="420" height="300" fill="#fff1e3" stroke="#f57c00" stroke-width="2" rx="14"/>
+    <rect width="420" height="64" fill="#f57c00" rx="14"/>
+    <text x="210" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Generation 3 (2014 onward)</text>
+    <text x="210" y="54" text-anchor="middle" font-size="12" fill="#ffe0c2">Operations &amp; productization-focused AI</text>
+
+    <text x="28" y="96" font-size="13" font-weight="bold" fill="#e65100">Core methodologies</text>
+    <text x="28" y="116" font-size="12" fill="#e65100">MLOps/DataOps, DevOps-integrated frameworks</text>
+    <line x1="28" y1="136" x2="392" y2="136" stroke="#ffd7b3" stroke-width="1"/>
+
+    <text x="28" y="156" font-size="13" font-weight="bold" fill="#e65100">Approach</text>
+    <text x="28" y="176" font-size="12" fill="#e65100">Automated pipelines, CI/CD, real-time monitoring</text>
+    <line x1="28" y1="196" x2="392" y2="196" stroke="#ffd7b3" stroke-width="1"/>
+
+    <text x="28" y="216" font-size="13" font-weight="bold" fill="#e65100">Key tools</text>
+    <text x="28" y="236" font-size="12" fill="#e65100">Docker, Kubernetes, Cloud ML, Feature Store</text>
+    <line x1="28" y1="256" x2="392" y2="256" stroke="#ffd7b3" stroke-width="1"/>
+
+    <text x="28" y="276" font-size="13" font-weight="bold" fill="#e65100">Key strengths</text>
+    <text x="28" y="296" font-size="12" fill="#e65100">Scalability, reliability, operational automation</text>
+  </g>
+
+</svg>

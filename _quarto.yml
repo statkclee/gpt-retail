@@ -61,13 +61,14 @@ book:
     - part: "**2부 AI 데이터 과학**"
       chapters:
         - ds_data.qmd             # 데이터
-    #     - basic_engineering.qmd #
+        - ds_ds.qmd
         - ds_ide.qmd              # IDE 
+        # - basic_engineering.qmd #
+        # - ds_ellmer.qmd         # 
     #     - coding_prompt.qmd     # 
     #     - coding_context.qmd    # 
     #     - coding_openai.qmd     #         
     #     - basic_api.qmd         # 
-    #     - ds_ellmer.qmd         # 
     #     - coding_claude.qmd     # 
     - part: "**3부 사례 분석**"
       chapters:

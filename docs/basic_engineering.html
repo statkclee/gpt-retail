@@ -1,0 +1,3459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-KR" xml:lang="ko-KR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.16">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; AI 공학 – AI가 밝혀낸 유통 고수요 데이터의 진실</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ds_ellmer.html" rel="next">
+<link href="./ds_ide.html" rel="prev">
+<link href="./assets/android-chrome-192x192.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0fe41346b718ff62733f5cc60e32bfbd.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "일치 없음",
+    "search-matching-documents-text": "일치된 문서",
+    "search-copy-link-title": "검색 링크 복사",
+    "search-hide-matches-text": "추가 검색 결과 숨기기",
+    "search-more-match-text": "추가 검색결과",
+    "search-more-matches-text": "추가 검색결과",
+    "search-clear-button-title": "제거",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "취소",
+    "search-submit-button-title": "검색",
+    "search-label": "검색"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-229551680-1', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="assets/quarto.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_data.html"><strong>2부 AI 데이터 과학</strong></a></li><li class="breadcrumb-item"><a href="./basic_engineering.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI 공학</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI가 밝혀낸 유통 고수요 데이터의 진실</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="리더 모드 전환">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">서문</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">들어가며</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>1부 인공지능</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_gpt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">범용기술</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI 기초</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">일자리</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">AI 윤리</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>2부 AI 데이터 과학</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">데이터</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_ide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">통합 개발 환경</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_engineering.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI 공학</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_ellmer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">데이터 과학</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>3부 사례 분석</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_app.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">쇼핑앱 전쟁 숨겨진 공식</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_school.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">급식비 절약 숨겨진 진실</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_news.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">농산물 정보 디지털 계급사회</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_trade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">유통채널 숨겨진 가격 전략</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./end.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">맺음말</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고문헌</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">목차</h2>
+   
+  <ul>
+  <li><a href="#들어가며" id="toc-들어가며" class="nav-link active" data-scroll-target="#들어가며"><span class="header-section-number">7.1</span> 들어가며</a>
+  <ul class="collapse">
+  <li><a href="#왜-ai-공학이-필요한가" id="toc-왜-ai-공학이-필요한가" class="nav-link" data-scroll-target="#왜-ai-공학이-필요한가"><span class="header-section-number">7.1.1</span> 왜 AI 공학이 필요한가?</a></li>
+  </ul></li>
+  <li><a href="#소프트웨어-패러다임-진화" id="toc-소프트웨어-패러다임-진화" class="nav-link" data-scroll-target="#소프트웨어-패러다임-진화"><span class="header-section-number">7.2</span> 소프트웨어 패러다임 진화</a>
+  <ul class="collapse">
+  <li><a href="#소프트웨어-1.0" id="toc-소프트웨어-1.0" class="nav-link" data-scroll-target="#소프트웨어-1.0"><span class="header-section-number">7.2.1</span> 소프트웨어 1.0</a></li>
+  <li><a href="#소프트웨어-2.0" id="toc-소프트웨어-2.0" class="nav-link" data-scroll-target="#소프트웨어-2.0"><span class="header-section-number">7.2.2</span> 소프트웨어 2.0</a></li>
+  <li><a href="#소프트웨어-3.0" id="toc-소프트웨어-3.0" class="nav-link" data-scroll-target="#소프트웨어-3.0"><span class="header-section-number">7.2.3</span> 소프트웨어 3.0</a></li>
+  </ul></li>
+  <li><a href="#데이터-과학-작업흐름-진화" id="toc-데이터-과학-작업흐름-진화" class="nav-link" data-scroll-target="#데이터-과학-작업흐름-진화"><span class="header-section-number">7.3</span> 데이터 과학 작업흐름 진화</a>
+  <ul class="collapse">
+  <li><a href="#etl-시대-데이터-이동의-시대" id="toc-etl-시대-데이터-이동의-시대" class="nav-link" data-scroll-target="#etl-시대-데이터-이동의-시대"><span class="header-section-number">7.3.1</span> ETL 시대: 데이터 이동의 시대</a></li>
+  <li><a href="#머신러닝-시대-예측의-시대" id="toc-머신러닝-시대-예측의-시대" class="nav-link" data-scroll-target="#머신러닝-시대-예측의-시대"><span class="header-section-number">7.3.2</span> 머신러닝 시대: 예측의 시대</a></li>
+  <li><a href="#ai-공학-시대-지능의-시대" id="toc-ai-공학-시대-지능의-시대" class="nav-link" data-scroll-target="#ai-공학-시대-지능의-시대"><span class="header-section-number">7.3.3</span> AI 공학 시대: 지능의 시대</a></li>
+  <li><a href="#워크플로우-진화의-핵심-변화" id="toc-워크플로우-진화의-핵심-변화" class="nav-link" data-scroll-target="#워크플로우-진화의-핵심-변화"><span class="header-section-number">7.3.4</span> 워크플로우 진화의 핵심 변화</a></li>
+  </ul></li>
+  <li><a href="#ai-공학-개발-방법론" id="toc-ai-공학-개발-방법론" class="nav-link" data-scroll-target="#ai-공학-개발-방법론"><span class="header-section-number">7.4</span> AI 공학 개발 방법론</a>
+  <ul class="collapse">
+  <li><a href="#기존-방법론-한계" id="toc-기존-방법론-한계" class="nav-link" data-scroll-target="#기존-방법론-한계"><span class="header-section-number">7.4.1</span> 기존 방법론 한계</a></li>
+  <li><a href="#ai-공학-새로운-접근" id="toc-ai-공학-새로운-접근" class="nav-link" data-scroll-target="#ai-공학-새로운-접근"><span class="header-section-number">7.4.2</span> AI 공학 새로운 접근</a></li>
+  <li><a href="#ai-공학-핵심-원칙" id="toc-ai-공학-핵심-원칙" class="nav-link" data-scroll-target="#ai-공학-핵심-원칙"><span class="header-section-number">7.4.3</span> AI 공학 핵심 원칙</a></li>
+  </ul></li>
+  <li><a href="#ai-엔지니어" id="toc-ai-엔지니어" class="nav-link" data-scroll-target="#ai-엔지니어"><span class="header-section-number">7.5</span> AI 엔지니어</a></li>
+  <li><a href="#데이터-과학-실무-사례" id="toc-데이터-과학-실무-사례" class="nav-link" data-scroll-target="#데이터-과학-실무-사례"><span class="header-section-number">7.6</span> 데이터 과학 실무 사례</a>
+  <ul class="collapse">
+  <li><a href="#사례-1-eda-자동화" id="toc-사례-1-eda-자동화" class="nav-link" data-scroll-target="#사례-1-eda-자동화"><span class="header-section-number">7.6.1</span> 사례 1: EDA 자동화</a></li>
+  <li><a href="#사례-2-예측-모델링" id="toc-사례-2-예측-모델링" class="nav-link" data-scroll-target="#사례-2-예측-모델링"><span class="header-section-number">7.6.2</span> 사례 2: 예측 모델링</a></li>
+  <li><a href="#사례-3-실시간-대시보드" id="toc-사례-3-실시간-대시보드" class="nav-link" data-scroll-target="#사례-3-실시간-대시보드"><span class="header-section-number">7.6.3</span> 사례 3: 실시간 대시보드</a></li>
+  </ul></li>
+  <li><a href="#개발-작업흐름" id="toc-개발-작업흐름" class="nav-link" data-scroll-target="#개발-작업흐름"><span class="header-section-number">7.7</span> 개발 작업흐름</a>
+  <ul class="collapse">
+  <li><a href="#아이디어-프로토타입-0-1" id="toc-아이디어-프로토타입-0-1" class="nav-link" data-scroll-target="#아이디어-프로토타입-0-1"><span class="header-section-number">7.7.1</span> 아이디어 → 프로토타입 (0 → 1)</a></li>
+  <li><a href="#피드백-수집과-개선-1-10" id="toc-피드백-수집과-개선-1-10" class="nav-link" data-scroll-target="#피드백-수집과-개선-1-10"><span class="header-section-number">7.7.2</span> 피드백 수집과 개선 (1 → 10)</a></li>
+  <li><a href="#규모-확장과-최적화-10-100" id="toc-규모-확장과-최적화-10-100" class="nav-link" data-scroll-target="#규모-확장과-최적화-10-100"><span class="header-section-number">7.7.3</span> 규모 확장과 최적화 (10 → 100)</a></li>
+  <li><a href="#작업흐름의-핵심-도구" id="toc-작업흐름의-핵심-도구" class="nav-link" data-scroll-target="#작업흐름의-핵심-도구"><span class="header-section-number">7.7.4</span> 작업흐름의 핵심 도구</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_data.html"><strong>2부 AI 데이터 과학</strong></a></li><li class="breadcrumb-item"><a href="./basic_engineering.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI 공학</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI 공학</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="들어가며" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="들어가며"><span class="header-section-number">7.1</span> 들어가며</h2>
+<p>2023년 챗GPT 등장은 소프트웨어 개발 방식에 근본적인 변화를 가져왔다. 개발자들은 이제 코드를 직접 작성하는 것을 넘어 AI와 협업하며, 복잡한 문제를 해결하는 새로운 방법을 찾아가고 있다. 이러한 변화의 중심에는 <strong>AI 공학(AI Engineering)</strong>이라는 새로운 분야가 자리잡고 있다.</p>
+<p>AI 공학은 단순히 AI 모델을 사용하는 것을 넘어, AI 기술을 실제 제품과 서비스로 구현하는 체계적인 접근법이다. 기존의 소프트웨어 개발이 논리와 알고리즘을 중심으로 했다면, AI 공학은 데이터와 모델, 그리고 인간의 창의성을 결합하여 더 지능적이고 적응력 있는 시스템을 만들어낸다.</p>
+<section id="왜-ai-공학이-필요한가" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="왜-ai-공학이-필요한가"><span class="header-section-number">7.1.1</span> 왜 AI 공학이 필요한가?</h3>
+<p>전통적인 소프트웨어 개발 방식은 명확한 한계에 직면했다. 복잡한 패턴 인식, 자연어 이해, 창의적 콘텐츠 생성과 같은 작업들은 규칙 기반 프로그래밍으로는 해결하기 어렵다. 머신러닝이 이러한 문제의 일부를 해결했지만, 여전히 대량의 레이블링된 데이터와 긴 학습 시간이 필요했다.</p>
+<p>대규모 언어 모델(LLM)의 등장은 이러한 제약을 크게 완화시켰다. 이제 개발자들은 자연어로 복잡한 작업을 수행할 수 있고, 방대한 지식을 활용하여 다양한 도메인의 문제를 해결할 수 있다. 프로토타입을 빠르게 구축하고 아이디어를 검증할 수 있으며, 코드 생성부터 문서 작성까지 개발 전 과정에서 AI의 도움을 받을 수 있다.</p>
+<p>하지만 이러한 강력한 도구를 효과적으로 활용하려면 새로운 사고방식과 방법론이 필요하다. 바로 이것이 AI 공학이 등장한 이유다.</p>
+</section>
+</section>
+<section id="소프트웨어-패러다임-진화" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="소프트웨어-패러다임-진화"><span class="header-section-number">7.2</span> 소프트웨어 패러다임 진화</h2>
+<p>소프트웨어 개발의 역사는 추상화 수준을 높여가는 과정이었다. 인간이 직접 작성하는 소프트웨어 1.0에서 시작하여, 데이터로부터 코드가 생성되는 머신러닝 기반의 소프트웨어 2.0을 거쳐, 이제는 자연어로 프로그래밍하는 소프트웨어 3.0 시대로 진화하고 있다. 이러한 패러다임의 변화는 테슬라의 전 AI 디렉터이자 OpenAI 창립 멤버인 Andrej Karpathy <span class="citation" data-cites="karpathy2017">(<a href="references.html#ref-karpathy2017" role="doc-biblioref">Karpathy, 2017</a>)</span>가 제시한 개념으로, 프로그래밍의 본질적 변화를 보여준다.</p>
+<div id="fig-software-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-software-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/software-3.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="그림&nbsp;7.1: Andrej Karpathy 소프트웨어 3.0[@karpathy2023]"><img src="images/software-3.jpg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-software-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;7.1: Andrej Karpathy 소프트웨어 3.0<span class="citation" data-cites="karpathy2023">(<a href="references.html#ref-karpathy2023" role="doc-biblioref">Karpathy, 2023</a>)</span>
+</figcaption>
+</figure>
+</div>
+<section id="소프트웨어-1.0" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="소프트웨어-1.0"><span class="header-section-number">7.2.1</span> 소프트웨어 1.0</h3>
+<p>소프트웨어 1.0(명시적 프로그래밍의 시대)은 우리가 익숙한 전통적인 프로그래밍 방식이다. 개발자가 문제를 분석하고, 알고리즘을 설계하며, 모든 로직을 명시적으로 코드로 작성한다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_discount(price, customer_type):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> customer_type <span class="op">==</span> <span class="st">"premium"</span>:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> price <span class="op">*</span> <span class="fl">0.8</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> customer_type <span class="op">==</span> <span class="st">"regular"</span>:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> price <span class="op">*</span> <span class="fl">0.9</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> price</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p>이 방식의 장점은 명확성과 예측가능성이다. 코드를 읽으면 정확히 어떤 일이 일어날지 알 수 있고, 디버깅도 상대적으로 쉽다. 하지만 복잡한 패턴이나 예외 상황을 모두 미리 예측하고 코딩해야 한다는 한계가 있다.</p>
+</section>
+<section id="소프트웨어-2.0" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="소프트웨어-2.0"><span class="header-section-number">7.2.2</span> 소프트웨어 2.0</h3>
+<p>Andrej Karpathy가 2017년에 제시한 소프트웨어 2.0(데이터에서 코드가 생성되는 시대)<span class="citation" data-cites="karpathy2017">(<a href="references.html#ref-karpathy2017" role="doc-biblioref">Karpathy, 2017</a>)</span>은 프로그래밍 패러다임의 근본적 전환을 의미한다. 전통적인 방식에서 인간이 소스코드를 작성하여 바이너리로 컴파일하는 대신, 소프트웨어 2.0에서는 데이터셋을 축적하고 정제하여 신경망을 훈련시키는 것이 프로그래밍의 핵심이 된다. 여기서 “소스코드”는 원하는 동작을 정의하는 데이터셋과 대략적인 코드 골격을 제공하는 신경망 아키텍처로 구성되며, 훈련 과정이 데이터셋을 최종 신경망이라는 “바이너리”로 컴파일하는 역할을 한다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 모델 학습</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> CustomerChurnPredictor()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>model.fit(training_data, training_labels)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 예측</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>churn_probability <span class="op">=</span> model.predict(customer_features)</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p>핵심은 신경망이 어려운 사례에서 실패할 때, 코드를 수정하는 대신 해당 사례의 라벨링된 예시를 더 추가한다는 점이다. 즉, 코드 디버깅이 아닌 <strong>데이터 큐레이션</strong>이 개발의 중심이 된다. 대부분의 실용적 애플리케이션에서 신경망 아키텍처와 훈련 시스템이 표준화되면서, 실제 “소프트웨어 개발”은 주로 라벨링된 데이터셋을 큐레이션하고 성장시키는 형태를 취한다. 이로 인해 개발팀도 두 그룹으로 나뉘게 된다. 데이터를 편집하고 증강하는 2.0 프로그래머(데이터 라벨러)와 주변 훈련 코드 인프라를 유지하는 소수의 1.0 프로그래머들이다.</p>
+</section>
+<section id="소프트웨어-3.0" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="소프트웨어-3.0"><span class="header-section-number">7.2.3</span> 소프트웨어 3.0</h3>
+<p>2023년 Andrej Karpathy가 제시한 소프트웨어 3.0(자연어가 프로그래밍 언어가 되는 시대)<span class="citation" data-cites="karpathy2023 sharma2023">(<a href="references.html#ref-karpathy2023" role="doc-biblioref">Karpathy, 2023</a>; <a href="references.html#ref-sharma2023" role="doc-biblioref">Sharma, 2023</a>)</span>은 자연어 처리와 AI 기술을 활용하여 임의 길이의 입력과 출력을 처리할 수 있는 소프트웨어를 만드는 새로운 패러다임이다. 여기서 프로그래밍은 거의 언어적 연습이 되며, 간결하고 잘 명시된 영어(또는 다른 자연어)를 작성하는 것이 핵심이다. 프롬프트 엔지니어링이 새로운 프로그래밍 패러다임으로 부상하면서, 영어가 실행 가능한 언어가 되고, LLM이 런타임이 되며, 에이전트가 새로운 추상화 단위가 된다. 최근에는 프롬프트 엔지니어링을 확장한 컨텍스트 엔지니어링이 부상하고 있다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LLM을 활용한 고객 응대</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> llm.generate(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span><span class="ss">f"""</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    고객 문의: </span><span class="sc">{</span>customer_query<span class="sc">}</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    고객 히스토리: </span><span class="sc">{</span>customer_history<span class="sc">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    위 정보를 바탕으로 친절하고 도움이 되는 응답을 작성해주세요.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p>혁신적인 점은 프롬프팅을 통해 시스템으로부터 매우 구체적인 동작을 생성할 수 있다는 것이다. 이는 곧 코딩의 정의와 일치한다. 프롬프트 엔지니어링을 사용하는 팀들은 일상적인 작업에서 40-60% 더 빠른 개발 사이클을 보이고 있으며, 몇 시간이 아닌 몇 초 만에 작동하는 코드, 테스트, 문서를 생성할 수 있다. 소프트웨어 3.0은 전통적인 코딩이나 신경망을 대체하는 것이 아니라, 이들과 공존하며 진정한 인공지능 개발에 기여한다. 오늘날 우리는 소프트웨어 1.0(클래식 프로그래밍), 2.0(신경망과 데이터 정의 로직), 3.0(영어가 인터페이스이고 LLM이 런타임이며 에이전트가 추상화 단위)이 층층이 쌓인 소프트웨어와 데이터 속에서 살고 있다.</p>
+<div class="cell">
+<div id="tbl-software-paradigms" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-software-paradigms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;7.1: 소프트웨어 패러다임 비교
+</figcaption>
+<div aria-describedby="tbl-software-paradigms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="avkchvnnni" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#avkchvnnni table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#avkchvnnni thead, #avkchvnnni tbody, #avkchvnnni tfoot, #avkchvnnni tr, #avkchvnnni td, #avkchvnnni th {
+  border-style: none;
+}
+
+#avkchvnnni p {
+  margin: 0;
+  padding: 0;
+}
+
+#avkchvnnni .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#avkchvnnni .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#avkchvnnni .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#avkchvnnni .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#avkchvnnni .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#avkchvnnni .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#avkchvnnni .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#avkchvnnni .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#avkchvnnni .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#avkchvnnni .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#avkchvnnni .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#avkchvnnni .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#avkchvnnni .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#avkchvnnni .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#avkchvnnni .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avkchvnnni .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#avkchvnnni .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#avkchvnnni .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#avkchvnnni .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avkchvnnni .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#avkchvnnni .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avkchvnnni .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#avkchvnnni .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avkchvnnni .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#avkchvnnni .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avkchvnnni .gt_left {
+  text-align: left;
+}
+
+#avkchvnnni .gt_center {
+  text-align: center;
+}
+
+#avkchvnnni .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#avkchvnnni .gt_font_normal {
+  font-weight: normal;
+}
+
+#avkchvnnni .gt_font_bold {
+  font-weight: bold;
+}
+
+#avkchvnnni .gt_font_italic {
+  font-style: italic;
+}
+
+#avkchvnnni .gt_super {
+  font-size: 65%;
+}
+
+#avkchvnnni .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#avkchvnnni .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#avkchvnnni .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#avkchvnnni .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#avkchvnnni .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#avkchvnnni .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#avkchvnnni .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#avkchvnnni .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#avkchvnnni div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 23%">
+<col style="width: 33%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal">소프트웨어 패러다임 진화</td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">1.0에서 3.0으로의 발전 과정</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="a특성" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">특성</th>
+<th id="a소프트웨어-1.0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">소프트웨어 1.0</th>
+<th id="a소프트웨어-2.0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">소프트웨어 2.0</th>
+<th id="a소프트웨어-3.0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">소프트웨어 3.0</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">핵심 접근법</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">명시적 프로그래밍</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">신경망/데이터 중심</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">자연어 프로그래밍</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">개발자 역할</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">모든 로직 직접 구현</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">데이터 큐레이션 및 라벨링</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">프롬프트 엔지니어링</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">문제 해결 방식</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">알고리즘 설계</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">데이터 패턴 학습</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">자연어 지시와 추론</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">핵심 자산</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">소스 코드</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">학습 데이터셋과 모델</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">프롬프트와 컨텍스트</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">변경 용이성</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">코드 수정 필요</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">재학습 필요</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">프롬프트 수정으로 즉시 반영</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">개발팀 구조</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">소프트웨어 엔지니어</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">2.0 프로그래머(라벨러) + 1.0 엔지니어</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">AI 엔지니어 + 프롬프트 디자이너</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">디버깅 방식</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">코드 분석 및 수정</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">데이터 추가 및 재훈련</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">프롬프트 개선 및 컨텍스트 조정</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">확장성</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">제한적</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">데이터에 의존</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">매우 높음</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특성" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">개발 속도</td>
+<td class="gt_row gt_center" headers="소프트웨어 1.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">느림</td>
+<td class="gt_row gt_center" headers="소프트웨어 2.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">중간</td>
+<td class="gt_row gt_center" headers="소프트웨어 3.0" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">매우 빠름</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="데이터-과학-작업흐름-진화" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="데이터-과학-작업흐름-진화"><span class="header-section-number">7.3</span> 데이터 과학 작업흐름 진화</h2>
+<p>전통적인 데이터 과학 워크플로우는 ETL(Extract, Transform, Load)에서 시작하여 머신러닝으로 발전했고, 이제는 AI 공학으로 진화하고 있다. 이러한 진화는 단순한 도구의 변화가 아닌, 문제 해결 방식의 근본적인 패러다임 전환을 의미한다.</p>
+<div class="cell" data-fig-width="4" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-data-science-evolution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-science-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-data-science-evolution">graph LR
+    subgraph ETL ["🗄️ ETL 시대 (1990-2010)"]
+        E1[데이터 추출] --&gt; E2[데이터 변환]
+        E2 --&gt; E3[데이터 적재]
+        E3 --&gt; E4[정적 리포트]
+        
+        style E4 fill:#ffcdd2
+    end
+    
+    subgraph ML ["🤖 머신러닝 시대 (2010-2022)"]
+        M1[데이터 수집] --&gt; M2[전처리]
+        M2 --&gt; M3[특징 공학]
+        M3 --&gt; M4[모델 학습]
+        M4 --&gt; M5[평가/배포]
+        M5 --&gt; M6[예측/분류]
+        
+        style M6 fill:#c5e1a5
+    end
+    
+    subgraph AI ["🚀 AI 공학 시대 (2022-)"]
+        A1[문제 정의] --&gt; A2[프롬프트 설계]
+        A2 --&gt; A3[즉시 프로토타입]
+        A3 --&gt; A4[피드백 수집]
+        A4 --&gt; A5[컨텍스트 최적화]
+        A5 --&gt; A6[지능형 솔루션]
+        A6 --&gt; A1
+        
+        style A6 fill:#81c784
+    end
+    
+    ETL ==&gt; ML
+    ML ==&gt; AI
+    
+    style ETL fill:#f5f5f5
+    style ML fill:#e3f2fd
+    style AI fill:#e8f5e9
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-science-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;7.2: 데이터 과학 작업흐름 진화: ETL에서 AI 공학까지
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="etl-시대-데이터-이동의-시대" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="etl-시대-데이터-이동의-시대"><span class="header-section-number">7.3.1</span> ETL 시대: 데이터 이동의 시대</h3>
+<p>1990년대부터 2010년대 초반까지 데이터 과학은 주로 ETL 파이프라인 구축에 집중했다. SQL과 데이터 웨어하우스가 중심이었고, 배치 처리와 정기 리포트가 주요 산출물이었다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- 전통적인 ETL 예시</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> sales_summary</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    DATE_TRUNC(<span class="st">'month'</span>, order_date) <span class="kw">as</span> <span class="dt">month</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(amount) <span class="kw">as</span> total_sales,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">as</span> order_count</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> raw_orders</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> order_status <span class="op">=</span> <span class="st">'completed'</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> DATE_TRUNC(<span class="st">'month'</span>, order_date);</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p>이 시대의 한계는 명확했다. 실시간 분석이 어렵고, 비정형 데이터 처리가 제한적이며, 인사이트 도출이 분석가의 수작업에 의존했다.</p>
+</section>
+<section id="머신러닝-시대-예측의-시대" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="머신러닝-시대-예측의-시대"><span class="header-section-number">7.3.2</span> 머신러닝 시대: 예측의 시대</h3>
+<p>2010년대에 들어서면서 머신러닝이 데이터 과학의 중심이 되었다. scikit-learn, TensorFlow 같은 프레임워크가 등장했고, 예측 모델링이 비즈니스 가치 창출의 핵심이 되었다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 전통적인 머신러닝 워크플로우</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터 전처리</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>X_train_scaled <span class="op">=</span> scaler.fit_transform(X_train)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 모델 학습</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>model.fit(X_train_scaled, y_train)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 예측</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> model.predict(scaler.transform(X_test))</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p>하지만 이 접근법도 한계가 있었다. 대량의 레이블링된 데이터가 필요하고, 특징 공학에 많은 시간이 소요되며, 모델 해석이 어려웠다.</p>
+</section>
+<section id="ai-공학-시대-지능의-시대" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="ai-공학-시대-지능의-시대"><span class="header-section-number">7.3.3</span> AI 공학 시대: 지능의 시대</h3>
+<p>2022년 ChatGPT 등장 이후, 데이터 과학은 AI 공학으로 진화했다. 이제는 자연어로 복잡한 분석을 수행하고, 즉시 인사이트를 도출할 수 있다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AI 공학 시대의 데이터 분석</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> llm.generate(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span><span class="ss">f"""</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    다음 데이터를 분석해주세요:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">{</span>data<span class="sc">.</span>to_string()<span class="sc">}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. 주요 패턴과 이상치를 찾아주세요</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    2. 비즈니스 인사이트를 도출해주세요</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    3. 향후 예측과 추천사항을 제시해주세요</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    context<span class="op">=</span>business_context</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="워크플로우-진화의-핵심-변화" class="level3" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored" data-anchor-id="워크플로우-진화의-핵심-변화"><span class="header-section-number">7.3.4</span> 워크플로우 진화의 핵심 변화</h3>
+<div class="cell">
+<div id="tbl-workflow-comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-workflow-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;7.2: 데이터 과학 워크플로우 진화 단계별 특징
+</figcaption>
+<div aria-describedby="tbl-workflow-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="wxiaxfrkii" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#wxiaxfrkii table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wxiaxfrkii thead, #wxiaxfrkii tbody, #wxiaxfrkii tfoot, #wxiaxfrkii tr, #wxiaxfrkii td, #wxiaxfrkii th {
+  border-style: none;
+}
+
+#wxiaxfrkii p {
+  margin: 0;
+  padding: 0;
+}
+
+#wxiaxfrkii .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wxiaxfrkii .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wxiaxfrkii .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wxiaxfrkii .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wxiaxfrkii .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wxiaxfrkii .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wxiaxfrkii .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wxiaxfrkii .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wxiaxfrkii .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wxiaxfrkii .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wxiaxfrkii .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wxiaxfrkii .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wxiaxfrkii .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wxiaxfrkii .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wxiaxfrkii .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wxiaxfrkii .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wxiaxfrkii .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wxiaxfrkii .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wxiaxfrkii .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wxiaxfrkii .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wxiaxfrkii .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wxiaxfrkii .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wxiaxfrkii .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wxiaxfrkii .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wxiaxfrkii .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wxiaxfrkii .gt_left {
+  text-align: left;
+}
+
+#wxiaxfrkii .gt_center {
+  text-align: center;
+}
+
+#wxiaxfrkii .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wxiaxfrkii .gt_font_normal {
+  font-weight: normal;
+}
+
+#wxiaxfrkii .gt_font_bold {
+  font-weight: bold;
+}
+
+#wxiaxfrkii .gt_font_italic {
+  font-style: italic;
+}
+
+#wxiaxfrkii .gt_super {
+  font-size: 65%;
+}
+
+#wxiaxfrkii .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wxiaxfrkii .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wxiaxfrkii .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wxiaxfrkii .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wxiaxfrkii .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wxiaxfrkii .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wxiaxfrkii .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wxiaxfrkii .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wxiaxfrkii div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 24%">
+<col style="width: 33%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal">데이터 과학 워크플로우 진화의 핵심 변화</td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">ETL → 머신러닝 → AI 공학</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="a특징" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">특징</th>
+<th id="ETL-시대" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">ETL 시대</th>
+<th id="a머신러닝-시대" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">머신러닝 시대</th>
+<th id="AI-공학-시대" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">AI 공학 시대</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">주요 도구</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">SQL, Informatica, DataStage</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">Python, R, TensorFlow</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">LLM API, 프롬프트</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">핵심 기술</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">데이터베이스, 배치 처리</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">통계, 알고리즘, 모델링</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">자연어 처리, 생성 AI</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">분석 속도</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">일/주 단위</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">시간/일 단위</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">실시간/분 단위</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">필요 인력</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">ETL 개발자, DBA</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">데이터 과학자, ML 엔지니어</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">AI 엔지니어, 프롬프트 설계자</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">주요 산출물</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">정적 리포트, 대시보드</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">예측 모델, API</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">지능형 앱, 대화형 분석</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">비정형 데이터</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">매우 제한적</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">부분적 가능</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">우수 (멀티모달)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">자동화 수준</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">낮음 (수동 작업)</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">중간 (파이프라인)</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">높음 (자연어)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">인사이트 도출</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">분석가 의존</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">모델 기반</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">AI 협업</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">초기 투자</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">높음 (인프라)</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">중간 (인력)</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">낮음 (API)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="특징" style="font-weight: bold; background-color: #E9ECEF">유연성</td>
+<td class="gt_row gt_center" headers="ETL 시대" style="background-color: #FFEBEE">낮음</td>
+<td class="gt_row gt_center" headers="머신러닝 시대" style="background-color: #E3F2FD">중간</td>
+<td class="gt_row gt_center" headers="AI 공학 시대" style="background-color: #E8F5E9">매우 높음</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>이러한 진화는 데이터 과학자의 역할도 크게 변화시켰다. ETL 시대의 SQL 전문가에서 머신러닝 시대의 알고리즘 전문가로, 그리고 이제는 AI와 협업하는 프롬프트 설계자이자 비즈니스 문제 해결사로 진화하고 있다.</p>
+</section>
+</section>
+<section id="ai-공학-개발-방법론" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="ai-공학-개발-방법론"><span class="header-section-number">7.4</span> AI 공학 개발 방법론</h2>
+<p>AI 시대의 개발 방법론은 기존의 소프트웨어 <strong>Agile</strong>이나 데이터 과학 <strong>CRISP-DM</strong>과는 다른 접근이 필요하다. AI 공학은 실험과 반복, 그리고 지속적인 개선을 중심으로 한다.</p>
+<section id="기존-방법론-한계" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="기존-방법론-한계"><span class="header-section-number">7.4.1</span> 기존 방법론 한계</h3>
+<p>Agile 방법론은 소프트웨어 개발에 최적화되어 있지만, AI 시스템의 불확실성과 확률적 특성을 다루기에는 한계가 있다. 스프린트 단위로 명확한 기능을 구현하기 어렵고, 테스트의 개념도 다르게 접근해야 한다. CRISP-DM은 데이터 마이닝 프로젝트에는 적합하지만, LLM 기반 개발의 즉시성과 유연성을 충분히 활용하지 못한다. 데이터 준비와 모델링에 많은 시간을 투자하는 대신, LLM은 즉시 프로토타이핑이 가능하다.</p>
+</section>
+<section id="ai-공학-새로운-접근" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="ai-공학-새로운-접근"><span class="header-section-number">7.4.2</span> AI 공학 새로운 접근</h3>
+<p>AI 공학에서는 “발사하고, 준비하고, 조준한다(Fire, Ready, Aim)”는 역설적인 접근법이 효과적이다. 이는 전통적인 “준비하고, 조준하고, 발사한다”와는 정반대의 철학이다.</p>
+<div class="cell" data-fig-width="3" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-fire-ready-aim" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fire-ready-aim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-fire-ready-aim">graph TD
+    subgraph A [전통적 접근]
+        direction LR
+        A1[Ready 계획] --&gt; A2[Aim 설계] --&gt; A3[Fire 출시]
+    end
+    
+    A ==&gt; B
+    
+    subgraph B [AI 공학 접근]
+        direction LR
+        B1[Fire 프로토타입] --&gt; B2[Ready 피드백] --&gt; B3[Aim 최적화]
+        B3 --&gt; B1
+    end
+    
+    style A3 fill:#ff6b6b,color:#fff
+    style B1 fill:#ff6b6b,color:#fff
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fire-ready-aim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;7.3: AI 공학 접근법 비교
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>먼저 Fire(발사) 단계에서는 빠른 프로토타이핑을 진행한다. LLM을 즉시 활용해 아이디어를 검증하고 작동하는 무언가를 만든다. 완벽하지 않아도 괜찮다. 중요한 것은 실제로 작동하는 것을 빠르게 만들어 보는 것이다.</p>
+<p>다음 Ready(준비) 단계에서는 사용자 피드백을 수집하고 분석한다. 실패 사례를 파악하고 개선점을 도출한다. 이 단계에서 실제 사용 환경에서의 데이터를 수집하고, AI의 약점을 보완할 방법을 찾는다.</p>
+<p>마지막 Aim(조준) 단계에서는 수집된 데이터와 인사이트를 바탕으로 시스템을 최적화한다. 필요하다면 특정 도메인에 특화된 모델로 발전시키거나, 더 정교한 프롬프트 엔지니어링을 적용한다.</p>
+</section>
+<section id="ai-공학-핵심-원칙" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="ai-공학-핵심-원칙"><span class="header-section-number">7.4.3</span> AI 공학 핵심 원칙</h3>
+<p>AI-First 설계는 처음부터 AI 기능을 핵심으로 고려하는 것을 의미한다. 전통적인 로직과 AI를 적절히 조합하여 설계하고, AI가 실패했을 때를 대비한 백업 계획(fallback)을 마련해야 한다.</p>
+<p>반복적 프롬프트 엔지니어링에서는 프롬프트를 새로운 형태의 코드로 인식한다. 프롬프트도 버전 관리와 테스팅이 필요하며, A/B 테스트를 통한 지속적 개선이 필수적이다.</p>
+<p>컨텍스트 중심 개발은 AI의 성능이 제공되는 컨텍스트에 크게 의존한다는 점을 인식하는 것이다. 효과적인 컨텍스트 관리 시스템을 구축하고, 도메인 지식을 체계적으로 통합해야 한다.</p>
+<p>하이브리드 접근은 모든 것을 AI로 해결하려 하지 않는 것이다. 결정적(deterministic) 로직과 AI를 조화롭게 사용하고, 신뢰성이 중요한 부분은 전통적 방식을 유지한다.</p>
+<p>지속적 모니터링과 개선은 AI 출력의 품질을 계속 관찰하고, 드리프트(drift)를 감지하여 대응하며, 사용자 피드백을 체계적으로 수집하고 반영하는 것을 의미한다.</p>
+</section>
+</section>
+<section id="ai-엔지니어" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="ai-엔지니어"><span class="header-section-number">7.5</span> AI 엔지니어</h2>
+<p>AI 엔지니어는 단순히 AI를 사용하는 개발자가 아니다. 이들은 AI 기술과 소프트웨어 엔지니어링, 그리고 비즈니스 요구사항을 연결하는 가교 역할을 한다.</p>
+<div id="fig-ai-engineer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-engineer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ai-engineer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="그림&nbsp;7.4: AI 엔지니어[@swyx_alessio_2023]"><img src="images/ai-engineer.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-engineer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;7.4: AI 엔지니어<span class="citation" data-cites="swyx_alessio_2023">(<a href="references.html#ref-swyx_alessio_2023" role="doc-biblioref">SWYX &amp; ALESSIO, 2023</a>)</span>
+</figcaption>
+</figure>
+</div>
+<p>AI 엔지니어는 기술 스택의 중간 지점에서 다양한 역할을 수행한다. 왼쪽의 연구/데이터 영역에서는 최신 AI 모델과 기술을 이해하고 활용하며, 오른쪽의 제품/사용자 영역에서는 실제 사용자 요구사항을 AI로 해결한다.</p>
+<p>AI 엔지니어에게 필요한 첫 번째 역량은 AI/ML 기초 지식이다. LLM의 작동 원리와 한계를 이해하고, 프롬프트 엔지니어링 기법을 숙달해야 한다. 벡터 임베딩과 유사도 검색, 파인튜닝과 RAG(Retrieval-Augmented Generation) 같은 고급 기술도 다룰 수 있어야 한다.</p>
+<p>두 번째로 중요한 것은 소프트웨어 엔지니어링 능력이다. API 설계와 구현, 확장 가능한 시스템 아키텍처 구축, 버전 관리와 CI/CD, 성능 최적화와 비용 관리 등 전통적인 소프트웨어 개발 역량도 갖춰야 한다.</p>
+<p>세 번째는 도구와 프레임워크에 대한 숙련도다. LangChain, LlamaIndex, Semantic Kernel 같은 LLM 프레임워크를 다룰 수 있어야 하고, Pinecone, Weaviate, ChromaDB 등의 벡터 데이터베이스를 활용할 수 있어야 한다. 또한 다양한 LLM 제공업체의 API를 효과적으로 사용하고, Docker, Kubernetes 같은 배포 도구도 다룰 수 있어야 한다.</p>
+<p>마지막으로 도메인 전문성도 중요하다. 비즈니스 요구사항을 이해하고, 사용자 경험을 설계하며, 윤리적 AI를 구현하고, GDPR이나 AI Act 같은 규제를 준수할 수 있어야 한다.</p>
+<p>실제로 AI 엔지니어의 하루는 다양한 작업으로 채워진다. 아침에는 프롬프트 최적화를 통해 응답 품질을 개선하고, RAG 시스템의 검색 정확도를 향상시킨다. 오후에는 AI 기능의 A/B 테스트를 설계하고 분석하며, 비용을 모니터링하고 최적화한다. 새로운 AI 모델을 평가하고 통합하는 작업도 일상적이며, 사용자 피드백을 분석하여 개선사항을 도출하는 것도 중요한 업무다. 무엇보다 AI의 안전성과 편향성을 검토하고, 팀원들에게 AI 활용법을 교육하는 것도 AI 엔지니어의 핵심 역할이다.</p>
+<div class="cell">
+<div id="tbl-role-comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-role-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;7.3: AI 엔지니어와 다른 역할의 비교
+</figcaption>
+<div aria-describedby="tbl-role-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="khiuenzwxj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#khiuenzwxj table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#khiuenzwxj thead, #khiuenzwxj tbody, #khiuenzwxj tfoot, #khiuenzwxj tr, #khiuenzwxj td, #khiuenzwxj th {
+  border-style: none;
+}
+
+#khiuenzwxj p {
+  margin: 0;
+  padding: 0;
+}
+
+#khiuenzwxj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#khiuenzwxj .gt_title {
+  color: #333333;
+  font-size: 18px;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#khiuenzwxj .gt_subtitle {
+  color: #333333;
+  font-size: 14px;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#khiuenzwxj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#khiuenzwxj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#khiuenzwxj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#khiuenzwxj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#khiuenzwxj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#khiuenzwxj .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#khiuenzwxj .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#khiuenzwxj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#khiuenzwxj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#khiuenzwxj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#khiuenzwxj .gt_row {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#khiuenzwxj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khiuenzwxj .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#khiuenzwxj .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#khiuenzwxj .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#khiuenzwxj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khiuenzwxj .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#khiuenzwxj .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khiuenzwxj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#khiuenzwxj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khiuenzwxj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#khiuenzwxj .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#khiuenzwxj .gt_left {
+  text-align: left;
+}
+
+#khiuenzwxj .gt_center {
+  text-align: center;
+}
+
+#khiuenzwxj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#khiuenzwxj .gt_font_normal {
+  font-weight: normal;
+}
+
+#khiuenzwxj .gt_font_bold {
+  font-weight: bold;
+}
+
+#khiuenzwxj .gt_font_italic {
+  font-style: italic;
+}
+
+#khiuenzwxj .gt_super {
+  font-size: 65%;
+}
+
+#khiuenzwxj .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#khiuenzwxj .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#khiuenzwxj .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#khiuenzwxj .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#khiuenzwxj .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#khiuenzwxj .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#khiuenzwxj .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#khiuenzwxj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#khiuenzwxj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<td colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">AI 엔지니어와 관련 역할 차이점</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a역할" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">역할</th>
+<th id="a주요-초점" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">주요 초점</th>
+<th id="a핵심-기술" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">핵심 기술</th>
+<th id="AI-엔지니어와-차이" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">AI 엔지니어와 차이</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="역할" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">데이터 과학자</td>
+<td class="gt_row gt_center" headers="주요 초점" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">인사이트 도출</td>
+<td class="gt_row gt_center" headers="핵심 기술" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">통계, 분석, 시각화</td>
+<td class="gt_row gt_center" headers="AI 엔지니어와 차이" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">AI 엔지니어는 제품 구현에 집중</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="역할" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">ML 엔지니어</td>
+<td class="gt_row gt_center" headers="주요 초점" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">모델 학습과 배포</td>
+<td class="gt_row gt_center" headers="핵심 기술" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">모델 최적화, MLOps</td>
+<td class="gt_row gt_center" headers="AI 엔지니어와 차이" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">AI 엔지니어는 기존 모델 활용에 집중</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="역할" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">백엔드 개발자</td>
+<td class="gt_row gt_center" headers="주요 초점" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">서버 로직</td>
+<td class="gt_row gt_center" headers="핵심 기술" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">데이터베이스, API</td>
+<td class="gt_row gt_center" headers="AI 엔지니어와 차이" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">AI 엔지니어는 AI 통합에 특화</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="역할" style="font-weight: bold; background-color: #E9ECEF; border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">프론트엔드 개발자</td>
+<td class="gt_row gt_center" headers="주요 초점" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">사용자 인터페이스</td>
+<td class="gt_row gt_center" headers="핵심 기술" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">UI/UX, 반응형 디자인</td>
+<td class="gt_row gt_center" headers="AI 엔지니어와 차이" style="border-top-width: 1px; border-top-style: solid; border-top-color: #dee2e6; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dee2e6">AI 엔지니어는 AI 기능 구현에 집중</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="데이터-과학-실무-사례" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="데이터-과학-실무-사례"><span class="header-section-number">7.6</span> 데이터 과학 실무 사례</h2>
+<p>AI 공학이 데이터 과학 실무를 어떻게 변화시키는지 구체적인 사례를 통해 살펴보자. 데이터 과학의 기본 뼈대를 이루고 있는 탐색적 데이터 분석, 기계학습, 대시보드를 통해 AI 공학 접근법이 가져올 변화를 미리 경험해 보자.</p>
+<section id="사례-1-eda-자동화" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="사례-1-eda-자동화"><span class="header-section-number">7.6.1</span> 사례 1: EDA 자동화</h3>
+<p>전통적인 탐색적 데이터 분석(EDA) 접근법과 AI 공학 접근법을 비교해보자. 과거에는 데이터 과학자가 pandas, matplotlib, seaborn 등의 라이브러리를 사용해 수십 줄의 코드를 작성하며 데이터를 탐색했다. 각 변수의 분포를 확인하고, 상관관계를 분석하고, 이상치를 찾는 모든 과정이 수동이었다. 반면 AI 공학 시대에는 자연어로 분석 목적을 설명하면 AI가 자동으로 적절한 분석을 수행하고, 인사이트를 도출하며, 필요한 시각화까지 생성한다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 전통적인 EDA 접근법</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터 로드</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'sales_data.csv'</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 기본 통계</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.describe())</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isnull().<span class="bu">sum</span>())</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">10</span>))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sales'</span>].hist(ax<span class="op">=</span>axes[<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>df.boxplot(column<span class="op">=</span><span class="st">'sales'</span>, by<span class="op">=</span><span class="st">'region'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ... 수십 줄의 시각화 코드</span></span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AI 공학 접근법</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>eda_report <span class="op">=</span> llm.analyze(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">    이 판매 데이터에 대해 종합적인 EDA를 수행해주세요:</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">    1. 데이터 품질 이슈 파악</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">    2. 주요 패턴과 트렌드 분석</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">    3. 이상치와 특이사항 탐지</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">    4. 비즈니스 인사이트 도출</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">    5. 추가 분석 제안</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="st">    </span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="st">    시각화가 필요한 경우 코드도 생성해주세요.</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># AI가 생성한 분석 리포트와 시각화 코드 실행</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="bu">exec</span>(eda_report.visualization_code)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eda_report.insights)</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="사례-2-예측-모델링" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="사례-2-예측-모델링"><span class="header-section-number">7.6.2</span> 사례 2: 예측 모델링</h3>
+<p>머신러닝 시대와 AI 공학 시대의 예측 모델링 접근법을 비교해보자. 전통적인 머신러닝에서는 데이터 전처리부터 특징 공학, 모델 선택, 하이퍼파라미터 튜닝까지 모든 과정을 수동으로 수행해야 했다. 수십 개의 알고리즘을 테스트하고, Grid Search로 최적 파라미터를 찾고, 교차검증으로 성능을 평가하는 과정이 몇 주에서 몇 달씩 걸렸다. AI 공학에서는 문제를 자연어로 설명하면 AI가 데이터 특성을 파악하고 적절한 모델링 전략을 제안하며, AutoML과 결합하여 최적화된 모델을 자동으로 생성한다.</p>
+<div class="cell">
+<div id="tbl-predictive-modeling" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-predictive-modeling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;7.4: 예측 모델링 접근법 비교
+</figcaption>
+<div aria-describedby="tbl-predictive-modeling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="cxyyqagihr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#cxyyqagihr table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cxyyqagihr thead, #cxyyqagihr tbody, #cxyyqagihr tfoot, #cxyyqagihr tr, #cxyyqagihr td, #cxyyqagihr th {
+  border-style: none;
+}
+
+#cxyyqagihr p {
+  margin: 0;
+  padding: 0;
+}
+
+#cxyyqagihr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cxyyqagihr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cxyyqagihr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cxyyqagihr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cxyyqagihr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cxyyqagihr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cxyyqagihr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cxyyqagihr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cxyyqagihr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cxyyqagihr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cxyyqagihr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#cxyyqagihr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cxyyqagihr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cxyyqagihr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cxyyqagihr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxyyqagihr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cxyyqagihr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cxyyqagihr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cxyyqagihr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxyyqagihr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cxyyqagihr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxyyqagihr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cxyyqagihr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxyyqagihr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cxyyqagihr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxyyqagihr .gt_left {
+  text-align: left;
+}
+
+#cxyyqagihr .gt_center {
+  text-align: center;
+}
+
+#cxyyqagihr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cxyyqagihr .gt_font_normal {
+  font-weight: normal;
+}
+
+#cxyyqagihr .gt_font_bold {
+  font-weight: bold;
+}
+
+#cxyyqagihr .gt_font_italic {
+  font-style: italic;
+}
+
+#cxyyqagihr .gt_super {
+  font-size: 65%;
+}
+
+#cxyyqagihr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cxyyqagihr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cxyyqagihr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cxyyqagihr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cxyyqagihr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cxyyqagihr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cxyyqagihr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#cxyyqagihr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#cxyyqagihr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<td colspan="3" class="gt_heading gt_title gt_font_normal">예측 모델링 워크플로우의 진화</td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">머신러닝 vs AI 공학 접근법</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="a단계" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">단계</th>
+<th id="a머신러닝-접근법" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">머신러닝 접근법</th>
+<th id="AI-공학-접근법" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold; background-color: #F8F9FA" scope="col">AI 공학 접근법</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">문제 정의</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">비즈니스 요구사항을 ML 문제로 변환</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">자연어로 문제 설명, AI가 접근법 제안</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">데이터 준비</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">수동 전처리, 결측치 처리, 스케일링</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">AI가 데이터 이슈 자동 탐지 및 처리</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">특징 공학</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">도메인 지식 기반 수동 특징 생성</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">AI가 패턴 인식하여 특징 자동 생성</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">모델 선택</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">여러 알고리즘 수동 테스트</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">AI가 데이터 특성에 맞는 모델 추천</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">하이퍼파라미터 튜닝</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">Grid/Random Search로 최적화</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">AutoML + AI 가이드 최적화</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">모델 평가</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">교차검증, 메트릭 계산</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">AI가 종합적 평가 리포트 생성</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">해석 및 설명</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">SHAP, LIME 등 별도 도구 사용</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">AI가 자연어로 모델 동작 설명</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">배포</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">별도 배포 파이프라인 구축</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">API 기반 즉시 서비스화</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="단계" style="font-weight: bold; background-color: #E9ECEF">모니터링</td>
+<td class="gt_row gt_left" headers="머신러닝 접근법">수동 성능 추적</td>
+<td class="gt_row gt_left" headers="AI 공학 접근법">AI 기반 이상 탐지 및 알림</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 전통적인 머신러닝 접근법</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, GridSearchCV</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 데이터 전처리 (수십 줄)</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_scaled, y, test_size<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 하이퍼파라미터 튜닝 (시간 소요)</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'n_estimators'</span>: [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>],</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'max_depth'</span>: [<span class="dv">10</span>, <span class="dv">20</span>, <span class="va">None</span>],</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'min_samples_split'</span>: [<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">20</span>]</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>grid_search <span class="op">=</span> GridSearchCV(RandomForestRegressor(), param_grid, cv<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>grid_search.fit(X_train, y_train)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. 예측 및 평가</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> grid_search.predict(X_test)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"RMSE: </span><span class="sc">{</span>np<span class="sc">.</span>sqrt(mean_squared_error(y_test, predictions))<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AI 공학 접근법</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>model_result <span class="op">=</span> ai_ml_agent.build_model(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    target<span class="op">=</span><span class="st">"customer_churn"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">    고객 이탈 예측 모델을 구축해주세요:</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">    - 데이터 품질 이슈를 자동으로 처리</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="st">    - 최적의 특징을 자동 선택</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="st">    - 여러 알고리즘을 시도하여 최고 성능 모델 선택</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="st">    - 결과를 비즈니스 언어로 설명</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="st">    - 배포 준비 완료된 API 엔드포인트 생성</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># AI가 자동으로 수행한 작업:</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># - 데이터 전처리 및 특징 공학</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co"># - 모델 선택 및 하이퍼파라미터 최적화</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># - 성능 평가 및 해석</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># - API 배포 준비</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_result.business_summary)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Model API endpoint: </span><span class="sc">{</span>model_result<span class="sc">.</span>api_url<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="사례-3-실시간-대시보드" class="level3" data-number="7.6.3">
+<h3 data-number="7.6.3" class="anchored" data-anchor-id="사례-3-실시간-대시보드"><span class="header-section-number">7.6.3</span> 사례 3: 실시간 대시보드</h3>
+<p>실시간 데이터 분석과 대시보드 생성에서도 AI 공학의 위력이 발휘된다. 전통적인 방식에서는 대시보드의 각 차트와 메트릭을 수동으로 설계하고, 데이터 파이프라인을 구축하며, 시각화 코드를 작성해야 했다. AI 공학에서는 비즈니스 목표를 설명하면 AI가 자동으로 관련 메트릭을 식별하고, 적절한 시각화를 생성하며, 데이터 패턴에 따라 인사이트를 실시간으로 해석해 제공한다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AI 공학 기반 실시간 분석 시스템</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AIAnalyticsEngine:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, llm_client):</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.llm <span class="op">=</span> llm_client</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.context_window <span class="op">=</span> []</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> analyze_stream(<span class="va">self</span>, new_data):</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 컨텍스트에 새 데이터 추가</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.context_window.append(new_data)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># AI에게 실시간 분석 요청</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        analysis <span class="op">=</span> <span class="va">self</span>.llm.analyze(</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>            context<span class="op">=</span><span class="va">self</span>.context_window[<span class="op">-</span><span class="dv">100</span>:],  <span class="co"># 최근 100개 레코드</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>            prompt<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="st">            실시간 데이터 스트림을 분석하여:</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="st">            1. 현재 트렌드와 패턴 파악</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="st">            2. 이상 징후 감지</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="st">            3. 향후 30분 예측</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="st">            4. 즉각적인 조치 사항 제안</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="st">            </span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="st">            JSON 형식으로 응답해주세요.</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="st">            """</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> json.loads(analysis)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generate_insight_narrative(<span class="va">self</span>, metrics):</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># AI가 메트릭을 자연어 인사이트로 변환</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        narrative <span class="op">=</span> <span class="va">self</span>.llm.generate(</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>            prompt<span class="op">=</span><span class="ss">f"""</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="ss">            다음 실시간 메트릭을 비즈니스 이해관계자를 위한 </span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="ss">            명확하고 실행 가능한 인사이트로 변환해주세요:</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="ss">            </span><span class="sc">{</span>metrics<span class="sc">}</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="ss">            </span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="ss">            - 핵심 발견사항 3가지</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="ss">            - 권장 조치사항</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="ss">            - 주의사항</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="ss">            """</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> narrative</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 사용 예시</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>engine <span class="op">=</span> AIAnalyticsEngine(llm_client)</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> data_point <span class="kw">in</span> data_stream:</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    insights <span class="op">=</span> engine.analyze_stream(data_point)</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    narrative <span class="op">=</span> engine.generate_insight_narrative(insights)</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>    dashboard.update(insights, narrative)</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="개발-작업흐름" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="개발-작업흐름"><span class="header-section-number">7.7</span> 개발 작업흐름</h2>
+<p>AI 공학의 개발 작업흐름은 전통적인 소프트웨어 개발과는 다른 특징을 가진다. 선형적이고 예측 가능한 과정 대신, 실험적이고 반복적인 접근을 취한다.</p>
+<div id="fig-ai-workflow" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/product-data-model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="그림&nbsp;7.5: 제품, 데이터, 모델 작업흐름[@swyx_alessio_2023]"><img src="images/product-data-model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;7.5: 제품, 데이터, 모델 작업흐름<span class="citation" data-cites="swyx_alessio_2023">(<a href="references.html#ref-swyx_alessio_2023" role="doc-biblioref">SWYX &amp; ALESSIO, 2023</a>)</span>
+</figcaption>
+</figure>
+</div>
+<section id="아이디어-프로토타입-0-1" class="level3" data-number="7.7.1">
+<h3 data-number="7.7.1" class="anchored" data-anchor-id="아이디어-프로토타입-0-1"><span class="header-section-number">7.7.1</span> 아이디어 → 프로토타입 (0 → 1)</h3>
+<p>첫 단계는 아이디어를 빠르게 구현하는 것이다. 완벽하지 않아도 작동하는 것을 먼저 만들고, 실제 사용자와 빠르게 검증한다. 이 단계에서는 기술적 완성도보다 아이디어 검증에 집중한다. LLM의 강력한 능력을 활용하면 복잡한 아이디어도 몇 시간 안에 프로토타입으로 만들 수 있다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 빠른 프로토타입 구축 예시</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_ai_prototype(idea, llm):</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    system_prompt <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    당신은 </span><span class="sc">{</span>idea<span class="sc">}</span><span class="ss">를 수행하는 AI 어시스턴트입니다.</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    사용자의 요청을 이해하고 적절히 응답하세요.</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@app.route</span>(<span class="st">'/api/process'</span>, methods<span class="op">=</span>[<span class="st">'POST'</span>])</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> process_request():</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        user_input <span class="op">=</span> request.json[<span class="st">'input'</span>]</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> llm.complete(</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            system_prompt<span class="op">=</span>system_prompt,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            user_prompt<span class="op">=</span>user_input</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="st">'output'</span>: response}</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> app</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="피드백-수집과-개선-1-10" class="level3" data-number="7.7.2">
+<h3 data-number="7.7.2" class="anchored" data-anchor-id="피드백-수집과-개선-1-10"><span class="header-section-number">7.7.2</span> 피드백 수집과 개선 (1 → 10)</h3>
+<p>프로토타입이 만들어지면 사용자 피드백을 체계적으로 수집한다. 낮은 평점을 받은 응답들을 분석하여 공통적인 실패 패턴을 찾는다. 환각(hallucination), 무관한 응답, 톤 불일치 등의 문제를 파악하고, 이를 바탕으로 프롬프트를 개선한다.</p>
+<p>피드백 분석은 단순히 문제를 찾는 것에 그치지 않는다. 각 문제에 대한 해결책을 도출하고, 이를 시스템에 반영한다. 예를 들어 환각 문제가 발견되면 “사실과 추측을 명확히 구분하여 답변하세요”라는 지침을 추가할 수 있다.</p>
+</section>
+<section id="규모-확장과-최적화-10-100" class="level3" data-number="7.7.3">
+<h3 data-number="7.7.3" class="anchored" data-anchor-id="규모-확장과-최적화-10-100"><span class="header-section-number">7.7.3</span> 규모 확장과 최적화 (10 → 100)</h3>
+<p>프로토타입이 검증되면 프로덕션 환경으로 확장한다. 이 단계에서는 캐싱, 레이트 리미팅, 비용 최적화, 병렬 처리 등의 기술적 고려사항이 중요해진다.</p>
+<p>프로덕션 시스템은 단순히 규모만 키우는 것이 아니다. 안정성과 효율성을 동시에 추구해야 한다. Primary 모델과 fallback 모델을 준비하고, 요청의 복잡도에 따라 적절한 모델을 선택한다. 캐시를 활용하여 반복적인 요청을 효율적으로 처리하고, 비동기 처리로 성능을 최적화한다.</p>
+</section>
+<section id="작업흐름의-핵심-도구" class="level3" data-number="7.7.4">
+<h3 data-number="7.7.4" class="anchored" data-anchor-id="작업흐름의-핵심-도구"><span class="header-section-number">7.7.4</span> 작업흐름의 핵심 도구</h3>
+<p>프롬프트 관리 시스템은 AI 공학의 핵심 도구 중 하나다. 프롬프트를 코드처럼 버전 관리하고, 테스트 케이스를 작성하여 품질을 보장한다. YAML이나 JSON 형식으로 프롬프트를 구조화하여 관리하면, 변경 이력을 추적하고 A/B 테스트를 수행하기 쉬워진다.</p>
+<p>평가 및 모니터링 시스템도 필수적이다. AI 응답의 관련성, 일관성, 안전성, 사실성을 지속적으로 평가한다. 성능이 저하되면 즉시 알림을 보내고, 문제를 빠르게 해결할 수 있도록 한다. 응답 시간, 토큰 사용량, 사용자 만족도, 오류율 등의 메트릭을 추적하여 시스템의 건강 상태를 파악한다.</p>
+<p>AI 공학 개발 작업흐름에서 가장 중요한 것은 사용자 중심적 접근이다. 기술적 완성도보다 실제 문제 해결에 집중하고, 빠른 실험과 검증을 통해 지속적으로 개선해나가는 것이 핵심이다. 소프트웨어 3.0 시대의 AI 엔지니어는 단순히 새로운 도구를 사용하는 것이 아니라, 문제를 해결하는 방식 자체를 재정의하는 패러다임 전환을 이끌어간다. 기술적 역량과 실험적 사고, 협업 능력과 윤리적 책임을 겸비한 AI 엔지니어가 이 강력한 도구를 현명하게 활용하여 더 나은 세상을 만들어가는 장인 역할을 담당한다.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-karpathy2017" class="csl-entry" role="listitem">
+Karpathy, A. (2017). Software 2.0. <em>Medium</em>. <a href="https://karpathy.medium.com/software-2-0-a64152b37c35">https://karpathy.medium.com/software-2-0-a64152b37c35</a>
+</div>
+<div id="ref-karpathy2023" class="csl-entry" role="listitem">
+Karpathy, A. (2023). Software 3.0: Software in the Age of AI. <em>Latent Space</em>. <a href="https://www.latent.space/p/s3">https://www.latent.space/p/s3</a>
+</div>
+<div id="ref-sharma2023" class="csl-entry" role="listitem">
+Sharma, G. (2023). SOFTWARE 3.0 and the Emergence of Prompt Programming: A New Paradigm for AI-Driven Computing. <em>Medium</em>. <a href="https://medium.com/@gaurav.sharma/software-3-0-and-the-emergence-of-prompt-programming-a-new-paradigm-for-ai-driven-computing-ad0282a83a60">https://medium.com/@gaurav.sharma/software-3-0-and-the-emergence-of-prompt-programming-a-new-paradigm-for-ai-driven-computing-ad0282a83a60</a>
+</div>
+<div id="ref-swyx_alessio_2023" class="csl-entry" role="listitem">
+SWYX, &amp; ALESSIO. (2023). The Rise of the AI Engineer. <em>Latent Space</em>. <a href="https://www.latent.space/p/ai-engineer">https://www.latent.space/p/ai-engineer</a>
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "복사완료!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "복사완료!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ds_ide.html" class="pagination-link" aria-label="통합 개발 환경">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">통합 개발 환경</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ds_ellmer.html" class="pagination-link" aria-label="데이터 과학">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">데이터 과학</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-book"></i> <a href="https://quarto.org/">Quarto</a>로 제작<br> <i class="bi bi-palette"></i> <a href="https://r2bit.com/">R2bit</a> 디자인</p>
+</div>
+</div>   
+    <div class="nav-footer-center">
+<div style="text-align: center;">
+<p><img src="assets/favicon-32x32.png" alt="Logo" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> <strong>챗GPT AI</strong> | AI와 함께하는 데이터 과학 여행<br> <span style="font-size: 0.9em;">© 2025 <a href="mailto:admin@r2bit.com">한국 R 사용자회</a> | 이광춘 저</span></p>
+</div>
+</div>
+    <div class="nav-footer-right">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-github"></i> <a href="https://github.com/bit2r/gpt-ai">소스 코드</a><br> <i class="bi bi-bug"></i> <a href="https://github.com/bit2r/gpt-ai/issues">이슈 리포트</a></p>
+</div>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
