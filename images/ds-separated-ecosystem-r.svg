@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 50 1200 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .text-title { font-family: "Noto Sans KR", sans-serif; font-size: 22px; font-weight: bold; text-anchor: middle; fill: #212529; }
+      .text-subtitle { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #495057; }
+      .text-main { font-family: "Noto Sans KR", sans-serif; font-size: 14px; text-anchor: middle; fill: #212529; }
+      .text-label { font-family: "Noto Sans KR", sans-serif; font-size: 13px; fill: #6c757d; }
+      .text-year { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: bold; fill: #28a745; }
+      .text-code { font-family: "D2 Coding", monospace; font-size: 11px; fill: #212529; }
+
+      .box-info { fill: #e8f4fd; stroke: #2780e3; stroke-width: 2; }
+      .box-operation { fill: #fff3cd; stroke: #ffc107; stroke-width: 2; }
+      .box-r { fill: #d4edda; stroke: #28a745; stroke-width: 3; }
+
+      .arrow { stroke: #6c757d; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-break { stroke: #dc3545; stroke-width: 3; fill: none; marker-end: url(#arrowhead-red); stroke-dasharray: 5,5; }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#6c757d"/>
+    </marker>
+
+    <marker id="arrowhead-red" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <polygon points="0 0, 12 6, 0 12" fill="#dc3545"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1200" height="700" fill="#ffffff"/>
+
+  <!-- 정보계 (Information Systems) 섹션 -->
+  <g transform="translate(50, 80)">
+    <text x="250" y="0" class="text-subtitle">정보계 (Information Systems)</text>
+    <text x="180" y="25" class="text-label">GUI 기반 통계 패키지</text>
+
+    <!-- SPSS -->
+    <g transform="translate(30, 50)">
+      <rect class="box-info" width="150" height="100" rx="8"/>
+      <text x="75" y="35" class="text-main">SPSS</text>
+      <text x="50" y="60" class="text-year">(1968)</text>
+      <text x="40" y="80" class="text-label">메뉴 클릭 분석</text>
+    </g>
+
+    <!-- SAS -->
+    <g transform="translate(200, 50)">
+      <rect class="box-info" width="150" height="100" rx="8"/>
+      <text x="75" y="35" class="text-main">SAS</text>
+      <text x="50" y="60" class="text-year">(1972)</text>
+      <text x="30" y="80" class="text-label">엔터프라이즈 통계</text>
+    </g>
+
+    <!-- Minitab -->
+    <g transform="translate(370, 50)">
+      <rect class="box-info" width="150" height="100" rx="8"/>
+      <text x="75" y="35" class="text-main">Minitab</text>
+      <text x="50" y="60" class="text-year">(1972)</text>
+      <text x="50" y="80" class="text-label">통계 분석</text>
+    </g>
+
+    <!-- WIMP 설명 -->
+    <text x="150" y="180" class="text-label">WIMP (Windows, Icons, Menus, Pointers) GUI</text>
+  </g>
+
+  <!-- 운영계 (Operational Systems) 섹션 -->
+  <g transform="translate(650, 80)">
+    <text x="250" y="0" class="text-subtitle">운영계 (Operational Systems)</text>
+    <text x="180" y="25" class="text-label">소프트웨어 개발 IDE</text>
+
+    <!-- Eclipse -->
+    <g transform="translate(80, 50)">
+      <rect class="box-operation" width="170" height="100" rx="8"/>
+      <text x="85" y="35" class="text-main">Eclipse</text>
+      <text x="85" y="55" class="text-year">(2001)</text>
+      <text x="85" y="80" class="text-label">Java 개발 환경</text>
+    </g>
+
+    <!-- Visual Studio -->
+    <g transform="translate(270, 50)">
+      <rect class="box-operation" width="170" height="100" rx="8"/>
+      <text x="85" y="35" class="text-main">Visual Studio</text>
+      <text x="85" y="55" class="text-year">(1997)</text>
+      <text x="85" y="80" class="text-label">.NET 개발 환경</text>
+    </g>
+
+    <text x="250" y="180" class="text-label">전통적인 소프트웨어 개발</text>
+  </g>
+
+  <!-- 분리선 -->
+  <line x1="600" y1="90" x2="600" y2="280" stroke="#dee2e6" stroke-width="3" stroke-dasharray="10,5"/>
+  <text x="600" y="300" class="text-label" text-anchor="middle" fill="#dc3545" font-weight="bold">명확한 경계</text>
+
+  <!-- R 등장 섹션 (중앙 하단) -->
+  <g transform="translate(300, 350)">
+    <text x="250" y="0" class="text-subtitle" fill="#28a745">R 등장 (1995) - 첫 번째 균열</text>
+
+    <!-- R 박스 -->
+    <g transform="translate(100, 30)">
+      <rect class="box-r" width="300" height="200" rx="10"/>
+
+      <text x="150" y="35" class="text-title" fill="#28a745">R 언어</text>
+      <text x="40" y="60" class="text-label">개발자: Ross Ihaka, Robert Gentleman</text>
+
+      <!-- 특징들 -->
+      <text x="140" y="90" class="text-main" text-anchor="start">✓ 오픈소스 생태계</text>
+      <text x="140" y="110" class="text-main" text-anchor="start">✓ 재현 가능한 연구</text>
+      <text x="140" y="130" class="text-main" text-anchor="start">✓ 통계 프로그래밍 언어</text>
+      <text x="140" y="150" class="text-main" text-anchor="start">✗ 명령줄 인터페이스만 제공</text>
+      <text x="140" y="170" class="text-main" text-anchor="start">✗ 일반 연구자 접근 어려움</text>
+    </g>
+
+    <!-- R 코드 예시 -->
+    <g transform="translate(450, 30)">
+      <rect width="200" height="200" fill="#f6f8fa" stroke="#28a745" stroke-width="2" rx="5"/>
+      <text x="50" y="25" class="text-label" font-weight="bold">명령줄 기반 R</text>
+
+      <text x="10" y="50" class="text-code" text-anchor="start">&gt; data &lt;- read.table(</text>
+      <text x="20" y="65" class="text-code" text-anchor="start">"data.txt",</text>
+      <text x="20" y="80" class="text-code" text-anchor="start">header=TRUE)</text>
+
+      <text x="10" y="105" class="text-code" text-anchor="start">&gt; mean(data$variable1)</text>
+      <text x="10" y="120" class="text-code" fill="#28a745" text-anchor="start">[1] 12.5</text>
+
+      <text x="10" y="145" class="text-code" text-anchor="start">&gt; plot(data$variable1,</text>
+      <text x="20" y="160" class="text-code" text-anchor="start">data$variable2)</text>
+    </g>
+  </g>
+
+  <!-- 화살표: 정보계 → R -->
+  <path class="arrow-break" d="M 250 280 Q 250 320 400 350"/>
+
+  <!-- 화살표: 운영계 → R -->
+  <path class="arrow-break" d="M 900 280 Q 900 320 700 350"/>
+
+</svg>

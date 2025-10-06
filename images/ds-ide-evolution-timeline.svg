@@ -184,7 +184,7 @@
     <!-- 2025: 경쟁 심화 (예상) -->
     <circle cx="30" cy="480" r="9" fill="#17a2b8" opacity="0.6"/>
     <text x="50" y="486" class="text-year" opacity="0.6">2025</text>
-    <text x="50" y="508" class="text-event" opacity="0.6">AI IDE 경쟁 심화 (예상)</text>
+    <text x="50" y="508" class="text-event" opacity="0.6">AI IDE 경쟁 심화</text>
     <text x="50" y="528" class="text-desc" opacity="0.6">패러다임 전환 가속화</text>
 
     <!-- Timeline line -->

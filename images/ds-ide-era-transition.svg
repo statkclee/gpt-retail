@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 20 1100 580" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .text-era { font-family: "Noto Sans KR", sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; fill: #212529; }
+      .text-period { font-family: "Noto Sans KR", sans-serif; font-size: 15px; text-anchor: middle; fill: #495057; }
+      .text-tool { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #212529; }
+      .text-year { font-family: "Noto Sans KR", sans-serif; font-size: 15px; text-anchor: middle; fill: #6c757d; }
+      .text-desc { font-family: "Noto Sans KR", sans-serif; font-size: 15px; text-anchor: middle; fill: #212529; }
+      .text-result { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #212529; }
+      .text-label { font-family: "Noto Sans KR", sans-serif; font-size: 15px; font-weight: bold; text-anchor: middle; fill: #dc3545; }
+
+      .era2-bg { fill: #e8f4fd; stroke: #2780e3; stroke-width: 3; }
+      .era3-bg { fill: #d4edda; stroke: #28a745; stroke-width: 3; }
+
+      .box-era2 { fill: #b3d9f2; stroke: #1a5490; stroke-width: 2; }
+      .box-era3-tool { fill: #a8ddb5; stroke: #28a745; stroke-width: 2; }
+      .box-era3-positron { fill: #ffcc99; stroke: #ff9900; stroke-width: 2; }
+
+      .result-era2 { fill: #2780e3; stroke: #1a5490; stroke-width: 2; }
+      .result-era3 { fill: #28a745; stroke: #1a5490; stroke-width: 2; }
+
+      .arrow { stroke: #6c757d; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-evolution { stroke: #dc3545; stroke-width: 3; fill: none; stroke-dasharray: 8,4; marker-end: url(#arrowhead-red); }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#6c757d"/>
+    </marker>
+
+    <marker id="arrowhead-red" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <polygon points="0 0, 12 6, 0 12" fill="#dc3545"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1100" height="1200" fill="#ffffff"/>
+
+  <!-- Era 2: 통합 IDE 시대 (2010s) -->
+  <g transform="translate(30, 50)">
+    <rect class="era2-bg" width="450" height="520" rx="10"/>
+    <text x="225" y="30" class="text-era">2010s: 통합 IDE 시대</text>
+
+    <!-- RStudio -->
+    <g transform="translate(40, 70)">
+      <rect class="box-era2" width="140" height="60" rx="5"/>
+      <text x="70" y="35" class="text-tool">RStudio</text>
+      <text x="70" y="55" class="text-year">2011</text>
+    </g>
+
+    <!-- Jupyter -->
+    <g transform="translate(270, 70)">
+      <rect class="box-era2" width="140" height="60" rx="5"/>
+      <text x="70" y="35" class="text-tool">Jupyter</text>
+      <text x="70" y="55" class="text-year">2011</text>
+    </g>
+
+    <!-- VS Code -->
+    <g transform="translate(155, 180)">
+      <rect class="box-era2" width="140" height="60" rx="5"/>
+      <text x="70" y="35" class="text-tool">VS Code</text>
+      <text x="70" y="55" class="text-year">2015</text>
+    </g>
+
+    <!-- 중간 단계 -->
+    <g transform="translate(40, 280)">
+      <rect class="box-era2" width="140" height="65" rx="5"/>
+      <text x="70" y="25" class="text-desc">R 전용</text>
+      <text x="70" y="45" class="text-desc">통합 환경</text>
+    </g>
+
+    <g transform="translate(270, 280)">
+      <rect class="box-era2" width="140" height="65" rx="5"/>
+      <text x="70" y="25" class="text-desc">노트북</text>
+      <text x="70" y="45" class="text-desc">패러다임</text>
+    </g>
+
+    <g transform="translate(155, 370)">
+      <rect class="box-era2" width="140" height="45" rx="5"/>
+      <text x="70" y="25" class="text-desc">범용 확장성</text>
+    </g>
+
+    <!-- 결과 -->
+    <g transform="translate(95, 450)">
+      <rect class="result-era2" width="260" height="50" rx="5"/>
+      <text x="130" y="20" class="text-result" fill="#ffffff">통합된</text>
+      <text x="130" y="38" class="text-result" fill="#ffffff">데이터 과학 워크플로우</text>
+    </g>
+
+    <!-- 화살표 -->
+    <path class="arrow" d="M 110 130 L 110 280"/>
+    <path class="arrow" d="M 340 130 L 340 280"/>
+    <path class="arrow" d="M 225 240 L 225 370"/>
+    <path class="arrow" d="M 110 345 L 180 450"/>
+    <path class="arrow" d="M 340 345 L 270 450"/>
+    <path class="arrow" d="M 225 415 L 225 450"/>
+  </g>
+
+
+  <!-- Era 3: AI 네이티브 시대 세부 (2020s) - 오른쪽 하단 -->
+  <g transform="translate(560, 50)">
+    <!-- 배경 박스 -->
+    <rect class="era3-bg" width="520" height="520" rx="10"/>
+
+    <!-- 타이틀 -->
+    <text x="260" y="35" class="text-era">2020s: AI 네이티브 시대 (세부)</text>
+
+    <!-- 상단: 4개 도구 -->
+    <!-- GitHub Copilot -->
+    <g transform="translate(30, 70)">
+      <rect class="box-era3-tool" width="110" height="70" rx="5"/>
+      <text x="55" y="30" class="text-tool">GitHub</text>
+      <text x="55" y="45" class="text-tool">Copilot</text>
+      <text x="55" y="60" class="text-year">2021</text>
+    </g>
+
+    <!-- Cursor -->
+    <g transform="translate(155, 70)">
+      <rect class="box-era3-tool" width="110" height="70" rx="5"/>
+      <text x="55" y="35" class="text-tool">Cursor</text>
+      <text x="55" y="55" class="text-year">2023</text>
+    </g>
+
+    <!-- Positron -->
+    <g transform="translate(280, 70)">
+      <rect class="box-era3-positron" width="110" height="70" rx="5"/>
+      <text x="55" y="35" class="text-tool">Positron</text>
+      <text x="55" y="55" class="text-year">2024</text>
+    </g>
+
+    <!-- Windsurf -->
+    <g transform="translate(405, 70)">
+      <rect class="box-era3-tool" width="110" height="70" rx="5"/>
+      <text x="55" y="35" class="text-tool">Windsurf</text>
+      <text x="55" y="55" class="text-year">2024</text>
+    </g>
+
+    <!-- 중단: 4개 특징 -->
+    <!-- AI 코딩 어시스턴트 -->
+    <g transform="translate(30, 250)">
+      <rect class="box-era3-tool" width="110" height="70" rx="5"/>
+      <text x="55" y="27" class="text-desc">AI 코딩</text>
+      <text x="55" y="47" class="text-desc">어시스턴트</text>
+    </g>
+
+    <!-- AI 네이티브 코드 생성 -->
+    <g transform="translate(155, 250)">
+      <rect class="box-era3-tool" width="110" height="70" rx="5"/>
+      <text x="55" y="27" class="text-desc">AI 네이티브</text>
+      <text x="55" y="47" class="text-desc">코드 생성</text>
+    </g>
+
+    <!-- 데이터 과학 AI 통합 -->
+    <g transform="translate(280, 250)">
+      <rect class="box-era3-tool" width="110" height="70" rx="5"/>
+      <text x="55" y="27" class="text-desc">데이터 과학</text>
+      <text x="55" y="47" class="text-desc">AI 통합</text>
+    </g>
+
+    <!-- AI 협업 최적화 -->
+    <g transform="translate(405, 250)">
+      <rect class="box-era3-tool" width="110" height="70" rx="5"/>
+      <text x="55" y="27" class="text-desc">AI 협업</text>
+      <text x="55" y="47" class="text-desc">최적화</text>
+    </g>
+
+    <!-- 하단: 최종 결과 -->
+    <g transform="translate(130, 460)">
+      <rect class="result-era3" width="260" height="40" rx="5"/>
+      <text x="130" y="25" class="text-result" fill="#ffffff">AI 기반 개발 환경</text>
+    </g>
+
+    <!-- 화살표: 도구 -> 특징 -->
+    <path class="arrow" d="M  85 140 L 85  250"/>
+    <path class="arrow" d="M 210 140 L 210 250"/>
+    <path class="arrow" d="M 335 140 L 335 250"/>
+    <path class="arrow" d="M 460 140 L 460 250"/>
+
+    <!-- 화살표: 특징 -> 결과 -->
+    <path class="arrow" d="M  85 320 L 200 450"/>
+    <path class="arrow" d="M 210 320 L 240 450"/>
+    <path class="arrow" d="M 335 320 L 300 450"/>
+    <path class="arrow" d="M 460 320 L 330 450"/>
+
+    <!-- AI 변혁 라벨 -->
+    <text x="270" y="405" class="text-desc" fill="#28a745" font-style="italic" font-weight="bold">AI 변혁</text>
+  </g>
+
+  <!-- Era 간 전환 화살표 -->
+  <g>
+    <path class="arrow-evolution" d="M 480 300 L 560 300"/>
+    <text x="520" y="270" class="text-label">AI 혁명</text>
+  </g>
+
+  <!-- 결과 연결 -->
+  <g>
+    <path class="arrow-evolution" d="M 385 530 L 665 530"/>
+    <text x="525" y="520" class="text-label">AI 변혁</text>
+  </g>
+
+</svg>

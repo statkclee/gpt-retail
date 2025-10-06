@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1400 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* 텍스트 스타일 */
+      .text-main { font-family: "Noto Sans KR", sans-serif; font-size: 32px; font-weight: bold; text-anchor: middle; fill: #ffffff; }
+      .text-title { font-family: "Noto Sans KR", sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; fill: #212529; }
+
+      /* 박스 스타일 (그라디언트) */
+      .box { fill: url(#boxGradient); stroke: #1a5490; stroke-width: 3; rx: 15; }
+
+      /* 화살표 */
+      .arrow { stroke: #6c757d; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+
+    <!-- 박스 그라디언트 -->
+    <linearGradient id="boxGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b9bd5"/>
+      <stop offset="100%" stop-color="#2e5c8a"/>
+    </linearGradient>
+
+    <!-- 화살표 마커 -->
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <polygon points="0 0, 12 6, 0 12" fill="#6c757d"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1400" height="320" fill="#ffffff"/>
+
+  <!-- 1. 수요 발굴 -->
+  <g transform="translate(35, 45)">
+    <rect class="box" width="180" height="180"/>
+    <text x="90" y="75" class="text-main">수요</text>
+    <text x="90" y="115" class="text-main">발굴</text>
+  </g>
+
+  <!-- 화살표 1->2 -->
+  <path class="arrow" d="M 210 135 L 270 135"/>
+
+  <!-- 2. 데이터 수집 -->
+  <g transform="translate(270, 45)">
+    <rect class="box" width="180" height="180"/>
+    <text x="90" y="75" class="text-main">데이터</text>
+    <text x="90" y="115" class="text-main">수집</text>
+  </g>
+
+  <!-- 화살표 2->3 -->
+  <path class="arrow" d="M 445 135 L 505 135"/>
+
+  <!-- 3. 정제 -->
+  <g transform="translate(505, 45)">
+    <rect class="box" width="180" height="180"/>
+    <text x="90" y="95" class="text-main">정제</text>
+  </g>
+
+  <!-- 화살표 3->4 -->
+  <path class="arrow" d="M 680 135 L 740 135"/>
+
+  <!-- 4. 품질 검증 -->
+  <g transform="translate(740, 45)">
+    <rect class="box" width="180" height="180"/>
+    <text x="90" y="75" class="text-main">품질</text>
+    <text x="90" y="115" class="text-main">검증</text>
+  </g>
+
+  <!-- 화살표 4->5 -->
+  <path class="arrow" d="M 915 135 L 975 135"/>
+
+  <!-- 5. 메타데이터화 -->
+  <g transform="translate(975, 45)">
+    <rect class="box" width="180" height="180"/>
+    <text x="90" y="75" class="text-main">메타</text>
+    <text x="90" y="115" class="text-main">데이터화</text>
+  </g>
+
+  <!-- 화살표 5->6 -->
+  <path class="arrow" d="M 1150 135 L 1210 135"/>
+
+  <!-- 6. 개방 등록 -->
+  <g transform="translate(1210, 45)">
+    <rect class="box" width="180" height="180"/>
+    <text x="90" y="75" class="text-main">개방</text>
+    <text x="90" y="115" class="text-main">등록</text>
+  </g>
+
+</svg>
