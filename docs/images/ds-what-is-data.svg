@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 30 1400 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Text Styles -->
+    <style>
+      /* 공통 폰트 */
+      .base-font {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+      }
+
+      /* 제목 스타일 */
+      .text-title-white {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        fill: white;
+      }
+
+      .text-title-blue {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        fill: #1a5490;
+      }
+
+      /* 중앙 원 텍스트 */
+      .text-center-large {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 37px;
+        font-weight: bold;
+        fill: white;
+      }
+
+      .text-center-small {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 16px;
+        fill: #b3d9f2;
+      }
+
+      /* 본문 텍스트 */
+      .text-body-scientific {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 15px;
+        fill: #d4edda;
+      }
+
+      .text-body-computing {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 15px;
+        fill: #e8f4fd;
+      }
+
+      .text-body-business {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 15px;
+        fill: #fff3cd;
+      }
+
+      .text-body-philosophical {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 15px;
+        fill: #f8d7da;
+      }
+
+      .text-body-statistical {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 15px;
+        fill: #d1ecf1;
+      }
+
+      .text-body-governance {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 15px;
+        fill: #1a5490;
+      }
+
+      /* 특성 섹션 텍스트 */
+      .text-char-title {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        fill: #212529;
+      }
+
+      .text-char-section-title {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .text-char-label {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .text-char-desc {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 10px;
+        fill: #6c757d;
+      }
+
+      /* 하단 텍스트 */
+      .text-footer {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        fill: white;
+      }
+    </style>
+
+    <!-- Central gradient for data definition -->
+    <radialGradient id="centralGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2780e3"/>
+      <stop offset="100%" stop-color="#1a5490"/>
+    </radialGradient>
+
+    <!-- Perspective gradients (책 색상 팔레트 사용) -->
+    <linearGradient id="scientificGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#28a745"/>
+      <stop offset="100%" stop-color="#218838"/>
+    </linearGradient>
+
+    <linearGradient id="computingGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6f42c1"/>
+      <stop offset="100%" stop-color="#5a32a3"/>
+    </linearGradient>
+
+    <linearGradient id="businessGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffc107"/>
+      <stop offset="100%" stop-color="#e0a800"/>
+    </linearGradient>
+
+    <linearGradient id="philGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dc3545"/>
+      <stop offset="100%" stop-color="#c82333"/>
+    </linearGradient>
+
+    <linearGradient id="statsGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#17a2b8"/>
+      <stop offset="100%" stop-color="#138496"/>
+    </linearGradient>
+
+    <!-- DIKW gradient -->
+    <linearGradient id="dikwGradient" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#212529"/>
+      <stop offset="33%" stop-color="#495057"/>
+      <stop offset="66%" stop-color="#adb5bd"/>
+      <stop offset="100%" stop-color="#f8f9fa"/>
+    </linearGradient>
+
+    <!-- Arrow markers -->
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c757d"/>
+    </marker>
+  </defs>
+
+
+  <!-- Central Definition Circle -->
+  <circle cx="700" cy="350" r="180" fill="url(#centralGradient)" stroke="#1a5490" stroke-width="4"/>
+  <text x="700" y="340" text-anchor="middle" class="text-center-large">데이터</text>
+  <text x="700" y="375" text-anchor="middle" class="text-center-small">기록하고 처리할 수 있는</text>
+  <text x="700" y="395" text-anchor="middle" class="text-center-small">사실, 관찰, 또는 측정값</text>
+
+  <!-- Scientific Perspective (top) -->
+  <g transform="translate(570, 60)">
+    <rect width="260" height="100" fill="url(#scientificGrad)" stroke="#28a745" stroke-width="2" rx="12"/>
+    <text x="130" y="25" text-anchor="middle" class="text-title-white">과학적 관점</text>
+    <text x="20" y="50" class="text-body-scientific">• 경험적 관찰</text>
+    <text x="20" y="68" class="text-body-scientific">• 측정 &amp; 실험</text>
+    <text x="20" y="86" class="text-body-scientific">• 재현 가능한 증거</text>
+  </g>
+
+  <!-- Computing Perspective (top right) -->
+  <g transform="translate(950, 200)">
+    <rect width="260" height="100" fill="url(#computingGrad)" stroke="#6f42c1" stroke-width="2" rx="12"/>
+    <text x="130" y="25" text-anchor="middle" class="text-title-white">컴퓨팅 관점</text>
+    <text x="20" y="50" class="text-body-computing">• 이진 표현 (0과 1)</text>
+    <text x="20" y="68" class="text-body-computing">• 아날로그 신호 디지털화, 저장 &amp; 전송</text>
+    <text x="20" y="86" class="text-body-computing">• 알고리즘 처리</text>
+  </g>
+
+  <!-- Business Perspective (bottom right) -->
+  <g transform="translate(950, 450)">
+    <rect width="260" height="100" fill="url(#businessGrad)" stroke="#ffc107" stroke-width="2" rx="12"/>
+    <text x="130" y="25" text-anchor="middle" class="text-title-white">비즈니스 관점</text>
+    <text x="20" y="50" class="text-body-business">• 전략적 자산</text>
+    <text x="20" y="68" class="text-body-business">• 의사결정 입력</text>
+    <text x="20" y="86" class="text-body-business">• 경쟁 우위</text>
+  </g>
+
+  <!-- Philosophical Perspective (bottom left) -->
+  <g transform="translate(190, 450)">
+    <rect width="260" height="100" fill="url(#philGrad)" stroke="#dc3545" stroke-width="2" rx="12"/>
+    <text x="130" y="25" text-anchor="middle" class="text-title-white">철학적 관점</text>
+    <text x="20" y="50" class="text-body-philosophical">• 지식의 원재료</text>
+    <text x="20" y="68" class="text-body-philosophical">• 맥락 의존적 의미</text>
+    <text x="20" y="86" class="text-body-philosophical">• 진실 vs 해석</text>
+  </g>
+
+  <!-- Data Governance & Ethics -->
+  <g transform="translate(570, 570)">
+    <rect width="260" height="110" fill="#e8f4fd" stroke="#2780e3" stroke-width="2" rx="12"/>
+    <text x="130" y="28" text-anchor="middle" class="text-title-blue">거버넌스 &amp; 윤리</text>
+    <text x="20" y="55" class="text-body-governance">• 개인정보보호 &amp; 동의 관리</text>
+    <text x="20" y="73" class="text-body-governance">• 편향 탐지 &amp; 완화</text>
+    <text x="20" y="91" class="text-body-governance">• 관리책임, 계보, 책무성</text>
+  </g>
+
+  <!-- Statistical Perspective (left) -->
+  <g transform="translate(190, 200)">
+    <rect width="260" height="100" fill="url(#statsGrad)" stroke="#17a2b8" stroke-width="2" rx="12"/>
+    <text x="130" y="25" text-anchor="middle" class="text-title-white">통계적 관점</text>
+    <text x="20" y="50" class="text-body-statistical">• 변수 &amp; 관측값</text>
+    <text x="20" y="68" class="text-body-statistical">• 모집단에서 추출한 표본</text>
+    <text x="20" y="86" class="text-body-statistical">• 패턴 &amp; 분포</text>
+  </g>
+
+  <!-- Connection lines from perspectives to center -->
+  <!-- Scientific (top) to center -->
+  <path d="M 700 160 L 700 280" stroke="#adb5bd" stroke-width="3" stroke-dasharray="5,5" opacity="0.7" marker-end="url(#arrow)"/>
+
+  <!-- Computer Science (top-right) to center -->
+  <path d="M 950 250 L 800 340" stroke="#adb5bd" stroke-width="3" stroke-dasharray="5,5" opacity="0.7" marker-end="url(#arrow)"/>
+
+  <!-- Statistical (bottom-right) to center -->
+  <path d="M 950 500 L 800 400" stroke="#adb5bd" stroke-width="3" stroke-dasharray="5,5" opacity="0.7" marker-end="url(#arrow)"/>
+
+  <!-- Business (bottom-left) to center -->
+  <path d="M 450 500 L 600 400" stroke="#adb5bd" stroke-width="3" stroke-dasharray="5,5" opacity="0.7" marker-end="url(#arrow)"/>
+
+  <!-- Humanities (top-left) to center -->
+  <path d="M 450 250 L 600 340" stroke="#adb5bd" stroke-width="3" stroke-dasharray="5,5" opacity="0.7" marker-end="url(#arrow)"/>
+
+  <!-- Governance (bottom-top) to center -->
+  <path d="M 690 560 L 690 450" stroke="#495057" stroke-width="3" stroke-dasharray="5,5" opacity="0.6" marker-end="url(#arrow)"/>
+
+</svg>

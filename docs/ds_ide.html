@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-KR" xml:lang="ko-KR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.16">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; 통합 개발 환경 – AI가 밝혀낸 유통 고수요 데이터의 진실</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./proj_app.html" rel="next">
+<link href="./ds_data.html" rel="prev">
+<link href="./assets/android-chrome-192x192.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0fe41346b718ff62733f5cc60e32bfbd.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "일치 없음",
+    "search-matching-documents-text": "일치된 문서",
+    "search-copy-link-title": "검색 링크 복사",
+    "search-hide-matches-text": "추가 검색 결과 숨기기",
+    "search-more-match-text": "추가 검색결과",
+    "search-more-matches-text": "추가 검색결과",
+    "search-clear-button-title": "제거",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "취소",
+    "search-submit-button-title": "검색",
+    "search-label": "검색"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-229551680-1', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+
+
+<link rel="stylesheet" href="assets/quarto.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_data.html"><strong>2부 AI 데이터 과학</strong></a></li><li class="breadcrumb-item"><a href="./ds_ide.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">통합 개발 환경</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI가 밝혀낸 유통 고수요 데이터의 진실</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="리더 모드 전환">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">서문</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">들어가며</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>1부 인공지능</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_gpt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">범용기술</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI 기초</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">일자리</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">AI 윤리</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>2부 AI 데이터 과학</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">데이터</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_ide.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">통합 개발 환경</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>3부 사례 분석</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_app.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">쇼핑앱 전쟁 숨겨진 공식</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_school.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">급식비 절약 숨겨진 진실</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_news.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">농산물 정보 디지털 계급사회</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_trade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">유통채널 숨겨진 가격 전략</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./end.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">맺음말</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고문헌</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">목차</h2>
+   
+  <ul>
+  <li><a href="#sec-ide-evolution" id="toc-sec-ide-evolution" class="nav-link active" data-scroll-target="#sec-ide-evolution"><span class="header-section-number">6.1</span> IDE 진화 역사</a>
+  <ul class="collapse">
+  <li><a href="#sec-separated-ecosystem" id="toc-sec-separated-ecosystem" class="nav-link" data-scroll-target="#sec-separated-ecosystem"><span class="header-section-number">6.1.1</span> 분리된 생태계 시대</a></li>
+  <li><a href="#sec-integrated-ide" id="toc-sec-integrated-ide" class="nav-link" data-scroll-target="#sec-integrated-ide"><span class="header-section-number">6.1.2</span> 통합 IDE 등장</a></li>
+  <li><a href="#sec-ai-turning-point" id="toc-sec-ai-turning-point" class="nav-link" data-scroll-target="#sec-ai-turning-point"><span class="header-section-number">6.1.3</span> AI 시대 전환점</a></li>
+  </ul></li>
+  <li><a href="#sec-ide-war" id="toc-sec-ide-war" class="nav-link" data-scroll-target="#sec-ide-war"><span class="header-section-number">6.2</span> IDE 전쟁</a>
+  <ul class="collapse">
+  <li><a href="#sec-competitive-strategies" id="toc-sec-competitive-strategies" class="nav-link" data-scroll-target="#sec-competitive-strategies"><span class="header-section-number">6.2.1</span> 경쟁 전략과 차별화</a></li>
+  <li><a href="#sec-future-outlook" id="toc-sec-future-outlook" class="nav-link" data-scroll-target="#sec-future-outlook"><span class="header-section-number">6.2.2</span> 승부처와 미래 전망</a></li>
+  </ul></li>
+  <li><a href="#sec-positron" id="toc-sec-positron" class="nav-link" data-scroll-target="#sec-positron"><span class="header-section-number">6.3</span> 포지트론</a>
+  <ul class="collapse">
+  <li><a href="#sec-positron-strengths" id="toc-sec-positron-strengths" class="nav-link" data-scroll-target="#sec-positron-strengths"><span class="header-section-number">6.3.1</span> 핵심 경쟁력</a></li>
+  <li><a href="#sec-positron-workflow" id="toc-sec-positron-workflow" class="nav-link" data-scroll-target="#sec-positron-workflow"><span class="header-section-number">6.3.2</span> 실전 워크플로우</a></li>
+  </ul></li>
+  <li><a href="#데이터-과학-ide의-미래" id="toc-데이터-과학-ide의-미래" class="nav-link" data-scroll-target="#데이터-과학-ide의-미래"><span class="header-section-number">6.4</span> 데이터 과학 IDE의 미래</a></li>
+  <li><a href="#ide-선택과-ai-시대-워크플로우" id="toc-ide-선택과-ai-시대-워크플로우" class="nav-link" data-scroll-target="#ide-선택과-ai-시대-워크플로우"><span class="header-section-number">6.5</span> IDE 선택과 AI 시대 워크플로우</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_data.html"><strong>2부 AI 데이터 과학</strong></a></li><li class="breadcrumb-item"><a href="./ds_ide.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">통합 개발 환경</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-data-science-ide" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">통합 개발 환경</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>데이터 과학 분야에서 통합 개발 환경(IDE)의 선택은 생산성과 학습 효율성에 직접적인 영향을 미치는 중요한 결정이다. 1990년대 분리된 통계 소프트웨어 시대부터 현재의 AI 네이티브 IDE까지, 데이터 과학 도구들은 사용자의 요구와 기술 발전에 따라 지속적으로 진화해왔다. 본 장에서는 이러한 진화 과정을 역사적 관점에서 분석하고, 현재 진행 중인 IDE 전쟁의 양상을 살펴본 후, 차세대 AI 네이티브 IDE인 포지트론(Positron)의 설계 철학과 실전 활용법을 다룬다.</p>
+<div id="fig-ide-evolution-timeline" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ide-evolution-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-ide-evolution-timeline.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="그림&nbsp;6.1: 데이터 과학 IDE 진화 타임라인"><img src="images/ds-ide-evolution-timeline.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ide-evolution-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.1: 데이터 과학 IDE 진화 타임라인
+</figcaption>
+</figure>
+</div>
+<section id="sec-ide-evolution" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-ide-evolution"><span class="header-section-number">6.1</span> IDE 진화 역사</h2>
+<section id="sec-separated-ecosystem" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="sec-separated-ecosystem"><span class="header-section-number">6.1.1</span> 분리된 생태계 시대</h3>
+<p>2010년 이전(1990년대-2010년)의 데이터 분석 환경은 명확하게 분할된 구조를 가지고 있었다. 정보계에는 SPSS(1968), SAS(1972), Minitab 등 GUI 기반 통계 패키지들이 자리잡고 있었으며, WIMP(Windows, Icons, Menus, Pointers) GUI 인터페이스를 통해 메뉴 클릭 방식 분석을 제공했다. 한편 운영계에는 Eclipse, Visual Studio 등의 전통적인 IDE들이 소프트웨어 개발을 담당했다.</p>
+<p>R 등장(1995)은 이러한 분할 구조에 첫 번째 균열을 가져왔다. 로스 이하카(Ross Ihaka)와 로버트 젠틀맨(Robert Gentleman)이 개발한 R은 통계학자들을 위한 프로그래밍 언어이자 계산 환경으로, 오픈소스 생태계와 재현 가능한 연구의 가능성을 제시했다. 하지만 초기 R은 명령줄 인터페이스만을 제공했기 때문에 일반 연구자들에게는 여전히 접근하기 어려운 도구였다.</p>
+<div id="fig-separated-ecosystem" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-separated-ecosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-separated-ecosystem-r.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="그림&nbsp;6.2: 분리된 생태계 시대와 R의 등장"><img src="images/ds-separated-ecosystem-r.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-separated-ecosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.2: 분리된 생태계 시대와 R의 등장
+</figcaption>
+</figure>
+</div>
+<p>분리된 생태계 시대의 가장 큰 한계는 각 도구마다 독립적인 학습 곡선이 필요했고, 분석과 개발 사이에 명확한 경계가 존재했다는 점이다. 또한 재현 가능한 연구를 위한 버전 관리(Version Control)나 협업 도구가 부족했으며, 워크플로우(Workflow)의 통합성이 결여되어 있었다.</p>
+</section>
+<section id="sec-integrated-ide" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="sec-integrated-ide"><span class="header-section-number">6.1.2</span> 통합 IDE 등장</h3>
+<p>2010년대 초반, 데이터 과학 커뮤니티는 두 개의 혁신적인 IDE를 맞이했다. 2010년 12월 J.J. 알레어(J.J. Allaire)가 시작한 RStudio 프로젝트는 R 사용자들에게 완전히 새로운 경험을 제공했다. 2011년 2월 출시된 첫 공개 베타(Beta) 버전(v0.92)은 4분할 인터페이스(코드 에디터(Code Editor), 콘솔(Console), 환경(Environment)/히스토리(History), 플롯(Plot)/파일(File) 패널)를 통해 R 프로그래밍의 모든 측면을 하나의 환경에서 처리할 수 있게 했다.</p>
+<p>거의 동시에 페르난도 페레즈(Fernando Pérez)와 동료들이 함께 개발한 IPython Notebook(후에 Jupyter)은 완전히 다른 접근 방식을 제시했다. 2011년 시작된 프로젝트에서 코드, 시각화, 설명 텍스트를 하나의 문서에 결합하는 노트북 패러다임을 도입했다. 곧 인터랙티브 컴퓨팅 새로운 표준이 되었으며, GitHub에서의 노트북 수는 2015년 20만 개에서 2021년 1,000만 개로 급속히 증가했다.</p>
+<div id="fig-jupyter-workflow" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-jupyter-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-jupyter-interactive-analysis.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="그림&nbsp;6.3: Jupyter Notebook 인터랙티브 데이터 분석 워크플로우"><img src="images/ds-jupyter-interactive-analysis.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jupyter-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.3: Jupyter Notebook 인터랙티브 데이터 분석 워크플로우
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-ai-turning-point" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="sec-ai-turning-point"><span class="header-section-number">6.1.3</span> AI 시대 전환점</h3>
+<p>2015년 4월 마이크로소프트 VS Code 미리보기(Preview) 공개는 데이터 과학 IDE 생태계에 새로운 변수를 추가했다. 2016년 4월 정식 1.0 릴리스 이후 가볍고 빠른 성능, 풍부한 확장 기능(Extension), 무료라는 장점으로 빠르게 개발자들의 마음을 사로잡았으며, 2017년 Python 확장 기능의 인기 급상승과 2020년 중반 Jupyter 확장 기능의 정식 분리·배포를 통해 데이터 과학 영역으로 확장했다.</p>
+<p>진정한 전환점은 2021년 6월 GitHub Copilot의 기술 프리뷰(Technical Preview) 시작이었다. 2022년 6월 정식 출시된 Copilot은 AI 지원 코딩의 시대를 열었으며, 문맥을 이해한 지능적인 코드 제안과 문서화 지원을 통해 데이터 과학자들 작업 방식을 근본적으로 변화시켰다.</p>
+<div id="fig-ide-era-transition" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ide-era-transition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-ide-era-transition.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="그림&nbsp;6.4: 데이터 과학 IDE 진화"><img src="images/ds-ide-era-transition.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ide-era-transition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.4: 데이터 과학 IDE 진화
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-ide-war" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-ide-war"><span class="header-section-number">6.2</span> IDE 전쟁</h2>
+<p>2021년 GitHub Copilot 등장은 단순히 새로운 기능의 추가가 아니라 개발 패러다임 자체를 바꾸는 전환점이었다. 2022년 6월 정식 출시 이후 불과 1년 만에 100만 명 이상 개발자가 사용하기 시작했으며, 코드 제안의 40% 이상이 실제로 채택되는 놀라운 수용률을 기록했다. 이는 AI가 더 이상 부가 기능이 아닌 개발 워크플로우의 핵심 요소로 자리잡았음을 의미했다. 데이터 과학자들은 복잡한 pandas 구문이나 matplotlib 설정을 암기하는 대신, 자연어로 의도를 표현하고 AI가 제안하는 코드를 검토하고 수정하는 새로운 방식으로 작업하기 시작했다.</p>
+<p>이러한 변화는 기존 IDE들에게 생존의 위기이자 기회였다. RStudio, Jupyter, VS Code 같은 기존 강자들은 10년 이상 쌓아온 사용자 기반과 생태계를 가지고 있었지만, AI 시대에 맞는 근본적인 재설계 없이는 경쟁력을 잃을 수 있었다. 동시에 Cursor, Windsurf 같은 신생 기업들은 처음부터 AI와의 협업을 전제로 설계된 도구로 시장에 도전장을 내밀었다. Posit(구 RStudio)은 이러한 격변기에 Positron이라는 차세대 IDE로 응전했을 뿐만 아니라, 사명도 바꾸면서 Software 1.0(명시적 프로그래밍)에서 Software 2.0(머신러닝)을 거쳐 Software 3.0(LLM 시대)로의 전환을 반영하는 상징적인 사건이 되었다.</p>
+<div id="fig-ide-war" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ide-war-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-ide-war.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="그림&nbsp;6.5: 데이터 과학 IDE 전쟁 - Legacy + AI vs AI Native"><img src="images/ds-ide-war.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ide-war-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.5: 데이터 과학 IDE 전쟁 - Legacy + AI vs AI Native
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-ide-war" class="quarto-xref">그림&nbsp;<span>6.5</span></a> 는 현재 진행 중인 IDE 전쟁의 구도를 보여준다. 전장은 크게 세 진영으로 나뉜다. 첫 번째는 <strong>기존 강자들</strong>(RStudio, Jupyter, VS Code)로, 각각 R 전용 통합 환경, 노트북 패러다임, 범용 에디터라는 고유한 정체성을 가지고 있었다. 두 번째는 <strong>AI 통합 전략</strong> 진영으로, Positron(AI 네이티브 데이터 과학 IDE), JupyterLab + AI 확장, VS Code + Copilot이 기존 도구에 AI를 깊이 통합하는 방식으로 진화했다. 세 번째는 <strong>AI 네이티브 도전자들</strong>(Cursor, Windsurf, Replit Agent)로, 처음부터 AI 우선 설계, Cascade AI, 클라우드 AI 등 AI를 핵심 전제로 하는 완전히 새로운 접근을 시도한다.</p>
+<p>특히 주목할 점은 RStudio에서 Positron으로 이어지는 “진화” 경로와 “차세대 전략”의 이중 화살표다. Posit은 기존 RStudio 사용자들을 점진적으로 Positron으로 흡수하면서, 완전히 새로운 사용자층을 공략하는 두가지 전략을 동시 구사한다. JupyterLab과 VS Code는 각각 “AI 추가”와 “통합” 전략으로 기존 생태계를 유지하면서 AI 역량을 강화한다. 반면 AI 네이티브 도전자들은 “도전” 화살표가 보여주듯 기존 질서에 정면 도전하며, 2024-2025년을 기점으로 본격적인 시장 재편을 예고한다.</p>
+<div id="fig-ide-era-transition" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ide-era-transition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-ide-era-transition.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="그림&nbsp;6.6: 데이터 과학 IDE 진화"><img src="images/ds-ide-era-transition.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ide-era-transition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.6: 데이터 과학 IDE 진화
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-ide-era-transition" class="quarto-xref">그림&nbsp;<span>6.6</span></a> 은 2010s 통합 IDE 시대에서 2020s AI 네이티브 시대로의 전환을 시각화한다. 2010년대는 RStudio(2011)가 R 전용 통합 환경을, Jupyter(2011)가 노트북 패러다임을, VS Code(2015)가 범용 확장성을 제공하며 “통합된 데이터 과학 워크플로우”를 완성했다. 각각의 방식으로 분리된 생태계 시대 한계를 극복하고 데이터 과학자들에게 생산적인 환경을 제공했다.</p>
+<p>그러나 2020년대 들어 AI 혁명이 시작되면서 완전히 새로운 요구사항이 등장했다. GitHub Copilot(2021)의 성공은 단순한 기능 추가를 넘어 AI 기반 개발 환경의 가능성을 입증했다. 이에 Cursor(2023)는 AI 네이티브 코드 생성을, Positron(2024)은 데이터 과학 AI 통합을, Windsurf(2024)는 AI 협업 최적화를 각각 전면에 내세우며 등장했다. 오른쪽 하단의 세부 다이어그램은 단순히 AI 기능을 추가한 것이 아니라, AI 코딩 어시스턴트, AI 네이티브 코드 생성, 데이터 과학 AI 통합, AI 협업 최적화라는 네 가지 핵심 특징을 통해 “AI 기반 개발 환경”이라는 새로운 패러다임을 구축하고 있음을 보여준다.</p>
+<section id="sec-competitive-strategies" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="sec-competitive-strategies"><span class="header-section-number">6.2.1</span> 경쟁 전략과 차별화</h3>
+<p>IDE 전쟁 양상을 이해하려면 각 진영이 어떤 전략으로 경쟁하고 있는지 살펴봐야 한다. <strong>기존 강자들</strong>은 자신들의 핵심 자산인 거대한 사용자 기반과 성숙한 생태계를 활용하면서 AI 시대에 적응하는 전략을 택했다. RStudio는 Positron 개발이라는 과감한 선택을 통해 R 전용 IDE에서 다중 언어 지원 IDE로 완전히 탈바꿈했다. VS Code OSS를 기반으로 재구축하면서 기존 R 커뮤니티의 지지를 유지하면서도 Python, Julia 등 다양한 언어 생태계로 확장했다. 특히 Rust로 작성된 Ark 커널을 통해 R과 Python 모두에 네이티브 수준의 성능과 AI 통합을 제공한다는 점에서, 단순 AI 기능 추가를 넘어 근본적인 아키텍처 혁신을 시도했다.</p>
+<p>Jupyter는 다른 방향을 택했다. 교육과 연구 분야에서의 압도적 지위를 유지하면서, JupyterLab 확장 생태계를 통한 점진적 AI 통합 전략을 구사한다. jupyter-ai 확장을 통해 노트북 안에서 직접 AI 어시스턴트와 대화하고, 코드 생성을 요청하며, 데이터 분석 결과를 자연어로 설명받을 수 있다. 노트북 패러다임 강점인 “탐색적 분석”과 AI “대화형 지원”을 자연스럽게 결합한 접근이다. VS Code는 GitHub Copilot과 깊은 통합을 무기로 범용 개발 도구에서 데이터 과학 플랫폼으로 영역을 확장했다. Python 확장과 Jupyter 확장의 누적 다운로드가 각각 1억 회를 넘어서며, 이미 많은 데이터 과학자들이 VS Code를 주력 도구로 사용하고 있다.</p>
+<p>반면 <strong>AI 네이티브 도전자들</strong>은 완전히 다른 게임의 규칙을 제시한다. 2023년 3월 출시된 Cursor는 VS Code를 포크하여 AI 기능을 깊이 통합한 첫 번째 성공적인 AI 네이티브 IDE로, 자연어로 코드 편집 및 생성이 가능하고 전체 코드베이스를 컨텍스트로 활용하는 AI 어시스턴트를 제공한다. Cursor 핵심 차별점은 “AI First” 설계 철학이다. 기존 IDE에 AI를 추가한 것이 아니라, AI와 협업을 전제로 모든 인터페이스와 워크플로우를 설계했다.</p>
+<div id="fig-cursor-natural-language" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cursor-natural-language-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-cursor-natural-language.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="그림&nbsp;6.7: Cursor AI 네이티브 코딩 - 자연어 명령 예시"><img src="images/ds-cursor-natural-language.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cursor-natural-language-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.7: Cursor AI 네이티브 코딩 - 자연어 명령 예시
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-cursor-natural-language" class="quarto-xref">그림&nbsp;<span>6.7</span></a> 는 Cursor의 자연어 기반 코딩 워크플로우를 보여준다. “CSV 파일을 읽어서 처음 5행만 보여줘”라는 간단한 명령으로 파일 경로, 인코딩, 데이터 확인까지 자동으로 처리된 코드가 생성된다. “결측치 제거하고 날짜 컬럼 변환해줘”라는 요청은 결측치 처리 방법과 날짜 형식을 AI가 자동으로 감지하여 적절한 코드로 변환한다. “매출 추이를 선 그래프로 그려줘”는 시각화 라이브러리 선택부터 스타일 설정, 레이블 지정까지 모두 AI가 처리한다. 단순한 코드 자동완성을 넘어, 데이터 과학자 <strong>의도</strong>를 코드로 구현하는 새로운 프로그래밍 패러다임이다.</p>
+<p>2024년 11월 Codeium에서 출시한 Windsurf는 “Cascade” 시스템을 통해 AI와 개발자 간 실시간 협업을 한 단계 더 발전시켰다. Cascade는 개발자가 작업하는 동안 AI가 멀티 파일을 동시에 편집하고, 전체 프로젝트 컨텍스트를 이해하며, 복잡한 리팩토링 작업도 수행할 수 있는 협업 시스템이다. 예를 들어 “이 분석 파이프라인을 클래스 기반 구조로 리팩토링해줘”라는 요청을 하면, Windsurf는 여러 파일에 걸쳐 있는 함수들을 분석하고, 적절한 클래스 구조를 제안하며, 모든 파일을 일관되게 수정한다. 데이터 과학 프로젝트가 점점 대규모화되고 복잡해지는 현실에 대응하는 전략으로 풀이된다.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-ide-comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ide-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;6.1: 데이터 과학 IDE 기능 비교표
+</figcaption>
+<div aria-describedby="tbl-ide-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="eqalkbrwbz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eqalkbrwbz table {
+  font-family: 'Noto Sans KR', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#eqalkbrwbz thead, #eqalkbrwbz tbody, #eqalkbrwbz tfoot, #eqalkbrwbz tr, #eqalkbrwbz td, #eqalkbrwbz th {
+  border-style: none;
+}
+
+#eqalkbrwbz p {
+  margin: 0;
+  padding: 0;
+}
+
+#eqalkbrwbz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#eqalkbrwbz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#eqalkbrwbz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#eqalkbrwbz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#eqalkbrwbz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#eqalkbrwbz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#eqalkbrwbz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#eqalkbrwbz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#eqalkbrwbz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#eqalkbrwbz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#eqalkbrwbz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#eqalkbrwbz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#eqalkbrwbz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#eqalkbrwbz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#eqalkbrwbz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eqalkbrwbz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#eqalkbrwbz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#eqalkbrwbz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#eqalkbrwbz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eqalkbrwbz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#eqalkbrwbz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eqalkbrwbz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#eqalkbrwbz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eqalkbrwbz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eqalkbrwbz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eqalkbrwbz .gt_left {
+  text-align: left;
+}
+
+#eqalkbrwbz .gt_center {
+  text-align: center;
+}
+
+#eqalkbrwbz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#eqalkbrwbz .gt_font_normal {
+  font-weight: normal;
+}
+
+#eqalkbrwbz .gt_font_bold {
+  font-weight: bold;
+}
+
+#eqalkbrwbz .gt_font_italic {
+  font-style: italic;
+}
+
+#eqalkbrwbz .gt_super {
+  font-size: 65%;
+}
+
+#eqalkbrwbz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#eqalkbrwbz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#eqalkbrwbz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#eqalkbrwbz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#eqalkbrwbz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#eqalkbrwbz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#eqalkbrwbz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#eqalkbrwbz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#eqalkbrwbz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="a기능" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">기능<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th colspan="3" id="기존 강자들 + AI" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" style="color: #1976D2; font-size: small; font-weight: bold" scope="colgroup"><div class="gt_column_spanner">
+기존 강자들 + AI
+</div></th>
+<th id="차세대" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" style="color: #F57C00; font-size: small; font-weight: bold" scope="col"><div class="gt_column_spanner">
+차세대
+</div></th>
+<th colspan="2" id="AI 네이티브" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" style="color: #7B1FA2; font-size: small; font-weight: bold" scope="colgroup"><div class="gt_column_spanner">
+AI 네이티브
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="RStudio" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">RStudio</th>
+<th id="Jupyter" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">Jupyter</th>
+<th id="VS-Code" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">VS Code</th>
+<th id="Positron" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">Positron</th>
+<th id="Cursor" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">Cursor</th>
+<th id="Windsurf" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">Windsurf</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="gt_group_heading_row odd">
+<th colspan="7" id="[언어 지원]" class="gt_group_heading" data-quarto-table-cell-role="th" style="font-size: small; font-weight: bold; background-color: #F5F5F5" scope="colgroup">[언어 지원]</th>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="[언어 지원]  기능" style="font-weight: bold">R 지원</td>
+<td class="gt_row gt_center" headers="[언어 지원]  RStudio" style="background-color: #E3F2FD">★★★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  Jupyter" style="background-color: #E3F2FD">★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  VS Code" style="background-color: #E3F2FD">★★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  Positron" style="background-color: #FFF3E0">★★★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  Cursor" style="background-color: #F3E5F5">★★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  Windsurf" style="background-color: #F3E5F5">★★★★</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="[언어 지원]  기능" style="font-weight: bold">Python 지원</td>
+<td class="gt_row gt_center" headers="[언어 지원]  RStudio" style="background-color: #E3F2FD">★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  Jupyter" style="background-color: #E3F2FD">★★★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  VS Code" style="background-color: #E3F2FD">★★★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  Positron" style="background-color: #FFF3E0">★★★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  Cursor" style="background-color: #F3E5F5">★★★★★</td>
+<td class="gt_row gt_center" headers="[언어 지원]  Windsurf" style="background-color: #F3E5F5">★★★★★</td>
+</tr>
+<tr class="gt_group_heading_row even">
+<th colspan="7" id="[AI 기능]" class="gt_group_heading" data-quarto-table-cell-role="th" style="font-size: small; font-weight: bold; background-color: #F5F5F5" scope="colgroup">[AI 기능]</th>
+</tr>
+<tr class="gt_row_group_first odd">
+<td class="gt_row gt_left" headers="[AI 기능]  기능" style="font-weight: bold">AI 통합</td>
+<td class="gt_row gt_center" headers="[AI 기능]  RStudio" style="background-color: #E3F2FD">★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  Jupyter" style="background-color: #E3F2FD">★★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  VS Code" style="background-color: #E3F2FD">★★★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  Positron" style="background-color: #FFF3E0">★★★★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  Cursor" style="background-color: #F3E5F5">★★★★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  Windsurf" style="background-color: #F3E5F5">★★★★★</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="[AI 기능]  기능" style="font-weight: bold">자연어 코딩</td>
+<td class="gt_row gt_center" headers="[AI 기능]  RStudio" style="background-color: #E3F2FD">★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  Jupyter" style="background-color: #E3F2FD">★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  VS Code" style="background-color: #E3F2FD">★★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  Positron" style="background-color: #FFF3E0">★★★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  Cursor" style="background-color: #F3E5F5">★★★★★</td>
+<td class="gt_row gt_center" headers="[AI 기능]  Windsurf" style="background-color: #F3E5F5">★★★★★</td>
+</tr>
+<tr class="gt_group_heading_row odd">
+<th colspan="7" id="[데이터 작업]" class="gt_group_heading" data-quarto-table-cell-role="th" style="font-size: small; font-weight: bold; background-color: #F5F5F5" scope="colgroup">[데이터 작업]</th>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="[데이터 작업]  기능" style="font-weight: bold">데이터 탐색</td>
+<td class="gt_row gt_center" headers="[데이터 작업]  RStudio" style="background-color: #E3F2FD">★★★★</td>
+<td class="gt_row gt_center" headers="[데이터 작업]  Jupyter" style="background-color: #E3F2FD">★★★</td>
+<td class="gt_row gt_center" headers="[데이터 작업]  VS Code" style="background-color: #E3F2FD">★★★</td>
+<td class="gt_row gt_center" headers="[데이터 작업]  Positron" style="background-color: #FFF3E0">★★★★★</td>
+<td class="gt_row gt_center" headers="[데이터 작업]  Cursor" style="background-color: #F3E5F5">★★★</td>
+<td class="gt_row gt_center" headers="[데이터 작업]  Windsurf" style="background-color: #F3E5F5">★★★★</td>
+</tr>
+<tr class="gt_group_heading_row odd">
+<th colspan="7" id="[생태계]" class="gt_group_heading" data-quarto-table-cell-role="th" style="font-size: small; font-weight: bold; background-color: #F5F5F5" scope="colgroup">[생태계]</th>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="[생태계]  기능" style="font-weight: bold">생태계 성숙도</td>
+<td class="gt_row gt_center" headers="[생태계]  RStudio" style="background-color: #E3F2FD">★★★★★</td>
+<td class="gt_row gt_center" headers="[생태계]  Jupyter" style="background-color: #E3F2FD">★★★★★</td>
+<td class="gt_row gt_center" headers="[생태계]  VS Code" style="background-color: #E3F2FD">★★★★★</td>
+<td class="gt_row gt_center" headers="[생태계]  Positron" style="background-color: #FFF3E0">★★★</td>
+<td class="gt_row gt_center" headers="[생태계]  Cursor" style="background-color: #F3E5F5">★★</td>
+<td class="gt_row gt_center" headers="[생태계]  Windsurf" style="background-color: #F3E5F5">★★</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="7" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> 평가 기준: 1★ (매우 부족) ~ 5★★★★★ (매우 우수)</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><a href="#tbl-ide-comparison" class="quarto-xref">표&nbsp;<span>6.1</span></a> 는 현재 시장의 주요 플레이어들을 6가지 핵심 기능으로 비교한다. 언어 지원 측면에서 Positron이 R과 Python 모두 최고 수준(★★★★★)을 제공하는 반면, RStudio는 Python 지원이 약하고(★★) Jupyter는 R 지원이 중간 수준(★★★)이다. AI 통합과 자연어 코딩 능력은 Cursor와 Windsurf가 최고점(★★★★★)을 받았으며, Positron도 높은 수준(★★★★)을 보인다. 데이터 탐색 기능은 Positron이 가장 뛰어나지만(★★★★★), 생태계 성숙도는 RStudio, Jupyter, VS Code가 압도적(★★★★★)이고 신규 도구들은 아직 초기 단계(★★-★★★)다. <a href="#tbl-ide-comparison" class="quarto-xref">표&nbsp;<span>6.1</span></a> 은 각 도구의 트레이드오프를 명확히 보여준다: <strong>성숙한 생태계 vs AI 네이티브 기능</strong>, <strong>범용성 vs 데이터 과학 특화</strong>, <strong>안정성 vs 혁신성</strong> 사이 선택이다.</p>
+</section>
+<section id="sec-future-outlook" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="sec-future-outlook"><span class="header-section-number">6.2.2</span> 승부처와 미래 전망</h3>
+<p>IDE 전쟁 승부는 단순히 기능 우위로 결정되지 않는다. 진정한 승부처는 <strong>네트워크 효과</strong>와 <strong>전환 비용</strong>의 균형이다. 사용자가 새로운 IDE로 전환하는 결정은 “AI가 제공하는 혜택 &gt; 기존 투자(도구 숙련도, 워크플로우, 확장 설정) + 학습 비용 + 팀 협업 비용 + 안정성 위험”이라는 부등식이 성립할 때만 일어난다. RStudio 사용자가 10년간 축적한 R 패키지 지식, 커스텀 설정, 팀 워크플로우를 버리고 Cursor로 전환하려면, AI가 제공하는 생산성 향상이 이 모든 전환 비용을 상쇄할 만큼 압도적이어야 한다.</p>
+<p>이러한 역학은 시장을 다층적으로 분화시킨다. <strong>세대별 분화</strong>가 뚜렷하게 나타나는데, 기존 개발자들은 이미 익숙한 도구에 점진적으로 AI 기능을 추가하는 방식을 선호한다. 10년 경력 R 개발자에게 Positron은 “RStudio + AI”로 인식되어 낮은 진입장벽을 제공하지만, 완전히 새로운 Cursor는 높은 학습 비용으로 느껴진다. 반면 신규 개발자들은 레거시 제약 없이 AI 네이티브 도구를 자연스럽게 선택한다. 2024년 컴퓨터공학과에 입학한 학생들에게 VS Code + Copilot이나 Cursor는 처음부터 “당연한” 개발 환경이며, RStudio나 Jupyter는 “구세대 도구”로 인식될 수 있다.</p>
+<p><strong>조직 규모별 차이</strong>도 명확하다. 개인 데이터 과학자와 스타트업은 AI 네이티브 도구초기 수용자다. 전환 비용이 낮고(1-2명 규모), 빠른 프로토타이핑이 중요하며, 최신 기술 도입에 거부감이 적기 때문이다. Y Combinator 출신 스타트업들 사이에서 Cursor 사용률이 급증하는 현상이 이를 증명한다. 반면 대기업과 금융권은 검증된 도구에 점진적으로 AI를 추가하는 보수적 전략을 택한다. 수백 명 데이터 팀이 사용하는 도구를 바꾸려면 교육 비용, 협업 도구 통합, 보안 검증, 라이선스 관리 등 막대한 전환 비용이 발생하기 때문이다.</p>
+<p>향후 3-5년 시장 전망은 <strong>공존과 분화</strong>로 요약된다. 단일 승자가 모든 시장을 장악하기보다는, 각 세그먼트에서 특화된 도구들이 공존할 가능성이 크다. RStudio/Positron은 R 중심 통계/바이오 커뮤니티에서, Jupyter는 교육/연구 분야에서, VS Code + Copilot은 범용 개발 환경에서, Cursor/Windsurf는 AI 네이티브를 원하는 얼리어답터 층에서 각각 강세를 보일 것이다. 다만 장기적으로는 <strong>AI 네이티브가 표준</strong>이 될 것이다. 2030년경에는 AI 없는 IDE를 사용하는 것이, 2020년에 Git 없이 개발하는 것만큼 이상하게 느껴질 것이다.</p>
+<p>데이터 과학자 선택 기준은 명확해진다. <strong>현재 프로젝트 규모와 팀 상황</strong>을 고려하라. 혼자 빠르게 프로토타입을 만든다면 Cursor나 Positron의 AI 기능이 즉각적인 생산성을 제공한다. 대규모 조직에서 협업한다면 VS Code + Copilot이나 기존 도구의 AI 확장이 안정적이다. <strong>학습 투자 대비 수익</strong>을 계산하라. 새 도구 학습에 투자한 시간이 AI 효율성 향상으로 회수되는지 판단해야 한다. 무엇보다 <strong>지금 시작</strong>하라. IDE 전쟁 승자는 아직 정해지지 않았지만, AI와 함께 개발하는 능력은 이미 데이터 과학자의 필수 역량이 되었다.</p>
+</section>
+</section>
+<section id="sec-positron" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-positron"><span class="header-section-number">6.3</span> 포지트론</h2>
+<p>Posit PBC(구 RStudio)가 2024년 중반 공개한 Positron은 IDE 전쟁에서 Posit의 전략적 응전이다. 단순히 RStudio에 AI 기능을 추가하는 점진적 개선이 아니라, <strong>VS Code OSS 기반 위에 데이터 과학 전문성을 재구축</strong>하는 과감한 선택을 했다. 기존 R 커뮤니티를 유지하면서도 Python, Julia 등 다중 언어 생태계로 확장하려는 투 트랙 전략 핵심이다.</p>
+<p>Positron의 진정한 혁신은 <strong>Rust로 작성된 아크(Ark) 커널</strong>에 있다. 아크 커널은 Jupyter 프로토콜, Language Server Protocol(LSP), Debug Adapter Protocol(DAP)을 모두 네이티브로 지원하여, R과 Python 모두에서 확장 프로그램 설치 없이 즉시 사용 가능한 환경을 제공한다. 기존 IRkernel 대비 우수한 성능을 보이며, <strong>AI 어시스턴트와 깊은 통합</strong>을 위한 아키텍처 기반을 마련했다. 2025년 1월 기준 최신 버전 2025.07.0-204는 베타를 성공적으로 마치고 월간 정기 릴리스 체제로 전환되었다.</p>
+<p>Posit의 전략적 선택은 명확하다. RStudio 사용자에게는 <strong>익숙한 워크플로우와 AI 혁신의 조합</strong>을, Python 사용자에게는 <strong>Jupyter를 넘어선 완전한 IDE 경험</strong>을, 그리고 신규 사용자에게는 <strong>처음부터 AI와 함께하는 데이터 과학 환경</strong>을 제공한다. <a href="#fig-ide-war" class="quarto-xref">그림&nbsp;<span>6.5</span></a> 에서 본 “진화” 경로와 “차세대 전략” 이중 화살표로 시각화된 전략이다.</p>
+<section id="sec-positron-strengths" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="sec-positron-strengths"><span class="header-section-number">6.3.1</span> 핵심 경쟁력</h3>
+<p>Positron 핵심 경쟁력은 세 가지 축으로 정리된다. <strong>데이터 과학 워크플로우 통합</strong>, <strong>AI 네이티브 설계</strong>, <strong>문서-코드-앱 융합</strong>이다.</p>
+<p><strong>데이터 과학 워크플로우 통합</strong> 측면에서 Positron은 RStudio의 4분할 인터페이스 철학을 계승하면서도 현대화했다. Variables 패널은 단순 변수 목록을 넘어 데이터 구조를 시각적으로 탐색할 수 있는 <strong>Data Explorer</strong>를 내장한다. 수백만 행 데이터도 스프레드시트처럼 탐색하고, 열별 정렬 및 필터링으로 즉각적인 인사이트를 얻을 수 있다. Plots 패널은 ggplot2나 matplotlib 결과를 고해상도로 렌더링하며, 여러 시각화를 탭으로 관리한다. Console은 R과 Python 인터프리터를 자유롭게 전환하며, 실행 히스토리와 자동완성을 제공한다.</p>
+<div id="fig-positron-data-explorer" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-positron-data-explorer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/positron_data_explorer_penguin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="그림&nbsp;6.8: 포지트론 데이터 탐색기"><img src="images/positron_data_explorer_penguin.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-positron-data-explorer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.8: 포지트론 데이터 탐색기
+</figcaption>
+</figure>
+</div>
+<p><strong>AI 네이티브 설계</strong>는 Positron의 가장 차별화된 특징이다. <strong>Positron Assistant</strong>는 2025.07.0 버전부터 프리뷰로 제공되는 AI 통합 기능으로, 단순 코드 자동완성을 넘어 전체 워크플로우를 이해하는 지능형 파트너다. Variables 패널의 데이터 구조, Plots 패널의 시각화, Console 실행 히스토리, 현재 파일의 코드 맥락을 모두 파악하여 상황에 맞는 제안을 제공한다.</p>
+<p>Assistant는 세 가지 작업 모드를 지원한다. <strong>Ask 모드</strong>는 자연어 질의응답으로 “이 데이터의 결측치를 처리하고 시각화해줘” 같은 요청에 즉시 실행 가능한 코드를 생성한다. <strong>Edit 모드</strong>는 선택된 코드 영역을 리팩토링하고 최적화한다. 느린 반복문을 벡터화하거나, 복잡한 조건문을 dplyr 체인으로 변환하는 등 R과 Python의 고급 기법을 자동 적용한다. <strong>Agent 모드</strong>는 가장 강력한 기능으로, 복합적인 데이터 파이프라인을 자율적으로 구축한다. “펭귄 데이터로 분류 모델을 만들고 평가해줘”라는 요청에 전처리, 모델링, 평가, 시각화를 포함한 전체 워크플로우를 자동 생성하고 실행한다.</p>
+<div id="fig-assistant-chat" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-assistant-chat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/assistant_chatting.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="그림&nbsp;6.9: 포지트론 Assistant 채팅"><img src="images/assistant_chatting.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-assistant-chat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.9: 포지트론 Assistant 채팅
+</figcaption>
+</figure>
+</div>
+<p>Assistant 활용은 Anthropic Claude(채팅)와 GitHub Copilot(인라인 코드 완성) 조합을 권장한다. 설정은 명령 팔레트(<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>)에서 “Configure Language Model Providers”를 선택하고 API 키를 입력한다. Claude는 토큰당 과금, Copilot은 월 $10 구독이며, 둘 다 무료 평가판을 제공한다.</p>
+<p><strong>문서-코드-앱의 융합</strong>은 Positron의 생산성 혁신을 완성한다. Quarto 확장을 통해 위지윅 편집기로 학술 논문과 기술 문서를 작성하고, Shiny 확장으로 인터랙티브 웹앱을 개발하며, shinylive 통합으로 서버 없이 브라우저에서 실행되는 애플리케이션을 Quarto 문서에 직접 포함시킬 수 있다. 이는 재현 가능한 연구의 궁극적 형태로, 독자가 논문을 읽으면서 동시에 저자의 분석 도구를 실행해볼 수 있는 “살아있는 문서”를 가능하게 한다.</p>
+<div id="fig-positron-shiny-run" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-positron-shiny-run-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/positron_shiny_run.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="그림&nbsp;6.10: Positron Shiny 앱 개발"><img src="images/positron_shiny_run.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-positron-shiny-run-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6.10: Positron Shiny 앱 개발
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-positron-workflow" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="sec-positron-workflow"><span class="header-section-number">6.3.2</span> 실전 워크플로우</h3>
+<p>Positron의 진가는 실제 데이터 분석 과정에서 드러난다. 다음은 판매 데이터 분석 시나리오다.</p>
+<p><strong>1단계: 데이터 탐색</strong> CSV 파일을 불러온 후 Variables 패널에서 Data Explorer 아이콘을 클릭한다. 스프레드시트 인터페이스에서 날짜별 정렬, 지역별 필터링으로 패턴을 시각적으로 파악한다. 요약 패널은 각 변수의 결측치 비율을 막대 그래프로 표시하여 데이터 품질을 즉시 확인할 수 있다.</p>
+<p><strong>2단계: AI 기반 분석</strong> Assistant 채팅창을 열고(<kbd>사이드바 아이콘</kbd>) “<code>@sales_data</code> 월별 판매 추이를 분석하고 시각화해줘”라고 요청한다. Assistant는 현재 메모리의 데이터 구조를 파악하여 lubridate로 날짜 집계, dplyr로 월별 요약, ggplot2로 시계열 차트를 생성하는 완전한 코드를 제공한다. 생성된 코드를 검토 후 <kbd>Cmd/Ctrl</kbd>+<kbd>Enter</kbd>로 실행하면 Plots 패널에 결과가 렌더링된다.</p>
+<p><strong>3단계: 코드 최적화</strong> 느린 반복문이 있다면 코드를 선택하고 <kbd>Cmd/Ctrl</kbd>+<kbd>I</kbd>(인라인 Assistant)를 누른다. “벡터화로 최적화해줘”라고 요청하면 ifelse, dplyr, data.table 등 세 가지 대안을 제시하고, microbenchmark로 성능 비교 코드까지 생성한다.</p>
+<p><strong>4단계: 인터랙티브 보고서</strong> Quarto 문서를 생성하고(<kbd>New File</kbd> → <kbd>Quarto Document</kbd>) 분석 과정을 서술한다. 핵심 차트를 Shiny 위젯으로 변환하여 독자가 시간 범위를 조절하며 탐색하게 한다. 최종적으로 shinylive 코드 블록으로 서버 없이 실행되는 대시보드를 문서에 포함시킨다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 실전 예제: Agent 모드로 전체 파이프라인 자동화</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assistant 채팅창에서 Agent 모드 선택 후 요청:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">"@sales_data로 다음을 수행해줘:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">1. 결측치 처리 및 이상치 탐지</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">2. 월별/지역별 판매 추이 분석</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">3. 상위 10% 고객 식별</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">4. 시각화 대시보드 생성"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Assistant가 자동 생성 및 실행하는 코드:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 데이터 정제</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>sales_clean <span class="ot">&lt;-</span> sales_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(amount <span class="sc">&gt;</span> <span class="dv">0</span>, amount <span class="sc">&lt;</span> <span class="fu">quantile</span>(amount, <span class="fl">0.99</span>))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 월별 추이</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>monthly_trend <span class="ot">&lt;-</span> sales_clean <span class="sc">%&gt;%</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">floor_date</span>(date, <span class="st">"month"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(month, region) <span class="sc">%&gt;%</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(amount), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. 상위 고객</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>top_customers <span class="ot">&lt;-</span> sales_clean <span class="sc">%&gt;%</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(customer_id) <span class="sc">%&gt;%</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(amount)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(total, <span class="at">prop =</span> <span class="fl">0.1</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. 시각화</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_trend, <span class="fu">aes</span>(month, total, <span class="at">color =</span> region)) <span class="sc">+</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"지역별 월별 판매 추이"</span>) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p>이러한 워크플로우에서 Positron은 탐색-분석-최적화-문서화 전 과정을 하나의 환경에서 매끄럽게 연결한다. RStudio 데이터 과학 전문성, VS Code 현대적 인터페이스, AI 지능형 지원이 결합되어, 데이터 과학자가 기술적 세부사항보다는 분석 로직 자체에 집중할 수 있게 해준다.</p>
+<p>Positron 한계도 분명하다. 아직 베타를 벗어난 초기 버전으로 확장 생태계가 RStudio나 VS Code에 비해 제한적이고, 일부 R 패키지와의 호환성 이슈가 존재한다. 하지만 Posit의 지속적인 업데이트와 커뮤니티 기여로 빠르게 성숙하고 있으며, R과 Python을 모두 사용하는 데이터 과학자에게는 이미 가장 생산적인 선택지로 자리 잡았다.</p>
+</section>
+</section>
+<section id="데이터-과학-ide의-미래" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="데이터-과학-ide의-미래"><span class="header-section-number">6.4</span> 데이터 과학 IDE의 미래</h2>
+<p>현재의 IDE 전쟁은 단순한 도구 경쟁을 넘어 개발 패러다임 자체의 근본적 변화를 반영한다. 과거 정보계와 운영계로 분리되었던 것이 AI를 통해 재통합되고 있으며, AI가 복잡한 기술적 경계를 자연어로 연결하는 번역자 역할을 하고 있다. 도구 중심에서 의도 중심으로 패러다임 전환이 빠르게 진행되고 있다.</p>
+<p>미래에는 AI 기능이 모든 IDE 기본 사양이 되는 가운데, 각 도구가 자신만의 특화된 강점을 AI와 결합하여 새로운 가치를 창출할 것으로 예상된다. 모바일 OS 시장에서 iOS와 Android가 각각의 생태계를 구축하며 공존하는 것과 유사한 패턴을 보일 가능성이 높다.</p>
+<p>특히 Positron은 R과 Python을 모두 사용하는 데이터 과학자들에게 가장 적합한 선택지로 보인다. 기존 RStudio 사용자들은 익숙한 워크플로우를 유지하면서도 Python 생태계와 AI 기능을 활용할 수 있으며, Jupyter 사용자들은 더 강력한 IDE 기능과 데이터 탐색 도구를 경험할 수 있다. AI Native 도구에 관심이 있는 사용자들은 Cursor나 Windsurf를 실험해볼 수 있지만, 데이터 과학 특화 기능이 부족할 수 있음을 고려해야 한다.</p>
+<p>궁극적으로 데이터 과학 IDE 미래는 AI와 인간의 협업을 통해 더욱 직관적이고 생산적인 개발 환경을 제공하는 방향으로 발전할 것이다. 이 과정에서 Positron과 같은 차세대 IDE들이 중요한 역할을 할 것으로 기대된다.</p>
+</section>
+<section id="ide-선택과-ai-시대-워크플로우" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="ide-선택과-ai-시대-워크플로우"><span class="header-section-number">6.5</span> IDE 선택과 AI 시대 워크플로우</h2>
+<p>이 장에서 확인한 핵심은 명확하다. 데이터 과학 IDE는 단순한 코드 편집 도구가 아니라 <strong>워크플로우 전체를 지원하는 통합 환경</strong>이며, AI 시대에는 이러한 IDE가 <strong>인간 데이터 과학자의 사고 과정을 확장하는 지적 파트너</strong>로 진화하고 있다는 것이다.</p>
+<p>역사는 중요한 패턴을 보여준다. 1990년대 SPSS, SAS 분리된 생태계에서 시작하여 2010년대 RStudio, Jupyter 통합 환경을 거쳐, 2020년대 Positron, Cursor, Windsurf AI 네이티브 시대로 진화했다. 각 시대마다 생산성이 비약적으로 향상되었지만, 진정한 혁명은 도구 자체가 아니라 <strong>도구가 가능하게 한 새로운 작업 방식</strong>에서 나왔다. RStudio는 재현 가능한 연구를 대중화했고, Jupyter는 교육과 협업의 패러다임을 바꿨으며, Positron은 AI와 협업을 일상화하고 있다. 중요한 것은 IDE 선택이 단순한 취향의 문제가 아니라 <strong>데이터 과학자로서 성장 궤적을 결정하는 전략적 결정</strong>이라는 점이다.</p>
+<p>현재 AI 도구가 폭발적으로 증가하는 전환점에 서 있다. 중요한 것은 최신 도구를 쫓는 것이 아니라 <strong>자신의 워크플로우에 맞는 도구 조합을 구성하는 능력</strong>이다. Positron은 R과 Python을 모두 사용하는 데이터 과학자에게 이상적이고, Cursor는 AI 기반 코드 생성을 최우선하는 개발자에게 적합하며, RStudio는 R 중심 통계 분석에 최적화되어 있다. 다음 장부터는 Positron 어시스턴트와 같은 AI 도구를 활용하여 실제 데이터 분석 프로젝트를 수행하는 방법을 다룬다.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "복사완료!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "복사완료!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ds_data.html" class="pagination-link" aria-label="데이터">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">데이터</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./proj_app.html" class="pagination-link" aria-label="쇼핑앱 전쟁 숨겨진 공식">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">쇼핑앱 전쟁 숨겨진 공식</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-book"></i> <a href="https://quarto.org/">Quarto</a>로 제작<br> <i class="bi bi-palette"></i> <a href="https://r2bit.com/">R2bit</a> 디자인</p>
+</div>
+</div>   
+    <div class="nav-footer-center">
+<div style="text-align: center;">
+<p><img src="assets/favicon-32x32.png" alt="Logo" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> <strong>챗GPT AI</strong> | AI와 함께하는 데이터 과학 여행<br> <span style="font-size: 0.9em;">© 2025 <a href="mailto:admin@r2bit.com">한국 R 사용자회</a> | 이광춘 저</span></p>
+</div>
+</div>
+    <div class="nav-footer-right">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-github"></i> <a href="https://github.com/bit2r/gpt-ai">소스 코드</a><br> <i class="bi bi-bug"></i> <a href="https://github.com/bit2r/gpt-ai/issues">이슈 리포트</a></p>
+</div>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

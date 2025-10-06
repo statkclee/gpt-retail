@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 110 1000 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .text-title { font-family: "Noto Sans KR", sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; fill: #212529; }
+      .text-subtitle { font-family: "Noto Sans KR", sans-serif; font-size: 14px; text-anchor: middle; fill: #495057; }
+      .text-command { font-family: "Noto Sans KR", sans-serif; font-size: 13px; fill: #1976d2; }
+      .text-code { font-family: "Monaco", "Courier New", monospace; font-size: 11px; fill: #2e7d32; }
+      .text-comment { font-family: "Noto Sans KR", sans-serif; font-size: 10px; fill: #666; font-style: italic; }
+      .text-label { font-family: "Noto Sans KR", sans-serif; font-size: 12px; font-weight: bold; fill: #d32f2f; }
+
+      .box-header { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 3; }
+      .box-command { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .box-output { fill: #e8f5e9; stroke: #2e7d32; stroke-width: 2; }
+
+      .arrow { stroke: #d32f2f; stroke-width: 1; fill: none; marker-end: url(#arrowhead); }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#d32f2f"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1000" height="700" fill="#ffffff"/>
+
+  <!-- 예시 1: 데이터 읽기 -->
+  <g transform="translate(50, 130)">
+    <!-- 명령어 박스 -->
+    <rect class="box-command" width="420" height="70" rx="5"/>
+    <text x="10" y="25" class="text-command">💬 "CSV 파일을 읽어서 처음 5행만 보여줘"</text>
+    <text x="10" y="50" class="text-comment">→ 파일 경로, 인코딩, 데이터 확인 자동 처리</text>
+
+    <!-- 코드 출력 박스 -->
+    <rect class="box-output" x="0" y="90" width="420" height="80" rx="5"/>
+    <text x="10" y="115" class="text-code">import pandas as pd</text>
+    <text x="10" y="135" class="text-code">df = pd.read_csv('data.csv', encoding='utf-8')</text>
+    <text x="10" y="155" class="text-code">print(df.head())</text>
+
+    <!-- 화살표 -->
+    <path class="arrow" d="M 210 70 L 210 90"/>
+  </g>
+
+  <!-- 예시 2: 데이터 전처리 -->
+  <g transform="translate(530, 130)">
+    <!-- 명령어 박스 -->
+    <rect class="box-command" width="420" height="70" rx="5"/>
+    <text x="10" y="25" class="text-command">💬 "결측치 제거하고 날짜 컬럼 변환해줘"</text>
+    <text x="10" y="50" class="text-comment">→ 결측치 처리 방법, 날짜 형식 자동 감지</text>
+
+    <!-- 코드 출력 박스 -->
+    <rect class="box-output" x="0" y="90" width="420" height="80" rx="5"/>
+    <text x="10" y="115" class="text-code">df = df.dropna()</text>
+    <text x="10" y="135" class="text-code">df['date'] = pd.to_datetime(df['date'])</text>
+    <text x="10" y="155" class="text-code">print(f"처리 완료: {len(df)}행")</text>
+
+    <!-- 화살표 -->
+    <path class="arrow" d="M 210 70 L 210 90"/>
+  </g>
+
+  <!-- 예시 3: 시각화 -->
+  <g transform="translate(50, 350)">
+    <!-- 명령어 박스 -->
+    <rect class="box-command" width="420" height="70" rx="5"/>
+    <text x="10" y="25" class="text-command">💬 "매출 추이를 선 그래프로 그려줘"</text>
+    <text x="10" y="50" class="text-comment">→ 시각화 라이브러리, 스타일, 레이블 자동 설정</text>
+
+    <!-- 코드 출력 박스 -->
+    <rect class="box-output" x="0" y="90" width="420" height="100" rx="5"/>
+    <text x="10" y="115" class="text-code">import matplotlib.pyplot as plt</text>
+    <text x="10" y="135" class="text-code">plt.figure(figsize=(10, 6))</text>
+    <text x="10" y="155" class="text-code">plt.plot(df['date'], df['sales'])</text>
+    <text x="10" y="175" class="text-code">plt.title('매출 추이')</text>
+
+    <!-- 화살표 -->
+    <path class="arrow" d="M 210 70 L 210 90"/>
+  </g>
+
+  <!-- 예시 4: 통계 분석 -->
+  <g transform="translate(530, 350)">
+    <!-- 명령어 박스 -->
+    <rect class="box-command" width="420" height="70" rx="5"/>
+    <text x="10" y="25" class="text-command">💬 "지역별 평균 매출 구하고 내림차순 정렬"</text>
+    <text x="10" y="50" class="text-comment">→ 그룹화, 집계, 정렬 로직 자동 구현</text>
+
+    <!-- 코드 출력 박스 -->
+    <rect class="box-output" x="0" y="90" width="420" height="100" rx="5"/>
+    <text x="10" y="115" class="text-code">result = df.groupby('region')['sales']</text>
+    <text x="10" y="135" class="text-code">  .mean()</text>
+    <text x="10" y="155" class="text-code">  .sort_values(ascending=False)</text>
+    <text x="10" y="175" class="text-code">print(result)</text>
+
+    <!-- 화살표 -->
+    <path class="arrow" d="M 210 70 L 210 90"/>
+  </g>
+
+</svg>

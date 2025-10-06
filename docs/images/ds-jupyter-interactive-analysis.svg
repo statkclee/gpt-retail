@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .text-main { font-family: "Noto Sans KR", sans-serif; font-size: 14px; fill: #212529; }
+      .text-code { font-family: "D2 Coding", monospace; font-size: 12px; fill: #212529; }
+      .text-comment { font-family: "D2 Coding", monospace; font-size: 12px; fill: #6c757d; }
+      .text-keyword { font-family: "D2 Coding", monospace; font-size: 12px; fill: #d73a49; font-weight: bold; }
+      .text-string { font-family: "D2 Coding", monospace; font-size: 12px; fill: #032f62; }
+      .text-function { font-family: "D2 Coding", monospace; font-size: 12px; fill: #6f42c1; }
+      .axis-text { font-family: "Noto Sans KR", sans-serif; font-size: 11px; fill: #212529; }
+      .axis-label { font-family: "Noto Sans KR", sans-serif; font-size: 13px; fill: #212529; font-weight: bold; }
+      .title-text { font-family: "Noto Sans KR", sans-serif; font-size: 15px; fill: #212529; font-weight: bold; }
+
+      .scatter-point { fill: #2780e3; fill-opacity: 0.6; stroke: #1a5490; stroke-width: 0.5; }
+    </style>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1000" height="600" fill="#ffffff"/>
+
+  <!-- 코드 섹션 -->
+  <g transform="translate(20, 20)">
+    <!-- 코드 배경 -->
+    <rect width="460" height="280" fill="#f6f8fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+
+    <!-- 코드 라인 1: import pandas -->
+    <text x="10" y="25" class="text-keyword">import</text>
+    <text x="60" y="25" class="text-code">pandas</text>
+    <text x="120" y="25" class="text-keyword">as</text>
+    <text x="145" y="25" class="text-code">pd</text>
+
+    <!-- 코드 라인 2: import numpy -->
+    <text x="10" y="45" class="text-keyword">import</text>
+    <text x="60" y="45" class="text-code">numpy</text>
+    <text x="110" y="45" class="text-keyword">as</text>
+    <text x="135" y="45" class="text-code">np</text>
+
+    <!-- 코드 라인 3: import matplotlib -->
+    <text x="10" y="65" class="text-keyword">import</text>
+    <text x="60" y="65" class="text-code">matplotlib.pyplot</text>
+    <text x="200" y="65" class="text-keyword">as</text>
+    <text x="225" y="65" class="text-code">plt</text>
+
+    <!-- 빈 줄 -->
+
+    <!-- 코드 라인 5: 매직 커맨드 주석 -->
+    <text x="10" y="105" class="text-comment"># 매직 커맨드로 인라인 플롯 설정</text>
+
+    <!-- 코드 라인 6: %matplotlib inline -->
+    <text x="10" y="125" class="text-function">%matplotlib inline</text>
+
+    <!-- 빈 줄 -->
+
+    <!-- 코드 라인 8: 데이터 로드 주석 -->
+    <text x="10" y="165" class="text-comment"># 데이터 로드 및 탐색</text>
+
+    <!-- 코드 라인 9: df = pd.read_csv -->
+    <text x="10" y="185" class="text-code">df = pd.</text>
+    <text x="68" y="185" class="text-function">read_csv</text>
+    <text x="130" y="185" class="text-code">(</text>
+    <text x="138" y="185" class="text-string">'data.csv'</text>
+    <text x="208" y="185" class="text-code">)</text>
+
+    <!-- 코드 라인 10: df.head() -->
+    <text x="10" y="205" class="text-code">df.</text>
+    <text x="35" y="205" class="text-function">head</text>
+    <text x="70" y="205" class="text-code">()</text>
+
+    <!-- 빈 줄 -->
+
+    <!-- 코드 라인 12: 시각화 주석 -->
+    <text x="10" y="245" class="text-comment"># 시각화</text>
+
+    <!-- 코드 라인 13-15: plt commands -->
+    <text x="10" y="265" class="text-code">plt.</text>
+    <text x="40" y="265" class="text-function">scatter</text>
+    <text x="95" y="265" class="text-code">(df[</text>
+    <text x="125" y="265" class="text-string">'feature1'</text>
+    <text x="205" y="265" class="text-code">], df[</text>
+    <text x="245" y="265" class="text-string">'feature2'</text>
+    <text x="325" y="265" class="text-code">])</text>
+  </g>
+
+  <!-- 화살표 -->
+  <g transform="translate(490, 150)">
+    <path d="M 0 0 L 30 0" stroke="#6c757d" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+        <polygon points="0 0, 10 5, 0 10" fill="#6c757d"/>
+      </marker>
+    </defs>
+  </g>
+
+  <!-- 시각화 결과 섹션 -->
+  <g transform="translate(540, 20)">
+    <!-- 플롯 배경 -->
+    <rect width="440" height="420" fill="#ffffff" stroke="#dee2e6" stroke-width="2" rx="5"/>
+
+    <!-- 타이틀 -->
+    <text x="220" y="30" class="title-text" text-anchor="middle">데이터 분포 시각화</text>
+
+    <!-- 플롯 영역 -->
+    <g transform="translate(40, 60)">
+      <!-- 축 배경 -->
+      <rect width="360" height="300" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+
+      <!-- 그리드 라인 (세로) -->
+      <line x1="90" y1="0" x2="90" y2="300" stroke="#dee2e6" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="180" y1="0" x2="180" y2="300" stroke="#dee2e6" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="270" y1="0" x2="270" y2="300" stroke="#dee2e6" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+      <!-- 그리드 라인 (가로) -->
+      <line x1="0" y1="60" x2="360" y2="60" stroke="#dee2e6" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="0" y1="120" x2="360" y2="120" stroke="#dee2e6" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="0" y1="180" x2="360" y2="180" stroke="#dee2e6" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="0" y1="240" x2="360" y2="240" stroke="#dee2e6" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+      <!-- 산점도 데이터 포인트들 (샘플 데이터) -->
+      <circle cx="50" cy="180" r="4" class="scatter-point"/>
+      <circle cx="80" cy="220" r="4" class="scatter-point"/>
+      <circle cx="100" cy="160" r="4" class="scatter-point"/>
+      <circle cx="120" cy="140" r="4" class="scatter-point"/>
+      <circle cx="140" cy="200" r="4" class="scatter-point"/>
+      <circle cx="160" cy="120" r="4" class="scatter-point"/>
+      <circle cx="180" cy="100" r="4" class="scatter-point"/>
+      <circle cx="200" cy="80" r="4" class="scatter-point"/>
+      <circle cx="220" cy="60" r="4" class="scatter-point"/>
+      <circle cx="240" cy="90" r="4" class="scatter-point"/>
+      <circle cx="260" cy="70" r="4" class="scatter-point"/>
+      <circle cx="280" cy="50" r="4" class="scatter-point"/>
+      <circle cx="300" cy="40" r="4" class="scatter-point"/>
+      <circle cx="320" cy="30" r="4" class="scatter-point"/>
+
+      <circle cx="60" cy="250" r="4" class="scatter-point"/>
+      <circle cx="90" cy="190" r="4" class="scatter-point"/>
+      <circle cx="110" cy="170" r="4" class="scatter-point"/>
+      <circle cx="130" cy="150" r="4" class="scatter-point"/>
+      <circle cx="150" cy="130" r="4" class="scatter-point"/>
+      <circle cx="170" cy="110" r="4" class="scatter-point"/>
+      <circle cx="190" cy="95" r="4" class="scatter-point"/>
+      <circle cx="210" cy="75" r="4" class="scatter-point"/>
+      <circle cx="230" cy="65" r="4" class="scatter-point"/>
+      <circle cx="250" cy="85" r="4" class="scatter-point"/>
+      <circle cx="270" cy="55" r="4" class="scatter-point"/>
+      <circle cx="290" cy="45" r="4" class="scatter-point"/>
+      <circle cx="310" cy="35" r="4" class="scatter-point"/>
+      <circle cx="330" cy="25" r="4" class="scatter-point"/>
+
+      <!-- X축 라벨 -->
+      <text x="0" y="325" class="axis-text">0</text>
+      <text x="90" y="325" class="axis-text">2</text>
+      <text x="180" y="325" class="axis-text">4</text>
+      <text x="270" y="325" class="axis-text">6</text>
+      <text x="350" y="325" class="axis-text">8</text>
+
+      <!-- Y축 라벨 -->
+      <text x="-10" y="305" class="axis-text" text-anchor="end">0</text>
+      <text x="-10" y="245" class="axis-text" text-anchor="end">2</text>
+      <text x="-10" y="185" class="axis-text" text-anchor="end">4</text>
+      <text x="-10" y="125" class="axis-text" text-anchor="end">6</text>
+      <text x="-10" y="65" class="axis-text" text-anchor="end">8</text>
+      <text x="-10" y="5" class="axis-text" text-anchor="end">10</text>
+
+      <!-- 축 제목 -->
+      <text x="180" y="355" class="axis-label" text-anchor="middle">feature1</text>
+      <text x="-40" y="165" class="axis-label" text-anchor="middle" transform="rotate(-90, -40, 150)">feature2</text>
+    </g>
+  </g>
+
+</svg>

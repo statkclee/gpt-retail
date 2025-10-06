@@ -51,6 +51,7 @@ book:
     type: overlay
   chapters:
     - index.qmd
+    - intro.qmd
     - part: "**1부 인공지능**"
       chapters:
         - basic_gpt.qmd         # 범용기술
