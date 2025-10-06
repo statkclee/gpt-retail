@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 50 1600 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .font-base {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+      }
+
+      .domain-title {
+        font-size: 28px;
+        font-weight: 700;
+        text-anchor: start;
+      }
+
+      .domain-subtitle {
+        font-size: 24px;
+        font-weight: 400;
+        text-anchor: start;
+        fill: #6c757d;
+      }
+
+      .layer-label {
+        font-size: 24px;
+        font-weight: 700;
+        text-anchor: start;
+        fill: #1a5490;
+      }
+
+      .layer-content {
+        font-size: 20px;
+        font-weight: 400;
+        text-anchor: start;
+      }
+
+      .arrow-text {
+        font-size: 24px;
+        font-weight: 600;
+        text-anchor: middle;
+        fill: #6c757d;
+      }
+    </style>
+
+    <!-- Arrow marker -->
+    <marker id="arrow-small" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#6c757d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="550" fill="#ffffff"/>
+
+  <!-- Domain 1: Healthcare -->
+  <g transform="translate(30, 90)">
+    <rect width="370" height="430" fill="#e8f4fd" stroke="#1a5490" stroke-width="2" rx="6"/>
+
+    <!-- Domain Header -->
+    <text x="20" y="35" class="font-base domain-title" fill="#1a5490">의료</text>
+    <text x="20" y="65" class="font-base domain-subtitle">환자 진단 및 치료 의사결정</text>
+
+    <!-- Data Layer -->
+    <g transform="translate(20, 100)">
+      <text x="0" y="0" class="font-base layer-label">데이터:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">체온 38.5°C,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">맥박 92bpm</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="185" y1="160" x2="185" y2="180" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="175" class="font-base arrow-text">처리</text>
+
+    <!-- Information Layer -->
+    <g transform="translate(20, 190)">
+      <text x="0" y="0" class="font-base layer-label">정보:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">정상보다 1°C 높음</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">→ 발열 진단</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="185" y1="250" x2="185" y2="270" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="265" class="font-base arrow-text">학습</text>
+
+    <!-- Knowledge Layer -->
+    <g transform="translate(20, 280)">
+      <text x="0" y="0" class="font-base layer-label">지식:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">바이러스 감염 패턴</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">가능성 80%</text>
+    </g>
+
+    <!-- Arrow 3 -->
+    <line x1="185" y1="340" x2="185" y2="360" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="355" class="font-base arrow-text">통찰</text>
+
+    <!-- Wisdom Layer -->
+    <g transform="translate(20, 370)">
+      <text x="0" y="0" class="font-base layer-label">지혜:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#1a5490" font-weight="600">휴식+수분 권장,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#1a5490" font-weight="600">항생제 불필요</text>
+    </g>
+  </g>
+
+  <!-- Domain 2: Business -->
+  <g transform="translate(430, 90)">
+    <rect width="370" height="430" fill="#d4edda" stroke="#28a745" stroke-width="2" rx="6"/>
+
+    <!-- Domain Header -->
+    <text x="20" y="35" class="font-base domain-title" fill="#28a745">비즈니스</text>
+    <text x="20" y="65" class="font-base domain-subtitle">분기별 매출 전략 수립</text>
+
+    <!-- Data Layer -->
+    <g transform="translate(20, 100)">
+      <text x="0" y="0" class="font-base layer-label">데이터:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">매출 5천만 원,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">3분기</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="185" y1="160" x2="185" y2="180" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="175" class="font-base arrow-text">처리</text>
+
+    <!-- Information Layer -->
+    <g transform="translate(20, 190)">
+      <text x="0" y="0" class="font-base layer-label">정보:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">목표 대비 20% 부족,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">전년 대비 5% 하락</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="185" y1="250" x2="185" y2="270" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="265" class="font-base arrow-text">학습</text>
+
+    <!-- Knowledge Layer -->
+    <g transform="translate(20, 280)">
+      <text x="0" y="0" class="font-base layer-label">지식:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">3분기 계절적</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">수요 감소</text>
+    </g>
+
+    <!-- Arrow 3 -->
+    <line x1="185" y1="340" x2="185" y2="360" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="355" class="font-base arrow-text">통찰</text>
+
+    <!-- Wisdom Layer -->
+    <g transform="translate(20, 370)">
+      <text x="0" y="0" class="font-base layer-label">지혜:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#28a745" font-weight="600">4분기 프로모션,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#28a745" font-weight="600">교차판매 전략</text>
+    </g>
+  </g>
+
+  <!-- Domain 3: Education -->
+  <g transform="translate(830, 90)">
+    <rect width="370" height="430" fill="#fff4e6" stroke="#e0a800" stroke-width="2" rx="6"/>
+
+    <!-- Domain Header -->
+    <text x="20" y="35" class="font-base domain-title" fill="#e0a800">교육</text>
+    <text x="20" y="65" class="font-base domain-subtitle">학생 학습 지원 계획</text>
+
+    <!-- Data Layer -->
+    <g transform="translate(20, 100)">
+      <text x="0" y="0" class="font-base layer-label">데이터:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">점수: 78, 82,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">65, 91, 73</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="185" y1="160" x2="185" y2="180" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="175" class="font-base arrow-text">처리</text>
+
+    <!-- Information Layer -->
+    <g transform="translate(20, 190)">
+      <text x="0" y="0" class="font-base layer-label">정보:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">평균 77.8점,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">성적 변동 큼</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="185" y1="250" x2="185" y2="270" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="265" class="font-base arrow-text">학습</text>
+
+    <!-- Knowledge Layer -->
+    <g transform="translate(20, 280)">
+      <text x="0" y="0" class="font-base layer-label">지식:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">특정 단원만 저조</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">→ 개념 부족</text>
+    </g>
+
+    <!-- Arrow 3 -->
+    <line x1="185" y1="340" x2="185" y2="360" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="355" class="font-base arrow-text">통찰</text>
+
+    <!-- Wisdom Layer -->
+    <g transform="translate(20, 370)">
+      <text x="0" y="0" class="font-base layer-label">지혜:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#e0a800" font-weight="600">맞춤형 보충 수업,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#e0a800" font-weight="600">평균 85점 목표</text>
+    </g>
+  </g>
+
+  <!-- Domain 4: Scientific Research -->
+  <g transform="translate(1230, 90)">
+    <rect width="370" height="430" fill="#d1ecf1" stroke="#17a2b8" stroke-width="2" rx="6"/>
+
+    <!-- Domain Header -->
+    <text x="20" y="35" class="font-base domain-title" fill="#17a2b8">과학 연구</text>
+    <text x="20" y="65" class="font-base domain-subtitle">기후 변화 정책 수립</text>
+
+    <!-- Data Layer -->
+    <g transform="translate(20, 100)">
+      <text x="0" y="0" class="font-base layer-label">데이터:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">CO₂ 농도</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">421ppm</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="185" y1="160" x2="185" y2="180" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="175" class="font-base arrow-text">처리</text>
+
+    <!-- Information Layer -->
+    <g transform="translate(20, 190)">
+      <text x="0" y="0" class="font-base layer-label">정보:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">산업혁명 대비</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">50% 증가</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="185" y1="250" x2="185" y2="270" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="265" class="font-base arrow-text">학습</text>
+
+    <!-- Knowledge Layer -->
+    <g transform="translate(20, 280)">
+      <text x="0" y="0" class="font-base layer-label">지식:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#212529">기온 상승(1.1°C)</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#212529">강한 상관관계</text>
+    </g>
+
+    <!-- Arrow 3 -->
+    <line x1="185" y1="340" x2="185" y2="360" stroke="#6c757d" stroke-width="2" marker-end="url(#arrow-small)"/>
+    <text x="220" y="355" class="font-base arrow-text">통찰</text>
+
+    <!-- Wisdom Layer -->
+    <g transform="translate(20, 370)">
+      <text x="0" y="0" class="font-base layer-label">지혜:</text>
+      <text x="0" y="25" class="font-base layer-content" fill="#17a2b8" font-weight="600">2050 탄소중립,</text>
+      <text x="0" y="45" class="font-base layer-content" fill="#17a2b8" font-weight="600">재생에너지 전환</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 90 1400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .font-base {
+        font-family: "Noto Sans KR", Arial, sans-serif;
+      }
+
+      .text-title {
+        font-size: 26px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #FFFFFF;
+      }
+
+      .text-subtitle {
+        font-size: 16px;
+        text-anchor: middle;
+      }
+
+      .text-era-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      .text-stage-main {
+        font-size: 18px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #FFFFFF;
+      }
+
+      .text-stage-sub {
+        font-size: 16px;
+        text-anchor: middle;
+      }
+
+      .text-timeline {
+        font-size: 16px;
+        text-anchor: middle;
+        font-weight: bold;
+      }
+
+      .text-timeline-large {
+        font-size: 20px;
+        text-anchor: middle;
+        font-weight: bold;
+      }
+
+      .text-capability {
+        font-size: 18px;
+        fill: #333;
+      }
+
+      .text-capability-title {
+        font-size: 18px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #388E3C;
+      }
+
+      .text-insight-main {
+        font-size: 28px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #FFFFFF;
+      }
+
+      .text-insight-sub {
+        font-size: 20px;
+        text-anchor: middle;
+      }
+
+      .text-insight-note {
+        font-size: 16px;
+        text-anchor: middle;
+      }
+
+      .text-evolution {
+        font-size: 24px;
+        font-weight: bold;
+        fill: #388E3C;
+      }
+    </style>
+
+    <!-- Traditional gradients -->
+    <linearGradient id="traditionalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#90CAF9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Data Science era gradients -->
+    <linearGradient id="dsGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#81C784;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#388E3C;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="dsGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB74D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57C00;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="dsGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9575CD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#512DA8;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="dsGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F06292;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C2185B;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="headerEvolution" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1976D2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#388E3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57C00;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Arrow markers -->
+    <marker id="evolutionArrow" markerWidth="15" markerHeight="12" refX="14" refY="6" orient="auto">
+      <polygon points="0,0 15,6 0,12" fill="#388E3C"/>
+    </marker>
+
+    <marker id="processArrow" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <polygon points="0,0 12,5 0,10" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1200" fill="#FAFAFA"/>
+
+  <!-- Traditional Era (Top) -->
+  <g id="traditional-era">
+    <rect x="50" y="120" width="1300" height="130" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="10" opacity="0.9"/>
+    <text x="700" y="145" class="font-base text-era-title" fill="#0D47A1">전통적 시대 (1990년대-2000년대)</text>
+
+    <!-- Traditional stages -->
+    <g transform="translate(100, 165)">
+      <rect x="0" y="0" width="150" height="50" fill="url(#traditionalGrad)" rx="8"/>
+      <text x="75" y="30" class="font-base text-stage-main">획득</text>
+
+      <path d="M 150 25 L 180 25" stroke="#1976D2" stroke-width="2" marker-end="url(#processArrow)"/>
+
+      <rect x="180" y="0" width="150" height="50" fill="url(#traditionalGrad)" rx="8"/>
+      <text x="255" y="30" class="font-base text-stage-main">통합</text>
+
+      <path d="M 330 25 L 360 25" stroke="#1976D2" stroke-width="2" marker-end="url(#processArrow)"/>
+
+      <rect x="360" y="0" width="150" height="50" fill="url(#traditionalGrad)" rx="8"/>
+      <text x="435" y="30" class="font-base text-stage-main">노출</text>
+
+      <path d="M 510 25 L 540 25" stroke="#1976D2" stroke-width="2" marker-end="url(#processArrow)"/>
+
+      <rect x="540" y="0" width="150" height="50" fill="url(#traditionalGrad)" rx="8"/>
+      <text x="615" y="30" class="font-base text-stage-main">보고</text>
+
+      <path d="M 690 25 L 720 25" stroke="#1976D2" stroke-width="2" marker-end="url(#processArrow)"/>
+
+      <rect x="720" y="0" width="150" height="50" fill="url(#traditionalGrad)" rx="8"/>
+      <text x="795" y="30" class="font-base text-stage-main">스토리텔링</text>
+
+      <path d="M 870 25 L 900 25" stroke="#1976D2" stroke-width="2" marker-end="url(#processArrow)"/>
+
+      <rect x="900" y="0" width="150" height="50" fill="url(#traditionalGrad)" rx="8"/>
+      <text x="975" y="30" class="font-base text-stage-main">결정</text>
+
+      <path d="M 1050 25 L 1080 25" stroke="#1976D2" stroke-width="2" marker-end="url(#processArrow)"/>
+
+      <rect x="1080" y="0" width="150" height="50" fill="url(#traditionalGrad)" rx="8"/>
+      <text x="1155" y="25" class="font-base text-stage-main">실행</text>
+
+      <!-- Timeline -->
+      <text x="615" y="75" class="font-base text-timeline" fill="#1976D2">타임라인: 2-6개월 • 수동 프로세스 • 직관 기반 의사결정</text>
+    </g>
+  </g>
+
+  <!-- Evolution Arrow -->
+  <g transform="translate(700, 270)">
+    <path d="M 0 0 L 0 30" stroke="url(#headerEvolution)" stroke-width="3" marker-end="url(#evolutionArrow)"/>
+    <text x="30" y="20" class="font-base text-evolution">진화</text>
+  </g>
+
+  <!-- Data Science Era (Middle) -->
+  <g id="data-science-era">
+    <rect x="50" y="320" width="1300" height="250" fill="#E8F5E9" stroke="#388E3C" stroke-width="2" rx="10" opacity="0.9"/>
+    <text x="700" y="345" class="font-base text-era-title" fill="#1B5E20">데이터 과학 시대 (2010년대-2020년)</text>
+
+    <!-- Data Science stages - showing consolidation -->
+    <g transform="translate(200, 370)">
+      <!-- Merged Acquire + Integrate -->
+      <rect x="0" y="0" width="220" height="60" fill="url(#dsGrad1)" rx="8" filter="url(#shadow)"/>
+      <text x="110" y="25" class="font-base text-stage-main" font-size="16">자동화 ETL</text>
+      <text x="110" y="45" class="font-base text-stage-sub" fill="#C8E6C9">획득 + 통합</text>
+
+      <path d="M 220 30 L 260 30" stroke="#388E3C" stroke-width="2" marker-end="url(#evolutionArrow)"/>
+
+      <!-- Enhanced Surface + Report -->
+      <rect x="260" y="0" width="220" height="60" fill="url(#dsGrad2)" rx="8" filter="url(#shadow)"/>
+      <text x="370" y="25" class="font-base text-stage-main" font-size="16">대화형 분석</text>
+      <text x="370" y="45" class="font-base text-stage-sub" fill="#FFECB3">노출 + 보고</text>
+
+      <path d="M 480 30 L 520 30" stroke="#388E3C" stroke-width="2" marker-end="url(#evolutionArrow)"/>
+
+      <!-- Data-Driven Storytell -->
+      <rect x="520" y="0" width="220" height="60" fill="url(#dsGrad3)" rx="8" filter="url(#shadow)"/>
+      <text x="630" y="25" class="font-base text-stage-main" font-size="16">통계 기반 스토리텔링</text>
+      <text x="630" y="45" class="font-base text-stage-sub" fill="#E1BEE7">증거 기반 내러티브</text>
+
+      <path d="M 740 30 L 780 30" stroke="#388E3C" stroke-width="2" marker-end="url(#evolutionArrow)"/>
+
+      <!-- Predictive Decide + Action -->
+      <rect x="780" y="0" width="220" height="60" fill="url(#dsGrad4)" rx="8" filter="url(#shadow)"/>
+      <text x="890" y="25" class="font-base text-stage-main" font-size="16">예측적 의사결정</text>
+      <text x="890" y="45" class="font-base text-stage-sub" fill="#F8BBD9">모델 기반 실행</text>
+
+      <!-- Timeline -->
+      <text x="500" y="100" class="font-base text-timeline-large" fill="#388E3C">타임라인: 며칠~몇 주 • 반자동화 • 가설 주도 의사결정</text>
+    </g>
+
+    <!-- New Data Science Capabilities -->
+    <g transform="translate(150, 490)">
+      <rect x="0" y="0" width="1100" height="60" fill="#FFFFFF" stroke="#388E3C" stroke-width="2" rx="8"/>
+      <text x="550" y="20" class="font-base text-capability-title">새로운 데이터 과학 역량</text>
+
+      <text x="50"  y="45" class="font-base text-capability">• 머신러닝 모델</text>
+      <text x="250" y="45" class="font-base text-capability">• A/B 테스팅</text>
+      <text x="400" y="45" class="font-base text-capability">• 실시간 대시보드</text>
+      <text x="580" y="45" class="font-base text-capability">• 예측 분석</text>
+      <text x="750" y="45" class="font-base text-capability">• 통계적 검정</text>
+      <text x="920" y="45" class="font-base text-capability">• Python/R/SQL</text>
+    </g>
+  </g>
+
+</svg>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 60 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .font-base {
+        font-family: "Noto Sans KR", Arial, sans-serif;
+      }
+
+      .text-title {
+        font-size: 28px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #BF360C;
+      }
+
+      .text-subtitle {
+        font-size: 16px;
+        font-weight: 500;
+        text-anchor: middle;
+        fill: #E65100;
+      }
+
+      .text-stage-main {
+        font-size: 16px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: white;
+      }
+
+      .text-stage-sub {
+        font-size: 12px;
+        text-anchor: middle;
+        fill: #FFCC80;
+      }
+
+      .text-center-main {
+        font-size: 18px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #BF360C;
+      }
+
+      .text-center-sub {
+        font-size: 14px;
+        text-anchor: middle;
+        fill: #E65100;
+      }
+
+      .text-infra {
+        font-size: 12px;
+        font-weight: 600;
+        text-anchor: middle;
+        fill: #BF360C;
+      }
+
+      .text-feature-title {
+        font-size: 14px;
+        font-weight: 600;
+        fill: #BF360C;
+      }
+
+      .text-feature-item {
+        font-size: 12px;
+        fill: #E65100;
+      }
+    </style>
+
+    <!-- Orange gradient for boxes -->
+    <linearGradient id="stageGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF8A65"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+
+    <!-- Background gradient -->
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF3E0"/>
+      <stop offset="100%" stop-color="#FFE0B2"/>
+    </linearGradient>
+
+    <!-- Center circle gradient -->
+    <linearGradient id="centerGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFCC80"/>
+      <stop offset="100%" stop-color="#FFB74D"/>
+    </linearGradient>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto">
+      <polygon points="0 0, 12 4.5, 0 9" fill="#E65100"/>
+    </marker>
+
+    <!-- Big circular arrow -->
+    <marker id="bigArrow" markerWidth="16" markerHeight="12" refX="10" refY="6" orient="auto">
+      <polygon points="0 0, 16 6, 0 12" fill="#BF360C"/>
+    </marker>
+  </defs>
+
+  <!-- Outer circular flow indicator -->
+  <circle cx="400" cy="320" r="220" fill="none" stroke="#FFB74D" stroke-width="4" stroke-dasharray="10,5"/>
+  <path d="M 400 90 A 230 230 0 1 1 395 90" stroke="#BF360C" stroke-width="2" fill="none" marker-end="url(#bigArrow)"/>
+
+  <!-- Data Ingestion (top) -->
+  <g transform="translate(320, 110)">
+    <rect width="160" height="60" rx="12" fill="url(#stageGradient)" stroke="#BF360C" stroke-width="2"/>
+    <text x="80" y="25" class="font-base text-stage-main">데이터 수집</text>
+    <text x="80" y="45" class="font-base text-stage-sub">파이프라인 및 ETL</text>
+  </g>
+
+  <!-- Arrow: Data Ingestion → Feature Engineering -->
+  <path d="M 480 130 A 230 230 0 0 1 600 280" stroke="#E65100" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Feature Engineering (top right) -->
+  <g transform="translate(520, 280)">
+    <rect width="160" height="60" rx="12" fill="url(#stageGradient)" stroke="#BF360C" stroke-width="2"/>
+    <text x="80" y="25" class="font-base text-stage-main">피처 저장소</text>
+    <text x="80" y="45" class="font-base text-stage-sub">피처 엔지니어링</text>
+  </g>
+
+  <!-- Arrow: Feature Engineering → Training -->
+  <path d="M 600 340 A 230 230 0 0 1 560 440" stroke="#E65100" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Model Training (bottom right) -->
+  <g transform="translate(440, 440)">
+    <rect width="160" height="60" rx="12" fill="url(#stageGradient)" stroke="#BF360C" stroke-width="2"/>
+    <text x="80" y="25" class="font-base text-stage-main">모델 학습</text>
+    <text x="80" y="45" class="font-base text-stage-sub">AutoML 및 실험</text>
+  </g>
+
+  <!-- Arrow: Training → Deployment -->
+  <path d="M 480 500 A 230 290 0 0 1 310 502" stroke="#E65100" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Model Deployment (bottom center) -->
+  <g transform="translate(200, 440)">
+    <rect width="160" height="60" rx="12" fill="url(#stageGradient)" stroke="#BF360C" stroke-width="2"/>
+    <text x="80" y="25" class="font-base text-stage-main">배포</text>
+    <text x="80" y="45" class="font-base text-stage-sub">K8s 및 컨테이너</text>
+  </g>
+
+  <!-- Arrow: Deployment → Monitoring -->
+  <path d="M 240 440 A 230 230 0 0 1 200 340" stroke="#E65100" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Monitoring (left) -->
+  <g transform="translate(120, 280)">
+    <rect width="160" height="60" rx="12" fill="url(#stageGradient)" stroke="#BF360C" stroke-width="2"/>
+    <text x="80" y="25" class="font-base text-stage-main">모니터링</text>
+    <text x="80" y="45" class="font-base text-stage-sub">관측성</text>
+  </g>
+
+  <!-- Arrow: Monitoring → Data Ingestion -->
+  <path d="M 200 280 A 230 230 0 0 1 320 140" stroke="#E65100" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Central DevOps circle -->
+  <circle cx="400" cy="320" r="80" fill="url(#centerGradient)" stroke="#E65100" stroke-width="3"/>
+  <text x="400" y="310" class="font-base text-center-main">MLOps</text>
+  <text x="400" y="330" class="font-base text-center-sub">자동화 및</text>
+  <text x="400" y="348" class="font-base text-center-sub">CI/CD</text>
+
+  <!-- Infrastructure components (smaller boxes) -->
+  <!-- Git -->
+  <g transform="translate(50, 150)">
+    <rect width="80" height="40" rx="8" fill="#FFAB91" stroke="#FF5722" stroke-width="1"/>
+    <text x="40" y="25" class="font-base text-infra">Git/GitOps</text>
+  </g>
+
+  <!-- Docker -->
+  <g transform="translate(670, 200)">
+    <rect width="80" height="40" rx="8" fill="#FFAB91" stroke="#FF5722" stroke-width="1"/>
+    <text x="40" y="25" class="font-base text-infra">Docker</text>
+  </g>
+
+  <!-- Cloud -->
+  <g transform="translate(670, 400)">
+    <rect width="80" height="40" rx="8" fill="#FFAB91" stroke="#FF5722" stroke-width="1"/>
+    <text x="40" y="25" class="font-base text-infra">클라우드</text>
+  </g>
+
+  <!-- Testing -->
+  <g transform="translate(50, 480)">
+    <rect width="80" height="40" rx="8" fill="#FFAB91" stroke="#FF5722" stroke-width="1"/>
+    <text x="40" y="25" class="font-base text-infra">테스팅</text>
+  </g>
+
+  <!-- Metrics -->
+  <g transform="translate(50, 350)">
+    <rect width="80" height="40" rx="8" fill="#FFAB91" stroke="#FF5722" stroke-width="1"/>
+    <text x="40" y="25" class="font-base text-infra">메트릭</text>
+  </g>
+
+</svg>

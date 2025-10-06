@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 100 1600 520" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- DIKW Level gradients -->
     <linearGradient id="wisdomGrad" x1="0" y1="0" x2="0" y2="1">
@@ -36,43 +36,103 @@
     <marker id="processArrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
       <polygon points="0 0, 12 4, 0 8" fill="#6B7280"/>
     </marker>
+
+    <!-- Typography Styles -->
+    <style>
+      /* 기본 폰트 패밀리 */
+      .font-base {
+        font-family: "Noto Sans KR", Inter, Arial, sans-serif;
+      }
+
+      /* 피라미드 레이블 - 각 계층명 (지혜, 지식, 정보, 데이터) */
+      .pyramid-label {
+        font-size: 32px;
+        font-weight: 900;
+        text-anchor: middle;
+      }
+
+      /* 피라미드 질문 - WHY? HOW? 등 */
+      .pyramid-question {
+        font-size: 20px;
+        font-weight: 800;
+        text-anchor: middle;
+      }
+
+      /* 피라미드 서브텍스트 - 판단•가치•윤리 등 */
+      .pyramid-subtext {
+        font-size: 16px;
+        font-weight: 600;
+        text-anchor: middle;
+      }
+
+      /* 변환 화살표 레이블 - 처리, 학습, 통찰 */
+      .arrow-label {
+        font-size: 24px;
+        font-weight: 700;
+        text-anchor: middle;
+      }
+
+      /* 변환 화살표 설명 - 맥락, 관련성, 목적 등 */
+      .arrow-desc {
+        font-size: 16px;
+        text-anchor: middle;
+      }
+
+      /* 상세 박스 제목 - "지혜 계층" 등 */
+      .box-title {
+        font-size: 26px;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+
+      /* 상세 박스 부제목 - "이해의 정점" 등 */
+      .box-subtitle {
+        font-size: 18px;
+        text-anchor: middle;
+      }
+
+      /* 상세 박스 특징 헤더 - "특징:" */
+      .box-header {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      /* 상세 박스 항목 - 불릿 포인트 */
+      .box-item {
+        font-size: 17px;
+      }
+    </style>
   </defs>
 
   <!-- Background -->
-  <rect width="1600" height="1100" fill="url(#bgGradient)"/>
-
-  <!-- Title -->
-  <rect x="50" y="20" width="1500" height="100" fill="white" stroke="#E5E7EB" stroke-width="3" rx="15"/>
-  <text x="800" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="bold" fill="#111827">DIKW Hierarchy</text>
-  <text x="800" y="85" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" fill="#6B7280">From Raw Data to Applied Wisdom</text>
-  <text x="800" y="110" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" fill="#9CA3AF">Ackoff's Knowledge Hierarchy (1989) - Information Processing Pyramid</text>
+  <!-- <rect width="1600" height="1100" fill="url(#bgGradient)"/> -->
 
   <!-- Main DIKW Pyramid -->
   <g transform="translate(520, 100) scale(1.2)">
     <!-- Wisdom (Top) -->
     <polygon points="200,50 120,120 280,120" fill="url(#wisdomGrad)" stroke="#5B21B6" stroke-width="3"/>
-    <text x="200" y="88" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" fill="white" stroke="#4C1D95" stroke-width="1">WISDOM</text>
-    <text x="70" y="120" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" stroke="#5B21B6" stroke-width="0.5">WHY?</text>
-    <text x="70" y="140" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" >Judgment • Values • Ethics</text>
+    <text x="200" y="88" class="font-base pyramid-label" fill="white" stroke="#4C1D95" stroke-width="1">지혜</text>
+    <text x="70" y="120" class="font-base pyramid-question" stroke="#5B21B6" stroke-width="0.5">왜?</text>
+    <text x="70" y="140" class="font-base pyramid-subtext">판단 • 가치 • 윤리</text>
 
     <!-- Knowledge -->
     <polygon points="200,120 100,200 300,200" fill="url(#knowledgeGrad)" stroke="#1D4ED8" stroke-width="3"/>
-    <text x="200" y="168" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" fill="white" stroke="#1E3A8A" stroke-width="1">KNOWLEDGE</text>
-    <text x="70" y="200" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" stroke="#1D4ED8" stroke-width="0.5">HOW?</text>
-    <text x="70" y="220" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" >Understanding • Experience</text>
+    <text x="200" y="168" class="font-base pyramid-label" fill="white" stroke="#1E3A8A" stroke-width="1">지식</text>
+    <text x="70" y="200" class="font-base pyramid-question" stroke="#1D4ED8" stroke-width="0.5">어떻게?</text>
+    <text x="70" y="220" class="font-base pyramid-subtext">이해 • 경험</text>
 
     <!-- Information -->
     <polygon points="200,200 80,280 320,280" fill="url(#informationGrad)" stroke="#047857" stroke-width="3"/>
-    <text x="200" y="248" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" fill="white" stroke="#064E3B" stroke-width="1">INFORMATION</text>
-    <text x="200" y="275" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" stroke="#047857" stroke-width="0.5">WHAT? • WHEN? • WHERE?</text>
-    <text x="200" y="295" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Processed data with context &amp; meaning</text>
+    <text x="200" y="248" class="font-base pyramid-label" fill="white" stroke="#064E3B" stroke-width="1">정보</text>
+    <text x="200" y="275" class="font-base pyramid-subtext" font-size="18" font-weight="800" stroke="#047857" stroke-width="0.5">무엇? • 언제? • 어디?</text>
+    <text x="200" y="295" class="font-base pyramid-subtext">맥락과 의미가 부여된 처리된 데이터</text>
 
     <!-- Data (Base) -->
     <g transform="translate(0, 20)">
       <polygon points="200,280 60,360 340,360" fill="url(#dataGrad)" stroke="#B91C1C" stroke-width="3"/>
-      <text x="200" y="328" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" fill="white" stroke="#7F1D1D" stroke-width="1">DATA</text>
-      <text x="200" y="355" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" stroke="#B91C1C" stroke-width="0.5">RAW FACTS</text>
-      <text x="200" y="380" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600" >Symbols • Numbers • Observations</text>
+      <text x="200" y="328" class="font-base pyramid-label" fill="white" stroke="#7F1D1D" stroke-width="1">데이터</text>
+      <text x="200" y="355" class="font-base pyramid-question" stroke="#B91C1C" stroke-width="0.5">원시 사실</text>
+      <text x="200" y="380" class="font-base pyramid-subtext">기호 • 숫자 • 관찰</text>
     </g>
   </g>
 
@@ -81,20 +141,20 @@
     <!-- Data to Information -->
     <g transform="translate(0, 20)">
       <path d="M -20 0 Q 30 -30 80 -80" stroke="#059669" stroke-width="3" fill="none" marker-end="url(#transformArrow)"/>
-      <text x="100" y="-10" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#047857">PROCESSING</text>
-      <text x="100" y="5" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#047857">Context &amp; relevance, Purpose</text>
+      <text x="100" y="-10" class="font-base arrow-label" fill="#047857">처리</text>
+      <text x="100" y="15" class="font-base arrow-desc" fill="#047857">맥락, 관련성, 목적</text>
     </g>
 
     <!-- Information to Knowledge -->
     <path d="M 0 -80 Q 50 -110 100 -160" stroke="#2563EB" stroke-width="3" fill="none" marker-end="url(#transformArrow)"/>
-    <text x="100" y="-90" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#1D4ED8">LEARNING</text>
-    <text x="100" y="-75" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#1D4ED8">Experience, Skills, Understanding</text>
+    <text x="100" y="-90" class="font-base arrow-label" fill="#1D4ED8">학습</text>
+    <text x="100" y="-70" class="font-base arrow-desc" fill="#1D4ED8">경험, 기술, 이해</text>
 
     <!-- Knowledge to Wisdom -->
     <g transform="translate(0, -40)">
       <path d="M 20 -160 Q 70 -190 120 -240" stroke="#7C3AED" stroke-width="4" fill="none" marker-end="url(#transformArrow)"/>
-      <text x="110" y="-170" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#5B21B6">INSIGHT</text>
-      <text x="110" y="-155" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#5B21B6">Values, Judgment, Ethics</text>
+      <text x="110" y="-170" class="font-base arrow-label" fill="#5B21B6">통찰</text>
+      <text x="110" y="-145" class="font-base arrow-desc" fill="#5B21B6">가치, 판단, 윤리</text>
     </g>
   </g>
 
@@ -102,182 +162,54 @@
   <!-- Wisdom Details (Top Left) -->
   <g transform="translate(50, 150)">
     <rect width="400" height="180" fill="white" stroke="#7C3AED" stroke-width="2" rx="12"/>
-    <text x="200" y="30" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="bold" fill="#7C3AED">WISDOM Level</text>
-    <text x="200" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#5B21B6">The pinnacle of understanding</text>
+    <text x="200" y="30" class="font-base box-title" fill="#7C3AED">지혜 계층</text>
+    <text x="200" y="50" class="font-base box-subtitle" fill="#5B21B6">이해의 정점</text>
 
-    <text x="20" y="80" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#111827">Characteristics:</text>
-    <text x="20" y="100" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Combines knowledge with values &amp; ethics</text>
-    <text x="20" y="115" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Enables sound judgment &amp; decision-making</text>
-    <text x="20" y="130" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Considers long-term consequences</text>
-    <text x="20" y="145" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Incorporates moral &amp; ethical dimensions</text>
-    <text x="20" y="160" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Answers "Why should we?" &amp; "What ought?"</text>
+    <text x="20" y="80" class="font-base box-item" fill="#4B5563">• 지식과 가치, 윤리를 결합</text>
+    <text x="20" y="100" class="font-base box-item" fill="#4B5563">• 건전한 판단과 의사결정 가능</text>
+    <text x="20" y="120" class="font-base box-item" fill="#4B5563">• 장기적 결과 고려</text>
+    <text x="20" y="140" class="font-base box-item" fill="#4B5563">• 도덕적, 윤리적 차원 포함</text>
+    <text x="20" y="160" class="font-base box-item" fill="#4B5563">• "왜 해야 하는가?" "무엇이 옳은가?" 답변</text>
   </g>
 
   <!-- Knowledge Details (Top Right) -->
   <g transform="translate(1150, 150)">
     <rect width="400" height="180" fill="white" stroke="#2563EB" stroke-width="2" rx="12"/>
-    <text x="200" y="30" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="bold" fill="#2563EB">KNOWLEDGE Level</text>
-    <text x="200" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#1D4ED8">Understanding through experience</text>
+    <text x="200" y="30" class="font-base box-title" fill="#2563EB">지식 계층</text>
+    <text x="200" y="50" class="font-base box-subtitle" fill="#1D4ED8">경험을 통한 이해</text>
 
-    <text x="20" y="80" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#111827">Characteristics:</text>
-    <text x="20" y="100" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Information combined with experience</text>
-    <text x="20" y="115" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Enables application &amp; problem-solving</text>
-    <text x="20" y="130" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Built through practice &amp; learning</text>
-    <text x="20" y="145" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Allows prediction &amp; explanation</text>
-    <text x="20" y="160" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Answers "How?" &amp; "What if?"</text>
+    <text x="20" y="80" class="font-base box-item" fill="#4B5563">• 정보와 경험의 결합</text>
+    <text x="20" y="100" class="font-base box-item" fill="#4B5563">• 적용과 문제 해결 가능</text>
+    <text x="20" y="120" class="font-base box-item" fill="#4B5563">• 실습과 학습을 통해 구축</text>
+    <text x="20" y="140" class="font-base box-item" fill="#4B5563">• 예측과 설명 가능</text>
+    <text x="20" y="160" class="font-base box-item" fill="#4B5563">• "어떻게?" "만약에?" 답변</text>
   </g>
 
   <!-- Information Details (Bottom Left) -->
   <g transform="translate(50, 400)">
     <rect width="400" height="180" fill="white" stroke="#059669" stroke-width="2" rx="12"/>
-    <text x="200" y="30" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="bold" fill="#059669">INFORMATION Level</text>
-    <text x="200" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#047857">Processed data with meaning</text>
+    <text x="200" y="30" class="font-base box-title" fill="#059669">정보 계층</text>
+    <text x="200" y="50" class="font-base box-subtitle" fill="#047857">의미가 부여된 처리된 데이터</text>
 
-    <text x="20" y="80" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#111827">Characteristics:</text>
-    <text x="20" y="100" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Data with context, relevance, purpose</text>
-    <text x="20" y="115" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Organized &amp; structured for understanding</text>
-    <text x="20" y="130" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Reduces uncertainty &amp; ambiguity</text>
-    <text x="20" y="145" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Enables communication &amp; decision support</text>
-    <text x="20" y="160" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4B5563">• Answers "What?", "When?", "Where?"</text>
+    <text x="20" y="80" class="font-base box-item" fill="#4B5563">• 맥락, 관련성, 목적이 부여된 데이터</text>
+    <text x="20" y="100" class="font-base box-item" fill="#4B5563">• 이해를 위해 조직되고 구조화됨</text>
+    <text x="20" y="120" class="font-base box-item" fill="#4B5563">• 불확실성과 모호함 감소</text>
+    <text x="20" y="140" class="font-base box-item" fill="#4B5563">• 커뮤니케이션과 의사결정 지원 가능</text>
+    <text x="20" y="160" class="font-base box-item" fill="#4B5563">• "무엇?" "언제?" "어디?" 답변</text>
   </g>
 
   <!-- Data Details (Bottom Right) -->
   <g transform="translate(1150, 400)">
     <rect width="400" height="180" fill="white" stroke="#DC2626" stroke-width="2" rx="12"/>
-    <text x="200" y="30" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="bold" fill="#DC2626">DATA Level</text>
-    <text x="200" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#B91C1C">Raw, unprocessed facts</text>
+    <text x="200" y="30" class="font-base box-title" fill="#DC2626">데이터 계층</text>
+    <text x="200" y="50" class="font-base box-subtitle" fill="#B91C1C">가공되지 않은 원시 사실</text>
 
-    <text x="20" y="80" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#111827">Characteristics:</text>
-    <text x="20" y="100" font-family="Inter, Arial, sans-serif" font-size="15" fill="#1F2937">• Raw facts, figures, symbols, signals</text>
-    <text x="20" y="115" font-family="Inter, Arial, sans-serif" font-size="15" fill="#1F2937">• No inherent meaning or interpretation</text>
-    <text x="20" y="130" font-family="Inter, Arial, sans-serif" font-size="15" fill="#1F2937">• Can be stored, transmitted, processed</text>
-    <text x="20" y="145" font-family="Inter, Arial, sans-serif" font-size="15" fill="#1F2937">• Foundation for all higher levels</text>
-    <text x="20" y="160" font-family="Inter, Arial, sans-serif" font-size="15" fill="#1F2937">• Examples: 25, "John", 2024-01-15</text>
+    <text x="20" y="80" class="font-base box-item" fill="#1F2937">• 원시 사실, 수치, 기호, 신호</text>
+    <text x="20" y="100" class="font-base box-item" fill="#1F2937">• 내재된 의미나 해석 없음</text>
+    <text x="20" y="120" class="font-base box-item" fill="#1F2937">• 저장, 전송, 처리 가능</text>
+    <text x="20" y="140" class="font-base box-item" fill="#1F2937">• 모든 상위 계층의 기초</text>
+    <text x="20" y="160" class="font-base box-item" fill="#1F2937">• 예시: 25, "John", 2024-01-15</text>
   </g>
 
-  <!-- Real-World Examples Section -->
-  <g transform="translate(50, 600)">
-    <rect width="1500" height="280" fill="white" stroke="#E5E7EB" stroke-width="2" rx="15"/>
-
-    <!-- Healthcare Example -->
-    <g transform="translate(40, 20)">
-      <rect width="340" height="240" fill="#FEF2F2" stroke="#DC2626" stroke-width="1" rx="8"/>
-      <text x="170" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="bold" fill="#B91C1C">Healthcare Domain</text>
-
-      <text x="20" y="50" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#DC2626">Data:</text>
-      <text x="20" y="65" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Temperature: 38.5°C, Pulse: 92 bpm</text>
-
-      <text x="20" y="85" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#059669">Information:</text>
-      <text x="20" y="100" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Patient has fever (38.5°C) and elevated</text>
-      <text x="20" y="115" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">heart rate during morning examination</text>
-
-      <text x="20" y="135" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#2563EB">Knowledge:</text>
-      <text x="20" y="150" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">These symptoms suggest viral infection</text>
-      <text x="20" y="165" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">based on clinical experience patterns</text>
-
-      <text x="20" y="185" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#7C3AED">Wisdom:</text>
-      <text x="20" y="200" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Recommend rest &amp; monitoring rather than</text>
-      <text x="20" y="215" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">antibiotics, considering patient welfare</text>
-    </g>
-
-    <!-- Business Example -->
-    <g transform="translate(400, 20)">
-      <rect width="340" height="240" fill="#F0FDF4" stroke="#059669" stroke-width="1" rx="8"/>
-      <text x="170" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="bold" fill="#047857">Business Domain</text>
-
-      <text x="20" y="50" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#DC2626">Data:</text>
-      <text x="20" y="65" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Sales: $50K, Quarter: Q3, Region: West</text>
-
-      <text x="20" y="85" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#059669">Information:</text>
-      <text x="20" y="100" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">West region Q3 sales were $50K,</text>
-      <text x="20" y="115" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">20% below target of $62.5K</text>
-
-      <text x="20" y="135" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#2563EB">Knowledge:</text>
-      <text x="20" y="150" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">West region typically underperforms in</text>
-      <text x="20" y="165" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Q3 due to seasonal market factors</text>
-
-      <text x="20" y="185" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#7C3AED">Wisdom:</text>
-      <text x="20" y="200" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Adjust Q4 strategy &amp; invest in regional</text>
-      <text x="20" y="215" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">marketing for sustainable growth</text>
-    </g>
-
-    <!-- Education Example -->
-    <g transform="translate(760, 20)">
-      <rect width="340" height="240" fill="#EFF6FF" stroke="#2563EB" stroke-width="1" rx="8"/>
-      <text x="170" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="bold" fill="#1D4ED8">Education Domain</text>
-
-      <text x="20" y="50" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#DC2626">Data:</text>
-      <text x="20" y="65" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Test scores: 78, 82, 65, 91, 73</text>
-
-      <text x="20" y="85" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#059669">Information:</text>
-      <text x="20" y="100" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Student's average score is 77.8,</text>
-      <text x="20" y="115" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">showing inconsistent performance</text>
-
-      <text x="20" y="135" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#2563EB">Knowledge:</text>
-      <text x="20" y="150" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Variability suggests gaps in specific</text>
-      <text x="20" y="165" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">concepts rather than overall ability</text>
-
-      <text x="20" y="185" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#7C3AED">Wisdom:</text>
-      <text x="20" y="200" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Provide targeted support for weak areas</text>
-      <text x="20" y="215" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">while building on existing strengths</text>
-    </g>
-
-    <!-- Scientific Example -->
-    <g transform="translate(1120, 20)">
-      <rect width="340" height="240" fill="#F3F4F6" stroke="#7C3AED" stroke-width="1" rx="8"/>
-      <text x="170" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="bold" fill="#7C3AED">Scientific Research</text>
-
-      <text x="20" y="50" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#DC2626">Data:</text>
-      <text x="20" y="65" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">CO₂ levels: 421ppm, Year: 2023</text>
-
-      <text x="20" y="85" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#059669">Information:</text>
-      <text x="20" y="100" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">2023 atmospheric CO₂ reached 421ppm,</text>
-      <text x="20" y="115" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">highest in human history</text>
-
-      <text x="20" y="135" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#2563EB">Knowledge:</text>
-      <text x="20" y="150" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">This trend correlates with global</text>
-      <text x="20" y="165" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">temperature rise &amp; climate patterns</text>
-
-      <text x="20" y="185" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#7C3AED">Wisdom:</text>
-      <text x="20" y="200" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">Urgent need for sustainable policies</text>
-      <text x="20" y="215" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4B5563">balancing environment &amp; society</text>
-    </g>
-  </g>
-
-  <!-- Value &amp; Complexity Indicators -->
-  <g transform="translate(50, 890)">
-    <rect width="750" height="80" fill="white" stroke="#E5E7EB" stroke-width="2" rx="10"/>
-    <text x="375" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="bold" fill="#111827">Characteristics Across Levels</text>
-
-    <!-- Volume arrow (decreasing) -->
-    <path d="M 50 45 L 200 65" stroke="#EF4444" stroke-width="3" marker-end="url(#processArrow)"/>
-    <text x="135" y="35" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#EF4444">VOLUME</text>
-    <text x="135" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#B91C1C">Decreases</text>
-
-    <!-- Value arrow (increasing) -->
-    <path d="M 300 60 L 450 40" stroke="#059669" stroke-width="3" marker-end="url(#processArrow)"/>
-    <text x="395" y="60" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#059669">VALUE</text>
-    <text x="395" y="70" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#047857">Increases</text>
-
-    <!-- Complexity arrow (increasing) -->
-    <path d="M 550 60 L 700 40" stroke="#7C3AED" stroke-width="3" marker-end="url(#processArrow)"/>
-    <text x="580" y="38" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#7C3AED">COMPLEXITY</text>
-    <text x="580" y="50" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#5B21B6">Increases</text>
-  </g>
-
-  <!-- Processing Requirements -->
-  <g transform="translate(850, 890)">
-    <rect width="700" height="80" fill="white" stroke="#E5E7EB" stroke-width="2" rx="10"/>
-    <text x="350" y="25" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="bold" fill="#111827">Processing Requirements</text>
-
-    <text x="50" y="45" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#4B5563">Data → Info:</text>
-    <text x="50" y="60" font-family="Inter, Arial, sans-serif" font-size="13" fill="#6B7280">Collection, Cleaning, Context</text>
-
-    <text x="250" y="45" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#4B5563">Info → Knowledge:</text>
-    <text x="250" y="60" font-family="Inter, Arial, sans-serif" font-size="13" fill="#6B7280">Learning, Experience, Practice</text>
-
-    <text x="450" y="45" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#4B5563">Know → Wisdom:</text>
-    <text x="450" y="60" font-family="Inter, Arial, sans-serif" font-size="13" fill="#6B7280">Reflection, Values, Ethics</text>
-  </g>
 
 </svg>
