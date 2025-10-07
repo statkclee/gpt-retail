@@ -79,6 +79,7 @@ book:
         # - proj_market.qmd       # OK
         # - proj_survey.qmd       # OK
         # - proj_car.qmd          # OK
+        - proj_method.qmd
         - proj_app.qmd
         - proj_school.qmd
         - proj_news.qmd
