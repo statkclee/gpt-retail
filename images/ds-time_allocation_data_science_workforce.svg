@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700">
+  <defs>
+    <!-- 일관된 색상 체계 -->
+
+    <!-- 데이터 관련 작업 (파랑 계열) -->
+    <linearGradient id="dataTask1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="dataTask2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#5DADE2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3498DB;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- 분석/모델링 작업 (초록 계열) -->
+    <linearGradient id="analysisTask1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2ECC71;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27AE60;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="analysisTask2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#58D68D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ECC71;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- 구현 작업 (보라 계열) -->
+    <linearGradient id="implementationTask1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="implementationTask2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#BB8FCE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9B59B6;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- 커뮤니케이션 작업 (주황 계열) -->
+    <linearGradient id="communicationTask1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E67E22;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="communicationTask2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F8C471;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F39C12;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- 최적화 작업 (빨강 계열) -->
+    <linearGradient id="optimizationTask1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="optimizationTask2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#EC7063;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E74C3C;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- 텍스트 스타일 -->
+    <style type="text/css">
+      text {
+        font-family: "Noto Sans KR", Arial, sans-serif;
+      }
+      .title { font-size: 24px; font-weight: bold; fill: #2C3E50; }
+      .subtitle { font-size: 14px; fill: #7F8C8D; }
+      .role-title { font-size: 20px; font-weight: bold; fill: #2C3E50; }
+      .role-desc { font-size: 13px; fill: #7F8C8D; }
+      .role-tools { font-size: 11px; fill: #95A5A6; }
+      .task-label { font-size: 16px; fill: white; font-weight: bold; }
+      .task-pct { font-size: 14px; fill: white; font-weight: bold; }
+      .task-label-small { font-size: 13px; fill: white; font-weight: bold; }
+      .legend-title { font-size: 24px; font-weight: bold; fill: #2C3E50; }
+      .legend-text { font-size: 16px; fill: #2C3E50; }
+      .scale-text { font-size: 16px; fill: #7F8C8D; }
+      .box-title { font-size: 20px; font-weight: bold; fill: #2C3E50; }
+      .box-subtitle { font-size: 16px; font-weight: bold; }
+      .box-text { font-size: 14px; fill: #2C3E50; }
+      .source-text { font-size: 11px; fill: #95A5A6; }
+    </style>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1400" height="800" fill="#FAFAFA"/>
+
+  <!-- 작업 카테고리 범례 -->
+  <g transform="translate(250, 0)">
+    <text x="0" y="40" text-anchor="middle" class="legend-title">작업 카테고리</text>
+
+    <g transform="translate(120, 0)">
+      <!-- 데이터 작업 -->
+      <rect x="0" y="25" width="25" height="15" fill="url(#dataTask1)" rx="2"/>
+      <text x="35" y="37" class="legend-text">데이터 작업</text>
+
+      <!-- 분석/모델링 -->
+      <rect x="180" y="25" width="25" height="15" fill="url(#analysisTask1)" rx="2"/>
+      <text x="215" y="37" class="legend-text">분석 및 모델링</text>
+
+      <!-- 구현 -->
+      <rect x="360" y="25" width="25" height="15" fill="url(#implementationTask1)" rx="2"/>
+      <text x="395" y="37" class="legend-text">구현</text>
+
+      <!-- 커뮤니케이션 -->
+      <rect x="510" y="25" width="25" height="15" fill="url(#communicationTask1)" rx="2"/>
+      <text x="545" y="37" class="legend-text">커뮤니케이션</text>
+
+      <!-- 최적화 -->
+      <rect x="680" y="25" width="25" height="15" fill="url(#optimizationTask1)" rx="2"/>
+      <text x="715" y="37" class="legend-text">최적화</text>
+    </g>
+  </g>
+
+  <!-- 퍼센트 눈금 -->
+  <g transform="translate(250, 80) scale(1.215)">
+    <text x="0" y="0" class="scale-text">0%</text>
+    <text x="225" y="0" class="scale-text">25%</text>
+    <text x="450" y="0" class="scale-text">50%</text>
+    <text x="675" y="0" class="scale-text">75%</text>
+    <text x="900" y="0" class="scale-text">100%</text>
+    <!-- 눈금선 -->
+    <line x1="0" y1="5" x2="0" y2="10" stroke="#BDC3C7" stroke-width="5"/>
+    <line x1="225" y1="5" x2="225" y2="10" stroke="#BDC3C7" stroke-width="5"/>
+    <line x1="450" y1="5" x2="450" y2="10" stroke="#BDC3C7" stroke-width="5"/>
+    <line x1="675" y1="5" x2="675" y2="10" stroke="#BDC3C7" stroke-width="5"/>
+    <line x1="900" y1="5" x2="900" y2="10" stroke="#BDC3C7" stroke-width="5"/>
+  </g>
+
+  <!-- 데이터 과학자 -->
+  <g transform="translate(50, 110)">
+    <text x="-20" y="20" class="role-title">데이터 과학자 ¹</text>
+    <text x="-20" y="35" class="role-desc">통계, ML으로 데이터에서 인사이트 추출</text>
+    <text x="-20" y="50" class="role-tools">도구: Python/R, Jupyter, Pandas, Scikit-learn</text>
+
+    <!-- 전체 너비 적층 수평 막대 -->
+    <g transform="translate(200, 10)">
+      <!-- 데이터 정제 45% -->
+      <rect x="0" y="0" width="495" height="45" fill="url(#dataTask1)" rx="2"/>
+      <text x="247" y="24" text-anchor="middle" class="task-label">데이터 정제</text>
+      <text x="247" y="38" text-anchor="middle" class="task-pct">45% (35-55%)</text>
+
+      <!-- 시각화 21% -->
+      <rect x="495" y="0" width="231" height="45" fill="url(#communicationTask1)" rx="2"/>
+      <text x="610" y="24" text-anchor="middle" class="task-label">시각화</text>
+      <text x="610" y="38" text-anchor="middle" class="task-pct">21% (15-25%)</text>
+
+      <!-- 모델링 12% -->
+      <rect x="726" y="0" width="132" height="45" fill="url(#analysisTask1)" rx="2"/>
+      <text x="792" y="24" text-anchor="middle" class="task-label">모델링</text>
+      <text x="792" y="38" text-anchor="middle" class="task-pct">12% + LLM</text>
+
+      <!-- 배포 11% -->
+      <rect x="858" y="0" width="121" height="45" fill="url(#implementationTask1)" rx="2"/>
+      <text x="918" y="24" text-anchor="middle" class="task-label">배포</text>
+      <text x="918" y="38" text-anchor="middle" class="task-pct">11%</text>
+
+      <!-- 커뮤니케이션 11% -->
+      <rect x="979" y="0" width="121" height="45" fill="url(#communicationTask2)" rx="2"/>
+      <text x="1039" y="27" text-anchor="middle" class="task-label-small">커뮤니케이션</text>
+      <text x="1039" y="38" text-anchor="middle" class="task-pct">11%</text>
+    </g>
+  </g>
+
+  <!-- 데이터 엔지니어 -->
+  <g transform="translate(50, 200)">
+    <text x="-20" y="20" class="role-title">데이터 엔지니어 ²</text>
+    <text x="-20" y="35" class="role-desc">데이터 인프라 및 처리 파이프라인 구축</text>
+    <text x="-20" y="50" class="role-tools">도구: Spark, Kafka, Airflow, SQL, Docker, K8s</text>
+
+    <g transform="translate(200, 10)">
+      <!-- 파이프라인 구축 35% -->
+      <rect x="0" y="0" width="385" height="45" fill="url(#dataTask1)" rx="2"/>
+      <text x="192" y="24" text-anchor="middle" class="task-label">파이프라인 구축</text>
+      <text x="192" y="38" text-anchor="middle" class="task-pct">35% (25-45%)</text>
+
+      <!-- ETL 프로세스 25% -->
+      <rect x="385" y="0" width="275" height="45" fill="url(#dataTask2)" rx="2"/>
+      <text x="522" y="24" text-anchor="middle" class="task-label">ETL 프로세스</text>
+      <text x="522" y="38" text-anchor="middle" class="task-pct">25%</text>
+
+      <!-- 데이터베이스 관리 20% -->
+      <rect x="660" y="0" width="220" height="45" fill="url(#implementationTask1)" rx="2"/>
+      <text x="770" y="24" text-anchor="middle" class="task-label">DB 관리</text>
+      <text x="770" y="38" text-anchor="middle" class="task-pct">20%</text>
+
+      <!-- 최적화 15% -->
+      <rect x="880" y="0" width="165" height="45" fill="url(#optimizationTask1)" rx="2"/>
+      <text x="962" y="24" text-anchor="middle" class="task-label">최적화</text>
+      <text x="962" y="38" text-anchor="middle" class="task-pct">15%</text>
+
+      <!-- 협업 5% -->
+      <rect x="1045" y="0" width="55" height="45" fill="url(#communicationTask1)" rx="2"/>
+      <text x="1072" y="27" text-anchor="middle" class="task-label-small">협업 5%</text>
+    </g>
+  </g>
+
+  <!-- 데이터 분석가 -->
+  <g transform="translate(50, 290)">
+    <text x="-20" y="20" class="role-title">데이터 분석가 ³</text>
+    <text x="-20" y="35" class="role-desc">데이터 분석 인사이트 및 보고서 생성</text>
+    <text x="-20" y="50" class="role-tools">도구: Excel, SQL, Tableau/Power BI, R</text>
+
+    <g transform="translate(200, 10)">
+      <!-- 분석 및 인사이트 30% -->
+      <rect x="0" y="0" width="330" height="45" fill="url(#analysisTask1)" rx="2"/>
+      <text x="165" y="25" text-anchor="middle" class="task-label-small">분석 및 인사이트</text>
+      <text x="165" y="39" text-anchor="middle" class="task-pct">30%</text>
+
+      <!-- 보고서 작성 25% -->
+      <rect x="330" y="0" width="275" height="45" fill="url(#communicationTask1)" rx="2"/>
+      <text x="467" y="25" text-anchor="middle" class="task-label">보고서 작성</text>
+      <text x="467" y="39" text-anchor="middle" class="task-pct">25%</text>
+
+      <!-- 데이터 정제 20% -->
+      <rect x="605" y="0" width="220" height="45" fill="url(#dataTask1)" rx="2"/>
+      <text x="715" y="25" text-anchor="middle" class="task-label">데이터 정제</text>
+      <text x="715" y="39" text-anchor="middle" class="task-pct">20%</text>
+
+      <!-- 이해관계자 커뮤니케이션 15% -->
+      <rect x="825" y="0" width="165" height="45" fill="url(#communicationTask2)" rx="2"/>
+      <text x="907" y="25" text-anchor="middle" class="task-label-small">이해관계자 커뮤니케이션</text>
+      <text x="907" y="39" text-anchor="middle" class="task-pct">15%</text>
+
+      <!-- 임시 요청 10% -->
+      <rect x="990" y="0" width="110" height="45" fill="url(#communicationTask1)" rx="2" opacity="0.7"/>
+      <text x="1045" y="25" text-anchor="middle" class="task-label-small">임시 요청</text>
+      <text x="1045" y="39" text-anchor="middle" class="task-pct">10%</text>
+    </g>
+  </g>
+
+  <!-- ML 엔지니어 -->
+  <g transform="translate(50, 380)">
+    <text x="-20" y="20" class="role-title">ML 엔지니어 ⁴</text>
+    <text x="-20" y="35" class="role-desc">프로덕션 환경 ML 모델 배포 및 유지보수</text>
+    <text x="-20" y="50" class="role-tools">도구: MLflow, Kubeflow, TensorFlow/PyTorch</text>
+
+    <g transform="translate(200, 10)">
+      <!-- 모델 배포 및 MLOps 30% -->
+      <rect x="0" y="0" width="330" height="45" fill="url(#implementationTask1)" rx="2"/>
+      <text x="165" y="25" text-anchor="middle" class="task-label-small">모델 배포 및 MLOps</text>
+      <text x="165" y="39" text-anchor="middle" class="task-pct">30%</text>
+
+      <!-- 모델 최적화 25% -->
+      <rect x="330" y="0" width="275" height="45" fill="url(#optimizationTask1)" rx="2"/>
+      <text x="467" y="25" text-anchor="middle" class="task-label">모델 최적화</text>
+      <text x="467" y="39" text-anchor="middle" class="task-pct">25%</text>
+
+      <!-- 시스템 통합 20% -->
+      <rect x="605" y="0" width="220" height="45" fill="url(#implementationTask2)" rx="2"/>
+      <text x="715" y="25" text-anchor="middle" class="task-label">시스템 통합</text>
+      <text x="715" y="39" text-anchor="middle" class="task-pct">20%</text>
+
+      <!-- 모니터링 및 유지보수 15% -->
+      <rect x="825" y="0" width="165" height="45" fill="url(#optimizationTask2)" rx="2"/>
+      <text x="907" y="25" text-anchor="middle" class="task-label-small">모니터링 및 유지보수</text>
+      <text x="907" y="39" text-anchor="middle" class="task-pct">15%</text>
+
+      <!-- 연구 및 실험 10% -->
+      <rect x="990" y="0" width="110" height="45" fill="url(#analysisTask2)" rx="2"/>
+      <text x="1045" y="25" text-anchor="middle" class="task-label-small">연구</text>
+      <text x="1045" y="39" text-anchor="middle" class="task-pct">10%</text>
+    </g>
+  </g>
+
+  <!-- 분석 엔지니어 -->
+  <g transform="translate(50, 470)">
+    <text x="-20" y="20" class="role-title">분석 엔지니어 ⁵</text>
+    <text x="-20" y="35" class="role-desc">변환 로직으로 데이터 공학과 분석 연결</text>
+    <text x="-20" y="50" class="role-tools">도구: dbt/SQL/Git, Airflow, BigQuery, Snowflake</text>
+
+    <g transform="translate(200, 10)">
+      <!-- 데이터 모델링 35% -->
+      <rect x="0" y="0" width="385" height="45" fill="url(#analysisTask1)" rx="2"/>
+      <text x="192" y="25" text-anchor="middle" class="task-label">데이터 모델링</text>
+      <text x="192" y="39" text-anchor="middle" class="task-pct">35%</text>
+
+      <!-- 파이프라인 개발 25% -->
+      <rect x="385" y="0" width="275" height="45" fill="url(#dataTask1)" rx="2"/>
+      <text x="522" y="25" text-anchor="middle" class="task-label">파이프라인 개발</text>
+      <text x="522" y="39" text-anchor="middle" class="task-pct">25%</text>
+
+      <!-- 데이터 품질 및 테스트 20% -->
+      <rect x="660" y="0" width="220" height="45" fill="url(#optimizationTask1)" rx="2"/>
+      <text x="770" y="25" text-anchor="middle" class="task-label-small">데이터 품질 및 테스트</text>
+      <text x="770" y="39" text-anchor="middle" class="task-pct">20%</text>
+
+      <!-- 문서화 10% -->
+      <rect x="880" y="0" width="110" height="45" fill="url(#communicationTask1)" rx="2"/>
+      <text x="935" y="25" text-anchor="middle" class="task-label">문서화</text>
+      <text x="935" y="39" text-anchor="middle" class="task-pct">10%</text>
+
+      <!-- 이해관계자 지원 10% -->
+      <rect x="990" y="0" width="110" height="45" fill="url(#communicationTask2)" rx="2"/>
+      <text x="1045" y="25" text-anchor="middle" class="task-label">지원</text>
+      <text x="1045" y="39" text-anchor="middle" class="task-pct">10%</text>
+    </g>
+  </g>
+
+  <!-- 거버넌스 참고사항 -->
+  <g transform="translate(850, 530)">
+    <text x="0" y="15" font-family="Noto Sans KR, Arial, sans-serif" font-size="12" font-weight="bold" fill="#E67E22">
+      + 거버넌스 및 컴플라이언스: 모든 역할에 5-10% (GDPR, SOX, 모델 카드, AI 윤리)
+    </text>
+  </g>
+
+  <!-- 주요 인사이트 박스 -->
+  <g transform="translate(100, 570)">
+    <rect x="0" y="0" width="1200" height="100" fill="#F8F9FA" stroke="#E9ECEF" stroke-width="2" rx="10"/>
+    <text x="1050" y="45" text-anchor="middle" class="box-title">
+      데이터 과학 이전 시대 대비 
+    </text>
+    <text x="1050" y="65" text-anchor="middle" class="box-title">
+      역할 진화
+    </text>
+
+    <!-- 1행에 6개 배치 -->
+    <!-- 1. 데이터 정제 시간 -->
+    <g transform="translate(20, 30)">
+      <text x="0" y="0" class="box-subtitle" fill="#E74C3C">데이터 정제 시간</text>
+      <rect x="0" y="7" width="130" height="18" fill="#E74C3C" rx="2" opacity="0.8"/>
+      <text x="5" y="20" font-size="12" fill="white" font-weight="bold">이전: 80%</text>
+      <rect x="0" y="28" width="74" height="18" fill="#27AE60" rx="2"/>
+      <text x="5" y="41" font-size="12" fill="white" font-weight="bold">현재: 45%</text>
+    </g>
+
+    <!-- 2. 교차 기능 협업 -->
+    <g transform="translate(180, 30)">
+      <text x="0" y="0" class="box-subtitle" fill="#3498DB">교차 협업</text>
+      <rect x="0" y="7" width="50" height="18" fill="#95A5A6" rx="2" opacity="0.8"/>
+      <text x="5" y="20" font-size="12" fill="white" font-weight="bold">이전: 1배</text>
+      <rect x="0" y="28" width="150" height="18" fill="#3498DB" rx="2"/>
+      <text x="5" y="41" font-size="12" fill="white" font-weight="bold">현재: 3배</text>
+    </g>
+
+    <!-- 3. 거버넌스 -->
+    <g transform="translate(360, 30)">
+      <text x="0" y="0" class="box-subtitle" fill="#E67E22">거버넌스</text>
+      <rect x="0" y="7" width="2" height="18" fill="#95A5A6" rx="1" opacity="0.5"/>
+      <text x="5" y="20" font-size="12" fill="#7F8C8D" font-weight="bold">이전: 0%</text>
+      <rect x="0" y="28" width="50" height="18" fill="#E67E22" rx="2"/>
+      <text x="5" y="41" font-size="12" fill="white" font-weight="bold">현재: 5-10%</text>
+    </g>
+
+    <!-- 4. 전문 역할 수 -->
+    <g transform="translate(520, 30)">
+      <text x="0" y="0" class="box-subtitle" fill="#16A085">전문 역할</text>
+      <rect x="0" y="7" width="60" height="18" fill="#95A5A6" rx="2" opacity="0.8"/>
+      <text x="5" y="20" font-size="12" fill="white" font-weight="bold">이전: 3개</text>
+      <rect x="0" y="28" width="100" height="18" fill="#16A085" rx="2"/>
+      <text x="5" y="41" font-size="12" fill="white" font-weight="bold">현재: 5개</text>
+    </g>
+
+    <!-- 5. 분석 완료 주기 -->
+    <g transform="translate(680, 30)">
+      <text x="0" y="0" class="box-subtitle" fill="#9B59B6">분석 주기</text>
+      <rect x="0" y="7" width="130" height="18" fill="#9B59B6" rx="2" opacity="0.8"/>
+      <text x="5" y="20" font-size="12" fill="white" font-weight="bold">이전: 3-4주</text>
+      <rect x="0" y="28" width="35" height="18" fill="#8E44AD" rx="2"/>
+      <text x="5" y="41" font-size="12" fill="white" font-weight="bold">현재: 3-5일</text>
+    </g>
+
+    <!-- 6. LLM 통합 비율 -->
+    <g transform="translate(860, 30)">
+      <text x="0" y="0" class="box-subtitle" fill="#D35400">LLM 통합</text>
+      <rect x="0" y="7" width="2" height="18" fill="#95A5A6" rx="1" opacity="0.5"/>
+      <text x="5" y="20" font-size="12" fill="#7F8C8D" font-weight="bold">이전: 0%</text>
+      <rect x="0" y="28" width="74" height="18" fill="#D35400" rx="2"/>
+      <text x="5" y="41" font-size="12" fill="white" font-weight="bold">현재: 45%</text>
+    </g>
+  </g>
+
+</svg>
