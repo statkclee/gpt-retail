@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 70 1650 1050">
+  <defs>
+    <!-- ========== 편집 가능한 텍스트 정의 ========== -->
+    <!--
+      텍스트 수정 가이드:
+      - TITLE: 메인 제목
+      - SUBTITLE: 부제목
+      - SECTIONS: 각 섹션 제목 (핵심 요약, 주요 지표 테이블, 성과 시각화, 핵심 인사이트, 실행 권장사항, 부록)
+      - METHODS: 오른쪽 패널 섹션 제목
+      - CODE_EXAMPLES: 코드 예시 블록
+    -->
+
+    <style>
+      .bg-light { fill: #F5F7FA; }
+      .bg-white { fill: #FFFFFF; }
+      .bg-gray-100 { fill: #F8F9FA; }
+      .bg-gray-200 { fill: #ECEFF1; }
+
+      .bg-primary { fill: #2780e3; }
+      .bg-primary-dark { fill: #1a5490; }
+      .bg-primary-light { fill: #e8f4fd; }
+      .bg-primary-pale { fill: #b3d9f2; }
+
+      .bg-success { fill: #28a745; }
+      .bg-success-light { fill: #d4edda; }
+      .bg-warning { fill: #ffc107; }
+      .bg-warning-light { fill: #FFF3CD; }
+      .bg-danger { fill: #dc3545; }
+      .bg-info { fill: #17a2b8; }
+
+      .stroke-primary { stroke: #2780e3; }
+      .stroke-primary-dark { stroke: #1a5490; }
+      .stroke-gray { stroke: #DDD; }
+      .stroke-gray-dark { stroke: #999; }
+
+      .text-primary { fill: #2780e3; }
+      .text-primary-dark { fill: #1a5490; }
+      .text-dark { fill: #212529; }
+      .text-gray { fill: #6c757d; }
+      .text-light { fill: #FFFFFF; }
+
+      .font-header { font-family: "Noto Sans KR", sans-serif; font-size: 26px; font-weight: 700; }
+      .font-section { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: 700; }
+      .font-body { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: 400; }
+      .font-body-bold { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: 700; }
+      .font-small { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: 400; }
+      .font-code { font-family: "Noto Sans Mono", "Courier New", monospace; font-size: 14px; font-weight: 400; }
+
+      .shadow { filter: drop-shadow(2px 3px 3px rgba(0,0,0,0.15)); }
+      .shadow-light { filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.1)); }
+    </style>
+
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2780e3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a5490;stop-opacity:1" />
+    </linearGradient>
+
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#999"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1800" height="1140" class="bg-light"/>
+
+  <!-- LEFT SIDE: Report Mockup -->
+  <g transform="translate(50, 100)">
+    <!-- Report Container -->
+    <rect x="0" y="0" width="650" height="990" class="bg-white stroke-gray shadow" stroke-width="1" rx="8"/>
+
+    <!-- Report Title -->
+    <text x="325" y="35" text-anchor="middle" class="font-header text-dark">
+      2025년 3분기 데이터 분석 보고서
+    </text>
+    <line x1="50" y1="50" x2="600" y2="50" class="stroke-gray" stroke-width="1"/>
+
+    <!-- ========== SECTION-1: 핵심 요약 ========== -->
+    <g transform="translate(30, 70)">
+      <rect x="0" y="0" width="590" height="140" class="bg-primary-light stroke-primary" stroke-width="2" rx="5"/>
+      <text x="10" y="20" class="font-section text-dark">핵심 요약</text>
+
+      <!-- KPI Boxes -->
+      <rect x="10" y="30" width="135" height="50" class="bg-white stroke-primary" stroke-width="1" rx="3"/>
+      <text x="77" y="50" text-anchor="middle" class="font-small text-gray">매출</text>
+      <text x="77" y="70" text-anchor="middle" class="font-body-bold text-dark">24억원</text>
+
+      <rect x="155" y="30" width="135" height="50" class="bg-white stroke-primary" stroke-width="1" rx="3"/>
+      <text x="222" y="50" text-anchor="middle" class="font-small text-gray">성장률</text>
+      <text x="222" y="70" text-anchor="middle" class="font-body-bold" fill="#28a745">+23%</text>
+
+      <rect x="300" y="30" width="135" height="50" class="bg-white stroke-primary" stroke-width="1" rx="3"/>
+      <text x="367" y="50" text-anchor="middle" class="font-small text-gray">고객수</text>
+      <text x="367" y="70" text-anchor="middle" class="font-body-bold text-dark">15,234</text>
+
+      <rect x="445" y="30" width="135" height="50" class="bg-white stroke-primary" stroke-width="1" rx="3"/>
+      <text x="512" y="50" text-anchor="middle" class="font-small text-gray">NPS 점수</text>
+      <text x="512" y="70" text-anchor="middle" class="font-body-bold" fill="#ffc107">72</text>
+
+      <!-- Summary text lines -->
+      <line x1="10" y1="95" x2="570" y2="95" stroke="#CCC" stroke-width="8"/>
+      <line x1="10" y1="110" x2="550" y2="110" stroke="#CCC" stroke-width="8"/>
+      <line x1="10" y1="125" x2="520" y2="125" stroke="#CCC" stroke-width="8"/>
+    </g>
+
+    <!-- ========== SECTION-2: 주요 지표 테이블 ========== -->
+    <g transform="translate(30, 230)">
+      <text x="0" y="0" class="font-section text-dark">주요 지표 테이블</text>
+      <rect x="0" y="10" width="590" height="90" class="bg-white stroke-gray" stroke-width="1" rx="3"/>
+
+      <!-- Table Headers -->
+      <rect x="0" y="10" width="590" height="30" class="bg-gray-100"/>
+      <line x1="0" y1="40" x2="590" y2="40" class="stroke-gray" stroke-width="1"/>
+      <text x="10" y="30" class="font-small text-dark" font-weight="bold">지표명</text>
+      <text x="150" y="30" class="font-small text-dark" font-weight="bold">3분기</text>
+      <text x="250" y="30" class="font-small text-dark" font-weight="bold">4분기</text>
+      <text x="350" y="30" class="font-small text-dark" font-weight="bold">변화율</text>
+      <text x="450" y="30" class="font-small text-dark" font-weight="bold">목표</text>
+      <text x="530" y="30" class="font-small text-dark" font-weight="bold">상태</text>
+
+      <!-- Table Rows (2개만 유지) -->
+      <line x1="0" y1="70" x2="590" y2="70" stroke="#EEE" stroke-width="1"/>
+
+      <!-- Column dividers -->
+      <line x1="140" y1="10" x2="140" y2="100" stroke="#EEE" stroke-width="1"/>
+      <line x1="240" y1="10" x2="240" y2="100" stroke="#EEE" stroke-width="1"/>
+      <line x1="340" y1="10" x2="340" y2="100" stroke="#EEE" stroke-width="1"/>
+      <line x1="440" y1="10" x2="440" y2="100" stroke="#EEE" stroke-width="1"/>
+      <line x1="520" y1="10" x2="520" y2="100" stroke="#EEE" stroke-width="1"/>
+    </g>
+
+    <!-- ========== SECTION-3: 성과 시각화 ========== -->
+    <g transform="translate(30, 350)">
+      <text x="0" y="0" class="font-section text-dark">성과 시각화</text>
+
+      <!-- Bar Chart -->
+      <rect x="0" y="10" width="285" height="180" class="bg-white stroke-gray" stroke-width="1" rx="3"/>
+      <rect x="30" y="140" width="40" height="40" class="bg-primary"/>
+      <rect x="80" y="120" width="40" height="60" class="bg-primary"/>
+      <rect x="130" y="100" width="40" height="80" class="bg-primary"/>
+      <rect x="180" y="80" width="40" height="100" class="bg-primary"/>
+      <rect x="230" y="110" width="40" height="70" class="bg-primary"/>
+
+      <!-- Line Chart -->
+      <rect x="305" y="10" width="285" height="180" class="bg-white stroke-gray" stroke-width="1" rx="3"/>
+      <path d="M 330 160 Q 380 120 430 100 Q 480 80 530 60 Q 580 50"
+            fill="none" stroke="#dc3545" stroke-width="2"/>
+      <circle cx="330" cy="160" r="3" fill="#dc3545"/>
+      <circle cx="380" cy="120" r="3" fill="#dc3545"/>
+      <circle cx="430" cy="100" r="3" fill="#dc3545"/>
+      <circle cx="480" cy="80" r="3" fill="#dc3545"/>
+      <circle cx="530" cy="60" r="3" fill="#dc3545"/>
+    </g>
+
+    <!-- ========== SECTION-4: 핵심 인사이트 (강조 박스) ========== -->
+    <g transform="translate(30, 560)">
+      <rect x="0" y="0" width="590" height="80" class="bg-warning-light" stroke-width="2" rx="5" stroke="#ffc107"/>
+      <circle cx="25" cy="40" r="15" class="bg-warning"/>
+      <text x="25" y="45" text-anchor="middle" class="font-body-bold text-light">!</text>
+      <text x="50" y="25" class="font-body-bold" fill="#856404">핵심 인사이트</text>
+      <text x="50" y="45" class="font-body" fill="#856404">고객 획득 비용이 18% 감소하면서도 리드 품질이 유지되어</text>
+      <text x="50" y="62" class="font-body" fill="#856404">모든 채널에서 ROI가 개선되었습니다.</text>
+    </g>
+
+    <!-- ========== SECTION-5: 실행 권장사항 ========== -->
+    <g transform="translate(30, 660)">
+      <text x="0" y="0" class="font-section text-dark">실행 권장사항</text>
+      <rect x="0" y="10" width="590" height="100" class="bg-gray-100 stroke-gray" stroke-width="1" rx="3"/>
+
+      <circle cx="20" cy="35" r="3" class="bg-success"/>
+      <text x="35" y="40" class="font-body text-dark">디지털 마케팅 채널 투자 25% 확대</text>
+
+      <circle cx="20" cy="60" r="3" class="bg-success"/>
+      <text x="35" y="65" class="font-body text-dark">NPS 70 이상 유지를 위한 고객 성공팀 확장</text>
+
+      <circle cx="20" cy="85" r="3" class="bg-success"/>
+      <text x="35" y="90" class="font-body text-dark">실시간 자동화 보고 시스템 구축 및 고가치 세그먼트 유지 전략 집중</text>
+    </g>
+
+    <!-- ========== SECTION-6: 부록 ========== -->
+    <g transform="translate(30, 790)">
+      <text x="0" y="0" class="font-section text-dark">부록</text>
+      <rect x="0" y="10" width="590" height="40" class="bg-gray-200 stroke-gray" stroke-width="1" rx="3"/>
+      <text x="10" y="35" class="font-small text-gray">A. 상세 방법론 | B. 원본 데이터 | C. 통계 검정 | D. 참고문헌</text>
+    </g>
+
+    <!-- ========== SECTION-7: 개발 타임라인 ========== -->
+    <g transform="translate(30, 870)">
+      <text x="0" y="0" class="font-section text-dark">일반적인 개발 소요 시간</text>
+      <rect x="0" y="10" width="590" height="60" class="bg-white stroke-primary-dark" stroke-width="1" rx="5"/>
+
+      <rect x="20" y="25" width="90" height="20" class="bg-primary" rx="3"/>
+      <text x="65" y="39" text-anchor="middle" class="font-small text-light">데이터 수집</text>
+      <text x="65" y="60" text-anchor="middle" class="font-small text-gray">1-3일</text>
+
+      <rect x="120" y="25" width="90" height="20" class="bg-danger" rx="3"/>
+      <text x="165" y="39" text-anchor="middle" class="font-small text-light">분석</text>
+      <text x="165" y="60" text-anchor="middle" class="font-small text-gray">2-5일</text>
+
+      <rect x="220" y="25" width="90" height="20" class="bg-success" rx="3"/>
+      <text x="265" y="39" text-anchor="middle" class="font-small text-light">시각화</text>
+      <text x="265" y="60" text-anchor="middle" class="font-small text-gray">1-2일</text>
+
+      <rect x="320" y="25" width="90" height="20" class="bg-warning" rx="3"/>
+      <text x="365" y="39" text-anchor="middle" class="font-small text-light">작성</text>
+      <text x="365" y="60" text-anchor="middle" class="font-small text-gray">1-2일</text>
+
+      <rect x="420" y="25" width="90" height="20" fill="#9B59B6" rx="3"/>
+      <text x="465" y="39" text-anchor="middle" class="font-small text-light">검토</text>
+      <text x="465" y="60" text-anchor="middle" class="font-small text-gray">0.5-1일</text>
+
+      <text x="550" y="33" text-anchor="end" class="font-body-bold text-primary-dark">총 </text>
+      <text x="570" y="60" text-anchor="end" class="font-body-bold text-primary-dark">5-13일</text>
+    </g>
+  </g>
+
+  <!-- CENTER: Divider -->
+  <line x1="750" y1="100" x2="750" y2="1090" class="stroke-gray" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- ========== RIGHT PANEL: 개발 방법론 ========== -->
+  <g transform="translate(800, 100)">
+
+    <!-- ========== METHOD-1: 핵심 요약 작성법 ========== -->
+    <g transform="translate(0, 20)">
+      <rect x="0" y="0" width="850" height="180" class="bg-white stroke-primary shadow-light" stroke-width="1" rx="5"/>
+      <rect x="0" y="0" width="120" height="30" class="bg-primary" rx="5 5 0 0"/>
+      <text x="60" y="20" text-anchor="middle" class="font-body-bold text-light">핵심 요약</text>
+
+      <text x="10" y="58" class="font-body-bold text-dark">주요 구성 요소:</text>
+      <text x="20" y="82" class="font-body text-gray">• 분석 완료 후 작성 (2-4시간) | 3-5개 핵심 지표 시각적 강조</text>
+      <text x="20" y="110" class="font-body text-gray">• 구체적 숫자와 행동 지향적 언어 사용 | YoY/QoQ 비교 포함</text>
+      <text x="20" y="135" class="font-body text-gray">• 도구: MS Word, Google Docs, Notion</text>
+
+      <rect x="480" y="50" width="350" height="100" class="bg-gray-100" rx="3"/>
+      <text x="490" y="70" class="font-code text-gray"># Python KPI 계산 예시</text>
+      <text x="490" y="90" class="font-code text-gray">revenue_growth = ((q4 - q3) / q3) * 100</text>
+      <text x="490" y="110" class="font-code text-gray">kpi = {'매출': f'{q4/1e8:.1f}억',</text>
+      <text x="490" y="130" class="font-code text-gray">       '성장률': f'+{revenue_growth:.1f}%'}</text>
+    </g>
+
+    <!-- ========== METHOD-2: 데이터 테이블 생성법 ========== -->
+    <g transform="translate(0, 220)">
+      <rect x="0" y="0" width="850" height="180" class="bg-white shadow-light" stroke="#dc3545" stroke-width="1" rx="5"/>
+      <rect x="0" y="0" width="120" height="30" fill="#dc3545" rx="5 5 0 0"/>
+      <text x="60" y="20" text-anchor="middle" class="font-body-bold text-light">데이터 테이블</text>
+
+      <text x="10" y="58" class="font-body-bold text-dark">생성 프로세스:</text>
+      <text x="20" y="82" class="font-body text-gray">• SQL 쿼리, API 데이터 추출 | pandas/Excel 정제 및 포맷</text>
+      <text x="20" y="110" class="font-body text-gray">• 트렌드 조건부 서식 적용 | 가독성 위해 최대 5-7 컬럼 유지</text>
+      <text x="20" y="135" class="font-body text-gray">• 합계, 평균, 벤치마크 포함</text>
+
+      <rect x="480" y="50" width="350" height="100" class="bg-gray-100" rx="3"/>
+      <text x="490" y="70" class="font-code text-gray"># SQL 쿼리 예시</text>
+      <text x="490" y="90" class="font-code text-gray">SELECT 지표명, 3분기값, 4분기값,</text>
+      <text x="490" y="110" class="font-code text-gray">ROUND((4분기-3분기)/3분기 * 100, 2) AS 변화율</text>
+      <text x="490" y="130" class="font-code text-gray">FROM 분기별지표 WHERE 연도 = 2024 LIMIT 10;</text>
+    </g>
+
+    <!-- ========== METHOD-3: 시각화 작성법 ========== -->
+    <g transform="translate(0, 420)">
+      <rect x="0" y="0" width="850" height="180" class="bg-white shadow-light" stroke="#28a745" stroke-width="1" rx="5"/>
+      <rect x="0" y="0" width="120" height="30" fill="#28a745" rx="5 5 0 0"/>
+      <text x="60" y="20" text-anchor="middle" class="font-body-bold text-light">시각화</text>
+
+      <text x="10" y="58" class="font-body-bold text-dark">차트 선택 가이드:</text>
+      <text x="20" y="82" class="font-body text-gray">• 막대 차트: 범주형 비교 | 선 차트: 시계열 및 트렌드</text>
+      <text x="20" y="110" class="font-body text-gray">• 원 차트: 부분-전체 관계 | 산점도: 상관관계 분석</text>
+      <text x="20" y="135" class="font-body text-gray">• 도구: Tableau, PowerBI, ggplot2, matplotlib</text>
+
+      <rect x="480" y="50" width="350" height="100" class="bg-gray-100" rx="3"/>
+      <text x="490" y="70" class="font-code text-gray"># R ggplot2 예시</text>
+      <text x="490" y="90" class="font-code text-gray">ggplot(data, aes(x=분기, y=매출, fill=제품)) +</text>
+      <text x="490" y="110" class="font-code text-gray">  geom_bar(stat="identity") +</text>
+      <text x="490" y="130" class="font-code text-gray">  theme_minimal() + scale_y_continuous()</text>
+    </g>
+
+    <!-- ========== METHOD-4: 강조 박스 사용법 ========== -->
+    <g transform="translate(0, 620)">
+      <rect x="0" y="0" width="850" height="180" class="bg-white shadow-light" stroke="#ffc107" stroke-width="1" rx="5"/>
+      <rect x="0" y="0" width="120" height="30" fill="#ffc107" rx="5 5 0 0"/>
+      <text x="60" y="20" text-anchor="middle" class="font-body-bold text-light">강조 박스</text>
+
+      <text x="10" y="58" class="font-body-bold text-dark">사용 시점:</text>
+      <text x="20" y="82" class="font-body text-gray">• 즉각 조치 필요 핵심 인사이트 | 경고/리스크 (빨강/주황 박스)</text>
+      <text x="20" y="110" class="font-body text-gray">• 성공 사례 (녹색 박스) | 맥락/정의 제공 (파랑 박스)</text>
+      <text x="20" y="135" class="font-body text-gray">• 텍스트 간결하게 - 최대 2-3문장</text>
+
+      <rect x="480" y="50" width="350" height="100" class="bg-gray-100" rx="3"/>
+      <text x="490" y="70" class="font-code text-gray"># 인사이트 탐지 예시</text>
+      <text x="490" y="90" class="font-code text-gray">if cac_감소 &lt; -0.15 and roi &gt; 1.5:</text>
+      <text x="490" y="110" class="font-code text-gray">    return "핵심: CAC 최적화 성공"</text>
+      <text x="490" y="130" class="font-code text-gray">elif 이탈률 &gt; 0.1: return "경고: 높은 이탈률"</text>
+    </g>
+
+    <!-- ========== METHOD-5: 실행 권장사항 작성법 ========== -->
+    <g transform="translate(0, 820)">
+      <rect x="0" y="0" width="850" height="180" class="bg-white shadow-light" stroke="#9B59B6" stroke-width="1" rx="5"/>
+      <rect x="0" y="0" width="120" height="30" fill="#9B59B6" rx="5 5 0 0"/>
+      <text x="60" y="20" text-anchor="middle" class="font-body-bold text-light">실행 권장</text>
+
+      <text x="10" y="58" class="font-body-bold text-dark">프레임워크:</text>
+      <text x="20" y="82" class="font-body text-gray">• 각 권장사항을 데이터 인사이트에 연결 | SMART 기준 적용</text>
+      <text x="20" y="110" class="font-body text-gray">• 임팩트-노력 매트릭스 순위 결정 | ROI/비즈니스 영향 포함</text>
+      <text x="20" y="135" class="font-body text-gray">• 명확한 다음 단계 및 책임자 제시</text>
+
+      <rect x="480" y="50" width="350" height="100" class="bg-gray-100" rx="3"/>
+      <text x="490" y="70" class="font-small text-gray">권장사항 템플릿:</text>
+      <text x="490" y="95" class="font-small text-gray">1. [동사] + [구체적 액션] + [지표/목표]</text>
+      <text x="490" y="115" class="font-small text-gray">2. 예상 임팩트 | 3. 타임라인 | 4. 필요 리소스</text>
+      <text x="490" y="140" class="font-small text-gray">5. 성공 측정 지표</text>
+    </g>
+
+  </g>
+
+  <!-- Connection Arrows -->
+  <path d="M 800 210 L 700 240" class="stroke-gray-dark" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arrow)" opacity="0.5"/>
+  <path d="M 800 410 L 700 350" class="stroke-gray-dark" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arrow)" opacity="0.5"/>
+  <path d="M 800 610 L 700 520" class="stroke-gray-dark" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arrow)" opacity="0.5"/>
+  <path d="M 800 810 L 700 630" class="stroke-gray-dark" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arrow)" opacity="0.5"/>
+  <path d="M 800 1010 L 700 730" class="stroke-gray-dark" stroke-width="1" stroke-dasharray="2,2" marker-end="url(#arrow)" opacity="0.5"/>
+
+</svg>

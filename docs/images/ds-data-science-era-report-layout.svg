@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 70 1650 1050">
+  <defs>
+    <style>
+      .bg-light { fill: #F5F7FA; }
+      .bg-white { fill: #FFFFFF; }
+      .bg-gray-100 { fill: #F8F9FA; }
+      .bg-gray-200 { fill: #ECEFF1; }
+
+      .bg-primary { fill: #2780e3; }
+      .bg-primary-dark { fill: #1a5490; }
+      .bg-primary-light { fill: #e8f4fd; }
+      .bg-success { fill: #28a745; }
+      .bg-warning { fill: #ffc107; }
+      .bg-danger { fill: #dc3545; }
+
+      .stroke-primary { stroke: #2780e3; }
+      .stroke-gray { stroke: #DDD; }
+
+      .text-primary { fill: #2780e3; }
+      .text-dark { fill: #212529; }
+      .text-gray { fill: #6c757d; }
+      .text-light { fill: #FFFFFF; }
+
+      .font-header { font-family: "Noto Sans KR", sans-serif; font-size: 26px; font-weight: 700; }
+      .font-section { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: 700; }
+      .font-body { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: 400; }
+      .font-body-bold { font-family: "Noto Sans KR", sans-serif; font-size: 18px; font-weight: 700; }
+      .font-small { font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: 400; }
+      .font-code { font-family: "Noto Sans Mono", "Courier New", monospace; font-size: 14px; font-weight: 400; }
+
+      .shadow { filter: drop-shadow(2px 3px 3px rgba(0,0,0,0.15)); }
+      .shadow-light { filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.1)); }
+    </style>
+
+    <linearGradient id="reportGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F8F9FA;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="pythonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3776AB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2B5B84;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="gitGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E67E22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D68910;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="modernGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#229954;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1800" height="1250" class="bg-light"/>
+
+  <!-- LEFT SIDE: Report Mockup -->
+  <g transform="translate(50, 100)">
+    <!-- Report Container -->
+    <rect x="0" y="0" width="650" height="990" fill="url(#reportGradient)" class="stroke-gray shadow" stroke-width="1" rx="8"/>
+
+    <!-- Report Title -->
+    <text x="325" y="35" text-anchor="middle" class="font-header text-dark">
+      2025년 3분기 데이터 분석 보고서
+    </text>
+    <line x1="50" y1="50" x2="600" y2="50" class="stroke-gray" stroke-width="1"/>
+
+    <!-- 1. Executive Summary -->
+    <g transform="translate(30, 70)">
+      <rect x="0" y="0" width="590" height="140" class="bg-primary-light stroke-primary" stroke-width="2" rx="5"/>
+      <text x="10" y="20" class="font-section text-dark">핵심 요약</text>
+
+      <!-- KPI Boxes -->
+      <rect x="10" y="30" width="135" height="50" class="bg-white stroke-primary" stroke-width="1" rx="3"/>
+      <text x="77" y="50" text-anchor="middle" class="font-small text-gray">매출</text>
+      <text x="77" y="70" text-anchor="middle" class="font-body-bold text-dark">24억원</text>
+
+      <rect x="155" y="30" width="135" height="50" class="bg-white stroke-primary" stroke-width="1" rx="3"/>
+      <text x="222" y="50" text-anchor="middle" class="font-small text-gray">성장률</text>
+      <text x="222" y="70" text-anchor="middle" class="font-body-bold" fill="#28a745">+23%</text>
+
+      <rect x="300" y="30" width="135" height="50" class="bg-white stroke-primary" stroke-width="1" rx="3"/>
+      <text x="367" y="50" text-anchor="middle" class="font-small text-gray">고객수</text>
+      <text x="367" y="70" text-anchor="middle" class="font-body-bold text-dark">15,234</text>
+
+      <rect x="445" y="30" width="135" height="50" class="bg-white stroke-primary" stroke-width="1" rx="3"/>
+      <text x="512" y="50" text-anchor="middle" class="font-small text-gray">NPS 점수</text>
+      <text x="512" y="70" text-anchor="middle" class="font-body-bold" fill="#ffc107">72</text>
+
+      <!-- Summary text lines -->
+      <line x1="10" y1="95" x2="570" y2="95" stroke="#CCC" stroke-width="8"/>
+      <line x1="10" y1="110" x2="550" y2="110" stroke="#CCC" stroke-width="8"/>
+      <line x1="10" y1="125" x2="520" y2="125" stroke="#CCC" stroke-width="8"/>
+    </g>
+
+    <!-- 2. Data Table -->
+    <g transform="translate(30, 230)">
+      <text x="0" y="0" class="font-section text-dark">주요 지표 테이블</text>
+      <rect x="0" y="10" width="590" height="90" class="bg-white stroke-gray" stroke-width="1" rx="3"/>
+
+      <!-- Table Headers -->
+      <rect x="0" y="10" width="590" height="30" class="bg-gray-100"/>
+      <line x1="0" y1="40" x2="590" y2="40" class="stroke-gray" stroke-width="1"/>
+      <text x="10" y="30" class="font-small text-dark" font-weight="bold">지표명</text>
+      <text x="150" y="30" class="font-small text-dark" font-weight="bold">3분기</text>
+      <text x="250" y="30" class="font-small text-dark" font-weight="bold">4분기</text>
+      <text x="350" y="30" class="font-small text-dark" font-weight="bold">변화율</text>
+      <text x="450" y="30" class="font-small text-dark" font-weight="bold">목표</text>
+      <text x="530" y="30" class="font-small text-dark" font-weight="bold">상태</text>
+
+      <!-- Table Rows (2개) -->
+      <line x1="0" y1="70" x2="590" y2="70" stroke="#EEE" stroke-width="1"/>
+
+      <!-- Column dividers -->
+      <line x1="140" y1="10" x2="140" y2="100" stroke="#EEE" stroke-width="1"/>
+      <line x1="240" y1="10" x2="240" y2="100" stroke="#EEE" stroke-width="1"/>
+      <line x1="340" y1="10" x2="340" y2="100" stroke="#EEE" stroke-width="1"/>
+      <line x1="440" y1="10" x2="440" y2="100" stroke="#EEE" stroke-width="1"/>
+      <line x1="520" y1="10" x2="520" y2="100" stroke="#EEE" stroke-width="1"/>
+    </g>
+
+    <!-- 3. Charts Section -->
+    <g transform="translate(30, 350)">
+      <text x="0" y="0" class="font-section text-dark">성과 시각화</text>
+
+      <!-- Bar Chart -->
+      <rect x="0" y="10" width="285" height="180" class="bg-white stroke-gray" stroke-width="1" rx="3"/>
+      <rect x="30" y="140" width="40" height="40" class="bg-primary"/>
+      <rect x="80" y="120" width="40" height="60" class="bg-primary"/>
+      <rect x="130" y="100" width="40" height="80" class="bg-primary"/>
+      <rect x="180" y="80" width="40" height="100" class="bg-primary"/>
+      <rect x="230" y="110" width="40" height="70" class="bg-primary"/>
+
+      <!-- Line Chart -->
+      <rect x="305" y="10" width="285" height="180" class="bg-white stroke-gray" stroke-width="1" rx="3"/>
+      <polyline points="330,160 380,120 430,100 480,80 530,60"
+                fill="none" stroke="#dc3545" stroke-width="2"/>
+      <circle cx="330" cy="160" r="3" fill="#dc3545"/>
+      <circle cx="380" cy="120" r="3" fill="#dc3545"/>
+      <circle cx="430" cy="100" r="3" fill="#dc3545"/>
+      <circle cx="480" cy="80" r="3" fill="#dc3545"/>
+      <circle cx="530" cy="60" r="3" fill="#dc3545"/>
+    </g>
+
+    <!-- 4. Callout Box -->
+    <g transform="translate(30, 560)">
+      <rect x="0" y="0" width="590" height="80" fill="#FFF3CD" stroke="#ffc107" stroke-width="2" rx="5"/>
+      <circle cx="25" cy="40" r="15" class="bg-warning"/>
+      <text x="25" y="45" text-anchor="middle" class="font-body-bold text-light">!</text>
+      <text x="50" y="28" class="font-body-bold" fill="#856404">핵심 인사이트</text>
+      <text x="50" y="48" class="font-body" fill="#856404">고객 획득 비용이 18% 감소하면서도</text>
+      <text x="50" y="65" class="font-body" fill="#856404">리드 품질이 유지되어 ROI가 개선되었습니다.</text>
+    </g>
+
+    <!-- 5. Recommendations -->
+    <g transform="translate(30, 660)">
+      <text x="0" y="0" class="font-section text-dark">실행 권장사항</text>
+      <rect x="0" y="10" width="590" height="100" class="bg-gray-100 stroke-gray" stroke-width="1" rx="3"/>
+
+      <circle cx="20" cy="35" r="3" class="bg-success"/>
+      <text x="35" y="40" class="font-body text-dark">디지털 마케팅 채널 투자 25% 확대</text>
+
+      <circle cx="20" cy="60" r="3" class="bg-success"/>
+      <text x="35" y="65" class="font-body text-dark">NPS 70 이상 유지를 위한 고객 성공팀 확장</text>
+
+      <circle cx="20" cy="85" r="3" class="bg-success"/>
+      <text x="35" y="90" class="font-body text-dark">실시간 자동화 보고 시스템 구축 및 고가치 세그먼트 유지 전략 집중</text>
+    </g>
+
+    <!-- 6. Appendix -->
+    <g transform="translate(30, 790)">
+      <text x="0" y="0" class="font-section text-dark">부록</text>
+      <rect x="0" y="10" width="590" height="40" class="bg-gray-200 stroke-gray" stroke-width="1" rx="3"/>
+      <text x="10" y="35" class="font-small text-gray">A. 상세 방법론 | B. 원본 데이터 | C. 통계 검정 | D. 참고문헌</text>
+    </g>
+
+    <!-- 7. Development Timeline -->
+    <g transform="translate(30, 870)">
+      <text x="0" y="0" class="font-section text-dark">현대적 개발 소요 시간</text>
+      <rect x="0" y="10" width="590" height="60" class="bg-white" stroke="#27AE60" stroke-width="1" rx="5"/>
+
+      <rect x="20" y="25" width="90" height="20" class="bg-primary" rx="3"/>
+      <text x="65" y="39" text-anchor="middle" class="font-small text-light">데이터 수집</text>
+      <text x="65" y="57" text-anchor="middle" class="font-small text-gray">1-2일</text>
+
+      <rect x="120" y="25" width="90" height="20" class="bg-danger" rx="3"/>
+      <text x="165" y="39" text-anchor="middle" class="font-small text-light">분석</text>
+      <text x="165" y="57" text-anchor="middle" class="font-small text-gray">2-4일</text>
+
+      <rect x="220" y="25" width="90" height="20" class="bg-success" rx="3"/>
+      <text x="265" y="39" text-anchor="middle" class="font-small text-light">시각화</text>
+      <text x="265" y="57" text-anchor="middle" class="font-small text-gray">0.5-1일</text>
+
+      <rect x="320" y="25" width="90" height="20" class="bg-warning" rx="3"/>
+      <text x="365" y="39" text-anchor="middle" class="font-small text-light">배포</text>
+      <text x="365" y="57" text-anchor="middle" class="font-small text-gray">0.5-1일</text>
+
+      <rect x="420" y="25" width="90" height="20" fill="#9B59B6" rx="3"/>
+      <text x="465" y="39" text-anchor="middle" class="font-small text-light">자동화</text>
+      <text x="465" y="57" text-anchor="middle" class="font-small text-gray">1-2일</text>
+
+      <text x="550" y="34" text-anchor="end" class="font-body-bold" fill="#27AE60">총</text>
+      <text x="580" y="50" text-anchor="end" class="font-body-bold" fill="#27AE60">5-10일</text>
+    </g>
+  </g>
+
+  <!-- CENTER: Divider -->
+  <line x1="750" y1="100" x2="750" y2="1090" class="stroke-gray" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- ========== RIGHT SIDE: Modern Data Science Methods ========== -->
+  <g transform="translate(800, 100)">
+
+    <!-- METHOD-1: Modern Analytics Stack -->
+    <g transform="translate(0, 20)">
+      <rect x="0" y="0" width="850" height="200" class="bg-white shadow-light" stroke="url(#pythonGradient)" stroke-width="2" rx="5"/>
+      <rect x="0" y="0" width="200" height="35" fill="url(#pythonGradient)" rx="5 5 0 0"/>
+      <text x="100" y="23" text-anchor="middle" class="font-body-bold text-light">현대 분석 스택</text>
+
+      <text x="20" y="68" class="font-body-bold" fill="#3776AB">오픈소스 도구:</text>
+      <text x="30" y="100" class="font-body text-gray">• Python: pandas, scikit-learn, matplotlib, seaborn</text>
+      <text x="30" y="130" class="font-body text-gray">• R: tidyverse, ggplot2, shiny, RMarkdown</text>
+      <text x="30" y="160" class="font-body text-gray">• 비용: 무료/저비용, 접근성 높음 | 커뮤니티 지원 강력</text>
+
+      <rect x="480" y="60" width="350" height="120" fill="#F0F8FF" rx="3"/>
+      <text x="490" y="85" class="font-code text-gray"># Python pandas 예시</text>
+      <text x="490" y="110" class="font-code text-gray">df = pd.read_sql(query, connection)</text>
+      <text x="490" y="135" class="font-code text-gray">res=df.groupby('sido').agg({'pop':'sum'})</text>
+      <text x="490" y="160" class="font-code text-gray">res.plot(kind='bar')</text>
+    </g>
+
+    <!-- METHOD-2: Collaboration & Version Control -->
+    <g transform="translate(0, 260)">
+      <rect x="0" y="0" width="850" height="200" class="bg-white shadow-light" stroke="url(#gitGradient)" stroke-width="2" rx="5"/>
+      <rect x="0" y="0" width="220" height="35" fill="url(#gitGradient)" rx="5 5 0 0"/>
+      <text x="110" y="23" text-anchor="middle" class="font-body-bold text-light">협업 &amp; 버전 관리</text>
+
+      <text x="20" y="68" class="font-body-bold" fill="#E67E22">현대 워크플로우:</text>
+      <text x="30" y="100" class="font-body text-gray">• Git/GitHub: 버전 관리, 코드 리뷰, 협업</text>
+      <text x="30" y="130" class="font-body text-gray">• Jupyter/RMarkdown: 재현 가능한 노트북</text>
+      <text x="30" y="160" class="font-body text-gray">• Docker: 컨테이너 환경 | CI/CD: 자동 테스트 및 배포</text>
+
+      <rect x="480" y="60" width="350" height="120" fill="#FFF8F0" rx="3"/>
+      <text x="490" y="85" class="font-code text-gray"># Git 워크플로우 예시</text>
+      <text x="490" y="110" class="font-code text-gray">git checkout -b feature/analysis</text>
+      <text x="490" y="135" class="font-code text-gray">git add .; git commit -m "Add analysis"</text>
+      <text x="490" y="160" class="font-code text-gray">git push; create pull request</text>
+    </g>
+
+    <!-- METHOD-3: Data Engineering & Pipelines -->
+    <g transform="translate(0, 510)">
+      <rect x="0" y="0" width="850" height="200" class="bg-white shadow-light" stroke="url(#cloudGradient)" stroke-width="2" rx="5"/>
+      <rect x="0" y="0" width="250" height="35" fill="url(#cloudGradient)" rx="5 5 0 0"/>
+      <text x="125" y="23" text-anchor="middle" class="font-body-bold text-light">데이터 엔지니어링 &amp; 파이프라인</text>
+
+      <text x="20" y="68" class="font-body-bold" fill="#9B59B6">자동화 &amp; 확장:</text>
+      <text x="30" y="100" class="font-body text-gray">• Airflow: 워크플로우 자동화 | dbt: 데이터 변환/테스트</text>
+      <text x="30" y="130" class="font-body text-gray">• Spark/Kafka: 실시간 스트리밍 및 빅데이터</text>
+      <text x="30" y="160" class="font-body text-gray">• 클라우드: AWS, GCP, Azure 자동 스케일링</text>
+
+      <rect x="480" y="60" width="350" height="120" fill="#F8F0FF" rx="3"/>
+      <text x="490" y="85" class="font-code text-gray"># dbt 변환 예시</text>
+      <text x="490" y="110" class="font-code text-gray">SELECT date, region, SUM(sales) as total</text>
+      <text x="490" y="135" class="font-code text-gray">FROM {{ ref('raw_sales') }}</text>
+      <text x="490" y="160" class="font-code text-gray">GROUP BY date, region</text>
+    </g>
+
+    <!-- METHOD-4: Interactive Outputs -->
+    <g transform="translate(0, 750)">
+      <rect x="0" y="0" width="850" height="180" class="bg-white shadow-light" stroke="url(#modernGradient)" stroke-width="2" rx="5"/>
+      <rect x="0" y="0" width="160" height="35" fill="url(#modernGradient)" rx="5 5 0 0"/>
+      <text x="80" y="23" text-anchor="middle" class="font-body-bold text-light">인터랙티브 출력</text>
+
+      <text x="20" y="68" class="font-body-bold" fill="#27AE60">현대 배포:</text>
+      <text x="30" y="100" class="font-body text-gray">• 대시보드: Tableau, PowerBI, Looker</text>
+      <text x="30" y="130" class="font-body text-gray">• 웹 앱: Streamlit, Dash, Shiny</text>
+      <text x="30" y="160" class="font-body text-gray">• API: 실시간 데이터 접근, 자동 업데이트</text>
+
+      <rect x="480" y="60" width="350" height="100" fill="#F0FFF0" rx="3"/>
+      <text x="490" y="85" class="font-body text-gray">배포 파이프라인:</text>
+      <text x="490" y="110" class="font-body text-gray">1. Jupyter 개발 → 2. Git 버전 관리</text>
+      <text x="490" y="135" class="font-body text-gray">3. 클라우드 배포 → 4. 실시간 자동 업데이트</text>
+    </g>
+
+  </g>
+
+</svg>

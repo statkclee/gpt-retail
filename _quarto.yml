@@ -62,8 +62,9 @@ book:
       chapters:
         - ds_data.qmd             # 데이터
         - ds_ds.qmd               # 데이터 과학
+        - ds_scientist.qmd        # 데이터 과학자 
         - ds_ide.qmd              # IDE 
-        - ds_scientist.qmd
+        - ds_output.qmd           # 출력결과
         # - basic_engineering.qmd #
         # - ds_ellmer.qmd         # 
     #     - coding_prompt.qmd     # 

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-KR" xml:lang="ko-KR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.16">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; 출력 결과물 – AI가 밝혀낸 유통 고수요 데이터의 진실</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./proj_app.html" rel="next">
+<link href="./ds_ide.html" rel="prev">
+<link href="./assets/android-chrome-192x192.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0fe41346b718ff62733f5cc60e32bfbd.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d563caddaf30aca1956f94a84606a4d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-988a9d6da8984c6fcd567f9a2889acc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "일치 없음",
+    "search-matching-documents-text": "일치된 문서",
+    "search-copy-link-title": "검색 링크 복사",
+    "search-hide-matches-text": "추가 검색 결과 숨기기",
+    "search-more-match-text": "추가 검색결과",
+    "search-more-matches-text": "추가 검색결과",
+    "search-clear-button-title": "제거",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "취소",
+    "search-submit-button-title": "검색",
+    "search-label": "검색"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-229551680-1', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/quarto.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_data.html"><strong>2부 AI 데이터 과학</strong></a></li><li class="breadcrumb-item"><a href="./ds_output.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">출력 결과물</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./assets/android-chrome-192x192.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI가 밝혀낸 유통 고수요 데이터의 진실</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="리더 모드 전환">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">서문</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">들어가며</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>1부 인공지능</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_gpt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">범용기술</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI 기초</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">일자리</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">AI 윤리</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>2부 AI 데이터 과학</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">데이터</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_ds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">데이터 과학</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_scientist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">데이터 과학자</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_ide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">통합 개발 환경</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ds_output.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">출력 결과물</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>3부 사례 분석</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_app.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">쇼핑앱 전쟁 숨겨진 공식</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_school.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">급식비 절약 숨겨진 진실</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_news.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">농산물 정보 디지털 계급사회</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_trade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">유통채널 숨겨진 가격 전략</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./end.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">맺음말</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고문헌</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">목차</h2>
+   
+  <ul>
+  <li><a href="#의사결정-보고서-보편적-구조" id="toc-의사결정-보고서-보편적-구조" class="nav-link active" data-scroll-target="#의사결정-보고서-보편적-구조"><span class="header-section-number">9.1</span> 의사결정 보고서 보편적 구조</a>
+  <ul class="collapse">
+  <li><a href="#핵심-요소" id="toc-핵심-요소" class="nav-link" data-scroll-target="#핵심-요소"><span class="header-section-number">9.1.1</span> 핵심 요소</a></li>
+  <li><a href="#작성-방법론" id="toc-작성-방법론" class="nav-link" data-scroll-target="#작성-방법론"><span class="header-section-number">9.1.2</span> 작성 방법론</a></li>
+  </ul></li>
+  <li><a href="#데이터-과학-이전-시대" id="toc-데이터-과학-이전-시대" class="nav-link" data-scroll-target="#데이터-과학-이전-시대"><span class="header-section-number">9.2</span> 데이터 과학 이전 시대</a></li>
+  <li><a href="#데이터-과학-시대" id="toc-데이터-과학-시대" class="nav-link" data-scroll-target="#데이터-과학-시대"><span class="header-section-number">9.3</span> 데이터 과학 시대</a></li>
+  <li><a href="#쿼토-시대" id="toc-쿼토-시대" class="nav-link" data-scroll-target="#쿼토-시대"><span class="header-section-number">9.4</span> 쿼토 시대</a></li>
+  <li><a href="#생성형-ai-시대" id="toc-생성형-ai-시대" class="nav-link" data-scroll-target="#생성형-ai-시대"><span class="header-section-number">9.5</span> 생성형 AI 시대</a></li>
+  <li><a href="#결과물-중심-사고" id="toc-결과물-중심-사고" class="nav-link" data-scroll-target="#결과물-중심-사고"><span class="header-section-number">9.6</span> 결과물 중심 사고</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ds_data.html"><strong>2부 AI 데이터 과학</strong></a></li><li class="breadcrumb-item"><a href="./ds_output.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">출력 결과물</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-data-output" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">출력 결과물</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>데이터 과학 프로젝트 성공은 분석 정확성만으로 결정되지 않는다. 아무리 정교한 모델과 깊이 있는 인사이트를 도출하더라도, 이해관계자에게 효과적으로 전달하지 못하면 의사결정으로 이어지지 않는다. <strong>출력 결과물(Output Artifact)은 데이터 분석 최종 산출물로, 인사이트를 비즈니스 언어로 번역하는 핵심 인터페이스</strong>다. 보고서, 대시보드, 프레젠테이션, 인터랙티브 애플리케이션 등 형태는 다양하지만, 공통 목적은 하나다. 경영진과 실무진이 데이터 기반으로 의사결정하도록 설득하고 행동을 이끌어내는 것이다.</p>
+<p>출력 결과물 형식과 도구는 지난 30년간 극적으로 진화했다. 하지만 <strong>보고서 구조 핵심 요소는 불변</strong>이다. 1990년대 SAS 보고서든, 2010년대 Jupyter Notebook이든, 2020년대 AI 생성 대시보드든, 모두 같은 구조를 따른다. 먼저 의사결정을 위한 보고서의 보편적 구조를 이해하고, 각 시대가 어떤 도구로 이를 구현했는지 살펴본다.</p>
+<section id="의사결정-보고서-보편적-구조" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="의사결정-보고서-보편적-구조"><span class="header-section-number">9.1</span> 의사결정 보고서 보편적 구조</h2>
+<p>효과적인 데이터 보고서는 시대를 초월한 구조적 원칙을 따른다. 1990년대 SAS 보고서든 2020년대 AI 대시보드든, 경영진이 30초 만에 상황을 파악하고 행동 계획을 얻는 7가지 핵심 요소는 동일하다.</p>
+<div id="fig-data-driven-report-layout" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-driven-report-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-data-driven-report-layout.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="그림&nbsp;9.1: 데이터 기반 의사결정 보고서 구조"><img src="images/ds-data-driven-report-layout.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-driven-report-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;9.1: 데이터 기반 의사결정 보고서 구조
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-data-driven-report-layout" class="quarto-xref">그림&nbsp;<span>9.1</span></a> 은 모든 시대를 관통하는 보고서 구조와 작성 방법론을 시각화한다. 왼쪽은 보고서 레이아웃의 7가지 핵심 요소이고, 오른쪽은 각 요소를 실제로 만드는 구체적 지침이다. 도구는 SAS에서 Python으로, Excel에서 Tableau로 진화했지만, 이 구조는 30년간 변하지 않았다.</p>
+<section id="핵심-요소" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="핵심-요소"><span class="header-section-number">9.1.1</span> 핵심 요소</h3>
+<p>효과적인 데이터 보고서는 독자의 인지 부하를 최소화하면서 핵심 메시지를 전달하는 명확한 계층 구조를 따른다. 가장 상단의 <strong>핵심 요약(Executive Summary)</strong>은 경영진이 신속하게 전체 내용을 파악할 수 있도록 핵심 지표를 시각적으로 강조한다 <span class="citation" data-cites="few2013information">(<a href="references.html#ref-few2013information" role="doc-biblioref">Few, 2013</a>)</span>. 매출, 성장률, 고객 수, NPS 점수처럼 측정 가능한 숫자를 KPI 박스로 배치하고, 간결한 문장으로 전체 상황을 요약한다. 핵심 요약은 모든 분석이 끝난 후에야 무엇이 진짜 중요한지 판단할 수 있다.</p>
+<p><strong>주요 지표 테이블(Data Table)</strong>은 시계열 비교와 목표 대비 성과를 한눈에 보여준다. 3분기와 4분기 값, 변화율, 목표 달성 여부, 상태 표시를 적절한 수의 컬럼에 담는다. 조건부 서식(초록색=목표 달성, 빨간색=미달)을 적용하면 독자는 숫자를 읽지 않고도 상황을 직관적으로 파악한다 <span class="citation" data-cites="knaflic2015storytelling">(<a href="references.html#ref-knaflic2015storytelling" role="doc-biblioref">Knaflic, 2015</a>)</span>. SQL 쿼리나 pandas 코드로 데이터를 추출하고, 벤치마크와 합계/평균을 포함해 맥락을 제공한다. 중요한 것은 <strong>가독성을 위해 컬럼 수를 제한</strong>하는 것이다. 더 많은 데이터는 부록으로 옮긴다.</p>
+<p><strong>성과 시각화(Charts)</strong>는 막대 차트와 선 차트로 트렌드를 보여준다 <span class="citation" data-cites="tufte2001visual">(<a href="references.html#ref-tufte2001visual" role="doc-biblioref">Tufte, 2001</a>)</span>. 막대 차트는 범주형 비교에, 선 차트는 시계열 추이에 적합하다. 원 차트는 부분-전체 관계를 표현할 때만 신중히 사용한다. 산점도는 두 변수 간 상관관계를 분석할 때 유용하다. 도구는 시대마다 달랐다. 1990년대는 SAS/SPSS 프로시저, 2010년대는 R ggplot2/Python matplotlib, 2020년대는 Tableau/PowerBI나 AI 생성 차트를 사용한다. 하지만 원칙은 동일하다. 차트는 자명해야 한다. 제목, 축 레이블, 범례가 명확해서 설명 없이도 메시지가 전달되어야 한다.</p>
+<p><strong>핵심 인사이트(Callout Box)</strong>는 주목이 필요한 발견 사항을 강조한다. 색상 코딩(노란색=일반 인사이트, 빨간색=경고, 녹색=성공, 파란색=맥락)은 시각적 계층을 구축하는 일반적 방법이다 <span class="citation" data-cites="knaflic2015storytelling">(<a href="references.html#ref-knaflic2015storytelling" role="doc-biblioref">Knaflic, 2015</a>)</span>. 텍스트는 간결하게 유지하며, 구체적 수치와 인과관계를 명확히 한다. “고객 획득 비용이 18% 감소하면서도 리드 품질이 유지되어 ROI가 개선되었습니다”처럼 정량적 근거를 제시한다. 인사이트 탐지는 코드로 자동화할 수 있다. CAC 감소율이 -15% 이상이고 ROI가 1.5 이상이면 “CAC 최적화 성공” 메시지를 생성하고, 이탈률이 10% 이상이면 경고를 표시하는 식이다.</p>
+<p><strong>실행 권장사항(Recommendations)</strong>은 데이터 인사이트를 구체적 행동으로 변환한다. 각 권장사항은 SMART 기준을 따르며, 임팩트-노력 매트릭스로 우선순위를 정한다 <span class="citation" data-cites="few2013information">(<a href="references.html#ref-few2013information" role="doc-biblioref">Few, 2013</a>)</span>. “디지털 마케팅 채널 투자 25% 확대”처럼 동사로 시작하고, 예상 임팩트(ROI +30%), 타임라인(Q1 완료), 필요 리소스(예산 1천만 원), 성공 측정 지표(신규 고객 1천 명 확보)를 명시한다. 추상적 제안(“마케팅 개선 필요”)이 아니라 실행 가능한 구체적 지침을 제시해야 한다.</p>
+<p><strong>부록(Appendix)</strong>은 방법론, 원본 데이터, 통계 검정, 참고문헌을 담는다. 본문에서는 결과와 해석에 집중하고, 기술적 세부사항은 부록으로 분리한다. 재현 가능성을 위해 데이터 출처, 전처리 과정, 분석 코드를 문서화한다. <strong>개발 타임라인(Development Timeline)</strong>은 보고서 제작 소요 시간을 명시한다. 도구가 진화하면서 속도는 빨라졌지만, 품질 검증과 맥락 추가는 여전히 시간이 필요하다.</p>
+</section>
+<section id="작성-방법론" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="작성-방법론"><span class="header-section-number">9.1.2</span> 작성 방법론</h3>
+<p>다이어그램 오른쪽 패널은 각 요소를 실제로 어떻게 만드는지 구체적 지침을 제공한다. <strong>핵심 요약 작성법</strong>은 분석 완료 후 3-5개 핵심 지표를 시각적으로 강조하고, 구체적 숫자와 행동 지향적 언어를 사용하며, YoY/QoQ 비교를 포함하라고 안내한다. 코드로 KPI를 계산하는 예시도 보여준다. <code>revenue_growth = ((q4 - q3) / q3) * 100</code> 같은 간단한 계산으로 성장률을 구하고, 결과를 정리한다.</p>
+<p><strong>데이터 테이블 생성법</strong>은 데이터를 추출하고, 정제하며, 조건부 서식을 적용하는 전체 프로세스를 다룬다. 컬럼은 5-7개로 제한하고, 합계와 평균, 벤치마크를 포함한다. SQL 예시는 <code>SELECT 지표명, 3분기값, 4분기값, ROUND((4분기 - 3분기) / 3분기 * 100, 2) AS 변화율 FROM 분기별지표 WHERE 연도 = 2024 LIMIT 10;</code> 같은 실용적 쿼리를 제시한다.</p>
+<p><strong>시각화 작성법</strong>은 차트 유형 선택 가이드를 제공한다. 막대 차트는 범주형 비교, 선 차트는 시계열 트렌드, 원 차트는 부분-전체 관계(신중히), 산점도는 상관관계 분석에 사용한다. 코드 예시는 시대별로 다르지만 원리는 같다. <code>ggplot(data, aes(x=분기, y=매출, fill=제품)) + geom_bar(stat="identity", position="dodge") + theme_minimal()</code> 같은 R 코드나 Python matplotlib 코드로 차트를 생성한다.</p>
+<p><strong>강조 박스 사용법</strong>은 언제 어떤 색상을 쓸지 명확히 한다. 즉각 주목이 필요한 핵심 인사이트는 노란색, 경고/리스크는 빨강/주황, 성공 사례는 녹색, 맥락 제공은 파랑 박스를 사용한다. 인사이트 탐지 로직을 조건문으로 자동화하는 예시도 포함한다. <strong>실행 권장사항 작성법</strong>은 각 권장을 데이터 인사이트에 연결하고, SMART 기준을 적용하며, 임팩트-노력 매트릭스로 우선순위를 정하라고 안내한다. 템플릿은 “[동사] + [구체적 액션] + [지표/목표]” 형식을 제시하고, 예상 임팩트, 타임라인, 필요 리소스, 성공 측정 지표를 명시하도록 요구한다.</p>
+<p>이 7가지 요소와 작성 방법론은 시대를 초월한 원칙이다. 도구와 기술이 아무리 발전해도, 보고서의 목적은 변하지 않는다. <strong>의사결정자가 상황을 빠르게 파악하고, 데이터 근거를 확인하며, 구체적 행동을 취하도록 돕는 것</strong>이다. 이제 각 시대가 이 구조를 어떤 도구로 구현했는지 살펴보자.</p>
+</section>
+</section>
+<section id="데이터-과학-이전-시대" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="데이터-과학-이전-시대"><span class="header-section-number">9.2</span> 데이터 과학 이전 시대</h2>
+<p>2013년 이전까지 데이터 분석 환경은 높은 진입 장벽과 긴 개발 주기로 특징지어졌다. SAS, SPSS 같은 고가의 폐쇄적 도구가 지배했고, 같은 보고서를 만드는 데 13-26일이 소요되었다.</p>
+<div id="fig-pre-data-science-era-report-layout" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pre-data-science-era-report-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-pre-data-science-era-report-layout.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="그림&nbsp;9.2: 데이터 과학 이전 시대 보고서 구조와 레거시 도구"><img src="images/ds-pre-data-science-era-report-layout.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pre-data-science-era-report-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;9.2: 데이터 과학 이전 시대 보고서 구조와 레거시 도구
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-pre-data-science-era-report-layout" class="quarto-xref">그림&nbsp;<span>9.2</span></a> 는 2013년 이전 데이터 분석 환경을 보여준다. 왼쪽은 앞서 정의한 보고서 구조를 따르지만, 오른쪽은 당시 사용되던 네 가지 주요 도구 범주다. 데이터 수집부터 최종 배포까지 각 단계마다 수작업 개입이 필요했다.</p>
+<p><strong>통계 소프트웨어</strong>는 SAS, SPSS, Stata, S-PLUS가 지배했다. 통계 패키지는 강력한 통계 기능을 제공했지만, 사용자당 연간 500만~5천만 원 이상 라이선스 비용이 들었다. 절차적 구문 파일(<code>.sas</code>, <code>.sps</code>)로 분석과정을 작성했고, GUI 인터페이스도 있었지만 복잡한 분석은 코드로 작성해야 했다. <code>PROC FREQ DATA=sales; TABLES region / CHISQ; OUTPUT OUT=results; RUN;</code> 같은 SAS 프로시저는 오늘날 Python/R 코드보다 장황했고, 디버깅이 어려웠다. 중요한 것은 도구들이 모두 <strong>폐쇄적 생태계</strong>였다는 점이다. 라이선스가 없으면 코드를 실행할 수도, 결과를 재현할 수도 없었다.</p>
+<p><strong>비즈니스 분석 도구</strong>는 Excel, Access, Crystal Reports, Cognos가 대표적이었다. Excel은 가장 보편적인 도구였지만, VBA 매크로로 반복 작업을 자동화하는 것이 한계였다. 피벗 테이블과 차트를 수작업으로 만들고, 데이터가 업데이트될 때마다 수동으로 새로고침해야 했다. Crystal Reports와 Cognos 같은 엔터프라이즈 리포팅 도구는 고가였지만, 정형화된 월간/분기 보고서를 자동화하는 데 유용했다. 전형적인 워크플로우는 “수작업 입력 → 엑셀 정제 → 파워포인트 차트 복사”였다. 데이터 업데이트가 있으면 전체 과정을 처음부터 다시 반복해야 했다. 이러한 반복적 수작업은 “인간 매크로”라 불리며, 분석가의 생산성을 크게 저해했다.</p>
+<p><strong>데이터베이스 시스템</strong>은 Oracle, SQL Server, DB2, Sybase가 주류였다. 대용량 데이터를 안정적으로 저장하고 쿼리하는 엔터프라이즈급 솔루션이었지만, 역시 고가였다. ETL(Extract, Transform, Load) 프로세스는 대부분 수작업이었고, 저장 프로시저로 복잡한 변환 로직을 구현했다. <code>CREATE PROCEDURE get_sales_report BEGIN SELECT * FROM sales WHERE date&gt;today-30; END;</code> 같은 PL/SQL 코드는 버전 관리도 어렵고 재사용성도 낮았다. 데이터 파이프라인 자동화는 소수 대기업 전유물이었다.</p>
+<p><strong>출력 형식</strong>은 PDF, Word 문서, PowerPoint, 이메일 첨부, 심지어 팩스까지 사용되었다. 보고서를 인쇄해 물리적으로 배포하는 것이 일반적이었고, 업데이트는 전적으로 수작업이었다. 전형적인 작업흐름은 “1. SAS 분석 → 2. Word 복붙 → 3. Excel 차트 → 4. PDF 인쇄 → 5. 이메일 → 6. 수작업 업데이트”였다. 다음 달 보고서를 만들 때 전체 프로세스를 처음부터 다시 시작해야 했다. 자동화, 버전 관리, 재현성은 먼 나라 이야기였다. 데이터 분석가는 통계 전문가인 동시에 반복 작업을 견디는 인내심이 핵심역량이였다.</p>
+</section>
+<section id="데이터-과학-시대" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="데이터-과학-시대"><span class="header-section-number">9.3</span> 데이터 과학 시대</h2>
+<p>2013년 전후로 데이터 환경은 급격히 변화했다. Python, R 같은 오픈소스 언어가 성숙했고, Jupyter Notebook이 재현 가능한 분석을 가능하게 했다. 가장 큰 변화는 진입 장벽 소멸이었다.</p>
+<div id="fig-data-science-era-tools" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-science-era-tools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-data-science-era-report-layout.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="그림&nbsp;9.3: 데이터 과학 시대의 도구와 워크플로우"><img src="images/ds-data-science-era-report-layout.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-science-era-tools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;9.3: 데이터 과학 시대의 도구와 워크플로우
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-data-science-era-tools" class="quarto-xref">그림&nbsp;<span>9.3</span></a> 는 데이터 과학 시대를 가능하게 한 4가지 핵심 기술 스택을 보여준다. 왼쪽은 앞서 정의한 보고서 구조(동일)이고, 오른쪽은 이를 만들어내는 현대적 도구와 워크플로우다. 파이썬 pandas, scikit-learn, R tidyverse 같은 오픈소스 라이브러리가 성숙했고, Tableau와 PowerBI는 대시보드를 대중화시켰다. 수천만 원짜리 SAS 라이선스 대신 무료 Python/R을 배우면 되었고, 커뮤니티와 튜토리얼이 폭발적으로 증가했다.</p>
+<p><strong>현대 분석 스택</strong> 핵심은 Python과 R 같은 오픈소스 언어다. Python은 pandas(데이터 조작), scikit-learn(머신러닝), matplotlib/seaborn(시각화)을 제공한다. R도 tidyverse(데이터 정제), ggplot2(시각화), shiny(인터랙티브 앱)를 포함한다. R과 파이썬 모두 무료고 접근성이 높으며, 전 세계 커뮤니티가 튜토리얼과 패키지 생산에 기여한다. 세 줄이면 데이터베이스에서 데이터를 가져와 집계하고 차트를 그린다. SAS에서 수십 줄 걸리던 작업이 순식간이다. 중요한 것은 비용이 아니라 <strong>학습 곡선과 커뮤니티 지원</strong>이다. Stack Overflow, GitHub, Kaggle에서 수백만 명 개발자가 질문에 답하고 코드를 공유한다.</p>
+<p><strong>협업과 버전 관리</strong>는 Git/GitHub로 혁명을 맞았다. Git은 코드 변경 이력을 추적하고, GitHub는 협업 플랫폼을 제공한다. 브랜치를 만들고 변경사항을 커밋하며 풀 요청으로 코드 리뷰를 받는 워크플로우가 확립되었다.</p>
+<p>Jupyter Notebook과 R Markdown은 재현 가능한 분석 문서를 만든다. 코드, 결과, 설명이 하나의 파일에 담겨 동료가 한 번의 클릭으로 동일한 결과를 얻는다. Docker 컨테이너는 환경 일관성을 보장한다. Python 3.8, pandas 1.3.0 같은 의존성을 명시하면, 누구나 같은 환경을 재현한다. CI/CD(Continuous Integration/Deployment)는 코드가 푸시될 때마다 자동으로 테스트하고 배포한다. 이전 시대 “내 컴퓨터에서는 잘 동작되는데?” 문제가 사라졌다.</p>
+<p><strong>데이터 엔지니어링 파이프라인</strong>은 Airflow와 dbt로 자동화된다. Airflow는 워크플로우를 DAG(Directed Acyclic Graph)로 정의하고 스케줄링한다. “매일 오전 6시에 데이터 수집 → 정제 → 분석 → 보고서 생성” 같은 복잡한 파이프라인을 코드로 관리한다. dbt는 SQL 기반 데이터 변환과 테스트를 제공한다. Spark와 Kafka는 빅데이터와 실시간 스트리밍을 처리한다. 수억 건 로그를 병렬 처리하고, 초당 수만 건 이벤트를 실시간으로 집계한다. 클라우드는 자동 스케일링을 제공한다. 이전 시대에는 대기업만 가능했던 대규모 데이터 처리가 스타트업도 할 수 있게 되었다.</p>
+<p><strong>인터랙티브 출력</strong>은 Tableau, PowerBI, Looker 같은 대시보드 도구로 구현된다. 드래그앤드롭으로 차트를 만들고, 필터와 드릴다운을 추가하며, 실시간으로 데이터를 업데이트한다. 경영진은 웹 브라우저로 접속해 최신 지표를 확인하고, 슬라이더로 시나리오를 모의실험한다. Streamlit과 Dash, Shiny는 커스텀 웹 앱을 만든다. Python/R 코드 몇 줄이면 슬라이더, 버튼, 차트가 있는 인터랙티브 앱이 완성된다. 배포는 클라우드 플랫폼에 푸시하는 것으로 끝난다. API는 실시간 데이터 접근을 제공한다. “Jupyter 개발 → Git 버전 관리 → 클라우드 배포 → 실시간 자동 업데이트” 파이프라인은 개발 소요 시간을 5-10일로 단축했다. 이전 시대 13-26일과 비교해 절반 이하다.</p>
+<p>데이터 과학 시대가 남긴 가장 큰 유산은 <strong>재현 가능 문화</strong>다. 분석 결과를 믿을 수 있으려면 누구나 같은 과정을 반복해 동일한 결과를 얻을 수 있어야 한다. 하지만 여전히 한계가 있었다. Python/R 환경 설정이 복잡하고, 패키지 버전 충돌이 빈번했으며, 다양한 출력 형식(HTML, PDF, Word)으로 변환하는 작업이 번거로웠다. 이전 시대 수작업 지옥에서는 벗어났지만, 도구 통합과 출판 자동화는 여전히 과제로 남았다.</p>
+</section>
+<section id="쿼토-시대" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="쿼토-시대"><span class="header-section-number">9.4</span> 쿼토 시대</h2>
+<p>2020년 이후 데이터 보고서 작성은 재현 가능성을 중심으로 재편되었다. 쿼토(Quarto)는 <strong>문서 코드화(Document as Code)</strong> 철학으로 출판 자동화를 완성하며, 개발 소요 시간을 2-4일로 단축했다.</p>
+<div id="fig-quarto-report-layout" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-quarto-report-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-quarto-report-layout.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="그림&nbsp;9.4: 재현 가능한 보고서 작성의 표준"><img src="images/ds-quarto-report-layout.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quarto-report-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;9.4: 재현 가능한 보고서 작성의 표준
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-quarto-report-layout" class="quarto-xref">그림&nbsp;<span>9.4</span></a> 는 Quarto 워크플로우의 4가지 핵심 기능을 보여준다. <strong>Quarto</strong>(2022)는 데이터 과학 시대의 재현 가능성 원칙을 계승하면서, 출판 자동화를 완성한 차세대 시스템이다. 왼쪽은 익숙한 보고서 레이아웃이고, 오른쪽은 이를 생성하는 Quarto의 방법론이다. 핵심은 <strong>문서 코드화(Document-as-Code) 철학</strong>이다. 소프트웨어 개발에서 “Infrastructure-as-Code”가 서버 설정을 코드로 관리하듯, Quarto는 보고서 전체를 <code>.qmd</code> 파일 하나로 관리한다. YAML 메타데이터, Markdown 텍스트, R/Python/Julia 코드 청크가 하나의 파일에 담기고, <code>quarto render</code> 한 번으로 HTML, PDF, Word, PowerPoint, 심지어 인터랙티브 웹사이트까지 생성된다.</p>
+<p><strong>Quarto 문서 작성</strong>은 문학적 프로그래밍(Literate Programming)을 구현한다. 1984년 도널드 커누스가 제안한 이 개념은 “프로그램을 인간이 이해하도록 쓰고, 기계가 실행하도록 만든다”는 원칙이다. Quarto 문서는 세 계층으로 구성된다. YAML 헤더(<code>title: "매출 분석"</code>, <code>format: html</code>, <code>execute: { echo: false }</code>)는 메타데이터를 정의하고, Markdown은 서술적 텍스트를 작성하며, 코드 청크는 R/Python/Julia 계산을 수행한다. 다중 출력 기능이 혁명적이다. 같은 <code>.qmd</code> 파일에서 웹용 HTML, 인쇄용 PDF, 편집 가능한 Word, 프레젠테이션용 RevealJS, 전자책용 ePub까지 자동 생성된다. 상호참조 시스템(<code>@fig-sales</code> 클릭 시 그림으로 점프)과 인용 관리(<code>[@smith2023]</code>), 파라미터 보고서(날짜와 지역 변수를 바꾸면 전체 보고서 자동 업데이트)까지 지원한다. 이전 시대 “Excel 차트 복사 → Word 붙여넣기 → PowerPoint 재작성” 고통이 사라진다.</p>
+<p><strong>계산 노트북</strong>은 데이터 과학 시대 Jupyter Notebook과 R Markdown을 계승하고 발전시킨다. Quarto는 두 엔진을 모두 지원한다. knitr 엔진으로 R 코드를, Jupyter 엔진으로 Python/Julia 코드를 실행하며, 한 문서에 여러 언어를 섞을 수도 있다. 코드 청크 옵션으로 출력을 세밀하게 제어한다. <code>#| echo: false</code>는 코드를 숨기고 결과만 보여주고, <code>#| warning: false</code>는 경고 메시지를 숨기며, <code>#| fig-cap: "분기별 매출"</code>은 그림 캡션을 지정한다. 캐싱 시스템이 강력하다. 첫 실행에 10분 걸리는 복잡한 모델 학습을 완료하면, 이후 문서 업데이트 시 캐시된 결과를 재사용해 5초 만에 렌더링한다. 인라인 코드 기능으로 텍스트 안에 동적 값을 삽입한다. “오늘 매출: 1,234만원”처럼 보이는 문장이 실제로는 데이터베이스에서 최신 값을 가져와 자동 업데이트된다. 인터랙티브 위젯(plotly, Observable JS)을 내장해 독자가 슬라이더로 시나리오를 탐색할 수 있다. 환경 관리(renv, conda, Docker)로 의존성을 명시하면 동료가 동일한 결과를 재현한다. 이것이 진정한 재현 가능성이다.</p>
+<p><strong>출판 및 협업</strong>은 Quarto를 단순한 문서 생성 도구 이상으로 만든다. 원클릭 클라우드 출판 기능은 <code>quarto publish</code>로 GitHub Pages, Netlify, Quarto Pub 등에 즉시 배포된다. 도메인 설정, HTTPS, CDN이 모두 자동이다. Git 통합으로 <code>.qmd</code> 파일을 커밋하면 모든 분석 과정이 버전 관리되고, diff-friendly 포맷이라 변경사항을 명확히 추적할 수 있다. GitHub Actions CI/CD는 코드가 푸시될 때마다 자동으로 보고서를 렌더링하고 배포한다. “로컬에서 <code>.qmd</code> 수정 → Git 커밋 → GitHub 푸시 → Actions가 자동 렌더링 → 웹사이트 자동 업데이트” 파이프라인이 분 단위로 완료된다. 협업 편집은 VS Code와 RStudio 통합으로 실시간 프리뷰를 보면서 작성하고, 팀원과 코드 리뷰를 진행한다. 이 책도 Quarto로 만들어졌다.</p>
+<p><strong>고급 기능</strong>은 Quarto의 확장 가능한 플랫폼 특성을 보여준다. 커스텀 테마로 조직의 브랜드 색상과 폰트를 적용하고, 확장(Extensions)으로 새로운 출력 형식과 필터, 단축 코드를 개발할 수 있다. 유연한 레이아웃 시스템으로 대시보드, 멀티 페이지 웹사이트, 복잡한 인터랙티브 프로젝트를 구축한다. 프로젝트 유형이 다양하다. 단일 문서부터 멀티 챕터 책(book), 학술 논문(journal), 블로그, 프레젠테이션, 대시보드까지 같은 Quarto 문법으로 작성한다. <span class="math inline">\(\LaTeX\)</span> 통합으로 과학 출판물 복잡한 수식과 참고문헌 관리를 처리한다. 다국어 지원으로 같은 콘텐츠를 한글, 영어, 일본어로 자동 배포한다. 무엇보다 중요한 것은 <strong>오픈소스 무료</strong>라는 점이다. 개인 블로그부터 대기업 기술 문서, 대학 강의 자료, 학술 저널까지 누구나 사용한다. 다이어그램 하단의 타임라인은 <code>.qmd</code> 작성(1-2일) → 실행(0.5일) → 렌더링(0.5일) → 출판(0.5일) → 반복(지속적) 워크플로우가 <strong>총 2-4일</strong>이면 완료됨을 보여준다. 데이터 과학 시대의 5-10일과 비교해 절반 이하다.</p>
+<p>Quarto는 세 가지 핵심 가치를 실현한다. <strong>재현 가능성</strong>은 동료가 같은 <code>.qmd</code> 파일로 동일한 결과를 얻을 수 있다는 뜻이다. <strong>자동화</strong>는 데이터가 업데이트되면 한 번의 렌더링으로 전체 보고서가 재생성된다는 뜻이다. <strong>협업</strong>은 Git 버전 관리와 코드 리뷰로 여러 명이 함께 작업할 수 있다는 뜻이다. 이 세 가지는 현대 데이터 보고서의 필수 요건이며, Quarto는 이를 하나의 통합 시스템으로 제공한다.</p>
+<p>Quarto 시대는 데이터 과학 시대의 재현 가능성 원칙을 계승하면서, 문서 코드화 철학으로 보고서 제작을 한 단계 더 자동화했다. Python/R 코드를 Jupyter Notebook에서 작성하던 것이 Quarto로 통합되고, Git 버전 관리가 원클릭 배포로 간소화되었으며, 개발 소요 시간이 5-10일에서 2-4일로 단축되었다. 하지만 여전히 한계가 있었다. 데이터 과학자가 직접 코드를 작성하고, 보고서 구조를 설계하며, 차트 유형과 레이아웃을 결정해야 했다. Quarto는 “어떻게 만들까(How)”를 쉽게 만들었지만, “무엇을 만들까(What)”는 여전히 인간이 정의해야 했다. 다음 시대는 마지막 장벽마저 무너뜨리는 혁명을 가져온다.</p>
+</section>
+<section id="생성형-ai-시대" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="생성형-ai-시대"><span class="header-section-number">9.5</span> 생성형 AI 시대</h2>
+<p>2022년 이후 등장한 생성형 AI는 보고서 작성 방식을 근본적으로 바꾸고 있다. 자연어가 프로그래밍 언어가 되었고, 개발 소요 시간은 0.5-1일로 단축되었다.</p>
+<div id="fig-ai-era-report-layout" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-era-report-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/ds-ai-era-report-layout.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="그림&nbsp;9.5: 생성형 AI 시대의 보고서 작성 혁명"><img src="images/ds-ai-era-report-layout.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-era-report-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;9.5: 생성형 AI 시대의 보고서 작성 혁명
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-ai-era-report-layout" class="quarto-xref">그림&nbsp;<span>9.5</span></a> 는 AI 시대의 4가지 핵심 기술 스택을 보여준다. Quarto가 재현 가능한 보고서 인프라를 제공했다면, <strong>생성형 AI</strong>는 작성 방식 자체를 혁명적으로 바꾸고 있다. 왼쪽은 앞서 정의한 보고서 구조(여전히 동일)이지만, 오른쪽은 이를 만드는 방식이 근본적으로 달라졌다. 가장 큰 변화는 <strong>자연어가 프로그래밍 언어가 되었다</strong>는 점이다. “지난 분기 매출 상위 10개 제품의 성장률을 막대 차트로 보여줘”라고 요청하면, AI가 데이터를 쿼리하고 차트를 생성하며 인사이트까지 제안한다. 코드를 한 줄도 쓰지 않아도 된다. 데이터 수집 5분, AI 분석 0.3일, 인사이트 생성 0.2일, 자동 배포 5분, AI 모니터링은 지속적으로 이루어진다.</p>
+<p><strong>LLM 및 파운데이션 모델</strong>은 AI 시대의 인프라 계층이다. GPT-5, Claude, Gemini 같은 대형 언어 모델이 핵심이며, 벡터 데이터베이스가 의미 기반 검색을 지원한다. MLOps 도구는 모델 학습과 배포를 관리하고, GPU 클러스터가 대규모 연산을 처리한다. 비용 구조가 획기적이다. API 기반 요금제로 1,000 토큰당 $0.01-0.10 수준이며, 초기 투자 없이 종량제로 사용할 수 있다. 전이학습 전략도 다양하다. Fine-tuning으로 특정 도메인에 모델을 맞춤 학습시키거나, Few-shot Learning으로 몇 개 예시만 제공해 즉시 사용할 수 있다. 이전 시대의 복잡한 모델 학습 파이프라인이 API 호출 몇 줄로 대체된다.</p>
+<p><strong>AI 보조 개발</strong>은 10배 생산성을 실현한다. GitHub Copilot, Cursor, Claude Code 같은 도구가 자연어를 코드로 자동 변환한다. AI 코드 리뷰, 디버깅, 최적화 제안, 자동 테스팅, 문서 생성까지 수행한다. 프롬프트 엔지니어링 워크플로우가 핵심이다. 명세서를 자연어로 작성하면 AI가 전체 코드베이스를 생성한다. 예를 들어 “지역별 고객 이탈 분석하고 상위 3개 리스크 요인 시각화”라고 요청하면, AI가 쿼리를 작성하고, 데이터를 집계하며, 차트를 생성하고, 인사이트 텍스트까지 자동 작성한다. 데이터 과학자의 역할이 바뀐다. 코드를 직접 작성하는 대신, 무엇을 만들지 정의하고 AI가 생성한 결과를 검증하며 비즈니스 맥락을 추가하는 것으로 진화한다. 코딩 시간은 10분의 1로 줄지만, 문제 정의와 결과 해석 능력의 중요성은 10배 커진다.</p>
+<p><strong>AI 에이전트 파이프라인</strong>은 자율 시스템으로 진화한다. RAG 파이프라인은 검색 증강 생성으로 외부 지식을 실시간으로 통합한다. Agent 프레임워크는 복잡한 작업을 자율적으로 분해하고 실행한다. Fine-tuning 기법으로 적은 리소스로 커스텀 모델을 학습하고, 멀티모달 기능으로 텍스트, 이미지, 오디오, 비디오를 동시에 처리한다. 자연어 명령을 내리면, 에이전트가 자율적으로 쿼리를 작성하고, 데이터를 분석하며, 인사이트를 생성하고, 최적화 제안까지 제시한다. 인간이 개입하는 것은 초기 질문 정의와 최종 검증뿐이다.</p>
+<p><strong>AI 네이티브 출력</strong>은 정적 보고서를 넘어 지능형 인터페이스로 진화한다. 대화형 AI는 사용자가 질문하면 즉시 답변하고 차트를 생성한다. 동적 서사는 AI가 데이터를 분석해 자동으로 스토리를 구성한다. “매출이 23% 증가했습니다. 주요 동인은 디지털 채널 강화와 신규 고객 유입입니다”처럼 인사이트를 자연어로 서술한다. 실시간 개인화는 사용자의 역할과 관심사에 맞춰 출력을 맞춤화한다. 경영진에게는 핵심 요약을, 실무진에게는 상세 분석을 자동으로 제공한다. 자율 보고는 AI 에이전트가 스스로 데이터를 수집하고 분석하며 보고서를 업데이트한다. 인간이 하는 일은 초기 목표 설정과 주기적 검증뿐이다.</p>
+<p>하지만 AI 시대에도 <strong>인간의 판단과 맥락 이해는 여전히 필수적</strong>이다. AI는 데이터에서 패턴을 찾지만, 비즈니스 전략, 조직 정치, 윤리적 고려는 인간의 영역이다. “성장률이 낮은 제품 라인을 폐지하세요”라는 AI 권장이 단기 수익성에는 맞지만, 장기 브랜드 가치나 고객 충성도를 해칠 수 있다. AI가 생성한 인사이트에는 환각(Hallucination), 편향, 맥락 오해가 있을 수 있다. 데이터 과학자의 역할은 AI가 생성한 결과를 검증하고, 맥락을 추가하며, 전략적 의사결정을 지원하는 것으로 진화하고 있다. 도구는 점점 더 강력해지지만, <strong>무엇을 물어봐야 하는지, 어떤 결과물이 필요한지 정의하는 능력</strong>은 인간만이 가진다. AI는 “어떻게(How)”를 해결하지만, “무엇을(What)”, “왜(Why)”는 여전히 인간의 몫이다.</p>
+</section>
+<section id="결과물-중심-사고" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="결과물-중심-사고"><span class="header-section-number">9.6</span> 결과물 중심 사고</h2>
+<p>이 장에서 확인한 핵심은 명확하다. <strong>좋은 보고서는 데이터가 아니라 의사결정을 전달한다</strong>. 네 시대를 관통하는 불변의 원칙이다. 1990년대 SAS 보고서든, 2010년대 Jupyter Notebook이든, 2020년대 Quarto 문서든, AI 생성 대시보드든, 목적은 동일하다. 이해관계자가 무엇을 해야 할지 명확히 아는 것이다.</p>
+<p>역사는 중요한 패턴을 보여준다. 도구는 점점 더 강력해지고 접근하기 쉬워졌다. 수천만 원 SAS 라이선스가 무료 Python으로, 13-26일 수작업이 5-10일 자동화로, 2-4일 Quarto 통합으로, 현재 0.5-1일 AI 생성으로 진화했다. 데이터 과학 이전 시대는 폐쇄적 고가 도구에서 벗어났고, 데이터 과학 시대는 오픈소스와 재현 가능성을 확립했으며, Quarto 시대는 문서 코드화로 출판을 자동화했고, 생성형 AI 시대는 자연어로 코딩 장벽을 제거했다.</p>
+<p>하지만 도구가 아무리 진화해도 불변하는 것이 있다. <strong>결과물 중심 사고 습관</strong>이다. 분석을 시작하기 전에 “최종 보고서에 무엇이 담겨야 하는가?”, “이해관계자가 어떤 결정을 내려야 하는가?”를 먼저 생각하면, 불필요한 작업을 피하고 핵심에 집중할 수 있다. 보고서 구조(핵심 요약, 테이블, 시각화, 인사이트, 권장사항, 부록, 타임라인)는 여전히 유효하다. AI가 각 섹션을 자동 생성하더라도, 구조를 이해하고 검증하는 것은 데이터 과학자 책임이다.</p>
+<p>현재 생성형 AI 보조 보고서 작성의 초기 단계에 있다. LLM이 초안을 생성하고 차트를 자동화하지만, 전략적 판단과 윤리적 책임은 여전히 인간의 몫이다. 도구는 진화하지만, <strong>무엇을 전달할지 정의하는 능력</strong>은 영원히 인간의 핵심 역량으로 남을 것이다. 다음 장에서는 이러한 결과물을 효율적으로 만들어내는 핵심 도구인 통합 개발 환경(IDE)과 AI 코딩 어시스턴트를 다루며, 실제로 어떻게 생산성을 극대화할 수 있는지 구체적으로 살펴본다.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-few2013information" class="csl-entry" role="listitem">
+Few, S. (2013). <em>Information Dashboard Design: Displaying Data for At-a-Glance Monitoring</em> (2nd ed). Analytics Press.
+</div>
+<div id="ref-knaflic2015storytelling" class="csl-entry" role="listitem">
+Knaflic, C. N. (2015). <em>Storytelling with Data: A Data Visualization Guide for Business Professionals</em>. Wiley.
+</div>
+<div id="ref-tufte2001visual" class="csl-entry" role="listitem">
+Tufte, E. R. (2001). <em>The Visual Display of Quantitative Information</em> (2nd ed). Graphics Press.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "복사완료!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "복사완료!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ds_ide.html" class="pagination-link" aria-label="통합 개발 환경">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">통합 개발 환경</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./proj_app.html" class="pagination-link" aria-label="쇼핑앱 전쟁 숨겨진 공식">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">쇼핑앱 전쟁 숨겨진 공식</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-book"></i> <a href="https://quarto.org/">Quarto</a>로 제작<br> <i class="bi bi-palette"></i> <a href="https://r2bit.com/">R2bit</a> 디자인</p>
+</div>
+</div>   
+    <div class="nav-footer-center">
+<div style="text-align: center;">
+<p><img src="assets/favicon-32x32.png" alt="Logo" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> <strong>챗GPT AI</strong> | AI와 함께하는 데이터 과학 여행<br> <span style="font-size: 0.9em;">© 2025 <a href="mailto:admin@r2bit.com">한국 R 사용자회</a> | 이광춘 저</span></p>
+</div>
+</div>
+    <div class="nav-footer-right">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-github"></i> <a href="https://github.com/bit2r/gpt-ai">소스 코드</a><br> <i class="bi bi-bug"></i> <a href="https://github.com/bit2r/gpt-ai/issues">이슈 리포트</a></p>
+</div>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
