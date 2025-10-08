@@ -6,11 +6,6 @@ project:
     browser: false  
   render:
     - "*.qmd"
-    - "!*.Rmd"
-  resources:
-    - "data/*.mp3"
-    - "data/*.wav"
-    - "data/LibriSpeech/*.mp3"
 
 lang: ko-KR
 
@@ -57,7 +52,6 @@ book:
         - basic_gpt.qmd         # 범용기술
         - basic.qmd             # AI 기초
         - basic_job.qmd         # 일자리
-        - basic_ethics.qmd      # AI 윤리
     - part: "**2부 AI 데이터 과학**"
       chapters:
         - ds_data.qmd             # 데이터
@@ -65,20 +59,8 @@ book:
         - ds_scientist.qmd        # 데이터 과학자 
         - ds_ide.qmd              # IDE 
         - ds_output.qmd           # 출력결과
-        # - basic_engineering.qmd #
-        # - ds_ellmer.qmd         # 
-    #     - coding_prompt.qmd     # 
-    #     - coding_context.qmd    # 
-    #     - coding_openai.qmd     #         
-    #     - basic_api.qmd         # 
-    #     - coding_claude.qmd     # 
     - part: "**3부 사례 분석**"
       chapters:
-        # - proj_penguin.qmd      # OK
-        # - proj_penguin_py.qmd   # OK
-        # - proj_market.qmd       # OK
-        # - proj_survey.qmd       # OK
-        # - proj_car.qmd          # OK
         - proj_method.qmd
         - proj_app.qmd
         - proj_school.qmd
@@ -100,8 +82,8 @@ book:
       </div>
     right: |
       <div style="font-size: 0.85em;">
-      <i class="bi bi-github"></i> [소스 코드](https://github.com/bit2r/gpt-ai)<br>
-      <i class="bi bi-bug"></i> [이슈 리포트](https://github.com/bit2r/gpt-ai/issues)
+      <i class="bi bi-github"></i> [소스 코드](https://github.com/statkclee/gpt-retail)<br>
+      <i class="bi bi-bug"></i> [이슈 리포트](https://github.com/statkclee/gpt-retail/issues)
       </div>
 
 # format:
