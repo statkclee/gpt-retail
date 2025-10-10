@@ -1,0 +1,235 @@
+# 펭귄 생태 분석(파이썬) {#sec-proj-penguin-py}
+
+[12장 R 버전](@sec-proj-penguin)과 동일한 분석을 파이썬으로 수행한다. 생태학적 배경과 데이터셋 설명은 12장을 참조하고, 여기서는 파이썬 데이터 과학 생태계의 특징에 집중한다.
+
+R의 tidyverse(dplyr, ggplot2), Quarto와 대응되는 파이썬의 pandas\index{pandas}, matplotlib/seaborn\index{seaborn}/plotly\index{plotly}, 그리고 Google Colab\index{Google Colab}/Streamlit\index{Streamlit}을 활용하여 동일한 분석 목표를 달성하되, 파이썬 특유의 워크플로우를 보여준다.
+
+
+## 파이썬 분석 접근법 {#sec-penguin-py-ai-eda}
+
+### 파이썬 환경 설정
+
+분석 목표는 [12장 R 버전](@sec-proj-penguin)과 동일하다. 여기서는 파이썬 특화 프롬프트와 환경 설정에 집중한다.
+
+> **사용자:** 12장에서 R로 한 펭귄 보존 분석을 이번에는 Python\index{Python}으로 해보고 싶어. pandas\index{pandas}, seaborn\index{seaborn}, plotly\index{plotly}를 사용해서 동일한 EDA를 수행하고 Streamlit\index{Streamlit}으로 웹앱을 만들어줘.
+>
+> 구체적으로는 R의 dplyr → pandas, ggplot2 → seaborn/plotly, Quarto HTML → Streamlit으로 대응시켜서 작업해줘.
+
+**Claude Code:** 파이썬 환경으로 펭귄 보존 분석을 진행하겠습니다. 먼저 가상환경과 패키지 설정부터 시작하겠습니다.
+
+```bash
+# 가상환경\index{가상환경} 생성 및 활성화
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# 필요 패키지 설치
+pip install pandas seaborn plotly streamlit scikit-learn\index{scikit-learn}
+pip freeze > requirements.txt\index{requirements.txt}
+```
+
+**Claude Code:** 이제 분석을 위한 todo 리스트를 작성하겠습니다.
+
+```bash
+╭───────────────────────────────────────────────────────────╮
+│ ✻ Welcome to Claude Code!                                │  
+│   /help for help, /status for your current setup         │
+│   cwd: /Users/rstudio/swc/penguins_py                    │
+╰───────────────────────────────────────────────────────────╯
+
+⏺ Update Todos
+☐ 가상환경 설정 및 패키지 설치
+☐ pandas로 데이터 로드 및 전처리
+☐ seaborn으로 종별 서식지 분포 시각화
+☐ plotly로 대화형 시간별 변화 차트
+☐ scikit-learn으로 형태학적 특성 분석
+☐ Streamlit 웹앱 개발
+```
+
+### 프로젝트 구조
+
+파이썬 환경의 특징은 가상환경\index{가상환경}(venv)과 requirements.txt\index{requirements.txt}를 통한 패키지 의존성 관리다. 분석이 완료되면 다음과 같은 구조가 생성된다.
+
+``` markdown
+.
+├── CLAUDE.md
+├── README.md
+├── app.py
+├── data
+│   └── penguins.csv
+├── eda_analysis.py
+├── penguins_eda_analysis.ipynb
+├── requirements.txt
+├── restart_app.sh
+└── venv
+    ├── bin
+    ├── etc
+    ├── include
+    ├── lib
+    ├── pyvenv.cfg
+    └── share
+```
+
+## 분석 및 시각화 {#sec-penguin-py-visualization}
+
+분석 목표와 생태학적 해석은 [12장 R 버전](@sec-proj-penguin)을 참조한다. 여기서는 파이썬 특유의 데이터 조작과 시각화 문법에 집중한다.
+
+파이썬은 R의 dplyr → pandas, ggplot2 → seaborn/plotly로 대응되며, 함수형 프로그래밍과 메서드 체이닝을 통한 데이터 파이프라인이 특징적이다.
+
+### 파이썬 분석 코드 예시
+
+다음은 R의 dplyr, ggplot2에 대응하는 pandas, seaborn을 활용한 핵심 분석 코드다.
+
+```python
+import pandas as pd
+import seaborn as sns
+import plotly.express as px
+
+# 데이터 로드 (R: read_csv)
+df = pd.read_csv('data/penguins.csv').dropna()
+
+# 종별 서식지 분포 (R: count + group_by)
+habitat_dist = pd.crosstab(df['species'], df['island'])
+vulnerability = habitat_dist.apply(lambda row: 
+    1 - (-sum([p * np.log(p) if p > 0 else 0 
+              for p in row/row.sum()]) / np.log(len(row))), axis=1)
+
+# 시간별 변화 (R: group_by + summarise)
+temporal_trends = (df.groupby(['species', 'year'])['body_mass_g']
+                    .mean()
+                    .reset_index()
+                    .groupby('species')
+                    .apply(lambda x: np.polyfit(x['year'], x['body_mass_g'], 1)[0]))
+
+# 시각화 (R: ggplot2 → seaborn/plotly)
+fig = px.scatter(df, x='bill_length_mm', y='body_mass_g', 
+                color='species', facet_col='island',
+                title='펭귄 종별 형태학적 특성')
+fig.show()
+```
+
+::: callout-note
+### **파이썬 특징**
+
+- 메서드 체이닝: `df.groupby().mean().reset_index()`
+- 함수형 접근: `apply(lambda x: ...)`
+- 모듈화: 각 분석을 독립 함수로 구현
+:::
+
+## 결과물 생성 {#sec-penguin-py-report}
+
+### Google Colab 노트북
+
+> **사용자:** 이번에는 구글 코랩형태로 파일을 만들어서 코랩에서 불러와서 돌릴 수 있도록 작업해줘.
+>
+> **Claude Code:** Google Colab에 최적화된 노트북을 생성하겠습니다. 패키지 설치부터 시각화까지 모든 것이 브라우저에서 실행 가능하도록 구성하겠습니다.
+
+![펭귄 구글 코랩 노트북](images/penguin_colab_frame18.png){#fig-penguin-colab-py-pdf fig-align="center" width="300"}
+
+
+Google Colab의 장점은 별도 환경 설정 없이 브라우저에서 즉시 실행 가능하다는 점이다. R의 Quarto PDF와 달리 클라우드 기반 협업이 용이하다.
+
+
+### 웹 애플리케이션
+
+> **사용자:** EDA 결과를 바탕으로 single page application을 작성해줘.
+>
+> **Claude Code:** Streamlit으로 대화형 웹 애플리케이션을 개발하겠습니다. 사이드바 필터링과 실시간 차트 업데이트를 지원하는 단일 페이지 앱을 만들겠습니다.
+
+Streamlit은 R의 Shiny보다 간단한 API를 제공하며, 특히 Python 네이티브 문법을 그대로 사용할 수 있다.
+
+```python
+import streamlit as st
+import plotly.express as px
+
+st.title('🐧 펭귄 보존 분석 대시보드')
+
+# 사이드바 필터
+species = st.sidebar.multiselect('종 선택:', df['species'].unique())
+filtered_df = df[df['species'].isin(species)]
+
+# 대화형 차트
+fig = px.scatter(filtered_df, x='bill_length_mm', y='body_mass_g', 
+                color='species', title='실시간 필터링 차트')
+st.plotly_chart(fig)
+```
+
+![펭귄 분석 대시보드](images/penguin_streamlit_frame14.png){#fig-penguins-dashboard-py fig-align="center" width="300"}
+
+
+::: callout-tip
+
+### R vs Python 생태계 비교
+
+@tbl-r-python-comparison 에서 보듯이 두 언어는 각각 고유한 특징과 장점을 가지고 있다. Claude AI는 두 생태계 모두에서 효과적으로 작동하며, 언어 선택은 프로젝트의 성격과 팀의 전문성에 따라 결정하면 된다. 중요한 것은 AI 도구가 프로그래밍 언어의 벽을 낮춰 연구자가 도메인 전문성에 집중할 수 있게 한다는 점이다.
+
+
+```{r}
+#| label: tbl-r-python-comparison
+#| tbl-cap: "R과 Python 데이터 과학 생태계 특징 비교"
+#| echo: false
+#| warning: false
+
+library(gt)
+library(dplyr)
+
+# R vs Python 생태계 비교 데이터 생성
+comparison_data <- data.frame(
+  구분 = c("분석 접근", "시각화", "결과물", "협업", "환경 관리"),
+  R = c("통계 중심 (tidyverse)", 
+        "ggplot2 (Grammar of Graphics)", 
+        "Quarto PDF/HTML (정적)", 
+        "로컬 환경 중심", 
+        "프로젝트별 라이브러리"),
+  Python = c("데이터 조작 중심 (pandas)", 
+             "seaborn/plotly (다양한 라이브러리)", 
+             "Colab/Streamlit (클라우드/동적)", 
+             "클라우드 네이티브", 
+             "venv + requirements.txt")
+)
+
+# gt 테이블 생성
+comparison_data %>%
+  gt() %>%
+  cols_width(
+    구분 ~ pct(20),
+    R ~ pct(40),
+    Python ~ pct(40)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(columns = 구분)
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#f8f9fa"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "#e3f2fd"),
+      cell_text(color = "#1565c0")
+    ),
+    locations = cells_body(columns = R)
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "#e8f5e9"),
+      cell_text(color = "#2e7d32")
+    ),
+    locations = cells_body(columns = Python)
+  ) %>%
+  cols_align(
+    align = "left",
+    columns = everything()
+  ) %>%
+  tab_options(
+    table.width = pct(100),    # 페이지 너비에 맞춤
+    table.font.size = px(9)  # 글꼴 크기 소폭 축소
+  )
+```
+
+
+:::

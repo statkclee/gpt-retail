@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" width="1400" height="800">
+  <defs>
+    <style><![CDATA[
+      .title { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 36px; font-weight: 900; fill: #f8fafc; }
+      .subtitle { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 20px; font-weight: 600; fill: #cbd5e1; }
+      .h1 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 22px; font-weight: 800; fill: #ffffff; }
+      .h2 { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 18px; font-weight: 800; fill: #f1f5f9; }
+      .p { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 14px; font-weight: 600; fill: #e5e7eb; }
+      .small { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #cbd5e1; }
+      .metric { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 18px; font-weight: 900; fill: #34d399; }
+    ]]></style>
+
+    <!-- Background -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <!-- Study gradients -->
+    <linearGradient id="gradWriting" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+
+    <linearGradient id="gradCoding" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <linearGradient id="gradCreative" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+
+    <linearGradient id="gradSupport" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+
+    <linearGradient id="gradReview" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+
+    <linearGradient id="gradConsulting" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+
+    <!-- Effects -->
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="800" fill="url(#bg)"/>
+
+  <!-- Header -->
+  <text x="700" y="50" text-anchor="middle" class="title">AI 생산성 향상 연구 결과</text>
+  <text x="700" y="80" text-anchor="middle" class="subtitle">AI Productivity Improvement Research Results</text>
+
+  <!-- Studies grid -->
+  <g transform="translate(30,120)">
+    <!-- Study 1: Writing (Noy & Zhang) -->
+    <g>
+      <rect x="0" y="0" width="400" height="200" rx="15" fill="url(#gradWriting)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="200" y="35" text-anchor="middle" class="h1">글쓰기 작업</text>
+      <text x="200" y="60" text-anchor="middle" class="small">Writing Tasks (Noy &amp; Zhang, 2023)</text>
+      
+      <g transform="translate(30,80)" class="p">
+        <text x="0" y="0" class="metric">11-40% 향상</text>
+        <text x="0" y="25">• 표본: 444명</text>
+        <text x="0" y="45">• 작업: 다양한 글쓰기</text>
+        <text x="0" y="65">• 핵심 발견: 숙련도 낮은</text>
+        <text x="0" y="85">  작업자에게 더 큰 효과</text>
+      </g>
+      
+      <!-- Progress bar -->
+      <g transform="translate(250,90)">
+        <rect x="0" y="0" width="100" height="15" rx="7" fill="#1f2937"/>
+        <rect x="0" y="0" width="40" height="15" rx="7" fill="#93c5fd"/>
+        <text x="110" y="12" class="small">40%</text>
+      </g>
+    </g>
+
+    <!-- Study 2: Software Development (Peng et al.) -->
+    <g transform="translate(470,0)">
+      <rect x="0" y="0" width="400" height="200" rx="15" fill="url(#gradCoding)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="200" y="35" text-anchor="middle" class="h1">소프트웨어 개발</text>
+      <text x="200" y="60" text-anchor="middle" class="small">Software Dev (Peng et al., 2023)</text>
+      
+      <g transform="translate(30,80)" class="p">
+        <text x="0" y="0" class="metric">35-50% 향상</text>
+        <text x="0" y="25">• 표본: 95,000명</text>
+        <text x="0" y="45">• 작업: 코드 완성</text>
+        <text x="0" y="65">• 핵심 발견: 코딩 속도</text>
+        <text x="0" y="85">  극적 향상</text>
+      </g>
+      
+      <!-- Progress bar -->
+      <g transform="translate(250,90)">
+        <rect x="0" y="0" width="100" height="15" rx="7" fill="#1f2937"/>
+        <rect x="0" y="0" width="50" height="15" rx="7" fill="#6ee7b7"/>
+        <text x="110" y="12" class="small">50%</text>
+      </g>
+    </g>
+
+    <!-- Study 3: Creative Writing (Ahmad et al.) -->
+    <g transform="translate(940,0)">
+      <rect x="0" y="0" width="400" height="200" rx="15" fill="url(#gradCreative)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="200" y="35" text-anchor="middle" class="h1">창작 글쓰기</text>
+      <text x="200" y="60" text-anchor="middle" class="small">Creative Writing (Ahmad et al., 2023)</text>
+      
+      <g transform="translate(30,80)" class="p">
+        <text x="0" y="0" class="metric">37% 향상</text>
+        <text x="0" y="25">• 표본: 24명</text>
+        <text x="0" y="45">• 작업: 창의적 글쓰기</text>
+        <text x="0" y="65">• 핵심 발견: 창의성과</text>
+        <text x="0" y="85">  품질 동시 증가</text>
+      </g>
+      
+      <!-- Progress bar -->
+      <g transform="translate(250,90)">
+        <rect x="0" y="0" width="100" height="15" rx="7" fill="#1f2937"/>
+        <rect x="0" y="0" width="37" height="15" rx="7" fill="#c4b5fd"/>
+        <text x="110" y="12" class="small">37%</text>
+      </g>
+    </g>
+
+    <!-- Study 4: Customer Support (Brynjolfsson et al.) -->
+    <g transform="translate(0,250)">
+      <rect x="0" y="0" width="400" height="200" rx="15" fill="url(#gradSupport)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="200" y="35" text-anchor="middle" class="h1">고객 지원</text>
+      <text x="200" y="60" text-anchor="middle" class="small">Customer Support (Brynjolfsson et al., 2023)</text>
+      
+      <g transform="translate(30,80)" class="p">
+        <text x="0" y="0" class="metric">14% 향상</text>
+        <text x="0" y="25">• 표본: 5,179명</text>
+        <text x="0" y="45">• 작업: 고객 문의 처리</text>
+        <text x="0" y="65">• 핵심 발견: 해결 시간</text>
+        <text x="0" y="85">  단축 및 품질 향상</text>
+      </g>
+      
+      <!-- Progress bar -->
+      <g transform="translate(250,90)">
+        <rect x="0" y="0" width="100" height="15" rx="7" fill="#1f2937"/>
+        <rect x="0" y="0" width="14" height="15" rx="7" fill="#fbbf24"/>
+        <text x="110" y="12" class="small">14%</text>
+      </g>
+    </g>
+
+    <!-- Study 5: Academic Review (Poldrack et al.) -->
+    <g transform="translate(470,250)">
+      <rect x="0" y="0" width="400" height="200" rx="15" fill="url(#gradReview)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="200" y="35" text-anchor="middle" class="h1">학술논문 검토</text>
+      <text x="200" y="60" text-anchor="middle" class="small">Academic Review (Poldrack et al., 2023)</text>
+      
+      <g transform="translate(30,80)" class="p">
+        <text x="0" y="0" class="metric">50% 시간 단축</text>
+        <text x="0" y="25">• 표본: 165명</text>
+        <text x="0" y="45">• 작업: 논문 검토</text>
+        <text x="0" y="65">• 핵심 발견: 검토의</text>
+        <text x="0" y="85">  일관성 향상</text>
+      </g>
+      
+      <!-- Progress bar -->
+      <g transform="translate(250,90)">
+        <rect x="0" y="0" width="100" height="15" rx="7" fill="#1f2937"/>
+        <rect x="0" y="0" width="50" height="15" rx="7" fill="#fca5a5"/>
+        <text x="110" y="12" class="small">50%</text>
+      </g>
+    </g>
+
+    <!-- Study 6: Consulting (Dewhurst et al.) -->
+    <g transform="translate(940,250)">
+      <rect x="0" y="0" width="400" height="200" rx="15" fill="url(#gradConsulting)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="200" y="35" text-anchor="middle" class="h1">컨설팅</text>
+      <text x="200" y="60" text-anchor="middle" class="small">Consulting (Dewhurst et al., 2023)</text>
+      
+      <g transform="translate(30,80)" class="p">
+        <text x="0" y="0" class="metric">12-23% 향상</text>
+        <text x="0" y="25">• 표본: 758명</text>
+        <text x="0" y="45">• 작업: 전문 서비스</text>
+        <text x="0" y="65">• 핵심 발견: 전문 서비스</text>
+        <text x="0" y="85">  효율성 증대</text>
+      </g>
+      
+      <!-- Progress bar -->
+      <g transform="translate(250,90)">
+        <rect x="0" y="0" width="100" height="15" rx="7" fill="#1f2937"/>
+        <rect x="0" y="0" width="23" height="15" rx="7" fill="#67e8f9"/>
+        <text x="110" y="12" class="small">23%</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Key Findings -->
+  <g transform="translate(70,600)">
+    <rect x="0" y="0" width="1260" height="80" rx="15" fill="#1f2937" opacity="0.8"/>
+    <text x="630" y="30" text-anchor="middle" class="h1">핵심 발견사항</text>
+    
+    <g transform="translate(70,60)" class="p">
+      <text x="0" y="0">🎯 <text class="h2" fill="#34d399">소프트웨어 개발</text>에서 가장 높은 생산성 향상 (35-50%)</text>
+      <text x="350" y="0">⚖️ <text class="h2" fill="#fbbf24">숙련도 격차 해소</text>: 초보자가 더 큰 혜택을 받아 기술 평준화 효과</text>
+      <text x="700" y="0">🌍 <text class="h2" fill="#3b82f6">일관된 성과</text>: 다양한 인지적 작업 영역에서 공통적으로 10% 이상 향상</text>
+    </g>
+  </g>
+
+  <!-- Economic Impact -->
+  <g transform="translate(70,700)">
+    <rect x="0" y="0" width="1260" height="80" rx="15" fill="#065f46" opacity="0.8"/>
+    <text x="630" y="25" text-anchor="middle" class="h1" fill="#6ee7b7">경제적 영향 전망</text>
+    <text x="630" y="50" text-anchor="middle" class="p" fill="#6ee7b7">골드만삭스 추정: 향후 10년간 전 세계 GDP 7% 증가 잠재력</text>
+    <text x="630" y="70" text-anchor="middle" class="small" fill="#6ee7b7">Goldman Sachs estimates 7% global GDP growth potential over the next decade</text>
+  </g>
+</svg>

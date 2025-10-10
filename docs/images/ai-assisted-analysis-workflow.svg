@@ -110,7 +110,8 @@
 
   <!-- Feedback loop -->
   <path d="M 980 360 Q 1050 430 980 500" class="arrow-feedback"/>
-  <text x="1060" y="435" class="title" fill="#dc3545" text-anchor="start">피드백 루프</text>
+  <text x="1060" y="435" class="text-main" fill="#dc3545" text-anchor="start">피드백</text>
+  <text x="1060" y="460" class="text-main" fill="#dc3545" text-anchor="start">루프</text>
 
   <!-- Arrow to outputs -->
   <path d="M 960 400 L 1090 290" class="arrow"/>

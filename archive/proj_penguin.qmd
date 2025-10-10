@@ -1,0 +1,493 @@
+# 펭귄 생태 분석 {#sec-proj-penguin}
+
+남극 대륙과 주변 아남극 지역은 지구상에서 가장 극한의 환경을 가진 곳 중 하나이지만, 동시에 독특하고 경이로운 생태계의 보금자리이기도 하다. 이곳에 서식하는 펭귄들은 수백만 년에 걸쳐 혹독한 환경에 적응하며 진화해왔지만, 21세기 들어 급속히 진행되는 기후변화로 인해 생존의 위기를 맞고 있다 [@solomon2007climate].
+
+기후변화\index{기후변화}가 남극 생태계\index{생태계}에 미치는 영향은 복합적이고 심각하다. 해빙 면적의 감소로 펭귄들의 서식지가 줄어들고 있으며, 해수 온도 상승으로 인한 먹이 사슬의 변화는 펭귄들의 번식과 생존에 직접적인 위협을 가하고 있다. 특히 일부 지역에서는 펭귄 개체수가 급격히 감소하고 있어, 종의 보존을 위한 과학적 근거 기반의 체계적인 접근이 시급한 상황이다 [@trathan2015pollution].
+
+```{mermaid}
+%%| label: fig-penguin-ecosystem
+%%| fig-cap: "남극 펭귄 생태계와 기후변화 영향"
+%%| fig-align: center
+%%| fig-width: 6
+
+flowchart LR
+    subgraph A ["기후변화 요인"]
+        direction TB
+        A1["해수면<br/>온도 상승"] 
+        A2["해빙 면적감소 <br/> 강수 패턴변화"]
+    end
+    
+    subgraph B ["생태계 변화"]
+        B1["크릴 분포<br/>변화"]
+        B2["어류 개체군 변동 <br/> 해양 산성화"]
+    end
+    
+    subgraph C ["펭귄 영향"]
+        C1["서식지 손실 <br/> 먹이부족"]
+        C3["번식 성공률 저하<br/> 개체수 감소"]
+    end
+    
+    subgraph D ["데이터 과학 접근"]
+        D1["개체군 모니터링 <br/> 서식지 매핑"]
+        D3["예측 모델링 <br/>보존 전략 수립"]
+    end
+    
+    A --> B
+    B --> C  
+    C --> D
+    
+    style A fill:#ffebee
+    style B fill:#fff3e0
+    style C fill:#fce4ec
+    style D fill:#e8f5e8
+```
+
+
+이러한 맥락에서 데이터 과학은 펭귄 보존 과학\index{보존 과학} 전략 수립에 핵심적인 역할을 담당한다. 광범위한 생태학적 데이터를 체계적으로 분석하여 개체군 동태를 파악하고, 기후변화의 영향을 정량화하며, 보존 우선순위를 과학적으로 결정할 수 있기 때문이다. 본 실습에서는 Palmer Station 남극 연구 기지에서 수집된 펭귄 데이터를 활용하여, AI 기반 데이터 과학 도구인 Claude Code\index{Claude Code}를 통해 실제 보존 과학 연구 과정을 체험해보고자 한다.
+
+
+## 펭귄 보존 작업흐름
+
+@fig-ai-workflow 는 Claude Code를 활용한 펭귄 보존 분석의 핵심 워크플로우를 보여준다. 전통적인 데이터 과학 접근법과 달리, 자연어 프롬프트를 통해 "펭귄보호 분석", "EDA 수행", "보존전략 수립"과 같은 고수준의 목표를 직접 전달할 수 있다.
+
+```{mermaid}
+%%| label: fig-ai-workflow
+%%| fig-cap: "Claude Code를 활용한 펭귄 보존 데이터 과학 전체 작업 흐름"
+%%| fig-align: center
+%%| fig-width: 6
+
+flowchart LR
+    A["📊 Palmer Penguins<br/>Dataset<br/>(CSV)"]
+    
+    B["🤖 AI 목표 하달<br/><br/>자연어 프롬프트:<br/>펭귄보호 분석<br/>EDA 수행<br/>보존전략 수립"]
+    
+    C["⚙️ EDA 및 스크립트<br/><br/>R 코드 자동생성<br/>통계 분석<br/>시각화<br/>취약성 평가"]
+    
+    D["📄 PDF/HTML 생성<br/><br/>Quarto PDF 보고서<br/>HTML 웹앱<br/>대화형 시각화"]
+    
+    %% 연결선
+    A --> B
+    B --> C
+    C --> D
+    
+    %% 스타일링
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000
+    style B fill:#e8f5e8,stroke:#388e3c,stroke-width:3px,color:#000
+    style C fill:#fff3e0,stroke:#f57c00,stroke-width:3px,color:#000
+    style D fill:#fce4ec,stroke:#c2185b,stroke-width:3px,color:#000
+```
+
+@fig-ai-workflow 핵심은 AI가 복잡한 코딩 작업과 분석 과정을 자동화하여 연구자가 도메인 전문성과 전략적 사고에 집중할 수 있게 하는 것이다. 최종 단계에서 학술적 정확성과 대중적 접근성을 모두 확보하는 완전한 커뮤니케이션 패키지를 제공한다.
+
+## 데이터셋 소개 {#sec-penguin-dataset}
+
+Palmer Penguins\index{Palmer Penguins} 데이터셋은 원래 Palmer Station Long Term Ecological Research (LTER) 프로그램의 일환으로 수집된 데이터로, Dr. Kristen Gorman과 Palmer Station의 연구진이 2007년부터 2009년까지 3년간 수집했다 [@gorman2014ecological]. 이 데이터는 남극 palmer 군도의 3개 섬(Biscoe, Dream, Torgersen)에서 서식하는 3종의 펭귄(Adelie, Chinstrap, Gentoo)에 대한 형태학적 측정 데이터를 포함하고 있다. 데이터셋에 포함된 주요 변수들은 다음과 같다.
+
+```{r}
+#| label: tbl-penguin-variables
+#| tbl-cap: "Palmer Penguins 데이터셋 변수 설명"
+#| echo: false
+#| message: false
+
+library(gt)
+library(dplyr)
+
+penguin_variables <- data.frame(
+  변수명 = c("species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex", "year"),
+  한국어명 = c("펭귄 종", "서식 섬", "부리 길이", "부리 깊이", "날개 길이", "체중", "성별", "측정 연도"),
+  값범위 = c("Adelie, Chinstrap, Gentoo", "Biscoe, Dream, Torgersen", "32.1-59.6 mm", "13.1-21.5 mm", "172-232 mm", "2700-6300 g", "male, female", "2007-2009"),
+  데이터타입 = c("범주형", "범주형", "연속형", "연속형", "연속형", "연속형", "범주형", "순서형")
+)
+
+penguin_variables %>%
+  gt() %>%
+  tab_header(
+    title = "Palmer Penguins 데이터 사전",
+    subtitle = "남극 팔머 기지 펭귄 형태학적 측정 데이터 (2007-2009)"
+  ) %>%
+  cols_label(
+    변수명 = "변수명",
+    한국어명 = "한국어명", 
+    값범위 = "값 범위",
+    데이터타입 = "데이터 타입"
+  ) %>%
+  cols_width(
+    변수명 ~ pct(20),
+    한국어명 ~ pct(15),
+    값범위 ~ pct(40),
+    데이터타입 ~ pct(25)
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "#e3f2fd"),
+      cell_text(font = "monospace", weight = "bold")
+    ),
+    locations = cells_body(columns = 변수명)
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#fff3e0"),
+    locations = cells_body(rows = 데이터타입 == "연속형")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#e8f5e8"),
+    locations = cells_body(rows = 데이터타입 == "범주형")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#f3e5f5"),
+    locations = cells_body(rows = 데이터타입 == "순서형")
+  ) %>%
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(9),
+    heading.title.font.size = px(16),
+    heading.subtitle.font.size = px(12)
+  ) %>%
+  opt_table_font(font = "Noto Sans KR")
+```
+
+@tbl-penguin-variables 에 정리된 데이터는 기후변화가 펭귄 개체군에 미치는 영향을 이해하는 데 중요한 기준선 데이터로 활용되고 있으며, 특히 각 종의 서식지 특성과 형태학적 차이를 분석하는 데 매우 유용하다.
+
+
+## AI 기반 작업흐름 {#sec-penguin-ai-workflow}
+
+Claude Code\index{Claude Code}의 설치와 기본 사용법은 [2부 11장](coding_claude.qmd)에서 상세히 다뤘으므로, 여기서는 펭귄 생태 분석에 특화된 설정만 간략히 다룬다. 먼저 작업 디렉토리를 생성하고 Palmer Penguins 데이터셋을 준비한다.
+
+``` bash
+# 프로젝트 디렉토리 설정
+mkdir penguins && cd penguins
+mkdir data
+
+# 펭귄 데이터셋 다운로드
+curl -o data/penguins.csv https://gist.githubusercontent.com/slopp/ce3b90b9168f2f921784de84fa445651/raw/4ecf3041f0ed4913e7c230758733948bc561f434/penguins.csv
+
+# Claude Code 실행 및 프로젝트 초기화
+claude
+/init
+```
+
+초기화가 완료되면 Claude가 프로젝트 컨텍스트를 이해할 수 있도록 하는 `CLAUDE.md` 파일이 생성되어 분석 목표와 데이터 특성을 기록하게 된다.
+
+```bash
+penguins/
+├── data/
+│   └── penguins.csv       # Palmer penguins dataset
+├── CLAUDE.md              # Claude Code 프로젝트 메모리 파일
+└── .claude/               # Claude 설정 파일들
+```
+
+
+## AI 기반 EDA\index{EDA} {#sec-penguin-ai-eda}
+
+### 대화 과정: 분석 목표 설정
+
+프로젝트 초기화가 완료되면, Claude Code에게 자연어로 분석의 목적과 방향을 전달한다. 실제 대화 과정을 재현해보면 다음과 같다.
+
+> **사용자 프롬프트:** 분석목적은 펭귄보호야 기후위기에 따라 생기는 펭귄 종 멸종을 막기위함. 기본적인 EDA\index{EDA} 작업을 r tidyverse 를 통해서 수행하고 single page application 을 만들어서 EDA 결과를 정리해봐.
+> 
+> 구체적으로는
+> 
+> 1. 종별 서식지 분포\index{서식지 분포} 분석 - 어느 종이 더 취약한지 파악
+> 2. 시간에 따른 개체 특성 변화 - 기후변화 영향 지표 탐색
+> 3. 형태학적 특성\index{형태학적 특성} 분석 - 종별 적응 전략 이해
+> 4. 성비와 번식 잠재력 평가 - 개체군 지속가능성 검토
+> 5. 취약성 평가\index{취약성 평가} 매트릭스 구성 - 보존 우선순위 설정
+
+**Claude Code:** 펭귄 보존을 위한 포괄적인 EDA 분석과 웹 애플리케이션을 만들어드리겠습니다. 먼저 todo 리스트를 작성하여 체계적으로 접근하겠습니다.
+
+```bash
+╭───────────────────────────────────────────────────────────╮
+│ ✻ Welcome to Claude Code!                                 │  
+│   /help for help, /status for your current setup          │
+│   cwd: /Users/rstudio/swc/penguins                        │
+╰───────────────────────────────────────────────────────────╯
+⏺ **Update Todos**
+☐ 데이터셋 로드 및 기본 구조 파악
+☐ 종별 서식지 분포 분석 수행
+☐ 형태학적 특성 종별 비교 분석  
+☐ 시간대별 변화 추세 분석
+☐ 보존 위험 요소 식별
+☐ 성비 및 번식 잠재력 조사
+☐ Single page application 개발
+```
+
+### 데이터 탐색: AI와 대화
+
+**Claude Code:** 먼저 펭귄 데이터를 로드하고 기본 구조를 파악해보겠습니다.
+
+```r
+# 펭귄 데이터 로드 및 기본 정보
+library(tidyverse)
+library(palmerpenguins)
+
+penguins <- read_csv("data/penguins.csv")
+glimpse(penguins)
+summary(penguins)
+```
+
+> **사용자:** 데이터 로드가 잘 됐네. 이제 종별 서식지 분포부터 시작해줘.
+
+**Claude Code:** 네, 종별 서식지 분포 분석을 시작하겠습니다. 각 종이 어떤 섬에 서식하는지 파악하여 취약성을 평가해보겠습니다.
+
+```r
+# 종별 서식지 분포 분석
+habitat_analysis <- penguins %>%
+  count(species, island) %>%
+  group_by(species) %>%
+  summarise(
+    islands_count = n(),
+    total_population = sum(n),
+    islands = paste(unique(island), collapse = ", "),
+    vulnerability = case_when(
+      islands_count == 1 ~ "매우 높음",
+      islands_count == 2 ~ "높음",
+      TRUE ~ "보통"
+    )
+  )
+
+print(habitat_analysis)
+```
+
+분석 결과, Chinstrap과 Gentoo는 각각 단일 섬에만 서식하여 매우 높은 취약성을 보입니다.
+
+### 시간별 변화 추이 분석
+
+> **사용자:** 좋아, 이제 시간에 따른 체중 변화를 분석해서 기후변화 영향을 확인해봐.
+
+**Claude Code:** 연도별 체중 변화를 분석하여 기후변화 영향을 확인해보겠습니다.
+
+```r
+# 시간별 체중 변화 분석
+temporal_trends <- penguins %>%
+  filter(!is.na(body_mass_g)) %>%
+  group_by(species, year) %>%
+  summarise(avg_mass = mean(body_mass_g), .groups = "drop") %>%
+  group_by(species) %>%
+  do(model = lm(avg_mass ~ year, data = .)) %>%
+  mutate(
+    slope = map_dbl(model, ~ coef(.)[2]),
+    p_value = map_dbl(model, ~ summary(.)$coefficients[2,4]),
+    trend = case_when(
+      slope > 0 & p_value < 0.05 ~ "증가",
+      slope < 0 & p_value < 0.05 ~ "감소",
+      TRUE ~ "변화없음"
+    )
+  )
+
+print(temporal_trends)
+```
+
+**결과 해석:** Adelie와 Chinstrap 펭귄에서 유의한 체중 감소 경향이 확인되었습니다. 이는 기후변화로 인한 먹이 부족을 시사합니다.
+
+분석이 완료되면 다음과 같은 프로젝트 구조가 생성된다.
+
+```bash
+penguins/
+├── data/penguins.csv
+├── scripts/
+│   ├── 01_data_exploration.R
+│   ├── 02_habitat_analysis.R  
+│   ├── 03_temporal_analysis.R
+│   └── 04_conservation_assessment.R
+├── penguin_conservation_app.html
+└── CLAUDE.md
+```
+
+## 시각화 및 통계 분석 {#sec-penguin-visualization}
+
+### 종별 서식지 분포 분석
+
+Claude Code는 먼저 각 펭귄 종의 서식지 분포를 분석하여 기후변화 취약성을 평가했다.
+
+``` r
+# 서식지 다양성 지수 계산 및 시각화
+habitat_vulnerability <- penguins %>%
+  count(species, island) %>%
+  group_by(species) %>%
+  summarise(
+    islands_count = n(),
+    vulnerability_score = case_when(
+      islands_count == 1 ~ "높음",
+      islands_count == 2 ~ "보통", 
+      islands_count >= 3 ~ "낮음"
+    )
+  )
+
+# 취약성 매트릭스 시각화
+ggplot(habitat_vulnerability, aes(x = species, y = islands_count, 
+                                 fill = vulnerability_score)) +
+  geom_col() +
+  labs(title = "펭귄 종별 서식지 다양성과 취약성",
+       x = "종", y = "서식 섬 개수") +
+  theme_minimal()
+```
+
+### 시간대별 체중 변화 분석
+
+기후변화의 영향을 파악하기 위해 연도별 체중 변화를 분석했다.
+
+``` r
+# 연도별 체중 변화 추이 분석
+temporal_analysis <- penguins %>%
+  group_by(species, year) %>%
+  summarise(avg_mass = mean(body_mass_g, na.rm = TRUE)) %>%
+  arrange(species, year)
+
+# 선형 회귀를 통한 추세 분석
+mass_trends <- temporal_analysis %>%
+  group_by(species) %>%
+  do(model = lm(avg_mass ~ year, data = .)) %>%
+  mutate(slope = map_dbl(model, ~ coef(.)[2]),
+         significance = map_dbl(model, ~ summary(.)$coefficients[2,4]))
+
+# 통계적 유의성 평가
+mass_trends %>%
+  mutate(
+    trend_direction = case_when(
+      slope > 0 & significance < 0.05 ~ "유의한 증가",
+      slope < 0 & significance < 0.05 ~ "유의한 감소", 
+      TRUE ~ "변화 없음"
+    )
+  )
+```
+
+### 형태학적 특성 종간 비교
+
+종별 적응 전략을 이해하기 위한 형태학적 분석을 수행한다.
+
+``` r
+# PCA\index{PCA}를 통한 형태학적 특성 분석
+morphology_pca <- penguins %>%
+  select(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) %>%
+  na.omit() %>%
+  prcomp(scale = TRUE)
+
+# 종별 형태학적 니치 시각화
+pca_results <- data.frame(
+  PC1 = morphology_pca$x[,1],
+  PC2 = morphology_pca$x[,2],
+  species = penguins$species[complete.cases(penguins[,3:6])]
+)
+
+ggplot(pca_results, aes(PC1, PC2, color = species)) +
+  geom_point() +
+  stat_ellipse() +
+  labs(title = "펭귄 종별 형태학적 니치")
+```
+
+### 주요 발견사항과 생태학적 의미
+
+@tbl-vulnerability-matrix 분석 결과는 남극 펭귄 개체군의 서식지 취약성에 대한 명확한 생태학적 패턴을 보여준다. Chinstrap 펭귄의 Dream 섬 단일 서식지 의존성은 **서식지 특화**의 전형적인 사례로, 진화적 관점에서는 특정 환경에 대한 최적화를 의미하지만 기후변화 시대에는 치명적인 약점이 되고 있다.
+
+생태학적으로 단일 서식지 의존 종들은 **메타 개체군** 이론에 따른 위험 분산 효과를 누릴 수 없다. 즉, Dream 섬에 국지적인 환경 스트레스(해빙 감소, 크릴 개체군 붕괴, 극한 기상 현상 등)가 발생할 경우, Chinstrap 펭귄 전체 개체군이 동시에 영향을 받아 **절멸 소용돌이** 현상에 빠질 위험이 높다.
+
+```{r}
+#| label: tbl-vulnerability-matrix
+#| tbl-cap: "펭귄 종별 기후변화 취약성 매트릭스"
+#| echo: false
+#| warning: false
+
+library(gt)
+library(dplyr)
+
+vulnerability_data <- data.frame(
+  종 = c("Chinstrap", "Gentoo", "Adelie"),
+  서식섬수 = c(1, 1, 3),
+  서식지다양성 = c("Dream만", "Biscoe만", "3개 섬 모두"),
+  개체수 = c(68, 124, 152),
+  취약성등급 = c("매우 높음", "높음", "보통"),
+  우선순위 = c(1, 2, 3)
+)
+
+vulnerability_data %>%
+  gt() %>%
+  cols_width(
+    종 ~ pct(18),
+    서식섬수 ~ pct(14),
+    서식지다양성 ~ pct(22),
+    개체수 ~ pct(14),
+    취약성등급 ~ pct(18),
+    우선순위 ~ pct(14)
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#ffebee"),
+    locations = cells_body(rows = 취약성등급 == "매우 높음")
+  ) %>%
+  tab_style(
+    style = cell_fill(color = "#fff3e0"), 
+    locations = cells_body(rows = 취약성등급 == "높음")
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) |> 
+  tab_options(
+    table.width = pct(100),    # 페이지 너비에 맞춤
+    table.font.size = px(9)  # 글꼴 크기 소폭 축소
+  )    
+```
+
+Gentoo 펭귄의 Biscoe 섬 제한적 분포는 **개체군 규모 효과**의 중요성을 보여준다. 상대적으로 큰 개체수(124개체)는 **유전적 다양성 유지**와 **환경 변화에 대한 버퍼 역할**을 제공하여, 단일 서식지 의존성에도 불구하고 Chinstrap보다 회복력을 갖는다. 이는 보존생물학의 핵심 개념인 **최소 존속 가능 개체군** 이론과 일치한다.
+
+Adelie 펭귄의 3개 섬 분산 서식은 **위험 분산 전략**의 전형적인 사례다. 이러한 **공간적 이질성** 활용은 기후변화의 국지적 영향을 완충하며, 한 서식지에서 개체군이 감소하더라도 다른 서식지의 개체군이 **소스 개체군** 역할을 통해 재정착을 가능하게 한다.
+
+**보존 생태학적 함의**: 이러한 분석은 **종별 맞춤형 보존 전략**의 필요성을 강조한다. 서식지 특화 종(Chinstrap, Gentoo)에게는 핵심 서식지 보호가 최우선이며, 일반화 종(Adelie)에게는 서식지 네트워크 유지가 중요하다. 특히 **기후 피난처** 확보와 **연결성 강화**가 장기적 생존 전략의 핵심이다.
+
+### 기후변화 지표로 체중 변화
+
+분석에서 확인된 Adelie와 Chinstrap 펭귄의 시간별 체중 감소 경향은 **생리생태학적 스트레스 지표**로 해석된다. 체중은 개체의 **에너지 저장량**과 **생존 적응도**를 직접 반영하는 핵심 지표로, 지속적인 감소는 **먹이 사슬 기반부**의 구조적 변화를 시사한다.
+
+**먹이망 역학 관점**에서 이러한 변화는 남극 해양 생태계의 **기초 생산력** 감소와 연결된다. 해빙 의존적인 **규조류** 개체군의 감소가 **남극 크릴새우** 개체군에 연쇄적으로 영향을 미치고, 최종적으로 펭귄의 **에너지 획득 효율성**을 저하시키는 **상향식 조절** 메커니즘이 작동하고 있다.
+
+**번식 생태학적 함의**: 체중과 번식 성공률 간의 양의 상관관계는 **생활사 이론**의 **에너지 할당 가설**을 뒷받침한다. 체중 감소는 **번식 투자** 감소로 이어져 **개체군 성장률**에 직접적인 부정적 영향을 미친다. 이는 **인구통계학적 확률성**을 증가시켜 소규모 개체군의 **절멸 확률**을 가속화한다.
+
+데이터 분석 결과를 바탕으로 수립된 보존 전략은 각 종의 취약성 수준에 따라 차별화된 접근을 제시한다. 최우선적으로 즉시 조치가 필요한 것은 Chinstrap 펭귄에 대한 보호이다. Dream 섬이라는 단일 서식지에 전적으로 의존하는 이들 펭귄은 해당 지역의 환경 변화에 극도로 취약하다. 따라서 Dream 섬에 대한 집중적인 모니터링 시스템 구축과 서식지 보호 조치가 시급히 필요하다. 특히 해빙 상태, 먹이 가용성, 번식지 안정성에 대한 실시간 추적 시스템을 도입하여 환경 변화에 신속하게 대응할 수 있는 체계를 마련해야 한다.
+
+중기적 관점에서는 Gentoo 펭귄을 위한 Biscoe 섬 서식지 보호 전략이 핵심이다. 비록 상대적으로 큰 개체수를 유지하고 있지만, 단일 서식지 의존성은 여전히 높은 위험 요소이다. 따라서 Biscoe 섬의 생태계 보전을 위한 종합적인 환경 관리 계획을 수립하고, 필요시 인근 지역으로의 서식지 확장 가능성을 탐색해야 한다.
+
+장기적으로는 Adelie 펭귄에 대한 지속적인 개체군 동태 모니터링이 필요하다. 현재 3개 섬 모두에 분산 서식하여 상대적으로 안정적인 상태를 보이지만, 체중 감소 추세 등 우려스러운 신호가 포착되고 있다. 이들에 대한 장기 추적을 통해 기후변화가 광범위한 서식지를 가진 종에게 미치는 영향을 지속적으로 평가하고, 필요시 적절한 개입 방안을 마련해야 한다. 특히 Adelie 펭귄의 변화 패턴은 전체 남극 생태계 건강성의 지표로 활용될 수 있어 그 중요성이 크다.
+
+## 보고서 생성 과정 {#sec-penguin-report}
+
+### 보고서 생성 요청
+
+분석이 완료되면 통합 보고서 생성을 요청한다.
+
+> **사용자:** `@scripts` 폴더 R 코드를 실행하고 버그가 있으면 수정해줘. 기후위기로 남극펭귄 보존에 대한 보고서를 작성해야 하는데 기초 분석된 결과를 바탕으로 pdf 보고서를 작성해줘.
+>
+> **Claude Code:** 생성된 R 스크립트들을 검증하고 PDF 보고서를 작성하겠습니다. 먼저 코드 실행 결과를 확인해보겠습니다.
+
+Claude는 분석 결과를 종합하여 체계적인 PDF 보고서를 자동 생성한다. Quarto + Typst 조합으로 전문적인 레이아웃을 구현하며, R 코드와 결과가 실시간으로 통합된다.
+
+::: {.content-visible when-format="html"}
+![펭귄 PDF 보고서](images/penguins_pdf.gif){#fig-penguin-pdf fig-align="center" width="500"}
+:::
+
+::: {.content-visible when-format="pdf"}
+![펭귄 PDF 보고서 - R과 Quarto를 활용 보고서 자동 생성](images/positron_pdf.jpg){#fig-penguin-pdf-static fig-align="center" width="400"}
+:::
+
+### 웹 애플리케이션 개발
+
+PDF 보고서 완성 후, 대화형 웹 애플리케이션도 요청할 수 있다.
+
+> **사용자:** 좋았어 ... 이번에는 single web application 으로 html 파일로 제작해줘.
+>
+> **Claude Code:** 단일 HTML 파일로 대화형 웹 애플리케이션을 개발하겠습니다. Quarto HTML 형식으로 모든 자원을 포함한 독립 실행 가능한 애플리케이션을 만들겠습니다.
+
+Claude는 Quarto HTML 기반의 완전 독립형 웹 애플리케이션을 자동 생성한다. `embed-resources: true` 옵션으로 모든 자원을 단일 HTML 파일에 포함시켜 서버 없이도 실행 가능하다. tidyverse와 plotly를 활용한 대화형 시각화, DT 패키지 기반의 탐색 가능한 데이터 테이블, 반응형 레이아웃을 모두 지원한다.
+
+::: {.content-visible when-format="html"}
+![펭귄 분석 대시보드](images/penguins_web.gif){#fig-penguins-dashboard fig-align="center" width="350"}
+:::
+
+::: {.content-visible when-format="pdf"}
+![Single Web Application HTML 인포그래픽](images/penguins_web_frame1.png){#fig-penguins-dashboard-static fig-align="center" width="350"}
+:::
+
+R 기반 펭귄 데이터 분석을 통해 AI와 함께하는 데이터 과학의 새로운 가능성을 경험해볼 수 있었다. Claude Code가 제공하는 자연어 기반 분석 요청부터 통계 모델링, 시각화, 대화형 웹 애플리케이션 개발까지의 전 과정은 데이터 과학 워크플로우의 모든 단계에서 AI가 어떻게 생산성을 향상시킬 수 있는지를 보여준다. 특히 탐색적 데이터 분석에서 머신러닝 모델 구축, 결과 해석에 이르기까지 복잡한 분석 과정을 자연어로 제어할 수 있다는 점은 데이터 과학의 민주화를 가속화하는 중요한 변화다.
+
+다음 장에서는 동일한 펭귄 데이터셋을 Python 환경에서 분석해보며, R과 Python 간의 접근법 차이와 각 언어의 고유한 장점을 비교 탐구할 예정이다. 이를 통해 다중 언어 환경에서의 AI 기반 데이터 과학 워크플로우의 완전한 그림을 그려볼 수 있을 것이다.

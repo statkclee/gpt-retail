@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 95 1800 700">
+  <defs>
+    <!-- Era-specific gradients -->
+    <linearGradient id="preDataGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#95A5A6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7F8C8D;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="dataScienceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980B9;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="quartoGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1ABC9C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16A085;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="aiEraGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Timeline gradients -->
+    <linearGradient id="timelineRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="timelineOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E67E22;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="timelineTeal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1ABC9C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16A085;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="timelineGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#229954;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2200" height="1400" fill="#F8F9FA"/>
+
+  <!-- Era Columns -->
+
+  <!-- PRE-DATA SCIENCE ERA -->
+  <g transform="translate(50, 120)">
+    <!-- Column Header -->
+    <rect x="0" y="0" width="400" height="60" fill="url(#preDataGradient)" rx="8" filter="url(#shadow)"/>
+    <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+      📊 Pre-Data Science Era
+    </text>
+    <text x="200" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ECF0F1">
+      1990s - 2013: Manual &amp; Expensive
+    </text>
+
+    <!-- Development Time -->
+    <rect x="20" y="80" width="360" height="140" fill="white" stroke="#95A5A6" stroke-width="2" rx="5"/>
+    <text x="200" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#7F8C8D">
+      Development Time
+    </text>
+    <rect x="40" y="125" width="320" height="30" fill="#ECEFF1" rx="15"/>
+    <rect x="40" y="125" width="320" height="30" fill="url(#timelineRed)" rx="15"/>
+    <text x="200" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">
+      13-26 DAYS
+    </text>
+    <text x="200" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#7F8C8D">
+      Manual processes, data entry
+    </text>
+
+    <!-- Automation Level -->
+    <rect x="20" y="240" width="360" height="150" fill="white" stroke="#95A5A6" stroke-width="2" rx="5"/>
+    <text x="200" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#7F8C8D">
+      Automation Level
+    </text>
+
+    <!-- Automation Gauge -->
+    <circle cx="200" cy="320" r="40" fill="none" stroke="#ECEFF1" stroke-width="8"/>
+    <circle cx="200" cy="320" r="40" fill="none" stroke="#E74C3C" stroke-width="8" stroke-dasharray="13 238" transform="rotate(-90 200 320)"/>
+    <text x="200" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#E74C3C">5%</text>
+    <text x="200" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#7F8C8D">Mostly Manual</text>
+
+    <!-- Technology Stack -->
+    <rect x="20" y="410" width="360" height="150" fill="white" stroke="#95A5A6" stroke-width="2" rx="5"/>
+    <text x="200" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#7F8C8D">
+      Technology Stack
+    </text>
+    <text x="35" y="465" font-family="Arial, sans-serif" font-size="16" fill="#666">• SAS, SPSS, Stata ($10K-$100K)</text>
+    <text x="35" y="490" font-family="Arial, sans-serif" font-size="16" fill="#666">• Excel VBA, Crystal Reports</text>
+    <text x="35" y="515" font-family="Arial, sans-serif" font-size="16" fill="#666">• Manual data entry &amp; cleaning</text>
+    <text x="35" y="540" font-family="Arial, sans-serif" font-size="16" fill="#666">• Static PDF/PowerPoint outputs</text>
+
+    <!-- Productivity -->
+    <rect x="20" y="580" width="360" height="70" fill="#FFE5E5" stroke="#E74C3C" stroke-width="2" rx="5"/>
+    <text x="200" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#C0392B">
+      Productivity: 1x Baseline
+    </text>
+    <text x="200" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#C0392B">
+      Siloed specialists, limited reproducibility
+    </text>
+  </g>
+
+  <!-- DATA SCIENCE ERA -->
+  <g transform="translate(500, 120)">
+    <!-- Column Header -->
+    <rect x="0" y="0" width="400" height="60" fill="url(#dataScienceGradient)" rx="8" filter="url(#shadow)"/>
+    <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+      🔬 Data Science Era
+    </text>
+    <text x="200" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#E8F4FD">
+      2013 - 2020: Open Source Revolution
+    </text>
+
+    <!-- Development Time -->
+    <rect x="20" y="80" width="360" height="140" fill="white" stroke="#3498DB" stroke-width="2" rx="5"/>
+    <text x="200" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2980B9">
+      Development Time
+    </text>
+    <rect x="40" y="125" width="320" height="30" fill="#ECEFF1" rx="15"/>
+    <rect x="40" y="125" width="160" height="30" fill="url(#timelineOrange)" rx="15"/>
+    <text x="120" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">
+      5-10 DAYS
+    </text>
+    <text x="200" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#2980B9">
+      Automated pipelines, collaboration
+    </text>
+
+    <!-- Automation Level -->
+    <rect x="20" y="240" width="360" height="150" fill="white" stroke="#3498DB" stroke-width="2" rx="5"/>
+    <text x="200" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2980B9">
+      Automation Level
+    </text>
+
+    <!-- Automation Gauge -->
+    <circle cx="200" cy="320" r="40" fill="none" stroke="#ECEFF1" stroke-width="8"/>
+    <circle cx="200" cy="320" r="40" fill="none" stroke="#F39C12" stroke-width="8" stroke-dasharray="126 126" transform="rotate(-90 200 320)"/>
+    <text x="200" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#F39C12">50%</text>
+    <text x="200" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#2980B9">Semi-Automated</text>
+
+    <!-- Technology Stack -->
+    <rect x="20" y="410" width="360" height="150" fill="white" stroke="#3498DB" stroke-width="2" rx="5"/>
+    <text x="200" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2980B9">
+      Technology Stack
+    </text>
+    <text x="35" y="465" font-family="Arial, sans-serif" font-size="16" fill="#666">• Python, R (free/open source)</text>
+    <text x="35" y="490" font-family="Arial, sans-serif" font-size="16" fill="#666">• Git/GitHub, Jupyter notebooks</text>
+    <text x="35" y="515" font-family="Arial, sans-serif" font-size="16" fill="#666">• Cloud platforms: AWS, GCP</text>
+    <text x="35" y="540" font-family="Arial, sans-serif" font-size="16" fill="#666">• Interactive dashboards</text>
+
+    <!-- Productivity -->
+    <rect x="20" y="580" width="360" height="70" fill="#E8F6FF" stroke="#3498DB" stroke-width="2" rx="5"/>
+    <text x="200" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2980B9">
+      Productivity: 3x Improvement
+    </text>
+    <text x="200" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#2980B9">
+      Reproducible workflows, collaboration
+    </text>
+  </g>
+
+  <!-- QUARTO ERA -->
+  <g transform="translate(950, 120)">
+    <!-- Column Header -->
+    <rect x="0" y="0" width="400" height="60" fill="url(#quartoGradient)" rx="8" filter="url(#shadow)"/>
+    <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+      📄 Quarto Era
+    </text>
+    <text x="200" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#A3F2ED">
+      2020 - Present: Reproducible Publishing
+    </text>
+
+    <!-- Development Time -->
+    <rect x="20" y="80" width="360" height="140" fill="white" stroke="#1ABC9C" stroke-width="2" rx="5" filter="url(#glow)"/>
+    <text x="200" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#16A085">
+      Development Time
+    </text>
+    <rect x="40" y="125" width="320" height="30" fill="#ECEFF1" rx="15"/>
+    <rect x="40" y="125" width="120" height="30" fill="url(#timelineTeal)" rx="15"/>
+    <text x="100" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">
+      3-6 DAYS
+    </text>
+    <text x="200" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#16A085">
+      Document-as-code, automated rendering
+    </text>
+
+    <!-- Automation Level -->
+    <rect x="20" y="240" width="360" height="150" fill="white" stroke="#1ABC9C" stroke-width="2" rx="5"/>
+    <text x="200" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#16A085">
+      Automation Level
+    </text>
+
+    <!-- Automation Gauge -->
+    <circle cx="200" cy="320" r="40" fill="none" stroke="#ECEFF1" stroke-width="8"/>
+    <circle cx="200" cy="320" r="40" fill="none" stroke="#1ABC9C" stroke-width="8" stroke-dasharray="176 76" transform="rotate(-90 200 320)"/>
+    <text x="200" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1ABC9C">70%</text>
+    <text x="200" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#16A085">Highly Automated</text>
+
+    <!-- RStudio Innovation Journey -->
+    <rect x="20" y="410" width="360" height="150" fill="white" stroke="#1ABC9C" stroke-width="2" rx="5"/>
+    <text x="200" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#16A085">
+      RStudio Innovation Journey
+    </text>
+    <text x="35" y="465" font-family="Arial, sans-serif" font-size="16" fill="#666">• RStudio IDE (2011): Revolutionary IDE</text>
+    <text x="35" y="490" font-family="Arial, sans-serif" font-size="16" fill="#666">• RMarkdown (2014): Reproducible docs</text>
+    <text x="35" y="515" font-family="Arial, sans-serif" font-size="16" fill="#666">• knitr: Automated report generation</text>
+    <text x="35" y="540" font-family="Arial, sans-serif" font-size="16" fill="#666">• Quarto (2022): Universal publishing</text>
+
+    <!-- Productivity -->
+    <rect x="20" y="580" width="360" height="70" fill="#E8FFF9" stroke="#1ABC9C" stroke-width="2" rx="5"/>
+    <text x="200" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#16A085">
+      Productivity: 5x Improvement
+    </text>
+    <text x="200" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#16A085">
+      Literate programming, multi-format output
+    </text>
+  </g>
+
+  <!-- AI ERA -->
+  <g transform="translate(1400, 120)">
+    <!-- Column Header -->
+    <rect x="0" y="0" width="400" height="60" fill="url(#aiEraGradient)" rx="8" filter="url(#shadow)"/>
+    <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+      🤖 AI Era
+    </text>
+    <text x="200" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#F4E6FF">
+      2022 - Present: Intelligent Automation
+    </text>
+
+    <!-- Development Time -->
+    <rect x="20" y="80" width="360" height="140" fill="white" stroke="#9B59B6" stroke-width="2" rx="5" filter="url(#glow)"/>
+    <text x="200" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8E44AD">
+      Development Time
+    </text>
+    <rect x="40" y="125" width="320" height="30" fill="#ECEFF1" rx="15"/>
+    <rect x="40" y="125" width="80" height="30" fill="url(#timelineGreen)" rx="15"/>
+    <text x="80" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="white">
+      2-5 DAYS
+    </text>
+    <text x="200" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#8E44AD">
+      AI agents, natural language
+    </text>
+
+    <!-- Automation Level -->
+    <rect x="20" y="240" width="360" height="150" fill="white" stroke="#9B59B6" stroke-width="2" rx="5"/>
+    <text x="200" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8E44AD">
+      Automation Level
+    </text>
+
+    <!-- Automation Gauge -->
+    <circle cx="200" cy="320" r="40" fill="none" stroke="#ECEFF1" stroke-width="8"/>
+    <circle cx="200" cy="320" r="40" fill="none" stroke="#27AE60" stroke-width="8" stroke-dasharray="226 26" transform="rotate(-90 200 320)" filter="url(#glow)"/>
+    <text x="200" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#27AE60">90%</text>
+    <text x="200" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#8E44AD">Fully Automated</text>
+
+    <!-- Technology Stack -->
+    <rect x="20" y="410" width="360" height="150" fill="white" stroke="#9B59B6" stroke-width="2" rx="5"/>
+    <text x="200" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#8E44AD">
+      AI + Quarto Integration
+    </text>
+    <text x="35" y="465" font-family="Arial, sans-serif" font-size="16" fill="#666">• LLMs: GPT-4, Claude (API-based)</text>
+    <text x="35" y="490" font-family="Arial, sans-serif" font-size="16" fill="#666">• AI agents + Quarto workflows</text>
+    <text x="35" y="515" font-family="Arial, sans-serif" font-size="16" fill="#666">• Natural language → documents</text>
+    <text x="35" y="540" font-family="Arial, sans-serif" font-size="16" fill="#666">• Conversational interfaces</text>
+
+    <!-- Productivity -->
+    <rect x="20" y="580" width="360" height="70" fill="#F4E6FF" stroke="#9B59B6" stroke-width="2" rx="5" filter="url(#glow)"/>
+    <text x="200" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8E44AD">
+      Productivity: 10x Revolution
+    </text>
+    <text x="200" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#8E44AD">
+      AI-driven insights, autonomous reporting
+    </text>
+  </g>
+
+  <!-- Progress Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2ECC71" stroke="#27AE60" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <g transform="translate(-10, 0)">
+    <path d="M 450 520 Q 490 480 520 520" stroke="#2ECC71" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 900 520 Q 940 480 970 520" stroke="#2ECC71" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 1350 520 Q 1390 480 1420 520" stroke="#2ECC71" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  </g>
+
+</svg>

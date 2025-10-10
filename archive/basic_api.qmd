@@ -1,0 +1,679 @@
+# API와 웹서비스
+
+프로그램을 사용하여 HTTP상에서 문서를 가져와서 파싱하는 것이 익숙해지면, 다른 프로그램(즉, 브라우저에서 HTML로 보여지지 않는 것)에서 활용되도록 특별히 설계된 문서를 생성하는 것은 그다지 오래 걸리지 않는다.
+
+웹 API\index{API}를 통해 데이터를 교환할 때 두 가지 형식이 많이 사용된다. XML\index{XML}은 오랜 기간 사용되어 왔고 문서-형식(document-style) 데이터를 교환하는데 가장 적합하다. 딕셔너리, 리스트 혹은 다른 내부 정보를 프로그램으로 서로 교환할 때, JSON\index{JSON}[^json-org]을 사용한다. 
+
+[^json-org]: <https://www.json.org/json-ko.html>
+
+**중요한 점은 XML과 JSON이 API 통신에서 사용되는 데이터 형식이라는 것이다.** API는 통신 규약\index{통신 규약}이고, 웹서비스\index{웹서비스}는 그 구현체이며, XML/JSON은 실제 데이터를 주고받을 때 사용하는 형식이다. 두 가지 형식에 대해 모두 살펴볼 것이다.
+
+## API와 웹서비스 개념
+
+API\index{API}는 서로 다른 소프트웨어 시스템 간의 통신 규약이나 인터페이스\index{인터페이스}를 정의한 것이다. API는 "무엇을 할 수 있는가"와 "어떻게 요청해야 하는가"를 명시하는 일종의 계약서 역할을 한다.
+
+::: callout-note
+### 웹서비스 주요 구성요소
+
+- API: 통신 규약 (무엇을, 어떻게)
+- 웹서비스: 웹을 통한 API 구현 (HTTP + XML/JSON)
+- XML/JSON: 데이터 교환 형식
+
+:::
+
+웹서비스는 이러한 API를 웹(HTTP 프로토콜\index{HTTP 프로토콜})을 통해 구현한 서비스이다. 즉, 웹서비스는 웹 API의 구현체라고 할 수 있다. 클라이언트\index{클라이언트} 프로그램이 HTTP 요청\index{HTTP 요청}을 보내면, 서버가 XML이나 JSON 형식으로 데이터를 응답\index{응답}하는 방식으로 작동한다.
+
+```{mermaid}
+%%| label: fig-webservice-concept
+%%| fig-align: center
+%%| fig-width: 5
+%%| fig-cap: "웹서비스 개념 구조"
+
+graph LR
+    subgraph "추상적 개념"
+        A[API<br/>통신 규약<br/>무엇을, 어떻게]
+    end
+    
+    subgraph "구체적 구현"
+        B[웹서비스<br/>API의 웹 구현체]
+        C[HTTP<br/>웹 프로토콜]
+        D[XML/JSON<br/>데이터 형식]
+    end
+    
+    subgraph "실제 동작"
+        E[클라이언트<br/>프로그램]
+        F[서버<br/>프로그램]
+    end
+    
+    A -.->|구현| B
+    B -->|사용| C
+    B -->|사용| D
+    
+    E -->|HTTP 요청| F
+    F -->|XML/JSON 응답| E
+    
+    B -.->|기반| E
+    B -.->|기반| F
+    
+    style A fill:#e8f5e9
+    style B fill:#e1f5fe
+    style C fill:#fff3e0
+    style D fill:#fff3e0
+    style E fill:#f0f8ff
+    style F fill:#f0f8ff
+```
+
+
+
+## XML
+
+XML은 HTML과 매우 유사하지만, XML이 좀 더 HTML보다 구조화되었다. 여기 XML 문서 샘플이 있다.
+
+```xml
+<person>
+  <name>Chuck</name>
+  <phone type="intl">
+     +1 734 303 4456
+   </phone>
+   <email hide="yes"/>
+</person>
+```
+
+종종 XML문서를 나무 구조(tree structure)로 생각하는 것이 도움이 된다. 최상단 `person` 태그가 있고, `phone` 같은 다른 태그는 부모 노드의 *자식(children)* 노드로 표현된다.
+
+```{mermaid}
+%%| label: fig-xml-tree
+%%| fig-align: center
+%%| fig-width: 4
+%%| fig-cap: "XML 문서 나무 구조"
+
+graph TD
+    A[person] --> B[name]
+    A --> C[phone]
+    A --> D[email]
+    B --> E[홍길동]
+    C --> F[+82 10 7777 7897]
+    C --> G[type=intl]
+    D --> H[hide=yes]
+    
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#fff3e0
+    style D fill:#fff3e0
+```
+
+### XML 파싱
+
+다음은 XML을 파싱하고 XML에서 데이터 요소를 추출하는 간단한 응용프로그램이다.
+
+```python
+import xml.etree.ElementTree as ET
+
+data = '''
+<person>
+  <name>홍길동</name>
+  <phone type="intl">
+     +82 10 7777 7897
+   </phone>
+   <email hide="yes"/>
+</person>'''
+
+tree = ET.fromstring(data)
+print('Name:', tree.find('name').text)
+print('Attr:', tree.find('email').get('hide'))
+```
+
+`fromstring`을 호출하여 XML 문자열 표현을 XML 노드 '나무(tree)'로 변환한다. XML이 나무구조로 되었을 때, XML에서 데이터 일부분을 추출하기 위해서 호출하는 메소드가 연달아 있다.
+
+`find` 함수는 XML 나무를 훑어서 특정한 태그와 매칭되는 **노드(node)**를 검색한다. 각 노드는 텍스트, 속성(즉, hide 같은), 그리고 "자식(child)" 노드로 구성된다. 각 노드는 노드 나무의 최상단이 될 수 있다.
+
+```bash
+Name: Chuck
+Attr: yes
+```
+
+ElementTree같은 XML 파서를 사용하는 것은 장점이 있다. 상기 예제의 XML은 매우 간단하지만, 적합한 XML에 관해서 규칙이 많이 있고, XML 구문 규칙에 얽매이지 않고 ElementTree를 사용해서 XML에서 데이터를 추출할 수 있다.
+
+### 여러 노드 처리하기
+
+종종 XML이 다중 노드를 가지고 있어서 모든 노드를 처리하는 루프를 작성할 필요가 있다. 다음 프로그램에서 모든 `user` 노드를 순서대로 처리한다.
+
+```python
+import xml.etree.ElementTree as ET
+
+input = '''
+<stuff>
+    <users>
+        <user x="2">
+            <id>001</id>
+            <name>Chuck</name>
+        </user>
+        <user x="7">
+            <id>009</id>
+            <name>Brent</name>
+        </user>
+    </users>
+</stuff>'''
+
+stuff = ET.fromstring(input)
+lst = stuff.findall('users/user')
+print('User count:', len(lst))
+
+for item in lst:
+    print('Name', item.find('name').text)
+    print('Id', item.find('id').text)
+    print('Attribute', item.get('x'))
+```
+
+`findall` 메소드는 파이썬 리스트의 하위 나무를 가져온다. 리스트는 XML 나무에서 `user` 구조를 표현한다. 그리고 나서, `for` 루프를 작성해서 각 `user` 노드 값을 확인하고 `name`, `id` 텍스트 요소와 `user` 노드에서 `x` 속성도 출력한다.
+
+```bash
+User count: 2
+Name Chuck
+Id 001
+Attribute 2
+Name Brent
+Id 009
+Attribute 7
+```
+
+## JSON
+
+JSON 형식은 자바스크립트 언어에서 사용되는 객체와 배열 형식에서 영감을 얻었다. 하지만 파이썬이 자바스크립트 이전에 개발되어서 딕셔너리와 리스트의 파이썬 구문이 JSON 구문에 영향을 주었다. 그래서 JSON 포맷이 거의 파이썬 리스트와 딕셔너리의 조합과 일치한다.
+
+상기 간단한 XML에 대략 상응하는 JSON으로 작성한 것이 다음에 있다.
+
+```json
+{
+  "name" : "Chuck",
+  "phone" : {
+    "type" : "intl",
+    "number" : "+1 734 303 4456"
+   },
+   "email" : {
+     "hide" : "yes"
+   }
+}
+```
+
+두 형식의 주요 차이점을 살펴보자. 
+
+첫째, XML에서는 "phone" 태그에 "intl"과 같은 속성을 추가할 수 있지만, JSON에서는 오직 키-값 쌍(key-value pair)만 사용한다. 둘째, XML의 "person" 태그는 JSON에서 외부 중괄호 `{}`로 대체되었다.
+
+일반적으로 JSON 구조가 XML보다 간단하다. JSON이 XML보다 표현할 수 있는 기능이 제한적이기 때문이다. 하지만 JSON의 가장 큰 장점은 딕셔너리와 리스트의 조합에 **직접** 매핑된다는 점이다. 거의 모든 프로그래밍 언어가 파이썬의 딕셔너리와 리스트에 해당하는 자료구조를 제공하므로, JSON은 서로 다른 프로그램 간에 데이터를 교환하는 매우 자연스러운 형식이다.
+
+이러한 단순함 때문에 JSON이 응용프로그램 간 데이터 교환에서 빠르게 선호되는 형식으로 자리잡고 있다.
+
+### JSON 파싱하기
+
+JSON은 딕셔너리(객체)와 리스트를 중첩하여 구성된다. 이번 예제에서는 `user` 리스트를 표현하는데, 각 `user`가 키-값 쌍(key-value pair)으로 이루어진 딕셔너리이다. 즉, 딕셔너리들로 구성된 리스트 형태이다.
+
+다음 프로그램에서는 파이썬의 내장 **json** 라이브러리를 사용하여 JSON을 파싱하고 데이터를 읽어온다. 이를 앞서 살펴본 XML 데이터와 코드를 비교해 보자. JSON은 XML보다 단순한 구조를 가지므로, 데이터의 구조(리스트 안의 딕셔너리)를 미리 알고 있어야 한다. JSON은 더 간결하다는 장점이 있지만, 그만큼 자기 서술적이지 못하다는 단점도 있다.
+
+```python
+import json
+
+input = '''
+[
+  { "id" : "001",
+    "x" : "2",
+    "name" : "Chuck"
+  } ,
+  { "id" : "009",
+    "x" : "7",
+    "name" : "Brent"
+  } 
+]'''
+
+info = json.loads(input)
+print('User count:', len(info))
+
+for item in info:
+    print('Name', item['name'])
+    print('Id', item['id'])
+    print('Attribute', item['x'])
+```
+
+JSON과 XML에서 데이터를 추출하는 코드를 비교하면, **json.loads()**를 통해서 파이썬 리스트를 얻는다. **for** 루프로 파이썬 리스트를 훑고, 리스트 내부의 각 항목은 파이썬 딕셔너리로 각 사용자별 다양한 정보를 추출하기 위해서 파이썬 인덱스 연산자를 사용한다. JSON을 파싱하면, 네이티브 파이썬 객체와 구조가 생성된다. 반환된 데이터가 단순히 네이티브 파이썬 구조체이기 때문에, 파싱된 JSON을 활용하는데 JSON 라이브러리를 사용할 필요는 없다.
+
+프로그램 출력은 정확하게 상기 XML 버전과 동일하다.
+
+``` bash
+User count: 2
+Name Chuck
+Id 001
+Attribute 2
+Name Brent
+Id 009
+Attribute 7
+```
+
+일반적으로 웹서비스에 대해서 XML에서 JSON으로 옮겨가는 산업 경향이 뚜렷하다. JSON이 프로그래밍 언어에서 이미 갖고 있는 네이티브 자료 구조와 좀 더 직접적이며 간단히 매핑되기 때문에, JSON을 사용할 때 파싱하고 데이터 추출하는 코드가 더욱 간단하고 직접적이다. 하지만 XML이 JSON보다 좀 더 자기 서술적이고 XML이 강점을 가지는 몇몇 응용프로그램 분야가 있다. 예를 들어, 대부분의 워드 프로세서는 JSON보다는 XML을 사용하여 내부적으로 문서를 저장한다.
+
+### XML vs JSON vs 데이터프레임
+
+웹서비스와 데이터 교환에서 사용되는 주요 데이터 형식들을 비교해보자. XML, JSON과 함께 데이터 분석에서 널리 사용되는 데이터프레임 형식도 살펴보겠다. 웹서비스에서 데이터를 XML이나 JSON 형식으로 주고받더라도, 실제 데이터 분석과 시각화를 위해서는 결국 데이터프레임 형태로 변환해야 후속 작업이 가능하다.
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: tbl-data-format-comparison
+#| tbl-cap: "데이터 형식 비교: XML, JSON, 데이터프레임"
+
+library(gt)
+library(tibble)
+
+# 데이터 형식 비교 표 생성
+data_format_comparison <- tibble(
+  특징 = c("구문", "가독성", "데이터 타입", "속성 지원", "배열/다중값", 
+           "크기", "파싱 속도", "언어 지원", "스키마 검증", "주 사용 분야"),
+  XML = c("태그 기반 마크업 언어", "태그로 인해 구조가 명확", "모든 데이터가 문자열", 
+          "태그에 속성 추가 가능", "반복 태그로 표현", "태그로 인해 상대적으로 큰 용량",
+          "상대적으로 느림", "대부분의 언어에서 지원", "DTD, XSD 등으로 검증 가능",
+          "문서 저장, 설정 파일, SOAP"),
+  JSON = c("자바스크립트 객체 표기법", "간결하고 읽기 쉬움", "문자열, 숫자, 불린, 배열, 객체, null",
+           "속성 개념 없음 (키-값 쌍만)", "네이티브 배열 지원", "간결한 표현으로 작은 용량",
+           "빠름", "자바스크립트에서 네이티브 지원", "JSON Schema로 검증 가능",
+           "웹 API, 설정 파일, 데이터 교환"),
+  데이터프레임 = c("테이블 형태의 구조적 데이터", "행-열 구조로 직관적", "다양한 타입 지원 (숫자, 문자, 날짜 등)",
+                "열 이름과 메타데이터 지원", "열 벡터로 표현", "메모리 효율적",
+                "매우 빠름", "R, Python, SQL 등에서 지원", "열 타입과 제약 조건 지원",
+                "데이터 분석, 통계, 머신러닝")
+)
+
+# gt 테이블 생성
+data_format_comparison %>%
+  gt() %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(columns = 특징)
+  ) %>%
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(9),
+    column_labels.font.size = px(14),
+    column_labels.font.weight = "bold",
+    table.border.top.style = "hidden",
+    table.border.bottom.style = "hidden",
+    column_labels.border.top.style = "hidden",
+    column_labels.border.bottom.width = px(2),
+    column_labels.border.bottom.color = "black"
+  ) %>%
+  cols_width(
+    특징 ~ pct(13),
+    XML ~ pct(30),
+    JSON ~ pct(32),
+    데이터프레임 ~ pct(35)
+  ) %>%
+  opt_table_font(font = "Noto Sans KR") %>%
+  opt_table_outline(style = "none")
+```
+
+**동일한 데이터를 다양한 형식으로 표현한 사례가 다음에 제시되어 있다.**
+
+#### XML {.unnumbered}
+
+```xml
+<users>
+  <user id="1">
+    <name>Chuck</name>
+    <email>chuck@example.com</email>
+    <active>true</active>
+  </user>
+  <user id="2">
+    <name>Brent</name>
+    <email>brent@example.com</email>
+    <active>false</active>
+  </user>
+</users>
+```
+
+#### JSON {.unnumbered}
+
+```json
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Chuck",
+      "email": "chuck@example.com",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Brent",
+      "email": "brent@example.com",
+      "active": false
+    }
+  ]
+}
+```
+
+#### R 티블 {.unnumbered}
+
+```r
+library(tibble)
+
+users <- tibble(
+  id = c(1, 2),
+  name = c("Chuck", "Brent"),
+  email = c("chuck@example.com", "brent@example.com"),
+  active = c(TRUE, FALSE)
+)
+
+print(users)
+> # A tibble: 2 × 4
+>      id name  email               active
+>   <dbl> <chr> <chr>               <lgl> 
+> 1     1 Chuck chuck@example.com   TRUE  
+> 2     2 Brent brent@example.com   FALSE 
+```
+
+#### 판다스 데이터프레임 {.unnumbered}
+
+```python
+import pandas as pd
+
+users = pd.DataFrame({
+    'id': [1, 2],
+    'name': ['Chuck', 'Brent'],
+    'email': ['chuck@example.com', 'brent@example.com'],
+    'active': [True, False]
+})
+
+print(users)
+>    id   name               email  active
+> 0   1  Chuck  chuck@example.com    True
+> 1   2  Brent  brent@example.com   False
+```
+
+각 형식은 고유한 특징과 장점을 가지고 있어, 사용 목적과 상황에 따라 적절한 형식을 선택하는 것이 중요하다.
+
+
+
+:::  callout-note
+#### 형식별 특징 및 활용 {.unnumbered}
+
+**XML 장점과 활용:** XML은 복잡한 계층 구조와 메타데이터(속성) 표현에 유리하며, 문서 중심 데이터 저장에 적합하다. 워드프로세서 문서와 같은 복잡한 문서 구조를 표현할 때 특히 유용하다. 또한 스키마 검증이 엄격하여 데이터 무결성을 보장할 수 있으며, SOAP 웹서비스에서 주로 사용되는 형식이다.
+
+**JSON 장점과 활용:** JSON은 간결하고 읽기 쉬운 구조로 웹 API에서 선호되는 형식이다. 자바스크립트와 완벽하게 호환되어 웹 개발에 최적화되어 있으며, 파싱 속도가 빠르고 네트워크 전송량이 적다는 장점이 있다. 현재 RESTful API의 표준 데이터 형식으로 널리 사용되고 있다.
+
+**데이터프레임 장점과 활용:** 데이터프레임은 행-열 구조로 정형 데이터 표현에 최적화되어 있으며, 통계 분석과 데이터 조작에 특화된 연산을 지원한다. 메모리 효율적이고 대용량 데이터 처리가 가능하여, 데이터 사이언스와 머신러닝 분야에서 핵심 자료구조로 활용된다.
+
+:::
+
+## API 활용 패턴
+
+이제 HTTP를 사용하여 응용프로그램 간에 데이터를 교환할 수 있게 되었다. 또한, XML 혹은 JSON을 사용하여 응용프로그램 간에도 복잡한 데이터를 주고받을 수 있는 방법을 습득했다.
+
+### API &rarr; 웹서비스
+
+앞서 설명한 API 개념을 실제로 구현할 때, HTTP 프로토콜과 XML/JSON 데이터 형식을 조합하여 웹서비스를 만든다. API는 "무엇을 할 수 있는가"를 정의하는 계약서이고, 웹서비스는 그 계약을 웹을 통해 실행할 수 있게 만든 구현체다.
+
+::: callout-note
+### API, 웹서비스, SOA 관계
+
+- **API**: 서비스 간 통신 규약
+- **웹서비스**: API를 HTTP + XML/JSON으로 구현한 것
+- **SOA**: 여러 서비스를 조합하는 아키텍처 패턴
+:::
+
+API를 사용할 때, 일반적으로 하나의 프로그램이 다른 응용 프로그램에서 사용할 수 있는 가능한 서비스 집합을 생성한다. 또한, 다른 프로그램이 서비스에 접근하여 사용할 때 지켜야 하는 API 규칙도 게시한다.
+
+### 서비스 지향 아키텍처
+
+다른 프로그램에서 제공되는 서비스에 접근을 포함하여 프로그램 기능을 개발할 때, 이러한 개발법을 **서비스 지향 아키텍처(Service-Oriented Architecture, SOA)**라고 부른다. SOA는 여러 독립적인 서비스들을 조합하여 하나의 완전한 애플리케이션을 만드는 접근 방식이다.
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: tbl-monolithic-vs-soa
+#| tbl-cap: "모놀리식과 SOA 아키텍처 비교"
+
+library(gt)
+library(tibble)
+
+architecture_comparison <- tibble(
+  특징 = c("구조", "개발 방식", "배포", "확장성", "유지보수", 
+           "재사용성", "성능", "복잡도"),
+  모놀리식 = c("단일 코드베이스", 
+                "모든 기능을 한 곳에서 개발",
+                "전체 프로그램을 한 번에 배포",
+                "전체 시스템을 함께 확장",
+                "수정 시 전체 재배포 필요",
+                "코드 재사용 어려움",
+                "내부 통신이 빠름",
+                "초기 구현은 단순"),
+  SOA = c("여러 독립적 서비스 조합",
+          "각 서비스를 독립적으로 개발",
+          "서비스별 개별 배포 가능",
+          "필요한 서비스만 확장 가능",
+          "서비스별 독립적 수정 및 배포",
+          "서비스 재사용 용이",
+          "네트워크 통신 오버헤드",
+          "설계와 관리가 복잡")
+)
+
+architecture_comparison %>%
+  gt() %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(columns = 특징)
+  ) %>%
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(9)
+  ) %>%
+  cols_width(
+    특징 ~ pct(20),
+    모놀리식 ~ pct(40),
+    SOA ~ pct(40)
+  ) %>%
+  opt_table_font(font = "Noto Sans KR")
+```
+
+### 여행 예약 시스템
+
+SOA의 대표적인 예로 온라인 여행 예약 사이트를 들 수 있다. 사용자가 하나의 웹사이트에서 비행기표, 호텔, 렌터카를 모두 예약할 수 있는 것은 SOA 덕분이다. 
+
+항공사 웹사이트는 호텔이나 렌터카 데이터를 직접 보유하지 않는다. 대신 각 서비스 제공자의 API를 통해 실시간으로 데이터를 가져오고, 예약을 처리한다. 사용자가 호텔을 예약하면 항공사 사이트는 호텔 시스템의 API를 호출하여 예약을 완료하고, 결제 처리는 또 다른 결제 서비스 API를 통해 진행된다.
+
+```{mermaid}
+%%| label: fig-soa-architecture
+%%| fig-align: center
+%%| fig-width: 4
+%%| fig-cap: "서비스 지향 아키텍처 항공사 예약 사례"
+graph TD
+    A[사용자] --> B[항공사 웹사이트]
+    B --> C[항공사 시스템]
+    B --> D[호텔 API]
+    B --> E[렌터카 API]
+    B --> F[결제 API]
+    D --> G[호텔 시스템]
+    E --> H[렌터카 시스템]
+    F --> I[결제 시스템]
+    
+    style A fill:#e8f5e9
+    style B fill:#e1f5fe
+    style C fill:#fff3e0
+    style D fill:#fff3e0
+    style E fill:#fff3e0
+    style F fill:#fff3e0
+```
+
+SOA의 주요 장점은 다음과 같다.
+
+1. **단일 진실 원천**: 각 서비스가 자체 데이터를 관리하므로 중복과 불일치를 방지
+2. **데이터 거버넌스**: 데이터 소유자가 접근 규칙과 사용 정책을 결정
+3. **유연한 확장성**: 필요한 서비스만 선택적으로 확장
+4. **재사용성**: 한 번 개발한 서비스를 여러 애플리케이션에서 활용
+
+### 현대적 API 아키텍처
+
+SOA는 현대에 와서 더욱 발전하여 **RESTful API**와 **마이크로서비스 아키텍처**로 진화했다.
+
+::: callout-tip
+### API 아키텍처 진화
+
+- **SOAP 웹서비스**: XML 기반의 구조화된 프로토콜 (전통적 SOA)
+- **RESTful API**: HTTP 메서드와 JSON을 활용한 간단한 접근 (현대적)
+- **마이크로서비스**: 더 작고 독립적인 서비스 단위 (최신 트렌드)
+:::
+
+이렇게 API를 웹상에서 HTTP 프로토콜을 통해 구현한 서비스를 **웹서비스(web services)**라고 부른다. 웹서비스는 API의 웹 구현체로, XML이나 JSON을 통해 데이터를 주고받는다.
+
+## 카카오 지오코딩 웹서비스
+
+카카오가 제공하는 지도 API는 한국 주소에 최적화되어 있어 국내 위치 정보를 다룰 때 매우 유용하다. 주소를 입력하면 위도와 경도 좌표를 반환하는 지오코딩 서비스를 제공한다.
+
+카카오 지도 API를 사용하려면 [카카오 개발자](https://developers.kakao.com/)에서 API 키를 발급받아야 한다. 무료로 하루 300,000건까지 사용할 수 있다. 카카오 지도 API를 사용하여 주소를 좌표로 변환하는 간단한 예제를 다음에 R과 파이썬으로 구현했다.
+
+#### 파이썬 {.unnumbered}
+
+```{python}
+#| eval: false
+#| echo: true
+
+import requests
+import os
+
+def geocode_kakao(address):
+    """카카오 API로 주소를 좌표로 변환"""
+    api_key = os.getenv("KAKAO_API_KEY")
+    if not api_key:
+        return {'lat': 33.4996, 'lng': 126.5312, 'address': '제주도 샘플'}
+    
+    url = "https://dapi.kakao.com/v2/local/search/address.json"
+    headers = {"Authorization": f"KakaoAK {api_key}"}
+    
+    response = requests.get(url, headers=headers, params={"query": address})
+    
+    if response.status_code == 200:
+        result = response.json()
+        if result['documents']:
+            doc = result['documents'][0]
+            return {
+                'lat': float(doc['y']),
+                'lng': float(doc['x']),
+                'address': doc['address_name']
+            }
+    return None
+
+# 사용 및 결과 출력
+location = geocode_kakao("제주특별자치도 제주시 삼무로 36")
+if location:
+    print(f"주소: {location['address']}")
+    print(f"좌표: ({location['lat']}, {location['lng']})")
+```
+
+#### R {.unnumbered}
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+#| message: false
+
+library(httr)
+library(jsonlite)
+
+geocode_kakao <- function(address) {
+  api_key <- Sys.getenv("KAKAO_API_KEY")
+  if (api_key == "") {
+    return(data.frame(lng = 126.5312, lat = 33.4996, address = "제주도 샘플"))
+  }
+  
+  response <- GET(
+    "https://dapi.kakao.com/v2/local/search/address.json",
+    add_headers(Authorization = paste0("KakaoAK ", api_key)),
+    query = list(query = address)
+  )
+  
+  if (status_code(response) == 200) {
+    result <- fromJSON(content(response, "text"))
+    if (length(result$documents) > 0) {
+      return(data.frame(
+        lng = as.numeric(result$documents$x[1]),
+        lat = as.numeric(result$documents$y[1]),
+        address = result$documents$address_name[1]
+      ))
+    }
+  }
+  return(NULL)
+}
+
+# 사용 및 결과 출력
+coords <- geocode_kakao("제주특별자치도 제주시 삼무로 36")
+cat("주소:", coords$address, "/ 좌표:", coords$lat, ",", coords$lng, "\n")
+```
+
+카카오 지도 API는 요청에 성공하면 JSON 형식으로 응답한다. 응답 구조는 `documents` 배열에 검색 결과를 담고, `meta` 객체에 메타데이터를 포함한다. 각 검색 결과는 `address_name`(정확한 주소명), `x`(경도), `y`(위도), `address_type`(주소 유형) 등의 정보를 제공한다. 예를 들어 제주도 주소 검색 시 `"documents": [{"address_name": "제주특별자치도 제주시 이도이동 1176-45", "x": "126.5312", "y": "33.4996"}]` 형태로 결과를 받는다.
+
+
+
+## 보안과 API 사용
+
+상용업체 API를 사용하기 위해서는 일종의 "API키(API key)"가 일반적으로 필요하다. 서비스 제공자 입장에서 누가 서비스를 사용하고 있으며 각 사용자가 얼마나 사용하고 있는지를 알고자 한다. 상용 API 제공업체는 서비스에 대한 무료 사용자와 유료 사용자에 대한 구분을 두고 있다. 특정 기간 동안 한 개인 사용자가 사용할 수 있는 요청 수에 대해 제한을 두는 정책을 두고 있다.
+
+::: callout-tip
+### API 보안 모범 사례
+
+1. **환경 변수 활용**: API 키를 코드에 직접 포함하지 말고 환경 변수로 관리
+2. **접근 제한**: API 키 권한을 필요한 최소한으로 제한
+3. **모니터링**: API 사용량을 정기적으로 모니터링
+4. **로테이션**: 정기적인 API 키 갱신
+5. **암호화**: 민감한 데이터는 전송 시 암호화
+:::
+
+때때로 API키를 얻게 되면, API를 호출할 때 POST 데이터의 일부로 포함하거나 URL의 매개 변수로 키를 포함시킨다.
+
+또 다른 경우에는 업체가 서비스 요청에 대한 보증을 강화해서 공유키와 비밀번호를 암호화된 메시지 형식으로 보내도록 요구한다. 인터넷을 통해서 서비스 요청을 암호화하는 일반적인 기술을 OAuth라고 한다. <http://www.oauth.net> 사이트에서 OAuth 프로토콜에 대해 더 많은 정보를 만날 수 있다. API 호출 시 발생할 수 있는 주요 오류와 대응 방법을 정리하면 다음과 같다.
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: tbl-api-errors
+#| tbl-cap: "API 오류 유형과 처리 방법"
+
+library(gt)
+library(tibble)
+
+api_errors <- tibble(
+  오류코드 = c("401 Unauthorized", "429 Too Many Requests", "Network Error", "404 Not Found"),
+  발생원인 = c("API 키 인증 실패", "호출 한도 초과", "네트워크 연결 문제", "요청한 리소스 없음"),
+  해결방법 = c("환경변수 KAKAO_API_KEY 확인", "잠시 대기 후 재시도", "지수적 백오프로 재시도", "사용자에게 오류 알림")
+)
+
+api_errors %>%
+  gt() %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(columns = 오류코드)
+  ) %>%
+  tab_options(
+    table.width = pct(100),
+    table.font.size = px(9)
+  ) %>%
+  cols_width(
+    오류코드 ~ pct(25),
+    발생원인 ~ pct(35),
+    해결방법 ~ pct(40)
+  ) %>%
+  opt_table_font(font = "Noto Sans KR")
+```
+
+웹 API와 데이터 교환 형식에 대한 기본 개념부터 실제 활용까지 살펴본 이 장의 내용은 현대 데이터 과학에서 필수적인 기초 지식이다. XML과 JSON이라는 두 가지 주요 데이터 형식의 특징과 활용법을 이해하고, 카카오 지도 API를 통한 실전 예제로 API 활용 능력을 갖추었다. 
+
+특히 데이터 과학 분야에서 API는 다양한 데이터 소스에 접근하고, AI 서비스를 활용하며, 분석 결과를 배포하는 모든 과정에서 핵심 역할을 한다. 단일 애플리케이션이 모든 기능을 구현하는 대신, 전문화된 서비스들을 API를 통해 조합하여 더 강력하고 효율적인 솔루션을 만드는 것이 현대 소프트웨어 개발의 트렌드다. 이러한 API 활용 능력은 다음 장부터 다룰 OpenAI, Claude, Google AI 등의 AI 서비스를 프로그래밍적으로 활용하는 데 중요한 기초가 되며, AI의 강력한 기능을 데이터 과학 워크플로우에 자연스럽게 통합하는 출발점이 될 것이다.
