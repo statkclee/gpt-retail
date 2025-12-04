@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-KR" xml:lang="ko-KR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>맺음말 – AI가 밝혀낸 유통 고수요 데이터의 진실</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./proj_trade.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-043eef7827719ba5a645a5d09ec13721.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-491a2c59020e51acf1ede50e27a30190.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-043eef7827719ba5a645a5d09ec13721.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b94da52417896737c75ca511ee582344.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b94da52417896737c75ca511ee582344.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b94da52417896737c75ca511ee582344.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "일치 없음",
+    "search-matching-documents-text": "일치된 문서",
+    "search-copy-link-title": "검색 링크 복사",
+    "search-hide-matches-text": "추가 검색 결과 숨기기",
+    "search-more-match-text": "추가 검색결과",
+    "search-more-matches-text": "추가 검색결과",
+    "search-clear-button-title": "제거",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "취소",
+    "search-submit-button-title": "검색",
+    "search-label": "검색"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-229551680-1', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+
+
+<link rel="stylesheet" href="assets/quarto.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./end.html">맺음말</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI가 밝혀낸 유통 고수요 데이터의 진실</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="리더 모드 전환">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">서문</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">들어가며</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>3부 사례 분석</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">데이터 과학 방법론</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_app.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">쇼핑앱 전쟁 숨겨진 공식</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_school.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">급식비 절약 숨겨진 진실</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_news.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">농산물 정보 디지털 계급사회</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proj_trade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">유통채널 숨겨진 가격 전략</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./end.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">맺음말</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고문헌</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">목차</h2>
+   
+  <ul>
+  <li><a href="#이론에서-실전으로-역사에서-미래로" id="toc-이론에서-실전으로-역사에서-미래로" class="nav-link active" data-scroll-target="#이론에서-실전으로-역사에서-미래로">이론에서 실전으로, 역사에서 미래로</a></li>
+  <li><a href="#불변의-원칙-진화하는-도구" id="toc-불변의-원칙-진화하는-도구" class="nav-link" data-scroll-target="#불변의-원칙-진화하는-도구">불변의 원칙, 진화하는 도구</a></li>
+  <li><a href="#ai-시대-데이터-과학자의-미래" id="toc-ai-시대-데이터-과학자의-미래" class="nav-link" data-scroll-target="#ai-시대-데이터-과학자의-미래">AI 시대, 데이터 과학자의 미래</a></li>
+  <li><a href="#여정의-끝-새로운-시작" id="toc-여정의-끝-새로운-시작" class="nav-link" data-scroll-target="#여정의-끝-새로운-시작">여정의 끝, 새로운 시작</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">맺음말</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>이 책은 하나의 질문에서 시작되었다. <strong>AI가 범용기술(General Purpose Technology)로 자리 잡은 2025년, 데이터 과학은 어떻게 변화하고 있는가?</strong> 답을 찾기 위해 우리는 세 가지 여정을 함께했다.</p>
+<section id="이론에서-실전으로-역사에서-미래로" class="level2">
+<h2 class="anchored" data-anchor-id="이론에서-실전으로-역사에서-미래로">이론에서 실전으로, 역사에서 미래로</h2>
+<p><strong>1부 ‘인공지능’</strong>에서는 ChatGPT로 대표되는 생성형 AI가 왜 전기, 증기기관, 컴퓨터와 같은 범용기술인지 확인했다. 역사는 명확한 패턴을 보여주었다. 전기화가 1880년대 발명부터 1920년대 공장 레이아웃 완전 재설계까지 40년이 걸렸듯, AI 혁명도 2022년 ChatGPT 등장부터 조직과 사회의 근본적 재구성까지 10-20년이 소요될 것이다. 현재 우리는 단순 대체 단계에서 점진적 적응 단계로 넘어가는 <strong>초기 전환점</strong>에 서 있다.</p>
+<p>특히 300년 노동 분업 역사가 주는 교훈은 분명했다. 기술은 인간을 대체하는 것이 아니라 <strong>더 창의적이고 전략적인 역할로 해방</strong>시킨다. 산업혁명이 농업 노동자를 제조업으로, 자동화가 제조업 노동자를 서비스업으로 이동시켰듯, AI 혁명은 지식 노동자를 반복 작업에서 해방시켜 전략과 창의성에 집중하게 만들고 있다. 브린욜프슨의 연구가 보여준 것처럼, AI는 숙련도 낮은 작업자의 생산성을 34% 향상시켜 격차를 줄이고, 펭의 연구는 개발자 작업 속도를 55.8% 가속화함을 입증했다. 이것이 바로 인지혁명의 실체다.</p>
+<p><strong>2부 ‘AI 데이터 과학’</strong>에서는 이론적 기반을 다졌다. 데이터는 단순한 숫자가 아니라 과학적 관찰, 통계적 변수, 컴퓨팅 비트, 비즈니스 자산이라는 다층적 실체임을 확인했다. 데이터 과학 프레임워크는 1989년 DIKW 피라미드부터 1996년 CRISP-DM, 2020년대 MLOps까지 진화했지만, 핵심 질문은 변하지 않았다. <strong>“데이터를 어떻게 가치로 변환하는가?”</strong> 그리고 <strong>“누가 이를 실행하는가?”</strong></p>
+<p>데이터 과학 인력은 1990년대 파편화된 전문가(DBA, 비즈니스 분석가, 통계학자)에서 2010년대 팀 기반 협업(데이터 엔지니어, ML 엔지니어, 데이터 분석가)을 거쳐, 2020년대 <strong>AI와 협업하는 데이터 과학자</strong>로 진화했다. Positron, Cursor, GitHub Copilot 같은 AI 네이티브 도구는 코딩 시간을 10분의 1로 줄이지만, 문제 정의와 결과 해석 능력의 중요성은 10배 커졌다. 출력 결과물도 변화했다. 1990년대 SAS 보고서 13-26일에서 2010년대 Jupyter 5-10일, 2020년대 Quarto 2-4일, 현재 AI 생성 0.5-1일로 단축되었지만, <strong>무엇을 전달할지 정의하는 능력</strong>은 여전히 인간의 몫이다.</p>
+<p><strong>3부 ‘사례 분석’</strong>에서는 실제 고수요 유통 데이터로 이론을 검증했다. 4가지 사례는 각기 다른 질문을 던졌지만, 공통된 방법론과 도구로 답을 찾았다.</p>
+<p><strong>MZ 소비자 쇼핑앱 분석</strong>은 “검색에서 발견으로” 패러다임 전환을 보여주었다. 쿠팡의 검색형 최적화(평균 체류 3.2분, 검색→구매 직선형)와 에이블리의 발견형 혁신(평균 체류 11.4분, 탐색→발견→구매 순환형)은 근본적으로 다른 두 비즈니스 모델이다. 체류시간의 의미가 “비효율성 지표”에서 “발견과 참여 지표”로 재정의되고 있음을 확인했다.</p>
+<p><strong>학교급식 식재료 조달 분석</strong>은 데이터 기반 절약 전략의 위력을 입증했다. 찹쌀 한 품목 분석만으로 채널별 50%, 지역별 45% 가격 격차를 발견하고, 서울 학교가 경기·충청 대형마트로 조달처를 변경하면 22.3% 절감이 가능함을 정량화했다. 공공 조달에서 “조달에서 절약으로” 패러다임 전환의 시작점이다.</p>
+<p><strong>농산물 관심도 분석</strong>은 디지털 계급사회의 구조를 드러냈다. 정보 엘리트층(14.4%), 이슈 추종층(73.6%), 실용 정보층(12.0%) 3계층의 극명한 격차는 단순한 정보 접근량 차이가 아니라 <strong>정보 활용 능력의 차이</strong>였다. 이슈 추종층이 가장 많은 매체를 접하고 다양한 농산물에 관심을 보이지만, 정작 깊이 있는 이해나 실질적 행동 변화로는 이어지지 않는 역설적 상황이 “정보 불평등에서 정보 민주화로” 전환의 필요성을 시사했다.</p>
+<p><strong>유통채널 전략 분석</strong>은 대형마트와 체인슈퍼 간 6배 매출 격차의 본질을 52주 트렌드로 규명했다. 대형마트의 “물량 중심 전략”(1.06배 판매량, 0.87배 단가, 15% 마진)과 체인슈퍼의 “마진 중심 전략”(1.30배 단가, 0.56배 판매량, 26% 마진)은 대체재가 아닌 보완재다. 효율성보다는 <strong>전략 선택의 결과</strong>임을 데이터로 증명했다.</p>
+</section>
+<section id="불변의-원칙-진화하는-도구" class="level2">
+<h2 class="anchored" data-anchor-id="불변의-원칙-진화하는-도구">불변의 원칙, 진화하는 도구</h2>
+<p>이 책을 관통하는 핵심 통찰은 명확하다. <strong>도구는 점점 더 강력해지고 접근하기 쉬워지지만, 불변하는 것이 있다.</strong></p>
+<p><strong>첫째, 데이터 과학의 본질은 변하지 않는다.</strong> DIKW 계층 구조(데이터→정보→지식→지혜)는 1989년 애코프가 제시한 이후 36년간 유효하다. 의사결정 보고서 7가지 요소(핵심 요약, 테이블, 시각화, 인사이트, 권장사항, 부록, 타임라인)는 1990년대 SAS든 2020년대 AI든 동일하다. 변하는 것은 “어떻게(How)” 만들 것인가이고, 변하지 않는 것은 “무엇을(What)” 전달할 것인가다.</p>
+<p><strong>둘째, 역사는 반복되지 않지만 운율을 맞춘다.</strong> 전기화가 보여준 3단계 패턴(단순 대체→점진적 적응→혁신적 재구성)을 AI도 따르고 있다. 전문화의 필연성은 갤브레이스가 1967년 지적했듯 포드 자동차 125명→30만 명 진화에서도, 현재 범용 ChatGPT→특화 AI 도구 분화에서도 동일하게 나타난다. 브레스나한과 트라이텐베르그의 범용기술 이론은 증기기관, 전기, 반도체를 거쳐 AI에서도 반복 검증되고 있다.</p>
+<p><strong>셋째, 인간의 역할은 사라지는 것이 아니라 진화한다.</strong> 데이비드와 돈의 전기화 연구가 보여준 “생산성 J-커브”는 AI 시대에도 적용된다. 혁신 초기 생산성 감소→무형 자본 투자→폭발적 향상의 패턴은 현재 많은 조직이 “AI를 도입했지만 생산성이 오히려 떨어졌다”고 느끼는 이유를 설명한다. 진정한 생산성 혁명은 AI 도입이 아니라 <strong>AI 중심으로 조직과 프로세스를 재구성할 때</strong> 온다.</p>
+<p><strong>넷째, 데이터는 답을 주지 않는다. 올바른 질문을 하는 사람에게만 인사이트를 선물한다.</strong> 쇼핑앱 분석이 “왜 에이블리는 체류시간이 길까?”라는 질문에서 발견형 쇼핑 패러다임을 발견했고, 급식 조달이 “왜 같은 찹쌀인데 가격이 2배 차이 나는가?”라는 질문에서 22.3% 절감 전략을 찾았듯, 데이터 과학의 시작은 항상 <strong>올바른 질문</strong>이다.</p>
+</section>
+<section id="ai-시대-데이터-과학자의-미래" class="level2">
+<h2 class="anchored" data-anchor-id="ai-시대-데이터-과학자의-미래">AI 시대, 데이터 과학자의 미래</h2>
+<p>2025년 현재, 우리는 역사적 전환점에 서 있다. AI는 더 이상 실험실의 프로토타입이 아니라 일상 업무의 필수 도구가 되었다. ChatGPT, Claude, GitHub Copilot은 누구나 접근할 수 있고, Positron과 Cursor는 데이터 과학자의 생산성을 10배 향상시키며, Quarto는 문서 코드화로 재현 가능성을 보장한다.</p>
+<p>하지만 AI가 강력해질수록, <strong>인간 데이터 과학자의 고유 역할</strong>은 더욱 명확해진다.</p>
+<p><strong>문제 정의</strong>: AI는 주어진 질문에 답하지만, 무엇을 물어야 하는지는 인간이 정의한다. 쇼핑앱 분석에서 “검색 vs 발견”의 프레임을 설정한 것, 급식 조달에서 “채널별 가격 격차”에 주목한 것, 정보 격차에서 “체류시간 vs 정보깊이”를 대비시킨 것은 모두 인간의 통찰이었다.</p>
+<p><strong>맥락 이해</strong>: AI는 패턴을 발견하지만, 그 패턴이 비즈니스에 무엇을 의미하는지는 도메인 전문가가 해석한다. 유통채널 분석에서 6배 매출 격차가 “비효율성”이 아니라 “전략 차이”임을 판단한 것은 유통 산업 이해에서 나왔다.</p>
+<p><strong>윤리적 판단</strong>: AI는 최적화 솔루션을 제안하지만, 그것이 윤리적으로 옳은지, 장기적으로 지속 가능한지 판단하는 것은 인간의 몫이다. 델아쿠아의 “들쭉날쭉한 기술 경계(Jagged Frontier)” 개념이 시사하듯, AI가 잘하는 것과 못하는 것을 구별하고, 인간과 AI 협업 지점을 설계하는 능력이 핵심이다.</p>
+<p><strong>스토리텔링</strong>: AI는 차트와 통계를 생성하지만, 데이터에 담긴 이야기를 경영진과 실무진에게 설득력 있게 전달하는 것은 여전히 인간의 예술이다. 보고서 구조는 불변이지만, 어떤 인사이트를 강조하고 어떤 권장사항을 제시할지 선택하는 것은 비즈니스 이해와 커뮤니케이션 능력이다.</p>
+<p>미래 데이터 과학자는 “코딩하는 사람”에서 <strong>“AI와 협업하는 전략가”</strong>로 진화할 것이다. Cursor가 코드를 자동 생성하고, Positron이 데이터를 시각화하며, Claude가 보고서를 작성할 때, 인간은 무엇을 만들지 정의하고, 결과를 검증하며, 비즈니스 가치를 창출하는 데 집중한다. 코딩 시간은 10분의 1로 줄지만, 전략적 사고와 도메인 전문성의 가치는 10배 커진다.</p>
+</section>
+<section id="여정의-끝-새로운-시작" class="level2">
+<h2 class="anchored" data-anchor-id="여정의-끝-새로운-시작">여정의 끝, 새로운 시작</h2>
+<p>이 책은 여기서 끝나지만, 독자들의 여정은 이제 시작이다. 1부에서 배운 범용기술의 역사적 패턴, 2부에서 익힌 데이터 과학 프레임워크와 도구, 3부에서 실습한 4가지 실전 사례는 독자들이 자신만의 데이터 과학 프로젝트를 시작할 수 있는 든든한 기반이다.</p>
+<p>앞으로 맞이할 미래는 불확실하지만, 역사가 주는 교훈은 명확하다. <strong>기술 혁명의 승자는 가장 먼저 도입한 사람이 아니라, 가장 잘 활용한 사람이다.</strong> 전기화 시대 GE와 웨스팅하우스가 승리한 이유는 전기를 발명해서가 아니라, 전기 중심으로 공장 전체를 재설계했기 때문이다. AI 시대도 마찬가지다. ChatGPT를 단순히 “더 나은 검색엔진”으로 쓰는 사람과, AI와 협업하여 업무 프로세스 자체를 재구성하는 사람의 생산성 격차는 시간이 갈수록 벌어질 것이다.</p>
+<p>데이비드와 돈의 연구가 경고했듯, 전기화의 진정한 혁명은 발명 40년 후에야 왔다. AI 혁명도 ChatGPT 등장(2022) 이후 10-20년에 걸쳐 점진적으로 펼쳐질 것이다. 현재 우리는 그 여정의 초입에 서 있다. 조급해할 필요는 없지만, 안주해서도 안 된다. 매일 조금씩 AI를 실무에 통합하고, 작은 성공을 쌓아가며, 동료와 경험을 공유하는 것이 장기전을 이기는 전략이다.</p>
+<p>마지막으로, 이 책을 만든 과정 자체가 AI 시대 협업의 표본이었다. Claude Code가 코드를 생성하고, Positron이 데이터를 분석하며, Quarto가 문서를 렌더링했지만, 문제 정의, 프레임워크 설계, 인사이트 해석, 스토리텔링은 모두 인간이 수행했다. 이것이 바로 미래 데이터 과학의 모습이다.</p>
+<p>독자들이 이 책에서 배운 이론과 도구, 사례와 통찰을 자신의 현장에 적용하여, 더 나은 의사결정, 더 큰 비즈니스 가치, 더 의미 있는 사회 변화를 만들어내기를 바란다. AI는 강력한 도구이지만, 그 도구를 쥔 사람이 어떤 질문을 던지고 어떤 가치를 추구하는지에 따라 결과는 천차만별이다.</p>
+<p><strong>데이터에는 이야기가 담겨 있고, AI는 그 이야기를 들려주는 새로운 언어이다. 이제 독자들이 그 언어로 세상과 대화하며, 데이터 경제 시대를 함께 열어갈 차례다.</strong></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "복사완료!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "복사완료!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./proj_trade.html" class="pagination-link" aria-label="유통채널 숨겨진 가격 전략">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">유통채널 숨겨진 가격 전략</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="참고문헌">
+        <span class="nav-page-text">참고문헌</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-book"></i> <a href="https://quarto.org/">Quarto</a>로 제작<br> <i class="bi bi-palette"></i> <a href="https://r2bit.com/">R2bit</a> 디자인</p>
+</div>
+</div>   
+    <div class="nav-footer-center">
+<div style="text-align: center;">
+<p><span style="font-size: 0.9em;">© 2025 이광춘,김종호,김상우,정근호 저</span></p>
+</div>
+</div>
+    <div class="nav-footer-right">
+<div style="font-size: 0.85em;">
+<p><i class="bi bi-github"></i> <a href="https://github.com/statkclee/gpt-retail">소스 코드</a><br> <i class="bi bi-bug"></i> <a href="https://github.com/statkclee/gpt-retail/issues">이슈 리포트</a></p>
+</div>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

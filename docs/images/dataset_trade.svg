@@ -1,0 +1,510 @@
+<svg viewBox="0 50 1000 430" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 20px sans-serif; fill: #2c3e50; }
+      .subtitle { font: 14px sans-serif; fill: #7f8c8d; }
+      .section-title { font: bold 16px sans-serif; fill: #2c3e50; }
+      .header { font: bold 12px sans-serif; fill: #2c3e50; }
+      .text { font: 10px sans-serif; fill: #34495e; }
+      .data-text { font: 9px monospace; fill: #2c3e50; }
+      .schema-box { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1; }
+      .schema-header { fill: #e3f2fd; stroke: #1976d2; stroke-width: 1; }
+      .data-row1 { fill: #fff3e0; stroke: #ff9800; stroke-width: 1; }
+      .data-row2 { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 1; }
+      .sample-header { fill: #e8f5e9; stroke: #4caf50; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="730" y="90" class="subtitle" text-anchor="middle">찹쌀 유통채널별 주차단위 매출 및 가격 데이터 (2024년, 총 104건)</text>
+
+  <!-- 구분선 -->
+  <line x1="400" y1="80" x2="400" y2="450" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- 왼쪽: 데이터 스키마 -->
+  <g transform="translate(30, 90)">
+    <text x="0" y="0" class="section-title">데이터 스키마 (11개 변수)</text>
+
+    <!-- 스키마 헤더 -->
+    <rect x="0" y="15" width="100" height="25" class="schema-header"/>
+    <rect x="100" y="15" width="60" height="25" class="schema-header"/>
+    <rect x="160" y="15" width="35" height="25" class="schema-header"/>
+    <rect x="195" y="15" width="150" height="25" class="schema-header"/>
+
+    <text x="50" y="32" class="header" text-anchor="middle">변수명</text>
+    <text x="130" y="32" class="header" text-anchor="middle">타입</text>
+    <text x="178" y="32" class="header" text-anchor="middle">NULL</text>
+    <text x="270" y="32" class="header" text-anchor="middle">설명</text>
+
+    <!-- 스키마 데이터 행들 -->
+    <g transform="translate(0, 40)">
+      <!-- Row 1 -->
+      <rect x="0" y="0" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="0" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="0" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="0" width="150" height="20" class="schema-box"/>
+      <text x="5" y="15" class="text">KAMIS_분류코드</text>
+      <text x="130" y="15" class="text" text-anchor="middle">INTEGER</text>
+      <text x="178" y="15" class="text" text-anchor="middle">N</text>
+      <text x="200" y="15" class="text">농수산식품 유통공사 분류코드</text>
+
+      <!-- Row 2 -->
+      <rect x="0" y="20" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="20" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="20" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="20" width="150" height="20" class="schema-box"/>
+      <text x="5" y="35" class="text">KAMIS_분류명</text>
+      <text x="130" y="35" class="text" text-anchor="middle">VARCHAR</text>
+      <text x="178" y="35" class="text" text-anchor="middle">N</text>
+      <text x="200" y="35" class="text">농수산식품 유통공사 분류명</text>
+
+      <!-- Row 3 -->
+      <rect x="0" y="40" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="40" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="40" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="40" width="150" height="20" class="schema-box"/>
+      <text x="5" y="55" class="text">KAMIS_품목코드</text>
+      <text x="130" y="55" class="text" text-anchor="middle">INTEGER</text>
+      <text x="178" y="55" class="text" text-anchor="middle">N</text>
+      <text x="200" y="55" class="text">농수산식품 유통공사 품목코드</text>
+
+      <!-- Row 4 -->
+      <rect x="0" y="60" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="60" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="60" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="60" width="150" height="20" class="schema-box"/>
+      <text x="5" y="75" class="text">KAMIS_품목명</text>
+      <text x="130" y="75" class="text" text-anchor="middle">VARCHAR</text>
+      <text x="178" y="75" class="text" text-anchor="middle">N</text>
+      <text x="200" y="75" class="text">농수산식품 유통공사 품목명</text>
+
+      <!-- Row 5 -->
+      <rect x="0" y="80" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="80" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="80" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="80" width="150" height="20" class="schema-box"/>
+      <text x="5" y="95" class="text">유통채널</text>
+      <text x="130" y="95" class="text" text-anchor="middle">VARCHAR</text>
+      <text x="178" y="95" class="text" text-anchor="middle">N</text>
+      <text x="200" y="95" class="text">대형마트, 체인슈퍼</text>
+
+      <!-- Row 6 -->
+      <rect x="0" y="100" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="100" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="100" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="100" width="150" height="20" class="schema-box"/>
+      <text x="5" y="115" class="text">주차코드</text>
+      <text x="130" y="115" class="text" text-anchor="middle">VARCHAR</text>
+      <text x="178" y="115" class="text" text-anchor="middle">N</text>
+      <text x="200" y="115" class="text">주차 식별 코드 (W202401 형식)</text>
+
+      <!-- Row 7 -->
+      <rect x="0" y="120" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="120" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="120" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="120" width="150" height="20" class="schema-box"/>
+      <text x="5" y="135" class="text">주차_시작일자</text>
+      <text x="130" y="135" class="text" text-anchor="middle">VARCHAR</text>
+      <text x="178" y="135" class="text" text-anchor="middle">N</text>
+      <text x="200" y="135" class="text">주차 시작일 (월요일, YYYYMMDD)</text>
+
+      <!-- Row 8 -->
+      <rect x="0" y="140" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="140" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="140" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="140" width="150" height="20" class="schema-box"/>
+      <text x="5" y="155" class="text">주차_종료일자</text>
+      <text x="130" y="155" class="text" text-anchor="middle">VARCHAR</text>
+      <text x="178" y="155" class="text" text-anchor="middle">N</text>
+      <text x="200" y="155" class="text">주차 종료일 (일요일, YYYYMMDD)</text>
+
+      <!-- Row 9 -->
+      <rect x="0" y="160" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="160" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="160" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="160" width="150" height="20" class="schema-box"/>
+      <text x="5" y="175" class="text">소매_매출액_원</text>
+      <text x="130" y="175" class="text" text-anchor="middle">NUMBER</text>
+      <text x="178" y="175" class="text" text-anchor="middle">N</text>
+      <text x="200" y="175" class="text">소매채널의 추정 매출액 (원)</text>
+
+      <!-- Row 10 -->
+      <rect x="0" y="180" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="180" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="180" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="180" width="150" height="20" class="schema-box"/>
+      <text x="5" y="195" class="text">KAMIS_도매가격_중량기준</text>
+      <text x="130" y="195" class="text" text-anchor="middle">VARCHAR</text>
+      <text x="178" y="195" class="text" text-anchor="middle">N</text>
+      <text x="200" y="195" class="text">도매가격 중량 기준 (1kg)</text>
+
+      <!-- Row 11 -->
+      <rect x="0" y="200" width="100" height="20" class="schema-box"/>
+      <rect x="100" y="200" width="60" height="20" class="schema-box"/>
+      <rect x="160" y="200" width="35" height="20" class="schema-box"/>
+      <rect x="195" y="200" width="150" height="20" class="schema-box"/>
+      <text x="5" y="215" class="text">KAMIS_도매가격_원</text>
+      <text x="130" y="215" class="text" text-anchor="middle">NUMBER</text>
+      <text x="178" y="215" class="text" text-anchor="middle">N</text>
+      <text x="200" y="215" class="text">KAMIS 도매가격 (원/kg)</text>
+    </g>
+
+    <!-- 데이터 특성 설명 -->
+    <g transform="translate(0, 280)">
+      <text x="0" y="0" class="section-title">데이터 특성</text>
+      <rect x="0" y="10" width="345" height="85" class="schema-box" rx="5"/>
+      <text x="10" y="30" class="header">시간 차원</text>
+      <text x="10" y="45" class="text">• 2024년 1월~12월 (52주) 전체 커버</text>
+      <text x="10" y="58" class="text">• 주차별 세밀한 변동 추적 가능</text>
+
+      <text x="170" y="30" class="header">채널 차원</text>
+      <text x="170" y="45" class="text">• 대형마트 vs 체인슈퍼 비교</text>
+      <text x="170" y="60" class="text">• 매출액 규모 및 전략 차별화 분석</text>
+      <text x="170" y="75" class="text">• KAMIS 도매가격 연동으로 마진 분석 가능</text>
+    </g>
+  </g>
+
+  <!-- 오른쪽: 실제 데이터 샘플 -->
+  <g transform="translate(420, 90)">
+    <text x="0" y="0" class="section-title">실제 데이터 샘플</text>
+
+    <!-- 테이블 형식 헤더 -->
+    <g transform="translate(0, 20)">
+      <!-- 헤더 행 -->
+      <rect x="0" y="0" width="35" height="20" class="sample-header"/>
+      <rect x="35" y="0" width="50" height="20" class="sample-header"/>
+      <rect x="85" y="0" width="30" height="20" class="sample-header"/>
+      <rect x="115" y="0" width="40" height="20" class="sample-header"/>
+      <rect x="155" y="0" width="50" height="20" class="sample-header"/>
+      <rect x="205" y="0" width="55" height="20" class="sample-header"/>
+      <rect x="260" y="0" width="60" height="20" class="sample-header"/>
+      <rect x="320" y="0" width="60" height="20" class="sample-header"/>
+      <rect x="380" y="0" width="60" height="20" class="sample-header"/>
+      <rect x="440" y="0" width="25" height="20" class="sample-header"/>
+      <rect x="465" y="0" width="40" height="20" class="sample-header"/>
+
+      <text x="18" y="15" class="text" text-anchor="middle">분류</text>
+      <text x="60" y="15" class="text" text-anchor="middle">분류명</text>
+      <text x="100" y="15" class="text" text-anchor="middle">품목</text>
+      <text x="135" y="15" class="text" text-anchor="middle">품목명</text>
+      <text x="180" y="15" class="text" text-anchor="middle">유통채널</text>
+      <text x="233" y="15" class="text" text-anchor="middle">주차코드</text>
+      <text x="290" y="15" class="text" text-anchor="middle">시작일자</text>
+      <text x="350" y="15" class="text" text-anchor="middle">종료일자</text>
+      <text x="410" y="15" class="text" text-anchor="middle">매출액(억원)</text>
+      <text x="453" y="15" class="text" text-anchor="middle">기준</text>
+      <text x="485" y="15" class="text" text-anchor="middle">도매가</text>
+    </g>
+
+    <!-- 데이터 행들 -->
+    <g transform="translate(0, 40)">
+      <!-- 대형마트 데이터 1 -->
+      <rect x="0" y="0" width="35" height="18" class="data-row1"/>
+      <rect x="35" y="0" width="50" height="18" class="data-row1"/>
+      <rect x="85" y="0" width="30" height="18" class="data-row1"/>
+      <rect x="115" y="0" width="40" height="18" class="data-row1"/>
+      <rect x="155" y="0" width="50" height="18" class="data-row1"/>
+      <rect x="205" y="0" width="55" height="18" class="data-row1"/>
+      <rect x="260" y="0" width="60" height="18" class="data-row1"/>
+      <rect x="320" y="0" width="60" height="18" class="data-row1"/>
+      <rect x="380" y="0" width="60" height="18" class="data-row1"/>
+      <rect x="440" y="0" width="25" height="18" class="data-row1"/>
+      <rect x="465" y="0" width="40" height="18" class="data-row1"/>
+
+      <text x="18" y="13" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="13" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="13" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="13" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="13" class="data-text" text-anchor="middle">대형마트</text>
+      <text x="233" y="13" class="data-text" text-anchor="middle">W202434</text>
+      <text x="290" y="13" class="data-text" text-anchor="middle">240819</text>
+      <text x="350" y="13" class="data-text" text-anchor="middle">240825</text>
+      <text x="410" y="13" class="data-text" text-anchor="middle">5.0</text>
+      <text x="453" y="13" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="13" class="data-text" text-anchor="middle">2712</text>
+
+      <!-- 대형마트 데이터 2 -->
+      <rect x="0" y="18" width="35" height="18" class="data-row1"/>
+      <rect x="35" y="18" width="50" height="18" class="data-row1"/>
+      <rect x="85" y="18" width="30" height="18" class="data-row1"/>
+      <rect x="115" y="18" width="40" height="18" class="data-row1"/>
+      <rect x="155" y="18" width="50" height="18" class="data-row1"/>
+      <rect x="205" y="18" width="55" height="18" class="data-row1"/>
+      <rect x="260" y="18" width="60" height="18" class="data-row1"/>
+      <rect x="320" y="18" width="60" height="18" class="data-row1"/>
+      <rect x="380" y="18" width="60" height="18" class="data-row1"/>
+      <rect x="440" y="18" width="25" height="18" class="data-row1"/>
+      <rect x="465" y="18" width="40" height="18" class="data-row1"/>
+
+      <text x="18" y="31" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="31" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="31" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="31" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="31" class="data-text" text-anchor="middle">대형마트</text>
+      <text x="233" y="31" class="data-text" text-anchor="middle">W202435</text>
+      <text x="290" y="31" class="data-text" text-anchor="middle">240826</text>
+      <text x="350" y="31" class="data-text" text-anchor="middle">240901</text>
+      <text x="410" y="31" class="data-text" text-anchor="middle">4.6</text>
+      <text x="453" y="31" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="31" class="data-text" text-anchor="middle">2711</text>
+
+      <!-- 대형마트 데이터 3 -->
+      <rect x="0" y="36" width="35" height="18" class="data-row1"/>
+      <rect x="35" y="36" width="50" height="18" class="data-row1"/>
+      <rect x="85" y="36" width="30" height="18" class="data-row1"/>
+      <rect x="115" y="36" width="40" height="18" class="data-row1"/>
+      <rect x="155" y="36" width="50" height="18" class="data-row1"/>
+      <rect x="205" y="36" width="55" height="18" class="data-row1"/>
+      <rect x="260" y="36" width="60" height="18" class="data-row1"/>
+      <rect x="320" y="36" width="60" height="18" class="data-row1"/>
+      <rect x="380" y="36" width="60" height="18" class="data-row1"/>
+      <rect x="440" y="36" width="25" height="18" class="data-row1"/>
+      <rect x="465" y="36" width="40" height="18" class="data-row1"/>
+
+      <text x="18" y="49" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="49" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="49" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="49" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="49" class="data-text" text-anchor="middle">대형마트</text>
+      <text x="233" y="49" class="data-text" text-anchor="middle">W202439</text>
+      <text x="290" y="49" class="data-text" text-anchor="middle">240923</text>
+      <text x="350" y="49" class="data-text" text-anchor="middle">240929</text>
+      <text x="410" y="49" class="data-text" text-anchor="middle">6.4</text>
+      <text x="453" y="49" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="49" class="data-text" text-anchor="middle">2733</text>
+
+      <!-- 구분선 -->
+      <line x1="0" y1="64" x2="505" y2="64" stroke="#bdc3c7" stroke-width="2"/>
+
+      <!-- 체인슈퍼 데이터 1 -->
+      <rect x="0" y="72" width="35" height="18" class="data-row2"/>
+      <rect x="35" y="72" width="50" height="18" class="data-row2"/>
+      <rect x="85" y="72" width="30" height="18" class="data-row2"/>
+      <rect x="115" y="72" width="40" height="18" class="data-row2"/>
+      <rect x="155" y="72" width="50" height="18" class="data-row2"/>
+      <rect x="205" y="72" width="55" height="18" class="data-row2"/>
+      <rect x="260" y="72" width="60" height="18" class="data-row2"/>
+      <rect x="320" y="72" width="60" height="18" class="data-row2"/>
+      <rect x="380" y="72" width="60" height="18" class="data-row2"/>
+      <rect x="440" y="72" width="25" height="18" class="data-row2"/>
+      <rect x="465" y="72" width="40" height="18" class="data-row2"/>
+
+      <text x="18" y="85" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="85" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="85" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="85" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="85" class="data-text" text-anchor="middle">체인슈퍼</text>
+      <text x="233" y="85" class="data-text" text-anchor="middle">W202434</text>
+      <text x="290" y="85" class="data-text" text-anchor="middle">240819</text>
+      <text x="350" y="85" class="data-text" text-anchor="middle">240825</text>
+      <text x="410" y="85" class="data-text" text-anchor="middle">0.8</text>
+      <text x="453" y="85" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="85" class="data-text" text-anchor="middle">2712</text>
+
+      <!-- 체인슈퍼 데이터 2 -->
+      <rect x="0" y="90" width="35" height="18" class="data-row2"/>
+      <rect x="35" y="90" width="50" height="18" class="data-row2"/>
+      <rect x="85" y="90" width="30" height="18" class="data-row2"/>
+      <rect x="115" y="90" width="40" height="18" class="data-row2"/>
+      <rect x="155" y="90" width="50" height="18" class="data-row2"/>
+      <rect x="205" y="90" width="55" height="18" class="data-row2"/>
+      <rect x="260" y="90" width="60" height="18" class="data-row2"/>
+      <rect x="320" y="90" width="60" height="18" class="data-row2"/>
+      <rect x="380" y="90" width="60" height="18" class="data-row2"/>
+      <rect x="440" y="90" width="25" height="18" class="data-row2"/>
+      <rect x="465" y="90" width="40" height="18" class="data-row2"/>
+
+      <text x="18" y="103" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="103" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="103" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="103" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="103" class="data-text" text-anchor="middle">체인슈퍼</text>
+      <text x="233" y="103" class="data-text" text-anchor="middle">W202435</text>
+      <text x="290" y="103" class="data-text" text-anchor="middle">240826</text>
+      <text x="350" y="103" class="data-text" text-anchor="middle">240901</text>
+      <text x="410" y="103" class="data-text" text-anchor="middle">0.9</text>
+      <text x="453" y="103" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="103" class="data-text" text-anchor="middle">2711</text>
+
+      <!-- 체인슈퍼 데이터 3 -->
+      <rect x="0" y="108" width="35" height="18" class="data-row2"/>
+      <rect x="35" y="108" width="50" height="18" class="data-row2"/>
+      <rect x="85" y="108" width="30" height="18" class="data-row2"/>
+      <rect x="115" y="108" width="40" height="18" class="data-row2"/>
+      <rect x="155" y="108" width="50" height="18" class="data-row2"/>
+      <rect x="205" y="108" width="55" height="18" class="data-row2"/>
+      <rect x="260" y="108" width="60" height="18" class="data-row2"/>
+      <rect x="320" y="108" width="60" height="18" class="data-row2"/>
+      <rect x="380" y="108" width="60" height="18" class="data-row2"/>
+      <rect x="440" y="108" width="25" height="18" class="data-row2"/>
+      <rect x="465" y="108" width="40" height="18" class="data-row2"/>
+
+      <text x="18" y="121" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="121" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="121" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="121" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="121" class="data-text" text-anchor="middle">체인슈퍼</text>
+      <text x="233" y="121" class="data-text" text-anchor="middle">W202439</text>
+      <text x="290" y="121" class="data-text" text-anchor="middle">240923</text>
+      <text x="350" y="121" class="data-text" text-anchor="middle">240929</text>
+      <text x="410" y="121" class="data-text" text-anchor="middle">0.9</text>
+      <text x="453" y="121" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="121" class="data-text" text-anchor="middle">2733</text>
+
+      <!-- 대형마트 데이터 4 -->
+      <rect x="0" y="135" width="35" height="18" class="data-row1"/>
+      <rect x="35" y="135" width="50" height="18" class="data-row1"/>
+      <rect x="85" y="135" width="30" height="18" class="data-row1"/>
+      <rect x="115" y="135" width="40" height="18" class="data-row1"/>
+      <rect x="155" y="135" width="50" height="18" class="data-row1"/>
+      <rect x="205" y="135" width="55" height="18" class="data-row1"/>
+      <rect x="260" y="135" width="60" height="18" class="data-row1"/>
+      <rect x="320" y="135" width="60" height="18" class="data-row1"/>
+      <rect x="380" y="135" width="60" height="18" class="data-row1"/>
+      <rect x="440" y="135" width="25" height="18" class="data-row1"/>
+      <rect x="465" y="135" width="40" height="18" class="data-row1"/>
+
+      <text x="18" y="148" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="148" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="148" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="148" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="148" class="data-text" text-anchor="middle">대형마트</text>
+      <text x="233" y="148" class="data-text" text-anchor="middle">W202442</text>
+      <text x="290" y="148" class="data-text" text-anchor="middle">241014</text>
+      <text x="350" y="148" class="data-text" text-anchor="middle">241020</text>
+      <text x="410" y="148" class="data-text" text-anchor="middle">5.8</text>
+      <text x="453" y="148" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="148" class="data-text" text-anchor="middle">2745</text>
+
+      <!-- 대형마트 데이터 5 -->
+      <rect x="0" y="153" width="35" height="18" class="data-row1"/>
+      <rect x="35" y="153" width="50" height="18" class="data-row1"/>
+      <rect x="85" y="153" width="30" height="18" class="data-row1"/>
+      <rect x="115" y="153" width="40" height="18" class="data-row1"/>
+      <rect x="155" y="153" width="50" height="18" class="data-row1"/>
+      <rect x="205" y="153" width="55" height="18" class="data-row1"/>
+      <rect x="260" y="153" width="60" height="18" class="data-row1"/>
+      <rect x="320" y="153" width="60" height="18" class="data-row1"/>
+      <rect x="380" y="153" width="60" height="18" class="data-row1"/>
+      <rect x="440" y="153" width="25" height="18" class="data-row1"/>
+      <rect x="465" y="153" width="40" height="18" class="data-row1"/>
+
+      <text x="18" y="166" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="166" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="166" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="166" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="166" class="data-text" text-anchor="middle">대형마트</text>
+      <text x="233" y="166" class="data-text" text-anchor="middle">W202445</text>
+      <text x="290" y="166" class="data-text" text-anchor="middle">241104</text>
+      <text x="350" y="166" class="data-text" text-anchor="middle">241110</text>
+      <text x="410" y="166" class="data-text" text-anchor="middle">6.2</text>
+      <text x="453" y="166" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="166" class="data-text" text-anchor="middle">2758</text>
+
+      <!-- 대형마트 데이터 6 -->
+      <rect x="0" y="171" width="35" height="18" class="data-row1"/>
+      <rect x="35" y="171" width="50" height="18" class="data-row1"/>
+      <rect x="85" y="171" width="30" height="18" class="data-row1"/>
+      <rect x="115" y="171" width="40" height="18" class="data-row1"/>
+      <rect x="155" y="171" width="50" height="18" class="data-row1"/>
+      <rect x="205" y="171" width="55" height="18" class="data-row1"/>
+      <rect x="260" y="171" width="60" height="18" class="data-row1"/>
+      <rect x="320" y="171" width="60" height="18" class="data-row1"/>
+      <rect x="380" y="171" width="60" height="18" class="data-row1"/>
+      <rect x="440" y="171" width="25" height="18" class="data-row1"/>
+      <rect x="465" y="171" width="40" height="18" class="data-row1"/>
+
+      <text x="18" y="184" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="184" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="184" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="184" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="184" class="data-text" text-anchor="middle">대형마트</text>
+      <text x="233" y="184" class="data-text" text-anchor="middle">W202448</text>
+      <text x="290" y="184" class="data-text" text-anchor="middle">241125</text>
+      <text x="350" y="184" class="data-text" text-anchor="middle">241201</text>
+      <text x="410" y="184" class="data-text" text-anchor="middle">7.1</text>
+      <text x="453" y="184" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="184" class="data-text" text-anchor="middle">2772</text>
+
+      <!-- 체인슈퍼 데이터 4 -->
+      <rect x="0" y="198" width="35" height="18" class="data-row2"/>
+      <rect x="35" y="198" width="50" height="18" class="data-row2"/>
+      <rect x="85" y="198" width="30" height="18" class="data-row2"/>
+      <rect x="115" y="198" width="40" height="18" class="data-row2"/>
+      <rect x="155" y="198" width="50" height="18" class="data-row2"/>
+      <rect x="205" y="198" width="55" height="18" class="data-row2"/>
+      <rect x="260" y="198" width="60" height="18" class="data-row2"/>
+      <rect x="320" y="198" width="60" height="18" class="data-row2"/>
+      <rect x="380" y="198" width="60" height="18" class="data-row2"/>
+      <rect x="440" y="198" width="25" height="18" class="data-row2"/>
+      <rect x="465" y="198" width="40" height="18" class="data-row2"/>
+
+      <text x="18" y="211" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="211" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="211" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="211" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="211" class="data-text" text-anchor="middle">체인슈퍼</text>
+      <text x="233" y="211" class="data-text" text-anchor="middle">W202442</text>
+      <text x="290" y="211" class="data-text" text-anchor="middle">241014</text>
+      <text x="350" y="211" class="data-text" text-anchor="middle">241020</text>
+      <text x="410" y="211" class="data-text" text-anchor="middle">1.1</text>
+      <text x="453" y="211" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="211" class="data-text" text-anchor="middle">2745</text>
+
+      <!-- 체인슈퍼 데이터 5 -->
+      <rect x="0" y="216" width="35" height="18" class="data-row2"/>
+      <rect x="35" y="216" width="50" height="18" class="data-row2"/>
+      <rect x="85" y="216" width="30" height="18" class="data-row2"/>
+      <rect x="115" y="216" width="40" height="18" class="data-row2"/>
+      <rect x="155" y="216" width="50" height="18" class="data-row2"/>
+      <rect x="205" y="216" width="55" height="18" class="data-row2"/>
+      <rect x="260" y="216" width="60" height="18" class="data-row2"/>
+      <rect x="320" y="216" width="60" height="18" class="data-row2"/>
+      <rect x="380" y="216" width="60" height="18" class="data-row2"/>
+      <rect x="440" y="216" width="25" height="18" class="data-row2"/>
+      <rect x="465" y="216" width="40" height="18" class="data-row2"/>
+
+      <text x="18" y="229" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="229" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="229" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="229" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="229" class="data-text" text-anchor="middle">체인슈퍼</text>
+      <text x="233" y="229" class="data-text" text-anchor="middle">W202445</text>
+      <text x="290" y="229" class="data-text" text-anchor="middle">241104</text>
+      <text x="350" y="229" class="data-text" text-anchor="middle">241110</text>
+      <text x="410" y="229" class="data-text" text-anchor="middle">0.7</text>
+      <text x="453" y="229" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="229" class="data-text" text-anchor="middle">2758</text>
+
+      <!-- 체인슈퍼 데이터 6 -->
+      <rect x="0" y="234" width="35" height="18" class="data-row2"/>
+      <rect x="35" y="234" width="50" height="18" class="data-row2"/>
+      <rect x="85" y="234" width="30" height="18" class="data-row2"/>
+      <rect x="115" y="234" width="40" height="18" class="data-row2"/>
+      <rect x="155" y="234" width="50" height="18" class="data-row2"/>
+      <rect x="205" y="234" width="55" height="18" class="data-row2"/>
+      <rect x="260" y="234" width="60" height="18" class="data-row2"/>
+      <rect x="320" y="234" width="60" height="18" class="data-row2"/>
+      <rect x="380" y="234" width="60" height="18" class="data-row2"/>
+      <rect x="440" y="234" width="25" height="18" class="data-row2"/>
+      <rect x="465" y="234" width="40" height="18" class="data-row2"/>
+
+      <text x="18" y="247" class="data-text" text-anchor="middle">100</text>
+      <text x="60" y="247" class="data-text" text-anchor="middle">식량작물</text>
+      <text x="100" y="247" class="data-text" text-anchor="middle">112</text>
+      <text x="135" y="247" class="data-text" text-anchor="middle">찹쌀</text>
+      <text x="180" y="247" class="data-text" text-anchor="middle">체인슈퍼</text>
+      <text x="233" y="247" class="data-text" text-anchor="middle">W202448</text>
+      <text x="290" y="247" class="data-text" text-anchor="middle">241125</text>
+      <text x="350" y="247" class="data-text" text-anchor="middle">241201</text>
+      <text x="410" y="247" class="data-text" text-anchor="middle">1.0</text>
+      <text x="453" y="247" class="data-text" text-anchor="middle">1kg</text>
+      <text x="485" y="247" class="data-text" text-anchor="middle">2772</text>
+
+
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 100 1350 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .main-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 28px; font-weight: bold; fill: #2c3e50; }
+      .section-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #34495e; }
+      .layer-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #ffffff; }
+      .layer-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 15px; fill: #ffffff; }
+      .header-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .item-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 14px; fill: #2c3e50; }
+      .small-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 14px; fill: #7f8c8d; }
+
+      .elite-bg { fill: #8e44ad; }
+      .practical-bg { fill: #27ae60; }
+      .follower-bg { fill: #f39c12; }
+      .marginalized-bg { fill: #c0392b; }
+
+      .flow-arrow { stroke: #2c3e50; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1350" height="650" fill="#f8f9fa"/>
+
+  <!-- 3층 피라미드 구조 -->
+  <g id="pyramid">
+    <!-- 1층: 정보 엘리트층 -->
+    <polygon points="500,120 900,120 880,210 520,210" class="elite-bg" stroke="#ffffff" stroke-width="2"/>
+    <text x="700" y="150" text-anchor="middle" class="layer-title">1층: 정보 엘리트층 (22.9%)</text>
+    <text x="570" y="170" class="layer-text">화이트칼라 • 40-50대</text>
+    <text x="570" y="185" class="layer-text">다중플랫폼 • 50초+ 체류</text>
+    <text x="730" y="170" class="layer-text">고품질 농산물 정보 독점</text>
+
+    <!-- 2층: 실용 정보층 -->
+    <polygon points="460,220 940,220 920,310 480,310" class="practical-bg" stroke="#ffffff" stroke-width="2"/>
+    <text x="700" y="250" text-anchor="middle" class="layer-title">2층: 실용 정보층 (14.4%)</text>
+    <text x="540" y="270" class="layer-text">전업주부/자영업 • 50-70대</text>
+    <text x="540" y="285" class="layer-text">네이버 집중 • 34초 체류</text>
+    <text x="740" y="270" class="layer-text">실용 농산물 중심 안정층</text>
+    <text x="740" y="285" class="layer-text">일상 구매 결정의 핵심</text>
+
+    <!-- 3층: 이슈 추종층 -->
+    <polygon points="420,330 980,330 960,430 440,430" class="follower-bg" stroke="#ffffff" stroke-width="2"/>
+    <text x="700" y="365" text-anchor="middle" class="layer-title">3층: 이슈 추종층 (62.7%)</text>
+    <text x="540" y="385" class="layer-text">대중층 + 디지털 소외층</text>
+    <text x="540" y="400" class="layer-text">포털메인 의존 • 13초 체류</text>
+    <text x="740" y="385" class="layer-text">이슈형 농산물 반응</text>
+    <text x="740" y="400" class="layer-text">시장 변동성 증폭 역할</text>
+  </g>
+
+  <!-- 분석 차원 -->
+  <text x="700" y="460" text-anchor="middle" class="section-title">
+    WHO → WHERE → WHAT → WHY 분석 프레임워크
+  </text>
+
+  <g id="dimensions" transform="translate(20, 0)">
+    <!-- WHO: Demographics -->
+    <rect x="50" y="480" width="280" height="120" fill="#e8f4fd" stroke="#3498db" stroke-width="2" rx="10"/>
+    <text x="200" y="505" text-anchor="middle" class="header-text">WHO: 소비자 특성</text>
+    <text x="70" y="525" class="item-text">• 성별: 여성 vs 남성</text>
+    <text x="70" y="540" class="item-text">• 연령: 20-30대 vs 40-50대 vs 60대+</text>
+    <text x="70" y="555" class="item-text">• 직업: 화이트칼라 vs 전업주부 vs 블루칼라</text>
+    <text x="70" y="570" class="item-text">• 지역: 수도권 vs 광역시 vs 지방</text>
+    <text x="70" y="585" class="item-text">→ 3개 계층으로 세분화</text>
+
+    <!-- WHERE: Platform/Media -->
+    <rect x="370" y="480" width="280" height="120" fill="#e8f5e8" stroke="#27ae60" stroke-width="2" rx="10"/>
+    <text x="520" y="505" text-anchor="middle" class="header-text">WHERE: 플랫폼·언론사</text>
+    <text x="390" y="525" class="item-text">• 플랫폼: 네이버 vs 다음 vs 기타</text>
+    <text x="390" y="540" class="item-text">• 언론사: 경제지 vs 일반지 vs 지역지</text>
+    <text x="390" y="555" class="item-text">• 섹션: 경제 vs 생활 vs 사회</text>
+    <text x="390" y="570" class="item-text">• 접속경로: 검색 vs 추천 vs 직접</text>
+    <text x="390" y="585" class="item-text">→ 정보 접근 패턴 분석</text>
+
+    <!-- WHAT: Category/Keyword -->
+    <rect x="690" y="480" width="280" height="120" fill="#fff3cd" stroke="#ffc107" stroke-width="2" rx="10"/>
+    <text x="840" y="505" text-anchor="middle" class="header-text">WHAT: 콘텐츠 유형</text>
+    <text x="710" y="525" class="item-text">• 대분류: 농업 vs 경제 vs 사회 vs 건강</text>
+    <text x="710" y="540" class="item-text">• 중분류: 물가/가격 vs 농산물/작황</text>
+    <text x="710" y="555" class="item-text">• 키워드: 프리미엄 vs 대중 vs 이슈</text>
+    <text x="710" y="570" class="item-text">• 제목톤: 긍정 vs 부정 vs 중립</text>
+    <text x="710" y="585" class="item-text">→ 농산물 계급화 분석</text>
+
+    <!-- WHY: Engagement -->
+    <rect x="1010" y="480" width="280" height="120" fill="#f8d7da" stroke="#dc3545" stroke-width="2" rx="10"/>
+    <text x="1160" y="505" text-anchor="middle" class="header-text">WHY: 관여도·동기</text>
+    <text x="1030" y="525" class="item-text">• 체류시간: 13초 vs 34초 vs 50초+</text>
+    <text x="1030" y="540" class="item-text">• 접속빈도: 1회성 vs 반복 vs 정기</text>
+    <text x="1030" y="555" class="item-text">• 시간대: 아침 vs 점심 vs 저녁</text>
+    <text x="1030" y="570" class="item-text">• 목적: 가격체크 vs 정보수집 vs 관심</text>
+    <text x="1030" y="585" class="item-text">→ 정보 권력 측정</text>
+  </g>
+
+  <!-- 연결 화살표 -->
+  <path d="M 200 600 Q 300 670 450 600" class="flow-arrow"/>
+  <path d="M 520 600 Q 620 670 800 600" class="flow-arrow"/>
+  <path d="M 840 600 Q 940 670 1140 600" class="flow-arrow"/>
+
+
+</svg>

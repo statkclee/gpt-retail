@@ -1,0 +1,150 @@
+<svg viewBox="90 80 1330 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* 브랜드 색상 */
+      .node-data { fill: #e8f4fd; stroke: #1a5490; stroke-width: 2px; }
+      .node-human { fill: #1a5490; stroke: #000; stroke-width: 3px; }
+      .node-claude { fill: #2780e3; stroke: #000; stroke-width: 3px; }
+      .node-codex { fill: #17a2b8; stroke: #000; stroke-width: 2px; }
+      .node-output { fill: #d4edda; stroke: #28a745; stroke-width: 2px; }
+      .node-final { fill: #28a745; stroke: #000; stroke-width: 2px; }
+
+      /* 텍스트 */
+      .text-title { font-family: "Noto Sans KR", sans-serif; font-size: 32px; font-weight: 700; text-anchor: middle; fill: #000; }
+      .text-main { font-family: "Noto Sans KR", sans-serif; font-size: 22px; font-weight: 700; text-anchor: middle; fill: #000; }
+      .text-main-light { font-family: "Noto Sans KR", sans-serif; font-size: 22px; font-weight: 700; text-anchor: middle; fill: #fff; }
+      .text-desc { font-family: "Noto Sans KR", sans-serif; font-size: 18px; text-anchor: start; fill: #000; }
+      .text-desc-center { font-family: "Noto Sans KR", sans-serif; font-size: 18px; text-anchor: middle; fill: #000; }
+      .text-small { font-family: "Noto Sans KR", sans-serif; font-size: 15px; text-anchor: start; fill: #6c757d; }
+      .text-small-center { font-family: "Noto Sans KR", sans-serif; font-size: 15px; text-anchor: middle; fill: #6c757d; }
+
+      /* 화살표 */
+      .arrow { stroke: #333; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+      .arrow-feedback { stroke: #dc3545; stroke-width: 2px; fill: none; marker-end: url(#arrowhead-red); stroke-dasharray: 6,3; }
+      .arrow-assist { stroke: #17a2b8; stroke-width: 1.5px; fill: none; marker-end: url(#arrowhead-cyan); stroke-dasharray: 4,2; }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#dc3545" />
+    </marker>
+
+    <marker id="arrowhead-cyan" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#17a2b8" />
+    </marker>
+  </defs>
+
+  <!-- White Background -->
+  <rect x="0" y="0" width="1430" height="900" fill="#ffffff"/>
+
+  <!-- Left: 4 Datasets -->
+  <g transform="translate(100, 100)">
+    <text x="130" y="95" class="text-main">4개 원천 데이터셋</text>
+
+    <rect x="30" y="120" width="200" height="65" rx="8" class="node-data"/>
+    <text x="130" y="147" class="text-desc-center" font-weight="700">1. 급식비 데이터</text>
+    <text x="130" y="170" class="text-small-center">학교 급식 식재료 소비</text>
+
+    <rect x="30" y="200" width="200" height="65" rx="8" class="node-data"/>
+    <text x="130" y="227" class="text-desc-center" font-weight="700">2. 유통채널 데이터</text>
+    <text x="130" y="250" class="text-small-center">온오프라인 유통 판매</text>
+
+    <rect x="30" y="280" width="200" height="65" rx="8" class="node-data"/>
+    <text x="130" y="307" class="text-desc-center" font-weight="700">3. 농산물 정보 데이터</text>
+    <text x="130" y="330" class="text-small-center">모바일 기사 관심도</text>
+
+    <rect x="30" y="360" width="200" height="65" rx="8" class="node-data"/>
+    <text x="130" y="387" class="text-desc-center" font-weight="700">4. 쇼핑앱 데이터</text>
+    <text x="130" y="410" class="text-small-center">MZ 소비자 이용행태</text>
+  </g>
+
+  <!-- Center: AI Collaboration Cycle -->
+  <circle cx="700" cy="430" r="310" fill="#f8f9fa" stroke="#2780e3" stroke-width="3"/>
+
+  <!-- Arrow from datasets to center -->
+  <path d="M 330 290 L 430 370" class="arrow"/>
+
+  <text x="700" y="200" class="text-main">Positron IDE 환경</text>
+
+  <!-- Human Icon -->
+  <circle cx="500" cy="340" r="45" class="node-human"/>
+  <text x="500" y="352" class="text-main-light">사람</text>
+
+  <!-- Bidirectional Arrow -->
+  <path d="M 555 330 L 660 330" class="arrow"/>
+  <path d="M 660 355 L 555 355" class="arrow"/>
+
+  <!-- Claude Code (Main AI) -->
+  <rect x="670" y="270" width="280" height="180" rx="10" class="node-claude"/>
+  <text x="810" y="300" class="text-main-light">Claude Code (주력 AI)</text>
+  <text x="690" y="330" class="text-desc" fill="#fff">• 데이터 탐색 코드 생성</text>
+  <text x="690" y="355" class="text-desc" fill="#fff">• 시각화 코드 작성</text>
+  <text x="690" y="380" class="text-desc" fill="#fff">• 통계 분석 실행</text>
+  <text x="690" y="405" class="text-desc" fill="#fff">• 인사이트 해석 및 설명</text>
+  <text x="690" y="430" class="text-desc" fill="#fff">• 서술형 문단 작성</text>
+
+  <!-- OpenAI Codex (Assistant AI) -->
+  <rect x="670" y="465" width="280" height="90" rx="10" class="node-codex"/>
+  <text x="810" y="495" class="text-main-light">OpenAI Codex (보조 AI)</text>
+  <text x="690" y="520" class="text-desc" fill="#fff">• 코드 자동완성</text>
+  <text x="690" y="540" class="text-desc" fill="#fff">• 구문 오류 수정 • 코드 리팩토링</text>
+
+  <!-- Assistant arrow -->
+  <path d="M 810 455 L 810 450" class="arrow-assist"/>
+
+  <!-- Iteration cycle annotation inside circle --> 
+  <text x="700" y="585" class="text-main">↻ 반복 사이클 (수십~수백 번)</text>
+
+  <rect x="490" y="600" width="200" height="70" rx="6" fill="#e3f2fd" stroke="#2780e3" stroke-width="1.5"/>
+  <text x="510" y="625" class="text-small">1. [사람] 질문/요청</text>
+  <text x="510" y="643" class="text-small">2. [AI] 코드 생성</text>
+  <text x="510" y="661" class="text-small">3. [사람] 피드백 제공</text>
+
+  <rect x="710" y="600" width="200" height="70" rx="6" fill="#e3f2fd" stroke="#2780e3" stroke-width="1.5"/>
+  <text x="740" y="625" class="text-small">4. [AI] 수정/보완</text>
+  <text x="740" y="643" class="text-small">5. [사람] 추가 요청</text>
+  <text x="740" y="661" class="text-small">6. [AI] 문단 작성 ...</text>
+
+  <!-- Feedback loop -->
+  <path d="M 980 360 Q 1050 430 980 500" class="arrow-feedback"/>
+  <text x="1060" y="435" class="text-main" fill="#dc3545" text-anchor="start">피드백</text>
+  <text x="1060" y="460" class="text-main" fill="#dc3545" text-anchor="start">루프</text>
+
+  <!-- Arrow to outputs -->
+  <path d="M 960 400 L 1090 290" class="arrow"/>
+
+  <!-- Right: 4 Output Documents -->
+  <g transform="translate(0, 50)">
+    <text x="1230" y="95" class="text-main">4개 완성 문서</text>
+
+    <rect x="1100" y="120" width="260" height="95" rx="8" class="node-output"/>
+    <text x="1230" y="147" class="text-desc-center" font-weight="700">proj_app.qmd (1일)</text>
+    <text x="1115" y="170" class="text-small">├─ AI 생성 코드 60%</text>
+    <text x="1115" y="188" class="text-small">├─ AI 작성 문단 40%</text>
+    <text x="1115" y="206" class="text-small">└─ 사람 큐레이션 100%</text>
+
+    <rect x="1100" y="225" width="260" height="50" rx="8" class="node-output"/>
+    <text x="1230" y="250" class="text-desc-center" font-weight="700">proj_trade.qmd (1일)</text>
+    <text x="1230" y="267" class="text-small-center">동일 구조</text>
+
+    <rect x="1100" y="290" width="260" height="50" rx="8" class="node-output"/>
+    <text x="1230" y="315" class="text-desc-center" font-weight="700">proj_school.qmd (1일)</text>
+    <text x="1230" y="332" class="text-small-center">동일 구조</text>
+
+    <rect x="1100" y="355" width="260" height="50" rx="8" class="node-output"/>
+    <text x="1230" y="380" class="text-desc-center" font-weight="700">proj_news.qmd (1일)</text>
+    <text x="1230" y="397" class="text-small-center">동일 구조</text>
+
+    <!-- Arrow to final output -->
+    <path d="M 1230 420 L 1230 470" class="arrow"/>
+
+    <!-- Final Output -->
+    <rect x="1070" y="480" width="320" height="80" rx="8" class="node-final"/>
+    <text x="1230" y="510" class="text-main-light">Quarto 렌더링</text>
+    <text x="1160" y="540" class="text-desc" fill="#fff" text-anchor="middle">HTML + PDF 출판물</text>
+  </g>
+
+</svg>

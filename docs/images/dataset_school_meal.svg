@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0, 75, 1400, 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .main-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #2c3e50; }
+      .section-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #34495e; }
+      .header-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #2c3e50; }
+      .item-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 12px; fill: #2c3e50; }
+      .small-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .data-text { font-family: 'Monaco', 'Consolas', monospace; font-size: 11px; fill: #2c3e50; }
+
+      .schema-bg { fill: #e8f4fd; stroke: #3498db; stroke-width: 2; }
+      .data-bg { fill: #e8f5e8; stroke: #27ae60; stroke-width: 2; }
+      .header-bg { fill: #2196f3; }
+      .row-bg { fill: #ffffff; stroke: #bdc3c7; stroke-width: 1; }
+      .alt-row-bg { fill: #f8f9fa; stroke: #bdc3c7; stroke-width: 1; }
+    </style>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1400" height="650" fill="#fafafa"/>
+
+  <text x="100" y="120" text-anchor="left" class="section-title">2024년 1월 전국 급식 조달 • 17개 시도 • 5개 유통채널 • 찹쌀 품목 분석</text>
+
+  <!-- 왼쪽: 스키마 정보 -->
+  <rect x="50" y="140" width="520" height="370" class="schema-bg" rx="10"/>
+  <text x="310" y="170" text-anchor="middle" class="section-title">📋 학교급식 데이터 스키마</text>
+
+  <!-- 스키마 테이블 헤더 -->
+  <rect x="70" y="190" width="50" height="30" class="header-bg" rx="3"/>
+  <rect x="120" y="190" width="140" height="30" class="header-bg" rx="3"/>
+  <rect x="260" y="190" width="100" height="30" class="header-bg" rx="3"/>
+  <rect x="360" y="190" width="190" height="30" class="header-bg" rx="3"/>
+
+  <text x="95" y="210" text-anchor="middle" class="header-text" fill="white">순번</text>
+  <text x="190" y="210" text-anchor="middle" class="header-text" fill="white">컬럼명</text>
+  <text x="310" y="210" text-anchor="middle" class="header-text" fill="white">타입</text>
+  <text x="455" y="210" text-anchor="middle" class="header-text" fill="white">설명</text>
+
+  <!-- 스키마 테이블 데이터 -->
+  <!-- Row 1 -->
+  <rect x="70" y="220" width="480" height="25" class="row-bg"/>
+  <text x="95" y="235" text-anchor="middle" class="item-text">1</text>
+  <text x="190" y="235" text-anchor="middle" class="item-text">카테고리</text>
+  <text x="310" y="235" text-anchor="middle" class="item-text">VARCHAR(20)</text>
+  <text x="455" y="235" text-anchor="middle" class="small-text">농/수/축/임산물 75개 품목</text>
+
+  <!-- Row 2 -->
+  <rect x="70" y="245" width="480" height="25" class="alt-row-bg"/>
+  <text x="95" y="260" text-anchor="middle" class="item-text">2</text>
+  <text x="190" y="260" text-anchor="middle" class="item-text">유통채널</text>
+  <text x="310" y="260" text-anchor="middle" class="item-text">VARCHAR(20)</text>
+  <text x="455" y="260" text-anchor="middle" class="small-text">대형마트,체인슈퍼,편의점 등</text>
+
+  <!-- Row 3 -->
+  <rect x="70" y="270" width="480" height="25" class="row-bg"/>
+  <text x="95" y="285" text-anchor="middle" class="item-text">3</text>
+  <text x="190" y="285" text-anchor="middle" class="item-text">광역시도</text>
+  <text x="310" y="285" text-anchor="middle" class="item-text">VARCHAR(20)</text>
+  <text x="455" y="285" text-anchor="middle" class="small-text">전국 17개 시도</text>
+
+  <!-- Row 4 -->
+  <rect x="70" y="295" width="480" height="25" class="alt-row-bg"/>
+  <text x="95" y="310" text-anchor="middle" class="item-text">4</text>
+  <text x="190" y="310" text-anchor="middle" class="item-text">월코드</text>
+  <text x="310" y="310" text-anchor="middle" class="item-text">VARCHAR(10)</text>
+  <text x="455" y="310" text-anchor="middle" class="small-text">Myyyymm 형식</text>
+
+  <!-- Row 5 -->
+  <rect x="70" y="320" width="480" height="25" class="row-bg"/>
+  <text x="95" y="335" text-anchor="middle" class="item-text">5</text>
+  <text x="190" y="335" text-anchor="middle" class="item-text">소매_매출액_원</text>
+  <text x="310" y="335" text-anchor="middle" class="item-text">NUMBER</text>
+  <text x="455" y="335" text-anchor="middle" class="small-text">소매시장 총 매출액</text>
+
+  <!-- Row 6 -->
+  <rect x="70" y="345" width="480" height="25" class="alt-row-bg"/>
+  <text x="95" y="360" text-anchor="middle" class="item-text">6</text>
+  <text x="190" y="360" text-anchor="middle" class="item-text">KG_유치원</text>
+  <text x="310" y="360" text-anchor="middle" class="item-text">NUMBER</text>
+  <text x="455" y="360" text-anchor="middle" class="small-text">유치원 급식 중량(KG)</text>
+
+  <!-- Row 7 -->
+  <rect x="70" y="370" width="480" height="25" class="row-bg"/>
+  <text x="95" y="385" text-anchor="middle" class="item-text">7</text>
+  <text x="190" y="385" text-anchor="middle" class="item-text">KG_초등학교</text>
+  <text x="310" y="385" text-anchor="middle" class="item-text">NUMBER</text>
+  <text x="455" y="385" text-anchor="middle" class="small-text">초등학교 급식 중량(KG)</text>
+
+  <!-- Row 8 -->
+  <rect x="70" y="395" width="480" height="25" class="alt-row-bg"/>
+  <text x="95" y="410" text-anchor="middle" class="item-text">8</text>
+  <text x="190" y="410" text-anchor="middle" class="item-text">원_유치원</text>
+  <text x="310" y="410" text-anchor="middle" class="item-text">NUMBER</text>
+  <text x="455" y="410" text-anchor="middle" class="small-text">유치원 급식 금액(원)</text>
+
+  <!-- Row 9 -->
+  <rect x="70" y="420" width="480" height="25" class="row-bg"/>
+  <text x="95" y="435" text-anchor="middle" class="item-text">9</text>
+  <text x="190" y="435" text-anchor="middle" class="item-text">원_초등학교</text>
+  <text x="310" y="435" text-anchor="middle" class="item-text">NUMBER</text>
+  <text x="455" y="435" text-anchor="middle" class="small-text">초등학교 급식 금액(원)</text>
+
+  <!-- Row 10 -->
+  <rect x="70" y="445" width="480" height="25" class="alt-row-bg"/>
+  <text x="95" y="460" text-anchor="middle" class="item-text">⋮</text>
+  <text x="190" y="460" text-anchor="middle" class="item-text">... (총 21개 컬럼)</text>
+  <text x="310" y="460" text-anchor="middle" class="item-text">...</text>
+  <text x="455" y="460" text-anchor="middle" class="small-text">중/고등학교 성별 구분</text>
+
+  <!-- 핵심 지표 강조 -->
+  <text x="310" y="485" text-anchor="middle" class="small-text" fill="#e74c3c">★ 학교급별 • 성별 구분 • KG/원 이중 측정</text>
+
+  <!-- 오른쪽: 실제 데이터 샘플 -->
+  <rect x="620" y="140" width="750" height="370" class="data-bg" rx="10"/>
+  <text x="995" y="170" text-anchor="middle" class="section-title">📊 실제 데이터 샘플</text>
+  <text x="995" y="190" text-anchor="middle" class="small-text">2024-01 경기도 찹쌀 유통채널별 조달 현황</text>
+
+  <!-- 데이터 테이블 헤더 -->
+  <rect x="640" y="210" width="80" height="35" class="header-bg" rx="3"/>
+  <rect x="720" y="210" width="100" height="35" class="header-bg" rx="3"/>
+  <rect x="820" y="210" width="80" height="35" class="header-bg" rx="3"/>
+  <rect x="900" y="210" width="100" height="35" class="header-bg" rx="3"/>
+  <rect x="1000" y="210" width="80" height="35" class="header-bg" rx="3"/>
+  <rect x="1080" y="210" width="100" height="35" class="header-bg" rx="3"/>
+  <rect x="1180" y="210" width="100" height="35" class="header-bg" rx="3"/>
+  <rect x="1280" y="210" width="80" height="35" class="header-bg" rx="3"/>
+
+  <text x="680" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">카테고리</text>
+  <text x="770" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">유통채널</text>
+  <text x="860" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">광역시도</text>
+  <text x="950" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">소매매출액</text>
+  <text x="1040" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">초등KG</text>
+  <text x="1130" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">고등KG</text>
+  <text x="1230" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">초등금액</text>
+  <text x="1320" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">단가</text>
+
+  <!-- Row 1: 편의점 -->
+  <rect x="640" y="245" width="720" height="25" class="row-bg"/>
+  <text x="680" y="260" text-anchor="middle" class="data-text" font-size="9">찹쌀</text>
+  <text x="770" y="260" text-anchor="middle" class="data-text" font-size="9">편의점</text>
+  <text x="860" y="260" text-anchor="middle" class="data-text" font-size="9">경기도</text>
+  <text x="950" y="260" text-anchor="middle" class="data-text" font-size="9">6,772,548</text>
+  <text x="1040" y="260" text-anchor="middle" class="data-text" font-size="9">2</text>
+  <text x="1130" y="260" text-anchor="middle" class="data-text" font-size="9">322</text>
+  <text x="1230" y="260" text-anchor="middle" class="data-text" font-size="9">10,818</text>
+  <text x="1320" y="260" text-anchor="middle" class="data-text" font-size="9" fill="#e74c3c">5,409</text>
+
+  <!-- Row 2: 체인슈퍼 -->
+  <rect x="640" y="270" width="720" height="25" class="alt-row-bg"/>
+  <text x="680" y="285" text-anchor="middle" class="data-text" font-size="9">찹쌀</text>
+  <text x="770" y="285" text-anchor="middle" class="data-text" font-size="9">체인슈퍼</text>
+  <text x="860" y="285" text-anchor="middle" class="data-text" font-size="9">경기도</text>
+  <text x="950" y="285" text-anchor="middle" class="data-text" font-size="9">222,590,659</text>
+  <text x="1040" y="285" text-anchor="middle" class="data-text" font-size="9">2</text>
+  <text x="1130" y="285" text-anchor="middle" class="data-text" font-size="9">322</text>
+  <text x="1230" y="285" text-anchor="middle" class="data-text" font-size="9">10,818</text>
+  <text x="1320" y="285" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">5,409</text>
+
+  <!-- Row 3: 대형마트 -->
+  <rect x="640" y="295" width="720" height="25" class="row-bg"/>
+  <text x="680" y="310" text-anchor="middle" class="data-text" font-size="9">찹쌀</text>
+  <text x="770" y="310" text-anchor="middle" class="data-text" font-size="9">대형마트</text>
+  <text x="860" y="310" text-anchor="middle" class="data-text" font-size="9">경기도</text>
+  <text x="950" y="310" text-anchor="middle" class="data-text" font-size="9">740,219,427</text>
+  <text x="1040" y="310" text-anchor="middle" class="data-text" font-size="9">2</text>
+  <text x="1130" y="310" text-anchor="middle" class="data-text" font-size="9">322</text>
+  <text x="1230" y="310" text-anchor="middle" class="data-text" font-size="9">10,818</text>
+  <text x="1320" y="310" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">5,409</text>
+
+  <!-- Row 4: 일반슈퍼 -->
+  <rect x="640" y="320" width="720" height="25" class="alt-row-bg"/>
+  <text x="680" y="335" text-anchor="middle" class="data-text" font-size="9">찹쌀</text>
+  <text x="770" y="335" text-anchor="middle" class="data-text" font-size="9">일반슈퍼</text>
+  <text x="860" y="335" text-anchor="middle" class="data-text" font-size="9">경기도</text>
+  <text x="950" y="335" text-anchor="middle" class="data-text" font-size="9">262,990,089</text>
+  <text x="1040" y="335" text-anchor="middle" class="data-text" font-size="9">2</text>
+  <text x="1130" y="335" text-anchor="middle" class="data-text" font-size="9">322</text>
+  <text x="1230" y="335" text-anchor="middle" class="data-text" font-size="9">10,818</text>
+  <text x="1320" y="335" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">5,409</text>
+
+  <!-- Row 5: 식자재마트 -->
+  <rect x="640" y="345" width="720" height="25" class="row-bg"/>
+  <text x="680" y="360" text-anchor="middle" class="data-text" font-size="9">찹쌀</text>
+  <text x="770" y="360" text-anchor="middle" class="data-text" font-size="9">식자재마트</text>
+  <text x="860" y="360" text-anchor="middle" class="data-text" font-size="9">경기도</text>
+  <text x="950" y="360" text-anchor="middle" class="data-text" font-size="9">185,432,156</text>
+  <text x="1040" y="360" text-anchor="middle" class="data-text" font-size="9">2</text>
+  <text x="1130" y="360" text-anchor="middle" class="data-text" font-size="9">322</text>
+  <text x="1230" y="360" text-anchor="middle" class="data-text" font-size="9">10,818</text>
+  <text x="1320" y="360" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">5,409</text>
+
+  <!-- 추가 정보 -->
+  <rect x="640" y="380" width="720" height="100" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8"/>
+  <text x="1000" y="405" text-anchor="middle" class="header-text" fill="#d84315">📊 데이터 구조의 핵심 특징</text>
+
+  <text x="660" y="430" class="item-text" fill="#5d4037">• 학교급별 세분화: 유치원 → 초등 → 중등(남/녀) → 고등(남/녀)</text>
+  <text x="660" y="450" class="item-text" fill="#5d4037">• 이중 측정 시스템: 중량(KG) + 금액(원) 동시 수집</text>
+  <text x="660" y="470" class="item-text" fill="#5d4037">• 유통채널별 가격 비교: 동일 품목의 채널별 단가 격차 분석 가능</text>
+
+  <!-- 연결 화살표 -->
+  <path d="M 570 350 Q 595 320 620 350" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="595" y="315" text-anchor="middle" class="item-text" fill="#e74c3c">스키마 → 실제 데이터</text>
+
+</svg>

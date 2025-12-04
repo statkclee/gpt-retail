@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0, 75, 1350, 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .main-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #2c3e50; }
+      .section-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #34495e; }
+      .header-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #2c3e50; }
+      .item-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 12px; fill: #2c3e50; }
+      .small-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .data-text { font-family: 'Monaco', 'Consolas', monospace; font-size: 11px; fill: #2c3e50; }
+
+      .schema-bg { fill: #e8f4fd; stroke: #3498db; stroke-width: 2; }
+      .data-bg { fill: #e8f5e8; stroke: #27ae60; stroke-width: 2; }
+      .header-bg { fill: #2196f3; }
+      .row-bg { fill: #ffffff; stroke: #bdc3c7; stroke-width: 1; }
+      .alt-row-bg { fill: #f8f9fa; stroke: #bdc3c7; stroke-width: 1; }
+    </style>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1350" height="650" fill="#fafafa"/>
+
+  <text x="100" y="120" text-anchor="left" class="section-title">2025년 1월 일별 수집 • 86,440건 레코드 • 성별/연령대/앱별 세분화</text>
+
+  <!-- 왼쪽: 스키마 정보 -->
+  <rect x="50" y="140" width="500" height="370" class="schema-bg" rx="10"/>
+  <text x="300" y="170" text-anchor="middle" class="section-title">📋 데이터 스키마</text>
+
+  <!-- 스키마 테이블 헤더 -->
+  <rect x="70" y="190" width="60" height="30" class="header-bg" rx="3"/>
+  <rect x="130" y="190" width="160" height="30" class="header-bg" rx="3"/>
+  <rect x="290" y="190" width="80" height="30" class="header-bg" rx="3"/>
+  <rect x="370" y="190" width="160" height="30" class="header-bg" rx="3"/>
+
+  <text x="100" y="210" text-anchor="middle" class="header-text" fill="white">순번</text>
+  <text x="210" y="210" text-anchor="middle" class="header-text" fill="white">컬럼명</text>
+  <text x="330" y="210" text-anchor="middle" class="header-text" fill="white">타입</text>
+  <text x="450" y="210" text-anchor="middle" class="header-text" fill="white">설명</text>
+
+  <!-- 스키마 테이블 데이터 -->
+  <!-- Row 1 -->
+  <rect x="70" y="220" width="460" height="25" class="row-bg"/>
+  <text x="100" y="235" text-anchor="middle" class="item-text">1</text>
+  <text x="210" y="235" text-anchor="middle" class="item-text">년-월-일</text>
+  <text x="330" y="235" text-anchor="middle" class="item-text">DATE</text>
+  <text x="450" y="235" text-anchor="middle" class="small-text">데이터 수집 일자</text>
+
+  <!-- Row 2 -->
+  <rect x="70" y="245" width="460" height="25" class="alt-row-bg"/>
+  <text x="100" y="260" text-anchor="middle" class="item-text">2</text>
+  <text x="210" y="260" text-anchor="middle" class="item-text">성별</text>
+  <text x="330" y="260" text-anchor="middle" class="item-text">VARCHAR</text>
+  <text x="450" y="260" text-anchor="middle" class="small-text">전체/남자/여자</text>
+
+  <!-- Row 3 -->
+  <rect x="70" y="270" width="460" height="25" class="row-bg"/>
+  <text x="100" y="285" text-anchor="middle" class="item-text">3</text>
+  <text x="210" y="285" text-anchor="middle" class="item-text">연령대</text>
+  <text x="330" y="285" text-anchor="middle" class="item-text">VARCHAR</text>
+  <text x="450" y="285" text-anchor="middle" class="small-text">20-60대 구분</text>
+
+  <!-- Row 4 -->
+  <rect x="70" y="295" width="460" height="25" class="alt-row-bg"/>
+  <text x="100" y="310" text-anchor="middle" class="item-text">4</text>
+  <text x="210" y="310" text-anchor="middle" class="item-text">앱 이용순위</text>
+  <text x="330" y="310" text-anchor="middle" class="item-text">INT</text>
+  <text x="450" y="310" text-anchor="middle" class="small-text">일별 이용자 순위</text>
+
+  <!-- Row 5 -->
+  <rect x="70" y="320" width="460" height="25" class="row-bg"/>
+  <text x="100" y="335" text-anchor="middle" class="item-text">5</text>
+  <text x="210" y="335" text-anchor="middle" class="item-text">앱 이름</text>
+  <text x="330" y="335" text-anchor="middle" class="item-text">VARCHAR</text>
+  <text x="450" y="335" text-anchor="middle" class="small-text">쇼핑앱 명칭</text>
+
+  <!-- Row 6 -->
+  <rect x="70" y="345" width="460" height="25" class="alt-row-bg"/>
+  <text x="100" y="360" text-anchor="middle" class="item-text">6</text>
+  <text x="210" y="360" text-anchor="middle" class="item-text">이용자 수</text>
+  <text x="330" y="360" text-anchor="middle" class="item-text">INT</text>
+  <text x="450" y="360" text-anchor="middle" class="small-text">일간 이용자 수</text>
+
+  <!-- Row 7 -->
+  <rect x="70" y="370" width="460" height="25" class="row-bg"/>
+  <text x="100" y="385" text-anchor="middle" class="item-text">7</text>
+  <text x="210" y="385" text-anchor="middle" class="item-text">평균 이용시간(분)</text>
+  <text x="330" y="385" text-anchor="middle" class="item-text">VARCHAR</text>
+  <text x="450" y="385" text-anchor="middle" class="small-text">1인당 일평균 시간</text>
+
+  <!-- Row 8 -->
+  <rect x="70" y="395" width="460" height="25" class="alt-row-bg"/>
+  <text x="100" y="410" text-anchor="middle" class="item-text">8</text>
+  <text x="210" y="410" text-anchor="middle" class="item-text">평균 이용빈도(회)</text>
+  <text x="330" y="410" text-anchor="middle" class="item-text">VARCHAR</text>
+  <text x="450" y="410" text-anchor="middle" class="small-text">1인당 일평균 빈도</text>
+
+  <!-- Row 9 -->
+  <rect x="70" y="420" width="460" height="25" class="row-bg"/>
+  <text x="100" y="435" text-anchor="middle" class="item-text">9</text>
+  <text x="210" y="435" text-anchor="middle" class="item-text">총 실행 횟수</text>
+  <text x="330" y="435" text-anchor="middle" class="item-text">INT</text>
+  <text x="450" y="435" text-anchor="middle" class="small-text">일간 앱 실행 횟수</text>
+
+  <!-- Row 10 -->
+  <rect x="70" y="445" width="460" height="25" class="alt-row-bg"/>
+  <text x="100" y="460" text-anchor="middle" class="item-text">10</text>
+  <text x="210" y="460" text-anchor="middle" class="item-text">실행당 평균시간(초)</text>
+  <text x="330" y="460" text-anchor="middle" class="item-text">FLOAT</text>
+  <text x="450" y="460" text-anchor="middle" class="small-text">핵심 분석 지표</text>
+
+  <!-- 핵심 지표 강조 -->
+  <rect x="370" y="445" width="160" height="25" stroke="#e74c3c" stroke-width="3" fill="none" rx="3"/>
+  <text x="430" y="485" class="small-text" fill="#e74c3c">★ 검색형 vs 발견형 구분 지표</text>
+
+  <!-- 오른쪽: 실제 데이터 샘플 -->
+  <rect x="600" y="140" width="720" height="370" class="data-bg" rx="10"/>
+  <text x="935" y="170" text-anchor="middle" class="section-title">📊 실제 데이터 샘플</text>
+  <text x="935" y="190" text-anchor="middle" class="small-text">2025-01-01 여성 전체 상위 10개 앱 데이터</text>
+
+  <!-- 데이터 테이블 헤더 -->
+  <rect x="620" y="210" width="70" height="35" class="header-bg" rx="3"/>
+  <rect x="690" y="210" width="40" height="35" class="header-bg" rx="3"/>
+  <rect x="730" y="210" width="40" height="35" class="header-bg" rx="3"/>
+  <rect x="770" y="210" width="40" height="35" class="header-bg" rx="3"/>
+  <rect x="810" y="210" width="120" height="35" class="header-bg" rx="3"/>
+  <rect x="930" y="210" width="80" height="35" class="header-bg" rx="3"/>
+  <rect x="1010" y="210" width="60" height="35" class="header-bg" rx="3"/>
+  <rect x="1070" y="210" width="60" height="35" class="header-bg" rx="3"/>
+  <rect x="1130" y="210" width="80" height="35" class="header-bg" rx="3"/>
+  <rect x="1210" y="210" width="80" height="35" class="header-bg" rx="3"/>
+
+  <text x="655" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">년월일</text>
+  <text x="710" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">성별</text>
+  <text x="750" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">연령</text>
+  <text x="790" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">순위</text>
+  <text x="870" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">앱 이름</text>
+  <text x="970" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">이용자수</text>
+  <text x="1040" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">이용시간</text>
+  <text x="1100" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">이용빈도</text>
+  <text x="1170" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">총실행횟수</text>
+  <text x="1250" y="232" text-anchor="middle" class="header-text" fill="white" font-size="12">실행당시간</text>
+
+  <!-- Row 1: 쿠팡 -->
+  <rect x="620" y="245" width="670" height="25" class="row-bg"/>
+  <text x="655" y="260" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="260" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="260" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="260" text-anchor="middle" class="data-text" font-size="9">1</text>
+  <text x="870" y="260" text-anchor="middle" class="data-text" font-size="9">쿠팡</text>
+  <text x="970" y="260" text-anchor="middle" class="data-text" font-size="9">16,677,357</text>
+  <text x="1040" y="260" text-anchor="middle" class="data-text" font-size="9">8.0</text>
+  <text x="1100" y="260" text-anchor="middle" class="data-text" font-size="9">8.7</text>
+  <text x="1170" y="260" text-anchor="middle" class="data-text" font-size="9">144,269,732</text>
+  <text x="1250" y="260" text-anchor="middle" class="data-text" font-size="9" fill="#e74c3c">55.8</text>
+
+  <!-- Row 2: 11번가 -->
+  <rect x="620" y="270" width="670" height="25" class="alt-row-bg"/>
+  <text x="655" y="285" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="285" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="285" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="285" text-anchor="middle" class="data-text" font-size="9">2</text>
+  <text x="870" y="285" text-anchor="middle" class="data-text" font-size="9">11번가</text>
+  <text x="970" y="285" text-anchor="middle" class="data-text" font-size="9">5,643,830</text>
+  <text x="1040" y="285" text-anchor="middle" class="data-text" font-size="9">6.4</text>
+  <text x="1100" y="285" text-anchor="middle" class="data-text" font-size="9">3.1</text>
+  <text x="1170" y="285" text-anchor="middle" class="data-text" font-size="9">17,434,072</text>
+  <text x="1250" y="285" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">124.5</text>
+
+  <!-- Row 3: G마켓 -->
+  <rect x="620" y="295" width="670" height="25" class="row-bg"/>
+  <text x="655" y="310" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="310" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="310" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="310" text-anchor="middle" class="data-text" font-size="9">3</text>
+  <text x="870" y="310" text-anchor="middle" class="data-text" font-size="9">G마켓</text>
+  <text x="970" y="310" text-anchor="middle" class="data-text" font-size="9">5,144,668</text>
+  <text x="1040" y="310" text-anchor="middle" class="data-text" font-size="9">5.3</text>
+  <text x="1100" y="310" text-anchor="middle" class="data-text" font-size="9">5.2</text>
+  <text x="1170" y="310" text-anchor="middle" class="data-text" font-size="9">26,960,174</text>
+  <text x="1250" y="310" text-anchor="middle" class="data-text" font-size="9">60.8</text>
+
+  <!-- Row 4: AliExpress -->
+  <rect x="620" y="320" width="670" height="25" class="alt-row-bg"/>
+  <text x="655" y="335" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="335" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="335" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="335" text-anchor="middle" class="data-text" font-size="9">4</text>
+  <text x="870" y="335" text-anchor="middle" class="data-text" font-size="9">AliExpress</text>
+  <text x="970" y="335" text-anchor="middle" class="data-text" font-size="9">3,570,151</text>
+  <text x="1040" y="335" text-anchor="middle" class="data-text" font-size="9">10.1</text>
+  <text x="1100" y="335" text-anchor="middle" class="data-text" font-size="9">4.8</text>
+  <text x="1170" y="335" text-anchor="middle" class="data-text" font-size="9">17,132,338</text>
+  <text x="1250" y="335" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">126.7</text>
+
+  <!-- Row 5: 라운드 -->
+  <rect x="620" y="345" width="670" height="25" class="row-bg"/>
+  <text x="655" y="360" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="360" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="360" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="360" text-anchor="middle" class="data-text" font-size="9">5</text>
+  <text x="870" y="360" text-anchor="middle" class="data-text" font-size="9">라운드</text>
+  <text x="970" y="360" text-anchor="middle" class="data-text" font-size="9">3,269,197</text>
+  <text x="1040" y="360" text-anchor="middle" class="data-text" font-size="9">3.4</text>
+  <text x="1100" y="360" text-anchor="middle" class="data-text" font-size="9">4.5</text>
+  <text x="1170" y="360" text-anchor="middle" class="data-text" font-size="9">14,797,589</text>
+  <text x="1250" y="360" text-anchor="middle" class="data-text" font-size="9" fill="#e74c3c">45.4</text>
+
+  <!-- Row 6: GS SHOP -->
+  <rect x="620" y="370" width="670" height="25" class="alt-row-bg"/>
+  <text x="655" y="385" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="385" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="385" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="385" text-anchor="middle" class="data-text" font-size="9">6</text>
+  <text x="870" y="385" text-anchor="middle" class="data-text" font-size="9">GS SHOP</text>
+  <text x="970" y="385" text-anchor="middle" class="data-text" font-size="9">2,956,386</text>
+  <text x="1040" y="385" text-anchor="middle" class="data-text" font-size="9">5.3</text>
+  <text x="1100" y="385" text-anchor="middle" class="data-text" font-size="9">3.2</text>
+  <text x="1170" y="385" text-anchor="middle" class="data-text" font-size="9">9,478,455</text>
+  <text x="1250" y="385" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">98.4</text>
+
+  <!-- Row 7: 올웨이즈 -->
+  <rect x="620" y="395" width="670" height="25" class="row-bg"/>
+  <text x="655" y="410" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="410" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="410" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="410" text-anchor="middle" class="data-text" font-size="9">7</text>
+  <text x="870" y="410" text-anchor="middle" class="data-text" font-size="9">올웨이즈</text>
+  <text x="970" y="410" text-anchor="middle" class="data-text" font-size="9">2,890,954</text>
+  <text x="1040" y="410" text-anchor="middle" class="data-text" font-size="9">36.9</text>
+  <text x="1100" y="410" text-anchor="middle" class="data-text" font-size="9">9.7</text>
+  <text x="1170" y="410" text-anchor="middle" class="data-text" font-size="9">28,002,133</text>
+  <text x="1250" y="410" text-anchor="middle" class="data-text" font-size="9" fill="#27ae60">228.7</text>
+
+  <!-- Row 8: 옥션 -->
+  <rect x="620" y="420" width="670" height="25" class="alt-row-bg"/>
+  <text x="655" y="435" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="435" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="435" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="435" text-anchor="middle" class="data-text" font-size="9">8</text>
+  <text x="870" y="435" text-anchor="middle" class="data-text" font-size="9">옥션</text>
+  <text x="970" y="435" text-anchor="middle" class="data-text" font-size="9">2,521,111</text>
+  <text x="1040" y="435" text-anchor="middle" class="data-text" font-size="9">3.3</text>
+  <text x="1100" y="435" text-anchor="middle" class="data-text" font-size="9">2.7</text>
+  <text x="1170" y="435" text-anchor="middle" class="data-text" font-size="9">6,724,896</text>
+  <text x="1250" y="435" text-anchor="middle" class="data-text" font-size="9">74.0</text>
+
+  <!-- Row 9: 홈플러스 -->
+  <rect x="620" y="445" width="670" height="25" class="row-bg"/>
+  <text x="655" y="460" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="460" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="460" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="460" text-anchor="middle" class="data-text" font-size="9">9</text>
+  <text x="870" y="460" text-anchor="middle" class="data-text" font-size="9">홈플러스</text>
+  <text x="970" y="460" text-anchor="middle" class="data-text" font-size="9">2,348,882</text>
+  <text x="1040" y="460" text-anchor="middle" class="data-text" font-size="9">5.9</text>
+  <text x="1100" y="460" text-anchor="middle" class="data-text" font-size="9">4.1</text>
+  <text x="1170" y="460" text-anchor="middle" class="data-text" font-size="9">9,626,234</text>
+  <text x="1250" y="460" text-anchor="middle" class="data-text" font-size="9">86.3</text>
+
+  <!-- Row 10: 롯데ON -->
+  <rect x="620" y="470" width="670" height="25" class="alt-row-bg"/>
+  <text x="655" y="485" text-anchor="middle" class="data-text" font-size="9">01-01</text>
+  <text x="710" y="485" text-anchor="middle" class="data-text" font-size="9">여성</text>
+  <text x="750" y="485" text-anchor="middle" class="data-text" font-size="9">전체</text>
+  <text x="790" y="485" text-anchor="middle" class="data-text" font-size="9">10</text>
+  <text x="870" y="485" text-anchor="middle" class="data-text" font-size="9">롯데ON</text>
+  <text x="970" y="485" text-anchor="middle" class="data-text" font-size="9">1,750,534</text>
+  <text x="1040" y="485" text-anchor="middle" class="data-text" font-size="9">2.9</text>
+  <text x="1100" y="485" text-anchor="middle" class="data-text" font-size="9">2.7</text>
+  <text x="1170" y="485" text-anchor="middle" class="data-text" font-size="9">4,797,039</text>
+  <text x="1250" y="485" text-anchor="middle" class="data-text" font-size="9">64.4</text>
+
+  <!-- 연결 화살표 -->
+  <path d="M 550 350 Q 575 320 600 350" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="575" y="315" text-anchor="middle" class="item-text" fill="#e74c3c">스키마 → 실제 데이터</text>
+
+</svg>

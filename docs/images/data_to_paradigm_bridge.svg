@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0, 50, 1000, 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .main-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #2c3e50; }
+      .section-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #34495e; }
+      .subsection-title { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #2c3e50; }
+      .item-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 14px; fill: #2c3e50; }
+      .small-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 12px; fill: #7f8c8d; }
+      .highlight-text { font-family: 'Malgun Gothic', Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #e74c3c; }
+
+      .insight-bg { fill: #e8f4fd; stroke: #3498db; stroke-width: 2; }
+      .transition-bg { fill: #fff3e0; stroke: #ff9800; stroke-width: 3; }
+      .efficiency-bg { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; }
+      .discovery-bg { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; }
+
+      .icon-insight { fill: #3498db; }
+      .icon-transition { fill: #ff9800; }
+      .icon-efficiency { fill: #2196f3; }
+      .icon-discovery { fill: #4caf50; }
+    </style>
+
+    <!-- Arrow markers -->
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2196f3"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4caf50"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ff9800"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1000" height="570" fill="#fafafa"/>
+
+  <!-- 데이터 분석 핵심 발견 (상단) -->
+  <rect x="50" y="60" width="900" height="120" class="insight-bg" rx="10"/>
+  <text x="500" y="85" text-anchor="middle" class="section-title">📊 데이터 분석 핵심 발견</text>
+
+  <!-- 시장 구조 발견 -->
+  <g transform="translate(30, 0)">
+    <text x="70" y="110" class="subsection-title">🏆 시장 구조</text>
+    <circle cx="80" cy="130" r="4" class="icon-insight"/>
+    <text x="90" y="135" class="item-text">쿠팡 69.9% 압도적 지배력</text>
+    <circle cx="80" cy="150" r="4" class="icon-insight"/>
+    <text x="90" y="155" class="item-text">토스쇼핑 27.1% 급속 성장</text>
+    <circle cx="80" cy="170" r="4" class="icon-insight"/>
+    <text x="90" y="175" class="item-text">플랫폼별 차별화 전략</text>    
+
+    <!-- 행동 패턴 발견 -->
+    <text x="370" y="110" class="subsection-title">👥 소비자 행동</text>
+    <circle cx="380" cy="130" r="4" class="icon-insight"/>
+    <text x="390" y="135" class="item-text">효율형 vs 탐색형 양분화</text>
+    <circle cx="380" cy="150" r="4" class="icon-insight"/>
+    <text x="390" y="155" class="item-text">체류시간의 극명한 차이</text>
+    <circle cx="380" cy="170" r="4" class="icon-insight"/>
+    <text x="390" y="175" class="item-text">성별/연령별 선호도 분화</text>
+
+    <!-- AI 영향 발견 -->
+    <text x="670" y="110" class="subsection-title">🤖 AI 영향</text>
+    <circle cx="680" cy="130" r="4" class="icon-insight"/>
+    <text x="690" y="135" class="item-text">개인화 추천 시스템 부상</text>
+    <circle cx="680" cy="150" r="4" class="icon-insight"/>
+    <text x="690" y="155" class="item-text">발견형 쇼핑 경험 확산</text>
+    <circle cx="680" cy="170" r="4" class="icon-insight"/>
+    <text x="690" y="175" class="item-text">플랫폼 충성도 재편</text>
+  </g>
+
+  <!-- AI 혁명 전환점 (중앙) -->
+  <rect x="200" y="200" width="600" height="100" class="transition-bg" rx="15"/>
+  <text x="500" y="230" text-anchor="middle" class="main-title">🚀 AI 혁명이 가져온 쇼핑 패러다임 전환</text>
+
+  <g transform="translate(30, 0)">
+    <text x="220" y="255" class="highlight-text">기존: 목적 지향적 검색</text>
+  <text x="220" y="275" class="item-text">"필요한 것을 찾는다"</text>
+  </g>
+
+  <text x="470" y="260" class="highlight-text">→</text>
+  <text x="580" y="255" class="highlight-text">새로운: 발견 중심 탐색</text>
+  <text x="580" y="275" class="item-text">"몰랐던 것을 발견한다"</text>
+
+  <text x="500" y="290" text-anchor="middle" class="small-text">데이터가 증명하는 소비자 행동의 이중 구조</text>
+
+  <!-- 화살표들 - 위에서 아래로 -->
+  <line x1="300" y1="180" x2="300" y2="200" stroke="#ff9800" stroke-width="1" marker-end="url(#arrow-orange)"/>
+  <line x1="500" y1="180" x2="500" y2="200" stroke="#ff9800" stroke-width="1" marker-end="url(#arrow-orange)"/>
+  <line x1="700" y1="180" x2="700" y2="200" stroke="#ff9800" stroke-width="1" marker-end="url(#arrow-orange)"/>
+
+  <!-- 두 가지 쇼핑 패러다임으로 분기 (하단) -->
+
+  <!-- 효율형 → 검색형 (좌측) -->
+  <rect x="50" y="330" width="420" height="130" class="efficiency-bg" rx="10"/>
+  <text x="260" y="355" text-anchor="middle" class="section-title">🎯 효율형 → 검색형 쇼핑</text>
+
+  <text x="70" y="380" class="subsection-title">📈 데이터 기반 특성</text>
+  <circle cx="80" cy="400" r="4" class="icon-efficiency"/>
+  <text x="90" y="405" class="item-text">짧은 체류시간 (&lt;45초)</text>
+  <circle cx="80" cy="420" r="4" class="icon-efficiency"/>
+  <text x="90" y="425" class="item-text">직접적 검색 키워드 사용</text>
+  <circle cx="80" cy="440" r="4" class="icon-efficiency"/>
+  <text x="90" y="445" class="item-text">가격 비교 중심 의사결정</text>
+
+  <g transform="translate(180, -90)">
+    <text x="70" y="470" class="subsection-title">🏢 대표 플랫폼</text>
+    <text x="80" y="490" class="item-text">• 쿠팡: 빠른 배송 + 검색 최적화</text>
+    <text x="80" y="510" class="item-text">• 네이버쇼핑: 가격 비교 + 필터링</text>
+    <text x="80" y="530" class="item-text">• 11번가: 종합몰 + 카테고리 검색</text>
+  </g>
+
+  <!-- 탐색형 → 발견형 (우측) -->
+  <rect x="530" y="330" width="420" height="130" class="discovery-bg" rx="10"/>
+  <text x="740" y="355" text-anchor="middle" class="section-title">🎲 탐색형 → 발견형 쇼핑</text>
+
+  <text x="550" y="380" class="subsection-title">🔍 데이터 기반 특성</text>
+  <circle cx="560" cy="400" r="4" class="icon-discovery"/>
+  <text x="570" y="405" class="item-text">긴 체류시간 (&gt;90초)</text>
+  <circle cx="560" cy="420" r="4" class="icon-discovery"/>
+  <text x="570" y="425" class="item-text">브라우징 중심 이용 패턴</text>
+  <circle cx="560" cy="440" r="4" class="icon-discovery"/>
+  <text x="570" y="445" class="item-text">추천 알고리즘 의존도 높음</text>
+
+  <g transform="translate(180, -90)">
+    <text x="550" y="470" class="subsection-title">🚀 신흥 플랫폼</text>
+    <text x="560" y="490" class="item-text">• 토스쇼핑: AI 추천 + 발견 중심</text>
+    <text x="560" y="510" class="item-text">• 네이버 플러스스토어: 개인화</text>
+    <text x="560" y="530" class="item-text">• 새로운 AI 플랫폼들</text>
+  </g>
+
+  <!-- 중앙에서 좌우로 분기하는 화살표 -->
+  <line x1="450" y1="300" x2="280" y2="330" stroke="#2196f3" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="550" y1="300" x2="720" y2="330" stroke="#4caf50" stroke-width="3" marker-end="url(#arrow-green)"/>
+
+  <!-- 하단 연결 표시 -->
+  <g transform="translate(0, -80)">
+    <rect x="200" y="550" width="600" height="30" fill="#f8f9fa" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="500" y="570" text-anchor="middle" class="small-text">⬇️ 이어지는 분석: 검색형 vs 발견형 쇼핑의 심층 비교</text>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+# 모든 파일 무시
+/*
+
+# docs/ 폴더만 허용
+!/docs/
+!/docs/**
+
+# .gitignore 자체는 허용
+!.gitignore
